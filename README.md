@@ -10,11 +10,13 @@ The original OpenKiln required a large infrastructure to run including a dedicat
 The goal of OpenKiln2 is to run all of the above services on a single Raspberry Pi.  
 
 ### Architecture
+***coming soon
 
 ### Installation  
 [Here](https://github.com/dalethomas81/OpenKiln2/blob/master/Installation/install.sh) is an install script that I am working on. Currently it will not run but the goal is to use it to install OpenKiln2 for you. For now, you can use the instructions in it to install OpenKiln2.
 
 ### Documentation
+***coming soon
 
 ### Media  
 
