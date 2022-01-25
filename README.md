@@ -27,7 +27,7 @@ Control
 <img src="https://github.com/dalethomas81/OpenKiln2/blob/master/Media/openkiln2-control.png" alt="control" width="400"/>  
 
 Schedule  
-<img src="https://github.com/dalethomas81/OpenKiln2/blob/master/Media/openkiln2-schedule.png" alt="schedule" width="400"/>  
+<img src="https://github.com/dalethomas81/OpenKiln2/blob/master/Media/openkiln2-schedule.png" alt="schedule" width="600"/>  
 
 Grafana  
 <img src="https://github.com/dalethomas81/OpenKiln2/blob/master/Media/openkiln2-grafana.png" alt="grafana" width="600"/>  
