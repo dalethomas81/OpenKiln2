@@ -1539,40 +1539,6 @@
         "wires": []
     },
     {
-        "id": "d73abf74227059fe",
-        "type": "ui_text",
-        "z": "592b686edd11b813",
-        "d": true,
-        "group": "2201d496820b415d",
-        "order": 12,
-        "width": 3,
-        "height": 1,
-        "name": "",
-        "label": "Control Value",
-        "format": "<font color='green'>{{msg.payload}}</font>",
-        "layout": "col-center",
-        "x": 780,
-        "y": 1080,
-        "wires": []
-    },
-    {
-        "id": "93915b796227fdef",
-        "type": "ui_text",
-        "z": "592b686edd11b813",
-        "d": true,
-        "group": "2201d496820b415d",
-        "order": 14,
-        "width": 3,
-        "height": 1,
-        "name": "",
-        "label": "Control Value",
-        "format": "<font color='green'>{{msg.payload}}</font>",
-        "layout": "col-center",
-        "x": 780,
-        "y": 1120,
-        "wires": []
-    },
-    {
         "id": "a8bc30bb3ce76d5e",
         "type": "link in",
         "z": "592b686edd11b813",
@@ -1585,38 +1551,6 @@
         "wires": [
             [
                 "2e9532e03f213fb4"
-            ]
-        ]
-    },
-    {
-        "id": "82e6c4e0fa7da46d",
-        "type": "link in",
-        "z": "592b686edd11b813",
-        "name": "Input - Status Upper Setpoint",
-        "links": [
-            "1a062e18a18563e6"
-        ],
-        "x": 635,
-        "y": 1080,
-        "wires": [
-            [
-                "d73abf74227059fe"
-            ]
-        ]
-    },
-    {
-        "id": "f0b946251521a686",
-        "type": "link in",
-        "z": "592b686edd11b813",
-        "name": "Input - Status Lower Setpoint",
-        "links": [
-            "788e9bd3efaa96d1"
-        ],
-        "x": 635,
-        "y": 1120,
-        "wires": [
-            [
-                "93915b796227fdef"
             ]
         ]
     },
@@ -1919,7 +1853,7 @@
         "seg1": "300",
         "seg2": "1000",
         "x": 790,
-        "y": 1160,
+        "y": 1080,
         "wires": []
     },
     {
@@ -1945,7 +1879,7 @@
         "seg1": "300",
         "seg2": "1000",
         "x": 790,
-        "y": 1200,
+        "y": 1120,
         "wires": []
     },
     {
@@ -1957,7 +1891,7 @@
             "dcbc073ea7b777ee"
         ],
         "x": 635,
-        "y": 1160,
+        "y": 1080,
         "wires": [
             [
                 "4610f0d05bf3b4b1"
@@ -1973,7 +1907,7 @@
             "e65201e766b76bfd"
         ],
         "x": 635,
-        "y": 1200,
+        "y": 1120,
         "wires": [
             [
                 "1a904f944ba81c1b"
@@ -4765,124 +4699,6 @@
         ]
     },
     {
-        "id": "788e9bd3efaa96d1",
-        "type": "link out",
-        "z": "e9cef8706a9cf7f6",
-        "name": "Output - Lower Setpoint",
-        "mode": "link",
-        "links": [
-            "f0b946251521a686"
-        ],
-        "x": 1995,
-        "y": 360,
-        "wires": []
-    },
-    {
-        "id": "1a062e18a18563e6",
-        "type": "link out",
-        "z": "e9cef8706a9cf7f6",
-        "name": "Output - Upper Setpoint",
-        "mode": "link",
-        "links": [
-            "82e6c4e0fa7da46d"
-        ],
-        "x": 1995,
-        "y": 320,
-        "wires": []
-    },
-    {
-        "id": "ca0c49d02da79d4b",
-        "type": "change",
-        "z": "e9cef8706a9cf7f6",
-        "name": "get upper setpoint",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "#:(memoryOnly)::kiln_01.UpperSetpoint",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1730,
-        "y": 320,
-        "wires": [
-            [
-                "5a6f965c5b8dbf4b"
-            ]
-        ]
-    },
-    {
-        "id": "27efc666717154eb",
-        "type": "change",
-        "z": "e9cef8706a9cf7f6",
-        "name": "get lower setpoint",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "#:(memoryOnly)::kiln_01.LowerSetpoint",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1730,
-        "y": 360,
-        "wires": [
-            [
-                "1bfc8a02fea4f2a5"
-            ]
-        ]
-    },
-    {
-        "id": "5a6f965c5b8dbf4b",
-        "type": "function",
-        "z": "e9cef8706a9cf7f6",
-        "name": "",
-        "func": "msg.payload = msg.payload.toFixed(2);\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1900,
-        "y": 320,
-        "wires": [
-            [
-                "1a062e18a18563e6"
-            ]
-        ]
-    },
-    {
-        "id": "1bfc8a02fea4f2a5",
-        "type": "function",
-        "z": "e9cef8706a9cf7f6",
-        "name": "",
-        "func": "msg.payload = msg.payload.toFixed(2);\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1900,
-        "y": 360,
-        "wires": [
-            [
-                "788e9bd3efaa96d1"
-            ]
-        ]
-    },
-    {
         "id": "d73d6c1dd682f172",
         "type": "change",
         "z": "e9cef8706a9cf7f6",
@@ -4975,8 +4791,6 @@
         "y": 340,
         "wires": [
             [
-                "ca0c49d02da79d4b",
-                "27efc666717154eb",
                 "dc2c386dedaeed7e"
             ]
         ]
@@ -5100,8 +4914,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1720,
-        "y": 400,
+        "x": 1640,
+        "y": 340,
         "wires": [
             [
                 "233d081ef7b67749"
@@ -5117,8 +4931,8 @@
         "links": [
             "899c85f172cb1839"
         ],
-        "x": 1995,
-        "y": 400,
+        "x": 1755,
+        "y": 340,
         "wires": []
     },
     {
