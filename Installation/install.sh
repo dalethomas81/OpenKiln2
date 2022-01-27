@@ -154,3 +154,10 @@ will install OpenKiln2 for you.
 
 # restart node red
 	node-red-restart
+
+# install log2ram to reduce sd card wear from log writes
+    git clone https://github.com/azlux/log2ram && cd log2ram
+
+    chmod +x install.sh && sudo ./install.sh
+
+    cd .. && rm -r log2ram
