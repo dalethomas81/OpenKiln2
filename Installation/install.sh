@@ -127,6 +127,8 @@ will install OpenKiln2 for you.
     //enabled=true
     //[security]
     //allow_embedding=true
+    //[log]
+    //mode = console
 
     control+x
 
