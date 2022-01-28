@@ -615,8 +615,8 @@
     {
         "id": "6e4426eb24a8676f",
         "type": "ui_tab",
-        "name": "Status",
-        "icon": "assignment",
+        "name": "Main",
+        "icon": "whatshot",
         "order": 1,
         "disabled": false,
         "hidden": false
