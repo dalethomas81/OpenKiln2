@@ -3560,7 +3560,7 @@
         "type": "finite-state-machine",
         "z": "e9cef8706a9cf7f6",
         "name": "Schedule",
-        "fsmDefinition": "{\"state\":{\"status\":\"IDLE\",\"data\":{\"x\":99}},\"transitions\":{\"IDLE\":{\"run\":{\"status\":\"RUNNING\"}},\"STOPPING\":{\"end\":{\"status\":\"IDLE\"}},\"RUNNING\":{\"stop\":{\"status\":\"STOPPING\"}}}}",
+        "fsmDefinition": "{\"state\":{\"status\":\"IDLE\",\"data\":{\"x\":99}},\"transitions\":{\"IDLE\":{\"run\":{\"status\":\"RUNNING\"},\"end\":{\"status\":\"IDLE\"}},\"STOPPING\":{\"end\":{\"status\":\"IDLE\"}},\"RUNNING\":{\"stop\":{\"status\":\"STOPPING\"}}}}",
         "sendInitialState": true,
         "sendStateWithoutChange": true,
         "showTransitionErrors": true,
