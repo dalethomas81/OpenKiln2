@@ -8403,8 +8403,8 @@
         "septopics": false,
         "property": "payload",
         "topi": "topic",
-        "x": 515,
-        "y": 220,
+        "x": 495,
+        "y": 260,
         "wires": [
             [
                 "dbaab26e980063a4"
@@ -8424,8 +8424,8 @@
         "septopics": false,
         "property": "payload",
         "topi": "topic",
-        "x": 515,
-        "y": 180,
+        "x": 495,
+        "y": 220,
         "wires": [
             [
                 "5cdb1e903b180a71"
@@ -8443,8 +8443,8 @@
             "26cb94d0aa740af8",
             "9b6b7f2249d013ba"
         ],
-        "x": 575,
-        "y": 280,
+        "x": 495,
+        "y": 340,
         "wires": []
     },
     {
@@ -8457,8 +8457,8 @@
             "4ea9f6ce194f1281",
             "9fea36d4825b738a"
         ],
-        "x": 575,
-        "y": 320,
+        "x": 495,
+        "y": 400,
         "wires": []
     },
     {
@@ -8492,7 +8492,7 @@
         "wires": [
             [
                 "bd45525a6924a5c5",
-                "d1a65eb3c343781d"
+                "dcbc073ea7b777ee"
             ]
         ]
     },
@@ -8520,8 +8520,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 635,
-        "y": 180,
+        "x": 615,
+        "y": 220,
         "wires": [
             [
                 "2f036bde9aaff376"
@@ -8553,51 +8553,11 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 635,
-        "y": 220,
+        "x": 615,
+        "y": 260,
         "wires": [
             [
                 "2f036bde9aaff376"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "23a36d0bd1c7574b",
-        "type": "function",
-        "z": "3154c44d1a91de38",
-        "name": "set precision",
-        "func": "msg.payload = parseFloat(msg.payload.toFixed(2));\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 515,
-        "y": 320,
-        "wires": [
-            [
-                "e65201e766b76bfd"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "d1a65eb3c343781d",
-        "type": "function",
-        "z": "3154c44d1a91de38",
-        "name": "set precision",
-        "func": "msg.payload = parseFloat(msg.payload.toFixed(2));\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 515,
-        "y": 280,
-        "wires": [
-            [
-                "dcbc073ea7b777ee"
             ]
         ],
         "l": false
@@ -8693,7 +8653,7 @@
         "wires": [
             [
                 "6c490df17d1de881",
-                "23a36d0bd1c7574b"
+                "e65201e766b76bfd"
             ]
         ]
     },
@@ -8764,8 +8724,8 @@
         "retentionPolicyV18Flux": "52w",
         "org": "organisation",
         "bucket": "bucket",
-        "x": 820,
-        "y": 200,
+        "x": 800,
+        "y": 260,
         "wires": []
     },
     {
@@ -8785,8 +8745,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 575,
-        "y": 220,
+        "x": 555,
+        "y": 260,
         "wires": [
             [
                 "9468a3b6de1782db"
@@ -8811,8 +8771,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 575,
-        "y": 180,
+        "x": 555,
+        "y": 220,
         "wires": [
             [
                 "1235c1dcd4711779"
@@ -9095,7 +9055,7 @@
         "wires": [
             [
                 "bd45525a6924a5c5",
-                "d1a65eb3c343781d"
+                "dcbc073ea7b777ee"
             ]
         ],
         "l": false
@@ -9116,7 +9076,7 @@
         "wires": [
             [
                 "6c490df17d1de881",
-                "23a36d0bd1c7574b"
+                "e65201e766b76bfd"
             ]
         ],
         "l": false
