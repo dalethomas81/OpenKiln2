@@ -430,7 +430,7 @@
         "type": "ui_group",
         "name": "Status",
         "tab": "6e4426eb24a8676f",
-        "order": 3,
+        "order": 1,
         "disp": true,
         "width": "7",
         "collapse": false
