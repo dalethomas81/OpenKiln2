@@ -4352,6 +4352,8 @@
         "name": "",
         "mode": "link",
         "links": [
+            "4840d3b8dd483cff",
+            "53681c7211103452",
             "6a57983382d3490e"
         ],
         "x": 1135,
@@ -4432,7 +4434,7 @@
         "type": "function",
         "z": "e9cef8706a9cf7f6",
         "name": "stop schedule or advance",
-        "func": "var UpperTemperature = global.get('kiln_01.UpperTemperature', 'memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature', 'memoryOnly')\nvar Setpoint = global.get('kiln_01.Setpoint', 'memoryOnly')\nvar UpperSetpoint = global.get('kiln_01.UpperSetpoint', 'memoryOnly')\nvar LowerSetpoint = global.get('kiln_01.LowerSetpoint', 'memoryOnly')\nvar RampDirection = global.get('kiln_01.RampDirection', 'memoryOnly')\nvar active_schedule = global.get('kiln_01.active_schedule')\nvar segment_count = active_schedule.segments.length\nvar active_segment_index = global.get('kiln_01.active_segment_index')\nvar topic\nvar segment_settings\nvar data\nvar msg_out\nvar Temperature_Tolerance = 3 // degrees\n\n\n// check if temps have been reached or advance is commanded\nif ((RampDirection == 'Increasing' && UpperTemperature >= (Setpoint - Temperature_Tolerance) && LowerTemperature >= (Setpoint - Temperature_Tolerance)) || \n    (RampDirection == 'Decreasing' && UpperTemperature <= (Setpoint + Temperature_Tolerance) && LowerTemperature <= (Setpoint + Temperature_Tolerance)) ||\n    msg.payload == 'Advance' ||\n    msg.payload == 'Release'){\n\n    if (segment_count - 1 > active_segment_index) {\n        // advance to next segment\n        active_segment_index = active_segment_index + 1\n        global.set('kiln_01.active_segment_index', active_segment_index)\n        segment_settings = active_schedule.segments[active_segment_index]\n        data = {segment_settings}\n        topic = \"init\"\n        msg_out = {topic,data}\n        return [null,msg_out]\n    } else {\n        // end the schedule\n        topic = \"stop\"\n        msg_out = {topic}\n        return [msg_out,null]\n    }\n    \n} else { // continue and try to reach temps\n    topic = \"ramp\"\n    msg_out = {topic}\n    return [null,msg_out]\n}",
+        "func": "var UpperTemperature = global.get('kiln_01.UpperTemperature', 'memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature', 'memoryOnly')\nvar Setpoint = global.get('kiln_01.Setpoint', 'memoryOnly')\nvar UpperSetpoint = global.get('kiln_01.UpperSetpoint', 'memoryOnly')\nvar LowerSetpoint = global.get('kiln_01.LowerSetpoint', 'memoryOnly')\nvar RampDirection = global.get('kiln_01.RampDirection', 'memoryOnly')\nvar active_schedule = global.get('kiln_01.active_schedule')\nvar segment_count = active_schedule.segments.length\nvar active_segment_index = global.get('kiln_01.active_segment_index')\nvar topic\nvar payload\nvar segment_settings\nvar data\nvar msg_out\nvar Temperature_Tolerance = 3 // degrees\n\n\n// check if temps have been reached or advance is commanded\nif ((RampDirection == 'Increasing' && UpperTemperature >= (Setpoint - Temperature_Tolerance) && LowerTemperature >= (Setpoint - Temperature_Tolerance)) || \n    (RampDirection == 'Decreasing' && UpperTemperature <= (Setpoint + Temperature_Tolerance) && LowerTemperature <= (Setpoint + Temperature_Tolerance)) ||\n    msg.payload == 'Advance' ||\n    msg.payload == 'Release'){\n\n    if (segment_count - 1 > active_segment_index) {\n        // advance to next segment\n        active_segment_index = active_segment_index + 1\n        global.set('kiln_01.active_segment_index', active_segment_index)\n        segment_settings = active_schedule.segments[active_segment_index]\n        data = {segment_settings}\n        topic = \"init\"\n        msg_out = {topic,data}\n        return [null,msg_out]\n    } else {\n        // end the schedule\n        topic = \"stop\"\n        payload = 0 // this will go to PID setpoints\n        msg_out = {topic, payload}\n        return [msg_out,null]\n    }\n    \n} else { // continue and try to reach temps\n    topic = \"ramp\"\n    msg_out = {topic}\n    return [null,msg_out]\n}",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -8312,7 +8314,8 @@
         "z": "b83fb43068cdf48f",
         "name": "input - zone 0 - SP",
         "links": [
-            "9715dba2fc1ab553"
+            "9715dba2fc1ab553",
+            "c96334b38e278286"
         ],
         "x": 75,
         "y": 260,
@@ -8354,7 +8357,8 @@
         "z": "b83fb43068cdf48f",
         "name": "input - zone 1 - SP",
         "links": [
-            "6f66fd670975be35"
+            "6f66fd670975be35",
+            "c96334b38e278286"
         ],
         "x": 535,
         "y": 260,
