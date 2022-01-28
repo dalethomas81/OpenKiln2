@@ -8226,8 +8226,7 @@
         "y": 340,
         "wires": [
             [
-                "0d670f61e6fde01c",
-                "8711658e8c111d52"
+                "0d670f61e6fde01c"
             ]
         ],
         "l": false
@@ -8968,7 +8967,7 @@
         "id": "11d1503b33735b7a",
         "type": "change",
         "z": "3154c44d1a91de38",
-        "name": "initialize setpoints",
+        "name": "initialize",
         "rules": [
             {
                 "t": "set",
@@ -8990,6 +8989,13 @@
                 "pt": "global",
                 "to": "0",
                 "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "kiln_01.SimulateTemperature",
+                "pt": "global",
+                "to": "false",
+                "tot": "bool"
             }
         ],
         "action": "",
@@ -8997,7 +9003,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 270,
+        "x": 240,
         "y": 660,
         "wires": [
             []
@@ -9367,23 +9373,6 @@
                 "5bb8a83cadcb2ba3"
             ]
         ]
-    },
-    {
-        "id": "8711658e8c111d52",
-        "type": "debug",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 660,
-        "y": 380,
-        "wires": []
     },
     {
         "id": "1c9e79b136a623e2",
