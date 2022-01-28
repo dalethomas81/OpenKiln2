@@ -8048,7 +8048,9 @@
         "type": "link in",
         "z": "b83fb43068cdf48f",
         "name": "input - zone 0 - in from process (PV)",
-        "links": [],
+        "links": [
+            "dcbc073ea7b777ee"
+        ],
         "x": 255,
         "y": 220,
         "wires": [
@@ -8077,7 +8079,9 @@
         "type": "link in",
         "z": "b83fb43068cdf48f",
         "name": "input - zone 1 - in from process (PV)",
-        "links": [],
+        "links": [
+            "e65201e766b76bfd"
+        ],
         "x": 715,
         "y": 220,
         "wires": [
@@ -8338,6 +8342,7 @@
         "name": "Output - Upper Temperature",
         "mode": "link",
         "links": [
+            "26cb94d0aa740af8",
             "9b6b7f2249d013ba"
         ],
         "x": 575,
@@ -8351,7 +8356,8 @@
         "name": "Output - Lower Temperature",
         "mode": "link",
         "links": [
-            "4ea9f6ce194f1281"
+            "4ea9f6ce194f1281",
+            "9fea36d4825b738a"
         ],
         "x": 575,
         "y": 320,
@@ -8493,8 +8499,7 @@
         "y": 280,
         "wires": [
             [
-                "dcbc073ea7b777ee",
-                "44c607c44b95209a"
+                "dcbc073ea7b777ee"
             ]
         ],
         "l": false
@@ -9280,22 +9285,6 @@
             ]
         ],
         "l": false
-    },
-    {
-        "id": "44c607c44b95209a",
-        "type": "debug",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 760,
-        "y": 300,
-        "wires": []
     },
     {
         "id": "1c9e79b136a623e2",
