@@ -8047,10 +8047,8 @@
         "id": "26cb94d0aa740af8",
         "type": "link in",
         "z": "b83fb43068cdf48f",
-        "name": "in from process (PV)",
-        "links": [
-            "9f719923c4346113"
-        ],
+        "name": "input - zone 0 - in from process (PV)",
+        "links": [],
         "x": 255,
         "y": 220,
         "wires": [
@@ -8065,10 +8063,10 @@
         "id": "094e9b28f33ff867",
         "type": "link out",
         "z": "b83fb43068cdf48f",
-        "name": "out to process (CV)",
+        "name": "output - zone 0 - out to process (CV 0-100%)",
         "mode": "link",
         "links": [
-            "23f8f6fa2795060e"
+            "0cfeb2a7be515599"
         ],
         "x": 195,
         "y": 220,
@@ -8078,10 +8076,8 @@
         "id": "9fea36d4825b738a",
         "type": "link in",
         "z": "b83fb43068cdf48f",
-        "name": "in from process (PV)",
-        "links": [
-            "3904534e196d6bad"
-        ],
+        "name": "input - zone 1 - in from process (PV)",
+        "links": [],
         "x": 715,
         "y": 220,
         "wires": [
@@ -8096,10 +8092,10 @@
         "id": "4316bc9dff8ce9e9",
         "type": "link out",
         "z": "b83fb43068cdf48f",
-        "name": "out to process (CV)",
+        "name": "output - zone 1 - out to process (CV 0-100%)",
         "mode": "link",
         "links": [
-            "b6f64f1a60334477"
+            "f2bc62537768881d"
         ],
         "x": 655,
         "y": 220,
@@ -8121,9 +8117,7 @@
         "z": "b83fb43068cdf48f",
         "name": "",
         "mode": "link",
-        "links": [
-            "26cb94d0aa740af8"
-        ],
+        "links": [],
         "x": 255,
         "y": 120,
         "wires": []
@@ -8133,9 +8127,7 @@
         "type": "link in",
         "z": "b83fb43068cdf48f",
         "name": "",
-        "links": [
-            "094e9b28f33ff867"
-        ],
+        "links": [],
         "x": 55,
         "y": 120,
         "wires": [
@@ -8159,9 +8151,7 @@
         "type": "link in",
         "z": "b83fb43068cdf48f",
         "name": "",
-        "links": [
-            "4316bc9dff8ce9e9"
-        ],
+        "links": [],
         "x": 515,
         "y": 120,
         "wires": [
@@ -8176,9 +8166,7 @@
         "z": "b83fb43068cdf48f",
         "name": "",
         "mode": "link",
-        "links": [
-            "9fea36d4825b738a"
-        ],
+        "links": [],
         "x": 715,
         "y": 120,
         "wires": []
@@ -8223,9 +8211,9 @@
         "type": "function",
         "z": "3154c44d1a91de38",
         "name": "get upper temp",
-        "func": "// https://github.com/maugdog/max31855\n\n/**\n * Node.js module for driving the Adafruit MAX31855 thermocouple temperature amplifier on Raspberry Pi.\n *\n * Currently supports only hardware SPI configuration (as opposed to software SPI using GPIO pins).\n * Note: May require running under sudo for SPI permissions.\n * Note: The SPI master driver is disabled by default on Raspian Linux and must be enabled. see here:\n * https://www.raspberrypi.org/documentation/hardware/raspberrypi/spi/README.md\n */\n\n//var SPI = require('pi-spi');\n\nfunction MAX31855() {\n  // Initialize the SPI settings\n  this._spi = SPI.initialize(\"/dev/spidev0.1\");\n  this._spi.clockSpeed(5000000);\n  this._spi.dataMode(0);\n  this._spi.bitOrder(SPI.order.MSB_FIRST);\n}\n\n/** Read 32 bits from the SPI bus. */\nMAX31855.prototype._read32 = function(callback) {\n  this._spi.read(4, function(error, bytes) {\n    if(error) {\n      console.error(error);\n    } else {\n      if(!bytes || bytes.length != 4) {\n        throw new Error('MAX31855: Did not read expected number of bytes from device!');\n      } else {\n        value = bytes[0] << 24 | bytes[1] << 16 | bytes[2] << 8 | bytes[3];\n        //console.log('Raw value: ', value);\n        callback(value);\n      }\n    }\n  });\n};\n\n/** Returns the internal temperature value in degrees Celsius. */\nMAX31855.prototype.readInternalC = function(callback) {\n  if(callback) {\n    this._read32(function(value) {\n      // Ignore bottom 4 bits of thermocouple data.\n  \t\tvalue >>= 4;\n  \t\t// Grab bottom 11 bits as internal temperature data.\n  \t\tvar internal = value & 0x7FF;\n  \t\tif(value & 0x800) {\n        // Negative value, take 2's compliment.\n        internal = ~internal + 1;\n      }\n      // Scale by 0.0625 degrees C per bit and return value.\n      callback(internal * 0.0625);\n    });\n  } else {\n    console.log('MAX31855: Read request issued with no callback.');\n  }\n};\n\n/** Return the thermocouple temperature value. Value is returned in degrees celsius */\nMAX31855.prototype.readTempC = function(callback) {\n  if(callback) {\n    var self = this; // Scope closure\n    this._read32(function(value) {\n      // Check for error reading value.\n      if(value & 0x7) {\n        callback(NaN);\n      } else {\n        if(value & 0x80000000) { // Check if signed bit is set.\n          // Negative value, shift the bits and take 2's compliment.\n          value >>= 18;\n          value = ~value + 1;\n        } else { // Positive value, just shift the bits to get the value.\n          value >>= 18;\n        }\n        // Scale by 0.25 degrees C per bit\n        callback(value * 0.25);\n      }\n    });\n  } else {\n    console.log('MAX31855: Read request issued with no callback.');\n  }\n};\n\n//module.exports = MAX31855;\n\nvar thermoSensor = new MAX31855();\nthermoSensor.readTempC(function(temp) {\n    //console.log('Temp in degrees celsius: ', temp);\n    //node.warn(temp);\n    \n    temp = temp*9/5+32\n    global.set('kiln_01.UpperTemperature', temp, 'memoryOnly');\n    \n    var id = 1;\n    var newMsg = {\n     \"topic\": \"INSERT INTO temperatures values(\" + temp + \", date('now'), time('now'), Kiln_01_UpperTemperature)\",\n     //\"topic\": \"INSERT INTO TEMPERATURE VALUES ( \" + msg.payload + \", \" + temp + \", \" + id + \")\",\n     \"temperature\" : temp,\n     \"payload\": msg.payload\n    }\n    node.send(newMsg); // node.send() is needed for async\n    node.done();\n});\n\n\n//return msg;",
+        "func": "// https://github.com/maugdog/max31855\n\n/**\n * Node.js module for driving the Adafruit MAX31855 thermocouple temperature amplifier on Raspberry Pi.\n *\n * Currently supports only hardware SPI configuration (as opposed to software SPI using GPIO pins).\n * Note: May require running under sudo for SPI permissions.\n * Note: The SPI master driver is disabled by default on Raspian Linux and must be enabled. see here:\n * https://www.raspberrypi.org/documentation/hardware/raspberrypi/spi/README.md\n */\n\n//var SPI = require('pi-spi');\n\nfunction MAX31855() {\n  // Initialize the SPI settings\n  this._spi = SPI.initialize(\"/dev/spidev0.1\");\n  this._spi.clockSpeed(5000000);\n  this._spi.dataMode(0);\n  this._spi.bitOrder(SPI.order.MSB_FIRST);\n}\n\n/** Read 32 bits from the SPI bus. */\nMAX31855.prototype._read32 = function(callback) {\n  this._spi.read(4, function(error, bytes) {\n    if(error) {\n      console.error(error);\n    } else {\n      if(!bytes || bytes.length != 4) {\n        throw new Error('MAX31855: Did not read expected number of bytes from device!');\n      } else {\n        value = bytes[0] << 24 | bytes[1] << 16 | bytes[2] << 8 | bytes[3];\n        //console.log('Raw value: ', value);\n        callback(value);\n      }\n    }\n  });\n};\n\n/** Returns the internal temperature value in degrees Celsius. */\nMAX31855.prototype.readInternalC = function(callback) {\n  if(callback) {\n    this._read32(function(value) {\n      // Ignore bottom 4 bits of thermocouple data.\n  \t\tvalue >>= 4;\n  \t\t// Grab bottom 11 bits as internal temperature data.\n  \t\tvar internal = value & 0x7FF;\n  \t\tif(value & 0x800) {\n        // Negative value, take 2's compliment.\n        internal = ~internal + 1;\n      }\n      // Scale by 0.0625 degrees C per bit and return value.\n      callback(internal * 0.0625);\n    });\n  } else {\n    console.log('MAX31855: Read request issued with no callback.');\n  }\n};\n\n/** Return the thermocouple temperature value. Value is returned in degrees celsius */\nMAX31855.prototype.readTempC = function(callback) {\n  if(callback) {\n    var self = this; // Scope closure\n    this._read32(function(value) {\n      // Check for error reading value.\n      if(value & 0x7) {\n        callback(NaN);\n      } else {\n        if(value & 0x80000000) { // Check if signed bit is set.\n          // Negative value, shift the bits and take 2's compliment.\n          value >>= 18;\n          value = ~value + 1;\n        } else { // Positive value, just shift the bits to get the value.\n          value >>= 18;\n        }\n        // Scale by 0.25 degrees C per bit\n        callback(value * 0.25);\n      }\n    });\n  } else {\n    console.log('MAX31855: Read request issued with no callback.');\n  }\n};\n\n//module.exports = MAX31855;\n\nvar thermoSensor = new MAX31855();\nthermoSensor.readTempC(function(temp) {\n    //console.log('Temp in degrees celsius: ', temp);\n    //node.warn(temp);\n    \n    temp = temp*9/5+32\n    global.set('kiln_01.UpperTemperature', temp, 'memoryOnly');\n   //node.status({ fill: \"green\", shape: \"dot\", text: temp + '°F' });\n    \n    var id = 1;\n    var newMsg = {\n     \"topic\": \"INSERT INTO temperatures values(\" + temp + \", date('now'), time('now'), Kiln_01_UpperTemperature)\",\n     //\"topic\": \"INSERT INTO TEMPERATURE VALUES ( \" + msg.payload + \", \" + temp + \", \" + id + \")\",\n     \"temperature\" : temp,\n     \"payload\": msg.payload\n    }\n    node.send(newMsg); // node.send() is needed for async\n    node.done();\n});\n\n\n//return msg;",
         "outputs": 1,
-        "noerr": 0,
+        "noerr": 13,
         "initialize": "",
         "finalize": "",
         "libs": [
@@ -8248,9 +8236,9 @@
         "type": "function",
         "z": "3154c44d1a91de38",
         "name": "get lower temp",
-        "func": "// https://github.com/maugdog/max31855\n\n/**\n * Node.js module for driving the Adafruit MAX31855 thermocouple temperature amplifier on Raspberry Pi.\n *\n * Currently supports only hardware SPI configuration (as opposed to software SPI using GPIO pins).\n * Note: May require running under sudo for SPI permissions.\n * Note: The SPI master driver is disabled by default on Raspian Linux and must be enabled. see here:\n * https://www.raspberrypi.org/documentation/hardware/raspberrypi/spi/README.md\n */\n\n//var SPI = require('pi-spi');\n\nfunction MAX31855() {\n  // Initialize the SPI settings\n  this._spi = SPI.initialize(\"/dev/spidev0.0\");\n  this._spi.clockSpeed(5000000);\n  this._spi.dataMode(0);\n  this._spi.bitOrder(SPI.order.MSB_FIRST);\n}\n\n/** Read 32 bits from the SPI bus. */\nMAX31855.prototype._read32 = function(callback) {\n  this._spi.read(4, function(error, bytes) {\n    if(error) {\n      console.error(error);\n    } else {\n      if(!bytes || bytes.length != 4) {\n        throw new Error('MAX31855: Did not read expected number of bytes from device!');\n      } else {\n        value = bytes[0] << 24 | bytes[1] << 16 | bytes[2] << 8 | bytes[3];\n        //console.log('Raw value: ', value);\n        callback(value);\n      }\n    }\n  });\n};\n\n/** Returns the internal temperature value in degrees Celsius. */\nMAX31855.prototype.readInternalC = function(callback) {\n  if(callback) {\n    this._read32(function(value) {\n      // Ignore bottom 4 bits of thermocouple data.\n  \t\tvalue >>= 4;\n  \t\t// Grab bottom 11 bits as internal temperature data.\n  \t\tvar internal = value & 0x7FF;\n  \t\tif(value & 0x800) {\n        // Negative value, take 2's compliment.\n        internal = ~internal + 1;\n      }\n      // Scale by 0.0625 degrees C per bit and return value.\n      callback(internal * 0.0625);\n    });\n  } else {\n    console.log('MAX31855: Read request issued with no callback.');\n  }\n};\n\n/** Return the thermocouple temperature value. Value is returned in degrees celsius */\nMAX31855.prototype.readTempC = function(callback) {\n  if(callback) {\n    var self = this; // Scope closure\n    this._read32(function(value) {\n      // Check for error reading value.\n      if(value & 0x7) {\n        callback(NaN);\n      } else {\n        if(value & 0x80000000) { // Check if signed bit is set.\n          // Negative value, shift the bits and take 2's compliment.\n          value >>= 18;\n          value = ~value + 1;\n        } else { // Positive value, just shift the bits to get the value.\n          value >>= 18;\n        }\n        // Scale by 0.25 degrees C per bit\n        callback(value * 0.25);\n      }\n    });\n  } else {\n    console.log('MAX31855: Read request issued with no callback.');\n  }\n};\n\n//module.exports = MAX31855;\n\nvar thermoSensor = new MAX31855();\nthermoSensor.readTempC(function(temp) {\n    //console.log('Temp in degrees celsius: ', temp);\n    //node.warn(temp);\n    \n    temp = temp*9/5+32\n    global.set('kiln_01.LowerTemperature', temp, 'memoryOnly');\n    \n    var id = 2;\n    var newMsg = {\n     \"topic\": \"INSERT INTO temperatures values(\" + temp + \", date('now'), time('now'), Kiln_01_LowerTemperature)\",\n     //\"topic\": \"INSERT INTO TEMPERATURE VALUES ( \" + msg.payload + \", \" + temp + \", \" + id + \")\",\n     \"temperature\" : temp,\n     \"payload\": msg.payload\n    }\n    node.send(newMsg); // node.send() is needed for async\n    node.done();\n});\n\n\n//return msg;",
+        "func": "// https://github.com/maugdog/max31855\n\n/**\n * Node.js module for driving the Adafruit MAX31855 thermocouple temperature amplifier on Raspberry Pi.\n *\n * Currently supports only hardware SPI configuration (as opposed to software SPI using GPIO pins).\n * Note: May require running under sudo for SPI permissions.\n * Note: The SPI master driver is disabled by default on Raspian Linux and must be enabled. see here:\n * https://www.raspberrypi.org/documentation/hardware/raspberrypi/spi/README.md\n */\n\n//var SPI = require('pi-spi');\n\nfunction MAX31855() {\n  // Initialize the SPI settings\n  this._spi = SPI.initialize(\"/dev/spidev0.0\");\n  this._spi.clockSpeed(5000000);\n  this._spi.dataMode(0);\n  this._spi.bitOrder(SPI.order.MSB_FIRST);\n}\n\n/** Read 32 bits from the SPI bus. */\nMAX31855.prototype._read32 = function(callback) {\n  this._spi.read(4, function(error, bytes) {\n    if(error) {\n      console.error(error);\n    } else {\n      if(!bytes || bytes.length != 4) {\n        throw new Error('MAX31855: Did not read expected number of bytes from device!');\n      } else {\n        value = bytes[0] << 24 | bytes[1] << 16 | bytes[2] << 8 | bytes[3];\n        //console.log('Raw value: ', value);\n        callback(value);\n      }\n    }\n  });\n};\n\n/** Returns the internal temperature value in degrees Celsius. */\nMAX31855.prototype.readInternalC = function(callback) {\n  if(callback) {\n    this._read32(function(value) {\n      // Ignore bottom 4 bits of thermocouple data.\n  \t\tvalue >>= 4;\n  \t\t// Grab bottom 11 bits as internal temperature data.\n  \t\tvar internal = value & 0x7FF;\n  \t\tif(value & 0x800) {\n        // Negative value, take 2's compliment.\n        internal = ~internal + 1;\n      }\n      // Scale by 0.0625 degrees C per bit and return value.\n      callback(internal * 0.0625);\n    });\n  } else {\n    console.log('MAX31855: Read request issued with no callback.');\n  }\n};\n\n/** Return the thermocouple temperature value. Value is returned in degrees celsius */\nMAX31855.prototype.readTempC = function(callback) {\n  if(callback) {\n    var self = this; // Scope closure\n    this._read32(function(value) {\n      // Check for error reading value.\n      if(value & 0x7) {\n        callback(NaN);\n      } else {\n        if(value & 0x80000000) { // Check if signed bit is set.\n          // Negative value, shift the bits and take 2's compliment.\n          value >>= 18;\n          value = ~value + 1;\n        } else { // Positive value, just shift the bits to get the value.\n          value >>= 18;\n        }\n        // Scale by 0.25 degrees C per bit\n        callback(value * 0.25);\n      }\n    });\n  } else {\n    console.log('MAX31855: Read request issued with no callback.');\n  }\n};\n\n//module.exports = MAX31855;\n\nvar thermoSensor = new MAX31855();\nthermoSensor.readTempC(function(temp) {\n    //console.log('Temp in degrees celsius: ', temp);\n    //node.warn(temp);\n    \n    temp = temp*9/5+32\n    global.set('kiln_01.LowerTemperature', temp, 'memoryOnly');\n    node.status({ fill: \"green\", shape: \"dot\", text: temp + '°F' });\n    \n    var id = 2;\n    var newMsg = {\n     \"topic\": \"INSERT INTO temperatures values(\" + temp + \", date('now'), time('now'), Kiln_01_LowerTemperature)\",\n     //\"topic\": \"INSERT INTO TEMPERATURE VALUES ( \" + msg.payload + \", \" + temp + \", \" + id + \")\",\n     \"temperature\" : temp,\n     \"payload\": msg.payload\n    }\n    node.send(newMsg); // node.send() is needed for async\n    node.done();\n});\n\n\n//return msg;",
         "outputs": 1,
-        "noerr": 0,
+        "noerr": 13,
         "initialize": "",
         "finalize": "",
         "libs": [
@@ -8260,7 +8248,7 @@
             }
         ],
         "x": 295,
-        "y": 380,
+        "y": 400,
         "wires": [
             [
                 "8c970109233d3f07"
@@ -8926,8 +8914,8 @@
         "freq": "",
         "out": "out",
         "bcm": true,
-        "x": 800,
-        "y": 740,
+        "x": 520,
+        "y": 800,
         "wires": []
     },
     {
@@ -8947,8 +8935,8 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 575,
-        "y": 700,
+        "x": 295,
+        "y": 760,
         "wires": [
             [
                 "16e8124d59e7fb62"
@@ -9025,8 +9013,8 @@
         "freq": "",
         "out": "out",
         "bcm": true,
-        "x": 700,
-        "y": 820,
+        "x": 420,
+        "y": 880,
         "wires": []
     },
     {
@@ -9046,8 +9034,8 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 575,
-        "y": 780,
+        "x": 295,
+        "y": 840,
         "wires": [
             [
                 "12681729a71ef662"
@@ -9067,8 +9055,8 @@
         "round": false,
         "property": "delay",
         "name": "",
-        "x": 575,
-        "y": 660,
+        "x": 295,
+        "y": 720,
         "wires": [
             [
                 "ba418671e4996002"
@@ -9089,8 +9077,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 730,
-        "y": 660,
+        "x": 450,
+        "y": 720,
         "wires": []
     },
     {
@@ -9104,8 +9092,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 635,
-        "y": 660,
+        "x": 355,
+        "y": 720,
         "wires": [
             [
                 "b6d260258241c4b6"
@@ -9132,86 +9120,6 @@
         "x": 180,
         "y": 80,
         "wires": []
-    },
-    {
-        "id": "9cd105f7bbe1e048",
-        "type": "switch",
-        "z": "3154c44d1a91de38",
-        "name": "is upper auto-tuning",
-        "property": "kiln_01.pid[0].auto_tune",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "false"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 395,
-        "y": 720,
-        "wires": [
-            [
-                "d4cb1a52a4fe0d75"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "a7b88091f8fc6bef",
-        "type": "switch",
-        "z": "3154c44d1a91de38",
-        "name": "is lower auto-tuning",
-        "property": "kiln_01.pid[1].auto_tune",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "false"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 395,
-        "y": 800,
-        "wires": [
-            [
-                "5bb8a83cadcb2ba3"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "55db840a42d1c307",
-        "type": "link in",
-        "z": "3154c44d1a91de38",
-        "name": "upper heater in",
-        "links": [
-            "d5be35f05e994888"
-        ],
-        "x": 395,
-        "y": 740,
-        "wires": [
-            [
-                "d4cb1a52a4fe0d75"
-            ]
-        ]
-    },
-    {
-        "id": "2e9f7e8eed4fe956",
-        "type": "link in",
-        "z": "3154c44d1a91de38",
-        "name": "lower heater in",
-        "links": [
-            "431877d7412baca5"
-        ],
-        "x": 395,
-        "y": 820,
-        "wires": [
-            [
-                "5bb8a83cadcb2ba3"
-            ]
-        ]
     },
     {
         "id": "c9874287110179be",
@@ -9370,7 +9278,7 @@
         "mult": "single",
         "reduce": false,
         "x": 355,
-        "y": 380,
+        "y": 400,
         "wires": [
             [
                 "9136a429c48c2758",
@@ -9385,14 +9293,14 @@
         "type": "function",
         "z": "3154c44d1a91de38",
         "name": "",
-        "func": "// create a new message object to clean it up\nvar msg_out = { delay: msg.payload * 1000 };\nvar FsmStatus_Schedule = global.get('kiln_01.FsmStatus_Schedule','memoryOnly')\n//var FsmStatus_Segment = global.get('kiln_01.FsmStatus_Segment','memoryOnly')\nvar auto_tune_upper = global.get('kiln_01.pid[0].auto_tune_upper')\nvar auto_tune_lower = global.get('kiln_01.pid[0].auto_tune_lower')\nvar UpperSetpoint = global.get('kiln_01.UpperSetpoint','memoryOnly')\nvar LowerSetpoint = global.get('kiln_01.LowerSetpoint','memoryOnly')\nvar UpperTemperature = global.get('kiln_01.UpperTemperature','memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature','memoryOnly')\n\nif (Math.abs(UpperSetpoint - UpperTemperature) < 100 && Math.abs(LowerSetpoint - LowerTemperature) < 100) {\n    // temps a setpoints are within tolerance\n    node.status({fill:\"green\",shape:\"dot\",text:\"All good!\"});\n    // the trigger function locks up if you send it a zero\n    // similarly, we dont want to send it a value over\n    // the trigger time (1000 ms)\n    if (msg_out.delay > 0 && msg_out.delay < 1000 && (FsmStatus_Schedule != 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n        return [ msg_out, null ];\n    } else if (msg_out.delay <= 0 || (FsmStatus_Schedule == 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n        // send an \"off\" directly to the output node\n        msg_out.payload = \"0\"\n        return [ null, msg_out ];\n    } else if (msg_out.delay >= 1000){\n        // send an \"on\" directly to the output node\n        msg_out.payload = \"1\"\n        return [ null, msg_out ];\n    } else {\n        // send an \"off\" directly to the output node\n        msg_out.payload = \"0\"\n        return [ null, msg_out ];\n    }\n} else {\n    // temp is too far away from setpoint. something is wrong.\n    // send an \"off\" directly to the output node\n    node.warn(\"temp is too far away from setpoint. something is wrong.\")\n    node.status({fill:\"red\",shape:\"dot\",text:\"Something is wrong!\"});\n    msg_out.payload = \"0\"\n    return [ null, msg_out ];\n}",
+        "func": "// create a new message object to clean it up\nvar msg_out = { delay: msg.payload * 10 }; // should come in as 0 - 100%\nvar FsmStatus_Schedule = global.get('kiln_01.FsmStatus_Schedule','memoryOnly')\n//var FsmStatus_Segment = global.get('kiln_01.FsmStatus_Segment','memoryOnly')\nvar auto_tune_upper = global.get('kiln_01.pid[0].auto_tune_upper')\nvar auto_tune_lower = global.get('kiln_01.pid[0].auto_tune_lower')\nvar UpperSetpoint = global.get('kiln_01.UpperSetpoint','memoryOnly')\nvar LowerSetpoint = global.get('kiln_01.LowerSetpoint','memoryOnly')\nvar UpperTemperature = global.get('kiln_01.UpperTemperature','memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature','memoryOnly')\n\nif (Math.abs(UpperSetpoint - UpperTemperature) < 100 && Math.abs(LowerSetpoint - LowerTemperature) < 100) {\n    // temps a setpoints are within tolerance\n    node.status({fill:\"green\",shape:\"dot\",text:\"All good!\"});\n    // the trigger function locks up if you send it a zero\n    // similarly, we dont want to send it a value over\n    // the trigger time (1000 ms)\n    if (msg_out.delay > 0 && msg_out.delay < 1000 && (FsmStatus_Schedule != 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n        return [ msg_out, null ];\n    } else if (msg_out.delay <= 0 || (FsmStatus_Schedule == 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n        // send an \"off\" directly to the output node\n        msg_out.payload = \"0\"\n        return [ null, msg_out ];\n    } else if (msg_out.delay >= 1000){\n        // send an \"on\" directly to the output node\n        msg_out.payload = \"1\"\n        return [ null, msg_out ];\n    } else {\n        // send an \"off\" directly to the output node\n        msg_out.payload = \"0\"\n        return [ null, msg_out ];\n    }\n} else {\n    // temp is too far away from setpoint. something is wrong.\n    // send an \"off\" directly to the output node\n    node.warn(\"temp is too far away from setpoint. something is wrong.\")\n    node.status({fill:\"red\",shape:\"dot\",text:\"Something is wrong!\"});\n    msg_out.payload = \"0\"\n    return [ null, msg_out ];\n}",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 475,
-        "y": 720,
+        "x": 195,
+        "y": 780,
         "wires": [
             [
                 "a9bb39e013a1c8f9",
@@ -9409,14 +9317,14 @@
         "type": "function",
         "z": "3154c44d1a91de38",
         "name": "",
-        "func": "// create a new message object to clean it up\nvar msg_out = { delay: msg.payload * 1000 };\nvar FsmStatus_Schedule = global.get('kiln_01.FsmStatus_Schedule','memoryOnly')\n//var FsmStatus_Segment = global.get('kiln_01.FsmStatus_Segment','memoryOnly')\nvar auto_tune_upper = global.get('kiln_01.pid[0].auto_tune_upper')\nvar auto_tune_lower = global.get('kiln_01.pid[0].auto_tune_lower')\nvar UpperSetpoint = global.get('kiln_01.UpperSetpoint','memoryOnly')\nvar LowerSetpoint = global.get('kiln_01.LowerSetpoint','memoryOnly')\nvar UpperTemperature = global.get('kiln_01.UpperTemperature','memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature','memoryOnly')\n\nif (Math.abs(UpperSetpoint - UpperTemperature) < 100 && Math.abs(LowerSetpoint - LowerTemperature) < 100) {\n    // temps a setpoints are within tolerance\n    node.status({fill:\"green\",shape:\"dot\",text:\"All good!\"});\n    // the trigger function locks up if you send it a zero\n    // similarly, we dont want to send it a value over\n    // the trigger time (1000 ms)\n    if (msg_out.delay > 0 && msg_out.delay < 1000 && (FsmStatus_Schedule != 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n        return [ msg_out, null ];\n    } else if (msg_out.delay <= 0 || (FsmStatus_Schedule == 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n        // send an \"off\" directly to the output node\n        msg_out.payload = \"0\"\n        return [ null, msg_out ];\n    } else if (msg_out.delay >= 1000){\n        // send an \"on\" directly to the output node\n        msg_out.payload = \"1\"\n        return [ null, msg_out ];\n    } else {\n        // send an \"off\" directly to the output node\n        msg_out.payload = \"0\"\n        return [ null, msg_out ];\n    }\n} else {\n    // temp is too far away from setpoint. something is wrong.\n    // send an \"off\" directly to the output node\n    node.warn(\"temp is too far away from setpoint. something is wrong.\")\n    node.status({fill:\"red\",shape:\"dot\",text:\"Something is wrong!\"});\n    msg_out.payload = \"0\"\n    return [ null, msg_out ];\n}",
+        "func": "// create a new message object to clean it up\nvar msg_out = { delay: msg.payload * 10 }; // should come in as 0 - 100%\nvar FsmStatus_Schedule = global.get('kiln_01.FsmStatus_Schedule','memoryOnly')\n//var FsmStatus_Segment = global.get('kiln_01.FsmStatus_Segment','memoryOnly')\nvar auto_tune_upper = global.get('kiln_01.pid[0].auto_tune_upper')\nvar auto_tune_lower = global.get('kiln_01.pid[0].auto_tune_lower')\nvar UpperSetpoint = global.get('kiln_01.UpperSetpoint','memoryOnly')\nvar LowerSetpoint = global.get('kiln_01.LowerSetpoint','memoryOnly')\nvar UpperTemperature = global.get('kiln_01.UpperTemperature','memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature','memoryOnly')\n\nif (Math.abs(UpperSetpoint - UpperTemperature) < 100 && Math.abs(LowerSetpoint - LowerTemperature) < 100) {\n    // temps a setpoints are within tolerance\n    node.status({fill:\"green\",shape:\"dot\",text:\"All good!\"});\n    // the trigger function locks up if you send it a zero\n    // similarly, we dont want to send it a value over\n    // the trigger time (1000 ms)\n    if (msg_out.delay > 0 && msg_out.delay < 1000 && (FsmStatus_Schedule != 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n        return [ msg_out, null ];\n    } else if (msg_out.delay <= 0 || (FsmStatus_Schedule == 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n        // send an \"off\" directly to the output node\n        msg_out.payload = \"0\"\n        return [ null, msg_out ];\n    } else if (msg_out.delay >= 1000){\n        // send an \"on\" directly to the output node\n        msg_out.payload = \"1\"\n        return [ null, msg_out ];\n    } else {\n        // send an \"off\" directly to the output node\n        msg_out.payload = \"0\"\n        return [ null, msg_out ];\n    }\n} else {\n    // temp is too far away from setpoint. something is wrong.\n    // send an \"off\" directly to the output node\n    node.warn(\"temp is too far away from setpoint. something is wrong.\")\n    node.status({fill:\"red\",shape:\"dot\",text:\"Something is wrong!\"});\n    msg_out.payload = \"0\"\n    return [ null, msg_out ];\n}",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 475,
-        "y": 800,
+        "x": 195,
+        "y": 860,
         "wires": [
             [
                 "26dcb58ffb63fae4"
@@ -9426,6 +9334,38 @@
             ]
         ],
         "l": false
+    },
+    {
+        "id": "0cfeb2a7be515599",
+        "type": "link in",
+        "z": "3154c44d1a91de38",
+        "name": "input - upper heater",
+        "links": [
+            "094e9b28f33ff867"
+        ],
+        "x": 135,
+        "y": 780,
+        "wires": [
+            [
+                "d4cb1a52a4fe0d75"
+            ]
+        ]
+    },
+    {
+        "id": "f2bc62537768881d",
+        "type": "link in",
+        "z": "3154c44d1a91de38",
+        "name": "input - upper heater",
+        "links": [
+            "4316bc9dff8ce9e9"
+        ],
+        "x": 135,
+        "y": 860,
+        "wires": [
+            [
+                "5bb8a83cadcb2ba3"
+            ]
+        ]
     },
     {
         "id": "1c9e79b136a623e2",
