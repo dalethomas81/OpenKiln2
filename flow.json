@@ -14,6 +14,13 @@
         "info": ""
     },
     {
+        "id": "b83fb43068cdf48f",
+        "type": "tab",
+        "label": "pid",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "3154c44d1a91de38",
         "type": "tab",
         "label": "I/O",
@@ -24,13 +31,6 @@
         "id": "98e4246c87add39e",
         "type": "tab",
         "label": "Utility",
-        "disabled": false,
-        "info": ""
-    },
-    {
-        "id": "b83fb43068cdf48f",
-        "type": "tab",
-        "label": "pid",
         "disabled": false,
         "info": ""
     },
@@ -5621,1666 +5621,6 @@
         "wires": []
     },
     {
-        "id": "c96f9cb61b158baf",
-        "type": "inject",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "1",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payloadType": "date",
-        "x": 135,
-        "y": 360,
-        "wires": [
-            [
-                "f45e246dbf521446"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "35573d9f8cb557cc",
-        "type": "function",
-        "z": "3154c44d1a91de38",
-        "name": "get upper temp",
-        "func": "// https://github.com/maugdog/max31855\n\n/**\n * Node.js module for driving the Adafruit MAX31855 thermocouple temperature amplifier on Raspberry Pi.\n *\n * Currently supports only hardware SPI configuration (as opposed to software SPI using GPIO pins).\n * Note: May require running under sudo for SPI permissions.\n * Note: The SPI master driver is disabled by default on Raspian Linux and must be enabled. see here:\n * https://www.raspberrypi.org/documentation/hardware/raspberrypi/spi/README.md\n */\n\n//var SPI = require('pi-spi');\n\nfunction MAX31855() {\n  // Initialize the SPI settings\n  this._spi = SPI.initialize(\"/dev/spidev0.1\");\n  this._spi.clockSpeed(5000000);\n  this._spi.dataMode(0);\n  this._spi.bitOrder(SPI.order.MSB_FIRST);\n}\n\n/** Read 32 bits from the SPI bus. */\nMAX31855.prototype._read32 = function(callback) {\n  this._spi.read(4, function(error, bytes) {\n    if(error) {\n      console.error(error);\n    } else {\n      if(!bytes || bytes.length != 4) {\n        throw new Error('MAX31855: Did not read expected number of bytes from device!');\n      } else {\n        value = bytes[0] << 24 | bytes[1] << 16 | bytes[2] << 8 | bytes[3];\n        //console.log('Raw value: ', value);\n        callback(value);\n      }\n    }\n  });\n};\n\n/** Returns the internal temperature value in degrees Celsius. */\nMAX31855.prototype.readInternalC = function(callback) {\n  if(callback) {\n    this._read32(function(value) {\n      // Ignore bottom 4 bits of thermocouple data.\n  \t\tvalue >>= 4;\n  \t\t// Grab bottom 11 bits as internal temperature data.\n  \t\tvar internal = value & 0x7FF;\n  \t\tif(value & 0x800) {\n        // Negative value, take 2's compliment.\n        internal = ~internal + 1;\n      }\n      // Scale by 0.0625 degrees C per bit and return value.\n      callback(internal * 0.0625);\n    });\n  } else {\n    console.log('MAX31855: Read request issued with no callback.');\n  }\n};\n\n/** Return the thermocouple temperature value. Value is returned in degrees celsius */\nMAX31855.prototype.readTempC = function(callback) {\n  if(callback) {\n    var self = this; // Scope closure\n    this._read32(function(value) {\n      // Check for error reading value.\n      if(value & 0x7) {\n        callback(NaN);\n      } else {\n        if(value & 0x80000000) { // Check if signed bit is set.\n          // Negative value, shift the bits and take 2's compliment.\n          value >>= 18;\n          value = ~value + 1;\n        } else { // Positive value, just shift the bits to get the value.\n          value >>= 18;\n        }\n        // Scale by 0.25 degrees C per bit\n        callback(value * 0.25);\n      }\n    });\n  } else {\n    console.log('MAX31855: Read request issued with no callback.');\n  }\n};\n\n//module.exports = MAX31855;\n\nvar thermoSensor = new MAX31855();\nthermoSensor.readTempC(function(temp) {\n    //console.log('Temp in degrees celsius: ', temp);\n    //node.warn(temp);\n    \n    temp = temp*9/5+32\n    global.set('kiln_01.UpperTemperature', temp, 'memoryOnly');\n    \n    var id = 1;\n    var newMsg = {\n     \"topic\": \"INSERT INTO temperatures values(\" + temp + \", date('now'), time('now'), Kiln_01_UpperTemperature)\",\n     //\"topic\": \"INSERT INTO TEMPERATURE VALUES ( \" + msg.payload + \", \" + temp + \", \" + id + \")\",\n     \"temperature\" : temp,\n     \"payload\": msg.payload\n    }\n    node.send(newMsg); // node.send() is needed for async\n    node.done();\n});\n\n\n//return msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [
-            {
-                "var": "SPI",
-                "module": "pi-spi"
-            }
-        ],
-        "x": 295,
-        "y": 340,
-        "wires": [
-            [
-                "0d670f61e6fde01c"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "90d2df249ed5559d",
-        "type": "function",
-        "z": "3154c44d1a91de38",
-        "name": "get lower temp",
-        "func": "// https://github.com/maugdog/max31855\n\n/**\n * Node.js module for driving the Adafruit MAX31855 thermocouple temperature amplifier on Raspberry Pi.\n *\n * Currently supports only hardware SPI configuration (as opposed to software SPI using GPIO pins).\n * Note: May require running under sudo for SPI permissions.\n * Note: The SPI master driver is disabled by default on Raspian Linux and must be enabled. see here:\n * https://www.raspberrypi.org/documentation/hardware/raspberrypi/spi/README.md\n */\n\n//var SPI = require('pi-spi');\n\nfunction MAX31855() {\n  // Initialize the SPI settings\n  this._spi = SPI.initialize(\"/dev/spidev0.0\");\n  this._spi.clockSpeed(5000000);\n  this._spi.dataMode(0);\n  this._spi.bitOrder(SPI.order.MSB_FIRST);\n}\n\n/** Read 32 bits from the SPI bus. */\nMAX31855.prototype._read32 = function(callback) {\n  this._spi.read(4, function(error, bytes) {\n    if(error) {\n      console.error(error);\n    } else {\n      if(!bytes || bytes.length != 4) {\n        throw new Error('MAX31855: Did not read expected number of bytes from device!');\n      } else {\n        value = bytes[0] << 24 | bytes[1] << 16 | bytes[2] << 8 | bytes[3];\n        //console.log('Raw value: ', value);\n        callback(value);\n      }\n    }\n  });\n};\n\n/** Returns the internal temperature value in degrees Celsius. */\nMAX31855.prototype.readInternalC = function(callback) {\n  if(callback) {\n    this._read32(function(value) {\n      // Ignore bottom 4 bits of thermocouple data.\n  \t\tvalue >>= 4;\n  \t\t// Grab bottom 11 bits as internal temperature data.\n  \t\tvar internal = value & 0x7FF;\n  \t\tif(value & 0x800) {\n        // Negative value, take 2's compliment.\n        internal = ~internal + 1;\n      }\n      // Scale by 0.0625 degrees C per bit and return value.\n      callback(internal * 0.0625);\n    });\n  } else {\n    console.log('MAX31855: Read request issued with no callback.');\n  }\n};\n\n/** Return the thermocouple temperature value. Value is returned in degrees celsius */\nMAX31855.prototype.readTempC = function(callback) {\n  if(callback) {\n    var self = this; // Scope closure\n    this._read32(function(value) {\n      // Check for error reading value.\n      if(value & 0x7) {\n        callback(NaN);\n      } else {\n        if(value & 0x80000000) { // Check if signed bit is set.\n          // Negative value, shift the bits and take 2's compliment.\n          value >>= 18;\n          value = ~value + 1;\n        } else { // Positive value, just shift the bits to get the value.\n          value >>= 18;\n        }\n        // Scale by 0.25 degrees C per bit\n        callback(value * 0.25);\n      }\n    });\n  } else {\n    console.log('MAX31855: Read request issued with no callback.');\n  }\n};\n\n//module.exports = MAX31855;\n\nvar thermoSensor = new MAX31855();\nthermoSensor.readTempC(function(temp) {\n    //console.log('Temp in degrees celsius: ', temp);\n    //node.warn(temp);\n    \n    temp = temp*9/5+32\n    global.set('kiln_01.LowerTemperature', temp, 'memoryOnly');\n    \n    var id = 2;\n    var newMsg = {\n     \"topic\": \"INSERT INTO temperatures values(\" + temp + \", date('now'), time('now'), Kiln_01_LowerTemperature)\",\n     //\"topic\": \"INSERT INTO TEMPERATURE VALUES ( \" + msg.payload + \", \" + temp + \", \" + id + \")\",\n     \"temperature\" : temp,\n     \"payload\": msg.payload\n    }\n    node.send(newMsg); // node.send() is needed for async\n    node.done();\n});\n\n\n//return msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [
-            {
-                "var": "SPI",
-                "module": "pi-spi"
-            }
-        ],
-        "x": 295,
-        "y": 380,
-        "wires": [
-            [
-                "8c970109233d3f07"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "774be46b1df4202c",
-        "type": "catch",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "scope": null,
-        "uncaught": false,
-        "x": 60,
-        "y": 20,
-        "wires": [
-            [
-                "08d3626ca47817b7"
-            ]
-        ]
-    },
-    {
-        "id": "08d3626ca47817b7",
-        "type": "debug",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 190,
-        "y": 20,
-        "wires": []
-    },
-    {
-        "id": "6c490df17d1de881",
-        "type": "rbe",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "func": "deadbandEq",
-        "gap": "1",
-        "start": "",
-        "inout": "out",
-        "septopics": false,
-        "property": "temperature",
-        "topi": "topic",
-        "x": 515,
-        "y": 220,
-        "wires": [
-            [
-                "dbaab26e980063a4"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "bd45525a6924a5c5",
-        "type": "rbe",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "func": "deadbandEq",
-        "gap": "1",
-        "start": "",
-        "inout": "out",
-        "septopics": false,
-        "property": "temperature",
-        "topi": "topic",
-        "x": 515,
-        "y": 180,
-        "wires": [
-            [
-                "5cdb1e903b180a71"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "aa4ddf8613c60dce",
-        "type": "change",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "temperature",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 515,
-        "y": 280,
-        "wires": [
-            [
-                "d1a65eb3c343781d"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "d89f8dde7ffe2c9d",
-        "type": "change",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "temperature",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 515,
-        "y": 320,
-        "wires": [
-            [
-                "23a36d0bd1c7574b"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "dcbc073ea7b777ee",
-        "type": "link out",
-        "z": "3154c44d1a91de38",
-        "name": "Output - Upper Temperature",
-        "mode": "link",
-        "links": [
-            "9b6b7f2249d013ba"
-        ],
-        "x": 635,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "e65201e766b76bfd",
-        "type": "link out",
-        "z": "3154c44d1a91de38",
-        "name": "Output - Lower Temperature",
-        "mode": "link",
-        "links": [
-            "4ea9f6ce194f1281"
-        ],
-        "x": 635,
-        "y": 320,
-        "wires": []
-    },
-    {
-        "id": "ea802ed93ceeae42",
-        "type": "change",
-        "z": "3154c44d1a91de38",
-        "name": "sim temps",
-        "rules": [
-            {
-                "t": "set",
-                "p": "#:(memoryOnly)::kiln_01.UpperTemperature",
-                "pt": "global",
-                "to": "#:(memoryOnly)::kiln_01.UpperSetpoint",
-                "tot": "global"
-            },
-            {
-                "t": "set",
-                "p": "temperature",
-                "pt": "msg",
-                "to": "#:(memoryOnly)::kiln_01.UpperSetpoint",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 310,
-        "y": 220,
-        "wires": [
-            [
-                "aa4ddf8613c60dce",
-                "bd45525a6924a5c5"
-            ]
-        ]
-    },
-    {
-        "id": "1235c1dcd4711779",
-        "type": "change",
-        "z": "3154c44d1a91de38",
-        "name": "build measurement",
-        "rules": [
-            {
-                "t": "delete",
-                "p": "topic",
-                "pt": "msg"
-            },
-            {
-                "t": "set",
-                "p": "measurement",
-                "pt": "msg",
-                "to": "Kiln_01_UpperTemperature",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "temperature",
-                "tot": "msg"
-            },
-            {
-                "t": "delete",
-                "p": "temperature",
-                "pt": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 635,
-        "y": 180,
-        "wires": [
-            [
-                "2f036bde9aaff376"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "9468a3b6de1782db",
-        "type": "change",
-        "z": "3154c44d1a91de38",
-        "name": "build measurement",
-        "rules": [
-            {
-                "t": "delete",
-                "p": "topic",
-                "pt": "msg"
-            },
-            {
-                "t": "set",
-                "p": "measurement",
-                "pt": "msg",
-                "to": "Kiln_01_LowerTemperature",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "temperature",
-                "tot": "msg"
-            },
-            {
-                "t": "delete",
-                "p": "temperature",
-                "pt": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 635,
-        "y": 220,
-        "wires": [
-            [
-                "2f036bde9aaff376"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "23a36d0bd1c7574b",
-        "type": "function",
-        "z": "3154c44d1a91de38",
-        "name": "set precision",
-        "func": "msg.payload = msg.payload.toFixed(2);\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 575,
-        "y": 320,
-        "wires": [
-            [
-                "e65201e766b76bfd"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "d1a65eb3c343781d",
-        "type": "function",
-        "z": "3154c44d1a91de38",
-        "name": "set precision",
-        "func": "msg.payload = msg.payload.toFixed(2);\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 575,
-        "y": 280,
-        "wires": [
-            [
-                "dcbc073ea7b777ee"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "819eacdd5b2d931c",
-        "type": "trigger",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "op1": "",
-        "op2": "0",
-        "op1type": "date",
-        "op2type": "str",
-        "duration": "-1000",
-        "extend": false,
-        "overrideDelay": false,
-        "units": "ms",
-        "reset": "false",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 175,
-        "y": 240,
-        "wires": [
-            [
-                "ea802ed93ceeae42",
-                "79016fc241d79289"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "bc3e2212fd11e206",
-        "type": "ui_switch",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "label": "Simulation",
-        "tooltip": "",
-        "group": "112aa19380852c23",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "x": 490,
-        "y": 500,
-        "wires": [
-            [
-                "d76c7ce673b280af"
-            ]
-        ]
-    },
-    {
-        "id": "79016fc241d79289",
-        "type": "change",
-        "z": "3154c44d1a91de38",
-        "name": "sim temps",
-        "rules": [
-            {
-                "t": "set",
-                "p": "#:(memoryOnly)::kiln_01.LowerTemperature",
-                "pt": "global",
-                "to": "#:(memoryOnly)::kiln_01.LowerSetpoint",
-                "tot": "global"
-            },
-            {
-                "t": "set",
-                "p": "temperature",
-                "pt": "msg",
-                "to": "#:(memoryOnly)::kiln_01.LowerSetpoint",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 310,
-        "y": 260,
-        "wires": [
-            [
-                "d89f8dde7ffe2c9d",
-                "6c490df17d1de881"
-            ]
-        ]
-    },
-    {
-        "id": "d76c7ce673b280af",
-        "type": "change",
-        "z": "3154c44d1a91de38",
-        "name": "set sim temp",
-        "rules": [
-            {
-                "t": "set",
-                "p": "kiln_01.SimulateTemperature",
-                "pt": "global",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 595,
-        "y": 500,
-        "wires": [
-            [
-                "a3ad47349ae89c29"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "f45e246dbf521446",
-        "type": "switch",
-        "z": "3154c44d1a91de38",
-        "name": "check sim temp",
-        "property": "kiln_01.SimulateTemperature",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "false"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 195,
-        "y": 360,
-        "wires": [
-            [
-                "90d2df249ed5559d",
-                "35573d9f8cb557cc"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "2f036bde9aaff376",
-        "type": "influxdb out",
-        "z": "3154c44d1a91de38",
-        "influxdb": "1a7d214ba0ada216",
-        "name": "",
-        "measurement": "",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "home",
-        "precisionV18FluxV20": "ms",
-        "retentionPolicyV18Flux": "52w",
-        "org": "organisation",
-        "bucket": "bucket",
-        "x": 820,
-        "y": 200,
-        "wires": []
-    },
-    {
-        "id": "dbaab26e980063a4",
-        "type": "switch",
-        "z": "3154c44d1a91de38",
-        "name": "temp cutoff",
-        "property": "temperature",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "gte",
-                "v": "50",
-                "vt": "num"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 575,
-        "y": 220,
-        "wires": [
-            [
-                "9468a3b6de1782db"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "5cdb1e903b180a71",
-        "type": "switch",
-        "z": "3154c44d1a91de38",
-        "name": "temp cutoff",
-        "property": "temperature",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "gte",
-                "v": "50",
-                "vt": "num"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 575,
-        "y": 180,
-        "wires": [
-            [
-                "1235c1dcd4711779"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "5689c5638cfebacb",
-        "type": "ui_ui_control",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "events": "all",
-        "x": 160,
-        "y": 500,
-        "wires": [
-            [
-                "85cd714804063e2b"
-            ]
-        ]
-    },
-    {
-        "id": "85cd714804063e2b",
-        "type": "switch",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "lost",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "connect",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "change",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 3,
-        "x": 290,
-        "y": 500,
-        "wires": [
-            [],
-            [
-                "477ed7158a34c5bf"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "477ed7158a34c5bf",
-        "type": "change",
-        "z": "3154c44d1a91de38",
-        "name": "get sim temp",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "kiln_01.SimulateTemperature",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 375,
-        "y": 500,
-        "wires": [
-            [
-                "bc3e2212fd11e206"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "218ba5aacd9d564e",
-        "type": "link in",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "links": [
-            "a3ad47349ae89c29"
-        ],
-        "x": 115,
-        "y": 240,
-        "wires": [
-            [
-                "819eacdd5b2d931c"
-            ]
-        ]
-    },
-    {
-        "id": "a3ad47349ae89c29",
-        "type": "link out",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "mode": "link",
-        "links": [
-            "218ba5aacd9d564e"
-        ],
-        "x": 655,
-        "y": 500,
-        "wires": []
-    },
-    {
-        "id": "16e8124d59e7fb62",
-        "type": "rpi-gpio out",
-        "z": "3154c44d1a91de38",
-        "name": "Upper_Heater",
-        "pin": "26",
-        "set": true,
-        "level": "0",
-        "freq": "",
-        "out": "out",
-        "bcm": true,
-        "x": 800,
-        "y": 740,
-        "wires": []
-    },
-    {
-        "id": "708a944b9506b9a4",
-        "type": "trigger",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "op1": "1",
-        "op2": "0",
-        "op1type": "str",
-        "op2type": "str",
-        "duration": "200",
-        "extend": false,
-        "overrideDelay": true,
-        "units": "ms",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 575,
-        "y": 700,
-        "wires": [
-            [
-                "16e8124d59e7fb62"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "ee6259aabb77fcdf",
-        "type": "inject",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "props": [],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "0.1",
-        "topic": "",
-        "x": 110,
-        "y": 660,
-        "wires": [
-            [
-                "11d1503b33735b7a"
-            ]
-        ]
-    },
-    {
-        "id": "11d1503b33735b7a",
-        "type": "change",
-        "z": "3154c44d1a91de38",
-        "name": "initialize setpoints",
-        "rules": [
-            {
-                "t": "set",
-                "p": "#:(memoryOnly)::kiln_01.Setpoint",
-                "pt": "global",
-                "to": "0",
-                "tot": "num"
-            },
-            {
-                "t": "set",
-                "p": "#:(memoryOnly)::kiln_01.UpperSetpoint",
-                "pt": "global",
-                "to": "0",
-                "tot": "num"
-            },
-            {
-                "t": "set",
-                "p": "#:(memoryOnly)::kiln_01.LowerSetpoint",
-                "pt": "global",
-                "to": "0",
-                "tot": "num"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 270,
-        "y": 660,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "12681729a71ef662",
-        "type": "rpi-gpio out",
-        "z": "3154c44d1a91de38",
-        "name": "Lower_Heater",
-        "pin": "19",
-        "set": true,
-        "level": "0",
-        "freq": "",
-        "out": "out",
-        "bcm": true,
-        "x": 700,
-        "y": 820,
-        "wires": []
-    },
-    {
-        "id": "26dcb58ffb63fae4",
-        "type": "trigger",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "op1": "1",
-        "op2": "0",
-        "op1type": "str",
-        "op2type": "str",
-        "duration": "200",
-        "extend": false,
-        "overrideDelay": true,
-        "units": "ms",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 575,
-        "y": 780,
-        "wires": [
-            [
-                "12681729a71ef662"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "a9bb39e013a1c8f9",
-        "type": "range",
-        "z": "3154c44d1a91de38",
-        "minin": "0",
-        "maxin": "1000",
-        "minout": "1",
-        "maxout": "100",
-        "action": "clamp",
-        "round": false,
-        "property": "delay",
-        "name": "",
-        "x": 575,
-        "y": 660,
-        "wires": [
-            [
-                "ba418671e4996002"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "b6d260258241c4b6",
-        "type": "debug",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 730,
-        "y": 660,
-        "wires": []
-    },
-    {
-        "id": "ba418671e4996002",
-        "type": "function",
-        "z": "3154c44d1a91de38",
-        "name": "set precision",
-        "func": "msg.delay = parseFloat(msg.delay.toFixed(2))\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 635,
-        "y": 660,
-        "wires": [
-            [
-                "b6d260258241c4b6"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "e4a7e7415279dc26",
-        "type": "comment",
-        "z": "3154c44d1a91de38",
-        "name": "PID controller and ssr output",
-        "info": "",
-        "x": 140,
-        "y": 620,
-        "wires": []
-    },
-    {
-        "id": "4411f03fad54a3bf",
-        "type": "comment",
-        "z": "3154c44d1a91de38",
-        "name": "thermocouples input and data collection",
-        "info": "",
-        "x": 180,
-        "y": 80,
-        "wires": []
-    },
-    {
-        "id": "9cd105f7bbe1e048",
-        "type": "switch",
-        "z": "3154c44d1a91de38",
-        "name": "is upper auto-tuning",
-        "property": "kiln_01.pid[0].auto_tune",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "false"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 395,
-        "y": 720,
-        "wires": [
-            [
-                "d4cb1a52a4fe0d75"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "a7b88091f8fc6bef",
-        "type": "switch",
-        "z": "3154c44d1a91de38",
-        "name": "is lower auto-tuning",
-        "property": "kiln_01.pid[1].auto_tune",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "false"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 395,
-        "y": 800,
-        "wires": [
-            [
-                "5bb8a83cadcb2ba3"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "55db840a42d1c307",
-        "type": "link in",
-        "z": "3154c44d1a91de38",
-        "name": "upper heater in",
-        "links": [
-            "d5be35f05e994888"
-        ],
-        "x": 395,
-        "y": 740,
-        "wires": [
-            [
-                "d4cb1a52a4fe0d75"
-            ]
-        ]
-    },
-    {
-        "id": "2e9f7e8eed4fe956",
-        "type": "link in",
-        "z": "3154c44d1a91de38",
-        "name": "lower heater in",
-        "links": [
-            "431877d7412baca5"
-        ],
-        "x": 395,
-        "y": 820,
-        "wires": [
-            [
-                "5bb8a83cadcb2ba3"
-            ]
-        ]
-    },
-    {
-        "id": "c9874287110179be",
-        "type": "link out",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "mode": "link",
-        "links": [
-            "e091d89060e936b3"
-        ],
-        "x": 655,
-        "y": 420,
-        "wires": []
-    },
-    {
-        "id": "c4c04a40bcd2b9a9",
-        "type": "change",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "temperature",
-                "tot": "msg"
-            },
-            {
-                "t": "delete",
-                "p": "topic",
-                "pt": "msg"
-            },
-            {
-                "t": "delete",
-                "p": "temperature",
-                "pt": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 595,
-        "y": 420,
-        "wires": [
-            [
-                "c9874287110179be"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "51e9a32e9cfe0fc0",
-        "type": "switch",
-        "z": "3154c44d1a91de38",
-        "name": "check zone",
-        "property": "kiln_01.pid_selected_zone",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "0",
-                "vt": "num"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 515,
-        "y": 380,
-        "wires": [
-            [
-                "c4c04a40bcd2b9a9"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "9136a429c48c2758",
-        "type": "switch",
-        "z": "3154c44d1a91de38",
-        "name": "check zone",
-        "property": "kiln_01.pid_selected_zone",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "1",
-                "vt": "num"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 515,
-        "y": 420,
-        "wires": [
-            [
-                "c4c04a40bcd2b9a9"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "f149b69a489b3e6f",
-        "type": "comment",
-        "z": "3154c44d1a91de38",
-        "name": "TODO: fault when thermocouple is removed",
-        "info": "",
-        "x": 210,
-        "y": 140,
-        "wires": []
-    },
-    {
-        "id": "1e743148a5de6976",
-        "type": "comment",
-        "z": "3154c44d1a91de38",
-        "name": "TODO: calibration routine",
-        "info": "",
-        "x": 150,
-        "y": 160,
-        "wires": []
-    },
-    {
-        "id": "0d670f61e6fde01c",
-        "type": "smooth",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "property": "temperature",
-        "action": "low",
-        "count": "10",
-        "round": "",
-        "mult": "single",
-        "reduce": false,
-        "x": 355,
-        "y": 340,
-        "wires": [
-            [
-                "bd45525a6924a5c5",
-                "aa4ddf8613c60dce",
-                "51e9a32e9cfe0fc0"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "8c970109233d3f07",
-        "type": "smooth",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "property": "temperature",
-        "action": "low",
-        "count": "10",
-        "round": "",
-        "mult": "single",
-        "reduce": false,
-        "x": 355,
-        "y": 380,
-        "wires": [
-            [
-                "9136a429c48c2758",
-                "d89f8dde7ffe2c9d",
-                "6c490df17d1de881"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "d4cb1a52a4fe0d75",
-        "type": "function",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "func": "// create a new message object to clean it up\nvar msg_out = { delay: msg.payload * 1000 };\nvar FsmStatus_Schedule = global.get('kiln_01.FsmStatus_Schedule','memoryOnly')\n//var FsmStatus_Segment = global.get('kiln_01.FsmStatus_Segment','memoryOnly')\nvar auto_tune_upper = global.get('kiln_01.pid[0].auto_tune_upper')\nvar auto_tune_lower = global.get('kiln_01.pid[0].auto_tune_lower')\nvar UpperSetpoint = global.get('kiln_01.UpperSetpoint','memoryOnly')\nvar LowerSetpoint = global.get('kiln_01.LowerSetpoint','memoryOnly')\nvar UpperTemperature = global.get('kiln_01.UpperTemperature','memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature','memoryOnly')\n\nif (Math.abs(UpperSetpoint - UpperTemperature) < 100 && Math.abs(LowerSetpoint - LowerTemperature) < 100) {\n    // temps a setpoints are within tolerance\n    node.status({fill:\"green\",shape:\"dot\",text:\"All good!\"});\n    // the trigger function locks up if you send it a zero\n    // similarly, we dont want to send it a value over\n    // the trigger time (1000 ms)\n    if (msg_out.delay > 0 && msg_out.delay < 1000 && (FsmStatus_Schedule != 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n        return [ msg_out, null ];\n    } else if (msg_out.delay <= 0 || (FsmStatus_Schedule == 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n        // send an \"off\" directly to the output node\n        msg_out.payload = \"0\"\n        return [ null, msg_out ];\n    } else if (msg_out.delay >= 1000){\n        // send an \"on\" directly to the output node\n        msg_out.payload = \"1\"\n        return [ null, msg_out ];\n    } else {\n        // send an \"off\" directly to the output node\n        msg_out.payload = \"0\"\n        return [ null, msg_out ];\n    }\n} else {\n    // temp is too far away from setpoint. something is wrong.\n    // send an \"off\" directly to the output node\n    node.warn(\"temp is too far away from setpoint. something is wrong.\")\n    node.status({fill:\"red\",shape:\"dot\",text:\"Something is wrong!\"});\n    msg_out.payload = \"0\"\n    return [ null, msg_out ];\n}",
-        "outputs": 2,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 475,
-        "y": 720,
-        "wires": [
-            [
-                "a9bb39e013a1c8f9",
-                "708a944b9506b9a4"
-            ],
-            [
-                "16e8124d59e7fb62"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "5bb8a83cadcb2ba3",
-        "type": "function",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "func": "// create a new message object to clean it up\nvar msg_out = { delay: msg.payload * 1000 };\nvar FsmStatus_Schedule = global.get('kiln_01.FsmStatus_Schedule','memoryOnly')\n//var FsmStatus_Segment = global.get('kiln_01.FsmStatus_Segment','memoryOnly')\nvar auto_tune_upper = global.get('kiln_01.pid[0].auto_tune_upper')\nvar auto_tune_lower = global.get('kiln_01.pid[0].auto_tune_lower')\nvar UpperSetpoint = global.get('kiln_01.UpperSetpoint','memoryOnly')\nvar LowerSetpoint = global.get('kiln_01.LowerSetpoint','memoryOnly')\nvar UpperTemperature = global.get('kiln_01.UpperTemperature','memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature','memoryOnly')\n\nif (Math.abs(UpperSetpoint - UpperTemperature) < 100 && Math.abs(LowerSetpoint - LowerTemperature) < 100) {\n    // temps a setpoints are within tolerance\n    node.status({fill:\"green\",shape:\"dot\",text:\"All good!\"});\n    // the trigger function locks up if you send it a zero\n    // similarly, we dont want to send it a value over\n    // the trigger time (1000 ms)\n    if (msg_out.delay > 0 && msg_out.delay < 1000 && (FsmStatus_Schedule != 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n        return [ msg_out, null ];\n    } else if (msg_out.delay <= 0 || (FsmStatus_Schedule == 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n        // send an \"off\" directly to the output node\n        msg_out.payload = \"0\"\n        return [ null, msg_out ];\n    } else if (msg_out.delay >= 1000){\n        // send an \"on\" directly to the output node\n        msg_out.payload = \"1\"\n        return [ null, msg_out ];\n    } else {\n        // send an \"off\" directly to the output node\n        msg_out.payload = \"0\"\n        return [ null, msg_out ];\n    }\n} else {\n    // temp is too far away from setpoint. something is wrong.\n    // send an \"off\" directly to the output node\n    node.warn(\"temp is too far away from setpoint. something is wrong.\")\n    node.status({fill:\"red\",shape:\"dot\",text:\"Something is wrong!\"});\n    msg_out.payload = \"0\"\n    return [ null, msg_out ];\n}",
-        "outputs": 2,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 475,
-        "y": 800,
-        "wires": [
-            [
-                "26dcb58ffb63fae4"
-            ],
-            [
-                "12681729a71ef662"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "1c9e79b136a623e2",
-        "type": "catch",
-        "z": "98e4246c87add39e",
-        "name": "",
-        "scope": null,
-        "uncaught": false,
-        "x": 60,
-        "y": 20,
-        "wires": [
-            [
-                "d3aa01638e9fef28"
-            ]
-        ]
-    },
-    {
-        "id": "d3aa01638e9fef28",
-        "type": "debug",
-        "z": "98e4246c87add39e",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 190,
-        "y": 20,
-        "wires": []
-    },
-    {
-        "id": "0f5d38dea1f9fdf8",
-        "type": "inject",
-        "z": "98e4246c87add39e",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 200,
-        "y": 140,
-        "wires": [
-            [
-                "f14af351da1b05c1"
-            ]
-        ]
-    },
-    {
-        "id": "f14af351da1b05c1",
-        "type": "exec",
-        "z": "98e4246c87add39e",
-        "command": "node-red-restart",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "",
-        "x": 380,
-        "y": 140,
-        "wires": [
-            [],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "680c5276908a542b",
-        "type": "inject",
-        "z": "98e4246c87add39e",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 200,
-        "y": 180,
-        "wires": [
-            [
-                "3b38d7ad7142ae99"
-            ]
-        ]
-    },
-    {
-        "id": "3b38d7ad7142ae99",
-        "type": "exec",
-        "z": "98e4246c87add39e",
-        "command": "sudo shutdown now",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "",
-        "x": 400,
-        "y": 180,
-        "wires": [
-            [],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "300160ca9486c7ff",
-        "type": "inject",
-        "z": "98e4246c87add39e",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 200,
-        "y": 220,
-        "wires": [
-            [
-                "5bb9693f827a8916"
-            ]
-        ]
-    },
-    {
-        "id": "5bb9693f827a8916",
-        "type": "exec",
-        "z": "98e4246c87add39e",
-        "command": "sudo reboot now",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "",
-        "x": 390,
-        "y": 220,
-        "wires": [
-            [],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "596909473c6a4408",
-        "type": "comment",
-        "z": "98e4246c87add39e",
-        "name": "PiSugar: https://github.com/PiSugar/pisugar-power-manager-rs",
-        "info": "",
-        "x": 370,
-        "y": 480,
-        "wires": []
-    },
-    {
-        "id": "8de289bdc5fd2ca4",
-        "type": "comment",
-        "z": "98e4246c87add39e",
-        "name": "PiSugar user:admin pass:admin",
-        "info": "",
-        "x": 270,
-        "y": 500,
-        "wires": []
-    },
-    {
-        "id": "136ed4e4c080a681",
-        "type": "inject",
-        "z": "98e4246c87add39e",
-        "name": "",
-        "props": [],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "1",
-        "topic": "",
-        "x": 210,
-        "y": 260,
-        "wires": [
-            [
-                "5e1d74212376e4f3"
-            ]
-        ]
-    },
-    {
-        "id": "5e1d74212376e4f3",
-        "type": "exec",
-        "z": "98e4246c87add39e",
-        "command": "hostname",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "",
-        "x": 360,
-        "y": 260,
-        "wires": [
-            [
-                "f619121c08077343"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "f619121c08077343",
-        "type": "change",
-        "z": "98e4246c87add39e",
-        "name": "set hostname",
-        "rules": [
-            {
-                "t": "set",
-                "p": "hostname",
-                "pt": "global",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 560,
-        "y": 260,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "1097eb74c1ce2240",
-        "type": "http in",
-        "z": "98e4246c87add39e",
-        "name": "",
-        "url": "/ui/PiSugar",
-        "method": "get",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 220,
-        "y": 400,
-        "wires": [
-            [
-                "af3ca29e3470f492"
-            ]
-        ]
-    },
-    {
-        "id": "cdb3dcc1721e5831",
-        "type": "http response",
-        "z": "98e4246c87add39e",
-        "name": "",
-        "statusCode": "",
-        "headers": {},
-        "x": 530,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "af3ca29e3470f492",
-        "type": "function",
-        "z": "98e4246c87add39e",
-        "name": "",
-        "func": "var hostname = global.get('hostname')\nvar Location = \"http://\"+hostname.replace(/[^\\x20-\\x7E]/g, '')+\":8421\"\n\nmsg.statusCode = 303;\nmsg.headers = {Location}\ndelete msg.payload;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 390,
-        "y": 400,
-        "wires": [
-            [
-                "cdb3dcc1721e5831"
-            ]
-        ]
-    },
-    {
-        "id": "ca9e41f3290507c6",
-        "type": "http in",
-        "z": "98e4246c87add39e",
-        "name": "",
-        "url": "/ui/NodeRed",
-        "method": "get",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 210,
-        "y": 420,
-        "wires": [
-            [
-                "852ffc368267fec4"
-            ]
-        ]
-    },
-    {
-        "id": "c3144365fd84c245",
-        "type": "http response",
-        "z": "98e4246c87add39e",
-        "name": "",
-        "statusCode": "",
-        "headers": {},
-        "x": 530,
-        "y": 420,
-        "wires": []
-    },
-    {
-        "id": "852ffc368267fec4",
-        "type": "function",
-        "z": "98e4246c87add39e",
-        "name": "",
-        "func": "var hostname = global.get('hostname')\nvar Location = \"http://\"+hostname.replace(/[^\\x20-\\x7E]/g, '')+\":1880\"\n\nmsg.statusCode = 303;\nmsg.headers = {Location}\ndelete msg.payload;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 390,
-        "y": 420,
-        "wires": [
-            [
-                "c3144365fd84c245"
-            ]
-        ]
-    },
-    {
-        "id": "f6f7fc1d1ca591cd",
-        "type": "http in",
-        "z": "98e4246c87add39e",
-        "name": "",
-        "url": "/ui/Grafana",
-        "method": "get",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 220,
-        "y": 440,
-        "wires": [
-            [
-                "e1079bfffd705742"
-            ]
-        ]
-    },
-    {
-        "id": "ca1a6fb8733136ea",
-        "type": "http response",
-        "z": "98e4246c87add39e",
-        "name": "",
-        "statusCode": "",
-        "headers": {},
-        "x": 530,
-        "y": 440,
-        "wires": []
-    },
-    {
-        "id": "e1079bfffd705742",
-        "type": "function",
-        "z": "98e4246c87add39e",
-        "name": "",
-        "func": "var hostname = global.get('hostname')\nvar Location = \"http://\"+hostname.replace(/[^\\x20-\\x7E]/g, '')+\":3000/d/_6ZBVeRgk/historical-temperatures?orgId=1&from=now-7d&to=now&fullscreen&panelId=4\"\n\nmsg.statusCode = 303;\nmsg.headers = {Location}\ndelete msg.payload;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 390,
-        "y": 440,
-        "wires": [
-            [
-                "ca1a6fb8733136ea"
-            ]
-        ]
-    },
-    {
-        "id": "f9460b8af28fe098",
-        "type": "comment",
-        "z": "98e4246c87add39e",
-        "name": "system commands",
-        "info": "",
-        "x": 110,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "d50ee496a66536be",
-        "type": "comment",
-        "z": "98e4246c87add39e",
-        "name": "web redirection",
-        "info": "",
-        "x": 100,
-        "y": 360,
-        "wires": []
-    },
-    {
         "id": "0d21e53eb5db0544",
         "type": "catch",
         "z": "b83fb43068cdf48f",
@@ -9851,6 +8191,1666 @@
         "info": "",
         "x": 70,
         "y": 660,
+        "wires": []
+    },
+    {
+        "id": "c96f9cb61b158baf",
+        "type": "inject",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 135,
+        "y": 360,
+        "wires": [
+            [
+                "f45e246dbf521446"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "35573d9f8cb557cc",
+        "type": "function",
+        "z": "3154c44d1a91de38",
+        "name": "get upper temp",
+        "func": "// https://github.com/maugdog/max31855\n\n/**\n * Node.js module for driving the Adafruit MAX31855 thermocouple temperature amplifier on Raspberry Pi.\n *\n * Currently supports only hardware SPI configuration (as opposed to software SPI using GPIO pins).\n * Note: May require running under sudo for SPI permissions.\n * Note: The SPI master driver is disabled by default on Raspian Linux and must be enabled. see here:\n * https://www.raspberrypi.org/documentation/hardware/raspberrypi/spi/README.md\n */\n\n//var SPI = require('pi-spi');\n\nfunction MAX31855() {\n  // Initialize the SPI settings\n  this._spi = SPI.initialize(\"/dev/spidev0.1\");\n  this._spi.clockSpeed(5000000);\n  this._spi.dataMode(0);\n  this._spi.bitOrder(SPI.order.MSB_FIRST);\n}\n\n/** Read 32 bits from the SPI bus. */\nMAX31855.prototype._read32 = function(callback) {\n  this._spi.read(4, function(error, bytes) {\n    if(error) {\n      console.error(error);\n    } else {\n      if(!bytes || bytes.length != 4) {\n        throw new Error('MAX31855: Did not read expected number of bytes from device!');\n      } else {\n        value = bytes[0] << 24 | bytes[1] << 16 | bytes[2] << 8 | bytes[3];\n        //console.log('Raw value: ', value);\n        callback(value);\n      }\n    }\n  });\n};\n\n/** Returns the internal temperature value in degrees Celsius. */\nMAX31855.prototype.readInternalC = function(callback) {\n  if(callback) {\n    this._read32(function(value) {\n      // Ignore bottom 4 bits of thermocouple data.\n  \t\tvalue >>= 4;\n  \t\t// Grab bottom 11 bits as internal temperature data.\n  \t\tvar internal = value & 0x7FF;\n  \t\tif(value & 0x800) {\n        // Negative value, take 2's compliment.\n        internal = ~internal + 1;\n      }\n      // Scale by 0.0625 degrees C per bit and return value.\n      callback(internal * 0.0625);\n    });\n  } else {\n    console.log('MAX31855: Read request issued with no callback.');\n  }\n};\n\n/** Return the thermocouple temperature value. Value is returned in degrees celsius */\nMAX31855.prototype.readTempC = function(callback) {\n  if(callback) {\n    var self = this; // Scope closure\n    this._read32(function(value) {\n      // Check for error reading value.\n      if(value & 0x7) {\n        callback(NaN);\n      } else {\n        if(value & 0x80000000) { // Check if signed bit is set.\n          // Negative value, shift the bits and take 2's compliment.\n          value >>= 18;\n          value = ~value + 1;\n        } else { // Positive value, just shift the bits to get the value.\n          value >>= 18;\n        }\n        // Scale by 0.25 degrees C per bit\n        callback(value * 0.25);\n      }\n    });\n  } else {\n    console.log('MAX31855: Read request issued with no callback.');\n  }\n};\n\n//module.exports = MAX31855;\n\nvar thermoSensor = new MAX31855();\nthermoSensor.readTempC(function(temp) {\n    //console.log('Temp in degrees celsius: ', temp);\n    //node.warn(temp);\n    \n    temp = temp*9/5+32\n    global.set('kiln_01.UpperTemperature', temp, 'memoryOnly');\n    \n    var id = 1;\n    var newMsg = {\n     \"topic\": \"INSERT INTO temperatures values(\" + temp + \", date('now'), time('now'), Kiln_01_UpperTemperature)\",\n     //\"topic\": \"INSERT INTO TEMPERATURE VALUES ( \" + msg.payload + \", \" + temp + \", \" + id + \")\",\n     \"temperature\" : temp,\n     \"payload\": msg.payload\n    }\n    node.send(newMsg); // node.send() is needed for async\n    node.done();\n});\n\n\n//return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "SPI",
+                "module": "pi-spi"
+            }
+        ],
+        "x": 295,
+        "y": 340,
+        "wires": [
+            [
+                "0d670f61e6fde01c"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "90d2df249ed5559d",
+        "type": "function",
+        "z": "3154c44d1a91de38",
+        "name": "get lower temp",
+        "func": "// https://github.com/maugdog/max31855\n\n/**\n * Node.js module for driving the Adafruit MAX31855 thermocouple temperature amplifier on Raspberry Pi.\n *\n * Currently supports only hardware SPI configuration (as opposed to software SPI using GPIO pins).\n * Note: May require running under sudo for SPI permissions.\n * Note: The SPI master driver is disabled by default on Raspian Linux and must be enabled. see here:\n * https://www.raspberrypi.org/documentation/hardware/raspberrypi/spi/README.md\n */\n\n//var SPI = require('pi-spi');\n\nfunction MAX31855() {\n  // Initialize the SPI settings\n  this._spi = SPI.initialize(\"/dev/spidev0.0\");\n  this._spi.clockSpeed(5000000);\n  this._spi.dataMode(0);\n  this._spi.bitOrder(SPI.order.MSB_FIRST);\n}\n\n/** Read 32 bits from the SPI bus. */\nMAX31855.prototype._read32 = function(callback) {\n  this._spi.read(4, function(error, bytes) {\n    if(error) {\n      console.error(error);\n    } else {\n      if(!bytes || bytes.length != 4) {\n        throw new Error('MAX31855: Did not read expected number of bytes from device!');\n      } else {\n        value = bytes[0] << 24 | bytes[1] << 16 | bytes[2] << 8 | bytes[3];\n        //console.log('Raw value: ', value);\n        callback(value);\n      }\n    }\n  });\n};\n\n/** Returns the internal temperature value in degrees Celsius. */\nMAX31855.prototype.readInternalC = function(callback) {\n  if(callback) {\n    this._read32(function(value) {\n      // Ignore bottom 4 bits of thermocouple data.\n  \t\tvalue >>= 4;\n  \t\t// Grab bottom 11 bits as internal temperature data.\n  \t\tvar internal = value & 0x7FF;\n  \t\tif(value & 0x800) {\n        // Negative value, take 2's compliment.\n        internal = ~internal + 1;\n      }\n      // Scale by 0.0625 degrees C per bit and return value.\n      callback(internal * 0.0625);\n    });\n  } else {\n    console.log('MAX31855: Read request issued with no callback.');\n  }\n};\n\n/** Return the thermocouple temperature value. Value is returned in degrees celsius */\nMAX31855.prototype.readTempC = function(callback) {\n  if(callback) {\n    var self = this; // Scope closure\n    this._read32(function(value) {\n      // Check for error reading value.\n      if(value & 0x7) {\n        callback(NaN);\n      } else {\n        if(value & 0x80000000) { // Check if signed bit is set.\n          // Negative value, shift the bits and take 2's compliment.\n          value >>= 18;\n          value = ~value + 1;\n        } else { // Positive value, just shift the bits to get the value.\n          value >>= 18;\n        }\n        // Scale by 0.25 degrees C per bit\n        callback(value * 0.25);\n      }\n    });\n  } else {\n    console.log('MAX31855: Read request issued with no callback.');\n  }\n};\n\n//module.exports = MAX31855;\n\nvar thermoSensor = new MAX31855();\nthermoSensor.readTempC(function(temp) {\n    //console.log('Temp in degrees celsius: ', temp);\n    //node.warn(temp);\n    \n    temp = temp*9/5+32\n    global.set('kiln_01.LowerTemperature', temp, 'memoryOnly');\n    \n    var id = 2;\n    var newMsg = {\n     \"topic\": \"INSERT INTO temperatures values(\" + temp + \", date('now'), time('now'), Kiln_01_LowerTemperature)\",\n     //\"topic\": \"INSERT INTO TEMPERATURE VALUES ( \" + msg.payload + \", \" + temp + \", \" + id + \")\",\n     \"temperature\" : temp,\n     \"payload\": msg.payload\n    }\n    node.send(newMsg); // node.send() is needed for async\n    node.done();\n});\n\n\n//return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "SPI",
+                "module": "pi-spi"
+            }
+        ],
+        "x": 295,
+        "y": 380,
+        "wires": [
+            [
+                "8c970109233d3f07"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "774be46b1df4202c",
+        "type": "catch",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 60,
+        "y": 20,
+        "wires": [
+            [
+                "08d3626ca47817b7"
+            ]
+        ]
+    },
+    {
+        "id": "08d3626ca47817b7",
+        "type": "debug",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 190,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "6c490df17d1de881",
+        "type": "rbe",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "func": "deadbandEq",
+        "gap": "1",
+        "start": "",
+        "inout": "out",
+        "septopics": false,
+        "property": "temperature",
+        "topi": "topic",
+        "x": 515,
+        "y": 220,
+        "wires": [
+            [
+                "dbaab26e980063a4"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "bd45525a6924a5c5",
+        "type": "rbe",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "func": "deadbandEq",
+        "gap": "1",
+        "start": "",
+        "inout": "out",
+        "septopics": false,
+        "property": "temperature",
+        "topi": "topic",
+        "x": 515,
+        "y": 180,
+        "wires": [
+            [
+                "5cdb1e903b180a71"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "aa4ddf8613c60dce",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "temperature",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 515,
+        "y": 280,
+        "wires": [
+            [
+                "d1a65eb3c343781d"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "d89f8dde7ffe2c9d",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "temperature",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 515,
+        "y": 320,
+        "wires": [
+            [
+                "23a36d0bd1c7574b"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "dcbc073ea7b777ee",
+        "type": "link out",
+        "z": "3154c44d1a91de38",
+        "name": "Output - Upper Temperature",
+        "mode": "link",
+        "links": [
+            "9b6b7f2249d013ba"
+        ],
+        "x": 635,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "e65201e766b76bfd",
+        "type": "link out",
+        "z": "3154c44d1a91de38",
+        "name": "Output - Lower Temperature",
+        "mode": "link",
+        "links": [
+            "4ea9f6ce194f1281"
+        ],
+        "x": 635,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "ea802ed93ceeae42",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "sim temps",
+        "rules": [
+            {
+                "t": "set",
+                "p": "#:(memoryOnly)::kiln_01.UpperTemperature",
+                "pt": "global",
+                "to": "#:(memoryOnly)::kiln_01.UpperSetpoint",
+                "tot": "global"
+            },
+            {
+                "t": "set",
+                "p": "temperature",
+                "pt": "msg",
+                "to": "#:(memoryOnly)::kiln_01.UpperSetpoint",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 310,
+        "y": 220,
+        "wires": [
+            [
+                "aa4ddf8613c60dce",
+                "bd45525a6924a5c5"
+            ]
+        ]
+    },
+    {
+        "id": "1235c1dcd4711779",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "build measurement",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "topic",
+                "pt": "msg"
+            },
+            {
+                "t": "set",
+                "p": "measurement",
+                "pt": "msg",
+                "to": "Kiln_01_UpperTemperature",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "temperature",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "temperature",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 635,
+        "y": 180,
+        "wires": [
+            [
+                "2f036bde9aaff376"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "9468a3b6de1782db",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "build measurement",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "topic",
+                "pt": "msg"
+            },
+            {
+                "t": "set",
+                "p": "measurement",
+                "pt": "msg",
+                "to": "Kiln_01_LowerTemperature",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "temperature",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "temperature",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 635,
+        "y": 220,
+        "wires": [
+            [
+                "2f036bde9aaff376"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "23a36d0bd1c7574b",
+        "type": "function",
+        "z": "3154c44d1a91de38",
+        "name": "set precision",
+        "func": "msg.payload = msg.payload.toFixed(2);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 575,
+        "y": 320,
+        "wires": [
+            [
+                "e65201e766b76bfd"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "d1a65eb3c343781d",
+        "type": "function",
+        "z": "3154c44d1a91de38",
+        "name": "set precision",
+        "func": "msg.payload = msg.payload.toFixed(2);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 575,
+        "y": 280,
+        "wires": [
+            [
+                "dcbc073ea7b777ee"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "819eacdd5b2d931c",
+        "type": "trigger",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "op1": "",
+        "op2": "0",
+        "op1type": "date",
+        "op2type": "str",
+        "duration": "-1000",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "false",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 175,
+        "y": 240,
+        "wires": [
+            [
+                "ea802ed93ceeae42",
+                "79016fc241d79289"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "bc3e2212fd11e206",
+        "type": "ui_switch",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "label": "Simulation",
+        "tooltip": "",
+        "group": "112aa19380852c23",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "x": 490,
+        "y": 500,
+        "wires": [
+            [
+                "d76c7ce673b280af"
+            ]
+        ]
+    },
+    {
+        "id": "79016fc241d79289",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "sim temps",
+        "rules": [
+            {
+                "t": "set",
+                "p": "#:(memoryOnly)::kiln_01.LowerTemperature",
+                "pt": "global",
+                "to": "#:(memoryOnly)::kiln_01.LowerSetpoint",
+                "tot": "global"
+            },
+            {
+                "t": "set",
+                "p": "temperature",
+                "pt": "msg",
+                "to": "#:(memoryOnly)::kiln_01.LowerSetpoint",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 310,
+        "y": 260,
+        "wires": [
+            [
+                "d89f8dde7ffe2c9d",
+                "6c490df17d1de881"
+            ]
+        ]
+    },
+    {
+        "id": "d76c7ce673b280af",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "set sim temp",
+        "rules": [
+            {
+                "t": "set",
+                "p": "kiln_01.SimulateTemperature",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 595,
+        "y": 500,
+        "wires": [
+            [
+                "a3ad47349ae89c29"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "f45e246dbf521446",
+        "type": "switch",
+        "z": "3154c44d1a91de38",
+        "name": "check sim temp",
+        "property": "kiln_01.SimulateTemperature",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 195,
+        "y": 360,
+        "wires": [
+            [
+                "90d2df249ed5559d",
+                "35573d9f8cb557cc"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "2f036bde9aaff376",
+        "type": "influxdb out",
+        "z": "3154c44d1a91de38",
+        "influxdb": "1a7d214ba0ada216",
+        "name": "",
+        "measurement": "",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "home",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "52w",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 820,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "dbaab26e980063a4",
+        "type": "switch",
+        "z": "3154c44d1a91de38",
+        "name": "temp cutoff",
+        "property": "temperature",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "50",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 575,
+        "y": 220,
+        "wires": [
+            [
+                "9468a3b6de1782db"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "5cdb1e903b180a71",
+        "type": "switch",
+        "z": "3154c44d1a91de38",
+        "name": "temp cutoff",
+        "property": "temperature",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "50",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 575,
+        "y": 180,
+        "wires": [
+            [
+                "1235c1dcd4711779"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "5689c5638cfebacb",
+        "type": "ui_ui_control",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "events": "all",
+        "x": 160,
+        "y": 500,
+        "wires": [
+            [
+                "85cd714804063e2b"
+            ]
+        ]
+    },
+    {
+        "id": "85cd714804063e2b",
+        "type": "switch",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "lost",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "connect",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "change",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 290,
+        "y": 500,
+        "wires": [
+            [],
+            [
+                "477ed7158a34c5bf"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "477ed7158a34c5bf",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "get sim temp",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "kiln_01.SimulateTemperature",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 375,
+        "y": 500,
+        "wires": [
+            [
+                "bc3e2212fd11e206"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "218ba5aacd9d564e",
+        "type": "link in",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "links": [
+            "a3ad47349ae89c29"
+        ],
+        "x": 115,
+        "y": 240,
+        "wires": [
+            [
+                "819eacdd5b2d931c"
+            ]
+        ]
+    },
+    {
+        "id": "a3ad47349ae89c29",
+        "type": "link out",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "218ba5aacd9d564e"
+        ],
+        "x": 655,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "16e8124d59e7fb62",
+        "type": "rpi-gpio out",
+        "z": "3154c44d1a91de38",
+        "name": "Upper_Heater",
+        "pin": "26",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 800,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "708a944b9506b9a4",
+        "type": "trigger",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "op1": "1",
+        "op2": "0",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "200",
+        "extend": false,
+        "overrideDelay": true,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 575,
+        "y": 700,
+        "wires": [
+            [
+                "16e8124d59e7fb62"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "ee6259aabb77fcdf",
+        "type": "inject",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.1",
+        "topic": "",
+        "x": 110,
+        "y": 660,
+        "wires": [
+            [
+                "11d1503b33735b7a"
+            ]
+        ]
+    },
+    {
+        "id": "11d1503b33735b7a",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "initialize setpoints",
+        "rules": [
+            {
+                "t": "set",
+                "p": "#:(memoryOnly)::kiln_01.Setpoint",
+                "pt": "global",
+                "to": "0",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "#:(memoryOnly)::kiln_01.UpperSetpoint",
+                "pt": "global",
+                "to": "0",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "#:(memoryOnly)::kiln_01.LowerSetpoint",
+                "pt": "global",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 270,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "12681729a71ef662",
+        "type": "rpi-gpio out",
+        "z": "3154c44d1a91de38",
+        "name": "Lower_Heater",
+        "pin": "19",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 700,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "26dcb58ffb63fae4",
+        "type": "trigger",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "op1": "1",
+        "op2": "0",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "200",
+        "extend": false,
+        "overrideDelay": true,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 575,
+        "y": 780,
+        "wires": [
+            [
+                "12681729a71ef662"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "a9bb39e013a1c8f9",
+        "type": "range",
+        "z": "3154c44d1a91de38",
+        "minin": "0",
+        "maxin": "1000",
+        "minout": "1",
+        "maxout": "100",
+        "action": "clamp",
+        "round": false,
+        "property": "delay",
+        "name": "",
+        "x": 575,
+        "y": 660,
+        "wires": [
+            [
+                "ba418671e4996002"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "b6d260258241c4b6",
+        "type": "debug",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "ba418671e4996002",
+        "type": "function",
+        "z": "3154c44d1a91de38",
+        "name": "set precision",
+        "func": "msg.delay = parseFloat(msg.delay.toFixed(2))\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 635,
+        "y": 660,
+        "wires": [
+            [
+                "b6d260258241c4b6"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "e4a7e7415279dc26",
+        "type": "comment",
+        "z": "3154c44d1a91de38",
+        "name": "PID controller and ssr output",
+        "info": "",
+        "x": 140,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "4411f03fad54a3bf",
+        "type": "comment",
+        "z": "3154c44d1a91de38",
+        "name": "thermocouples input and data collection",
+        "info": "",
+        "x": 180,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "9cd105f7bbe1e048",
+        "type": "switch",
+        "z": "3154c44d1a91de38",
+        "name": "is upper auto-tuning",
+        "property": "kiln_01.pid[0].auto_tune",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 395,
+        "y": 720,
+        "wires": [
+            [
+                "d4cb1a52a4fe0d75"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "a7b88091f8fc6bef",
+        "type": "switch",
+        "z": "3154c44d1a91de38",
+        "name": "is lower auto-tuning",
+        "property": "kiln_01.pid[1].auto_tune",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 395,
+        "y": 800,
+        "wires": [
+            [
+                "5bb8a83cadcb2ba3"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "55db840a42d1c307",
+        "type": "link in",
+        "z": "3154c44d1a91de38",
+        "name": "upper heater in",
+        "links": [
+            "d5be35f05e994888"
+        ],
+        "x": 395,
+        "y": 740,
+        "wires": [
+            [
+                "d4cb1a52a4fe0d75"
+            ]
+        ]
+    },
+    {
+        "id": "2e9f7e8eed4fe956",
+        "type": "link in",
+        "z": "3154c44d1a91de38",
+        "name": "lower heater in",
+        "links": [
+            "431877d7412baca5"
+        ],
+        "x": 395,
+        "y": 820,
+        "wires": [
+            [
+                "5bb8a83cadcb2ba3"
+            ]
+        ]
+    },
+    {
+        "id": "c9874287110179be",
+        "type": "link out",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "e091d89060e936b3"
+        ],
+        "x": 655,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "c4c04a40bcd2b9a9",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "temperature",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "topic",
+                "pt": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "temperature",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 595,
+        "y": 420,
+        "wires": [
+            [
+                "c9874287110179be"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "51e9a32e9cfe0fc0",
+        "type": "switch",
+        "z": "3154c44d1a91de38",
+        "name": "check zone",
+        "property": "kiln_01.pid_selected_zone",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 515,
+        "y": 380,
+        "wires": [
+            [
+                "c4c04a40bcd2b9a9"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "9136a429c48c2758",
+        "type": "switch",
+        "z": "3154c44d1a91de38",
+        "name": "check zone",
+        "property": "kiln_01.pid_selected_zone",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 515,
+        "y": 420,
+        "wires": [
+            [
+                "c4c04a40bcd2b9a9"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "f149b69a489b3e6f",
+        "type": "comment",
+        "z": "3154c44d1a91de38",
+        "name": "TODO: fault when thermocouple is removed",
+        "info": "",
+        "x": 210,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "1e743148a5de6976",
+        "type": "comment",
+        "z": "3154c44d1a91de38",
+        "name": "TODO: calibration routine",
+        "info": "",
+        "x": 150,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "0d670f61e6fde01c",
+        "type": "smooth",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "property": "temperature",
+        "action": "low",
+        "count": "10",
+        "round": "",
+        "mult": "single",
+        "reduce": false,
+        "x": 355,
+        "y": 340,
+        "wires": [
+            [
+                "bd45525a6924a5c5",
+                "aa4ddf8613c60dce",
+                "51e9a32e9cfe0fc0"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "8c970109233d3f07",
+        "type": "smooth",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "property": "temperature",
+        "action": "low",
+        "count": "10",
+        "round": "",
+        "mult": "single",
+        "reduce": false,
+        "x": 355,
+        "y": 380,
+        "wires": [
+            [
+                "9136a429c48c2758",
+                "d89f8dde7ffe2c9d",
+                "6c490df17d1de881"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "d4cb1a52a4fe0d75",
+        "type": "function",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "func": "// create a new message object to clean it up\nvar msg_out = { delay: msg.payload * 1000 };\nvar FsmStatus_Schedule = global.get('kiln_01.FsmStatus_Schedule','memoryOnly')\n//var FsmStatus_Segment = global.get('kiln_01.FsmStatus_Segment','memoryOnly')\nvar auto_tune_upper = global.get('kiln_01.pid[0].auto_tune_upper')\nvar auto_tune_lower = global.get('kiln_01.pid[0].auto_tune_lower')\nvar UpperSetpoint = global.get('kiln_01.UpperSetpoint','memoryOnly')\nvar LowerSetpoint = global.get('kiln_01.LowerSetpoint','memoryOnly')\nvar UpperTemperature = global.get('kiln_01.UpperTemperature','memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature','memoryOnly')\n\nif (Math.abs(UpperSetpoint - UpperTemperature) < 100 && Math.abs(LowerSetpoint - LowerTemperature) < 100) {\n    // temps a setpoints are within tolerance\n    node.status({fill:\"green\",shape:\"dot\",text:\"All good!\"});\n    // the trigger function locks up if you send it a zero\n    // similarly, we dont want to send it a value over\n    // the trigger time (1000 ms)\n    if (msg_out.delay > 0 && msg_out.delay < 1000 && (FsmStatus_Schedule != 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n        return [ msg_out, null ];\n    } else if (msg_out.delay <= 0 || (FsmStatus_Schedule == 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n        // send an \"off\" directly to the output node\n        msg_out.payload = \"0\"\n        return [ null, msg_out ];\n    } else if (msg_out.delay >= 1000){\n        // send an \"on\" directly to the output node\n        msg_out.payload = \"1\"\n        return [ null, msg_out ];\n    } else {\n        // send an \"off\" directly to the output node\n        msg_out.payload = \"0\"\n        return [ null, msg_out ];\n    }\n} else {\n    // temp is too far away from setpoint. something is wrong.\n    // send an \"off\" directly to the output node\n    node.warn(\"temp is too far away from setpoint. something is wrong.\")\n    node.status({fill:\"red\",shape:\"dot\",text:\"Something is wrong!\"});\n    msg_out.payload = \"0\"\n    return [ null, msg_out ];\n}",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 475,
+        "y": 720,
+        "wires": [
+            [
+                "a9bb39e013a1c8f9",
+                "708a944b9506b9a4"
+            ],
+            [
+                "16e8124d59e7fb62"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "5bb8a83cadcb2ba3",
+        "type": "function",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "func": "// create a new message object to clean it up\nvar msg_out = { delay: msg.payload * 1000 };\nvar FsmStatus_Schedule = global.get('kiln_01.FsmStatus_Schedule','memoryOnly')\n//var FsmStatus_Segment = global.get('kiln_01.FsmStatus_Segment','memoryOnly')\nvar auto_tune_upper = global.get('kiln_01.pid[0].auto_tune_upper')\nvar auto_tune_lower = global.get('kiln_01.pid[0].auto_tune_lower')\nvar UpperSetpoint = global.get('kiln_01.UpperSetpoint','memoryOnly')\nvar LowerSetpoint = global.get('kiln_01.LowerSetpoint','memoryOnly')\nvar UpperTemperature = global.get('kiln_01.UpperTemperature','memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature','memoryOnly')\n\nif (Math.abs(UpperSetpoint - UpperTemperature) < 100 && Math.abs(LowerSetpoint - LowerTemperature) < 100) {\n    // temps a setpoints are within tolerance\n    node.status({fill:\"green\",shape:\"dot\",text:\"All good!\"});\n    // the trigger function locks up if you send it a zero\n    // similarly, we dont want to send it a value over\n    // the trigger time (1000 ms)\n    if (msg_out.delay > 0 && msg_out.delay < 1000 && (FsmStatus_Schedule != 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n        return [ msg_out, null ];\n    } else if (msg_out.delay <= 0 || (FsmStatus_Schedule == 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n        // send an \"off\" directly to the output node\n        msg_out.payload = \"0\"\n        return [ null, msg_out ];\n    } else if (msg_out.delay >= 1000){\n        // send an \"on\" directly to the output node\n        msg_out.payload = \"1\"\n        return [ null, msg_out ];\n    } else {\n        // send an \"off\" directly to the output node\n        msg_out.payload = \"0\"\n        return [ null, msg_out ];\n    }\n} else {\n    // temp is too far away from setpoint. something is wrong.\n    // send an \"off\" directly to the output node\n    node.warn(\"temp is too far away from setpoint. something is wrong.\")\n    node.status({fill:\"red\",shape:\"dot\",text:\"Something is wrong!\"});\n    msg_out.payload = \"0\"\n    return [ null, msg_out ];\n}",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 475,
+        "y": 800,
+        "wires": [
+            [
+                "26dcb58ffb63fae4"
+            ],
+            [
+                "12681729a71ef662"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "1c9e79b136a623e2",
+        "type": "catch",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 60,
+        "y": 20,
+        "wires": [
+            [
+                "d3aa01638e9fef28"
+            ]
+        ]
+    },
+    {
+        "id": "d3aa01638e9fef28",
+        "type": "debug",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 190,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "0f5d38dea1f9fdf8",
+        "type": "inject",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 140,
+        "wires": [
+            [
+                "f14af351da1b05c1"
+            ]
+        ]
+    },
+    {
+        "id": "f14af351da1b05c1",
+        "type": "exec",
+        "z": "98e4246c87add39e",
+        "command": "node-red-restart",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 380,
+        "y": 140,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "680c5276908a542b",
+        "type": "inject",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 180,
+        "wires": [
+            [
+                "3b38d7ad7142ae99"
+            ]
+        ]
+    },
+    {
+        "id": "3b38d7ad7142ae99",
+        "type": "exec",
+        "z": "98e4246c87add39e",
+        "command": "sudo shutdown now",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 400,
+        "y": 180,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "300160ca9486c7ff",
+        "type": "inject",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 220,
+        "wires": [
+            [
+                "5bb9693f827a8916"
+            ]
+        ]
+    },
+    {
+        "id": "5bb9693f827a8916",
+        "type": "exec",
+        "z": "98e4246c87add39e",
+        "command": "sudo reboot now",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 390,
+        "y": 220,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "596909473c6a4408",
+        "type": "comment",
+        "z": "98e4246c87add39e",
+        "name": "PiSugar: https://github.com/PiSugar/pisugar-power-manager-rs",
+        "info": "",
+        "x": 370,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "8de289bdc5fd2ca4",
+        "type": "comment",
+        "z": "98e4246c87add39e",
+        "name": "PiSugar user:admin pass:admin",
+        "info": "",
+        "x": 270,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "136ed4e4c080a681",
+        "type": "inject",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "x": 210,
+        "y": 260,
+        "wires": [
+            [
+                "5e1d74212376e4f3"
+            ]
+        ]
+    },
+    {
+        "id": "5e1d74212376e4f3",
+        "type": "exec",
+        "z": "98e4246c87add39e",
+        "command": "hostname",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 360,
+        "y": 260,
+        "wires": [
+            [
+                "f619121c08077343"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "f619121c08077343",
+        "type": "change",
+        "z": "98e4246c87add39e",
+        "name": "set hostname",
+        "rules": [
+            {
+                "t": "set",
+                "p": "hostname",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1097eb74c1ce2240",
+        "type": "http in",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "url": "/ui/PiSugar",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 220,
+        "y": 400,
+        "wires": [
+            [
+                "af3ca29e3470f492"
+            ]
+        ]
+    },
+    {
+        "id": "cdb3dcc1721e5831",
+        "type": "http response",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 530,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "af3ca29e3470f492",
+        "type": "function",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "func": "var hostname = global.get('hostname')\nvar Location = \"http://\"+hostname.replace(/[^\\x20-\\x7E]/g, '')+\":8421\"\n\nmsg.statusCode = 303;\nmsg.headers = {Location}\ndelete msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 400,
+        "wires": [
+            [
+                "cdb3dcc1721e5831"
+            ]
+        ]
+    },
+    {
+        "id": "ca9e41f3290507c6",
+        "type": "http in",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "url": "/ui/NodeRed",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 210,
+        "y": 420,
+        "wires": [
+            [
+                "852ffc368267fec4"
+            ]
+        ]
+    },
+    {
+        "id": "c3144365fd84c245",
+        "type": "http response",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 530,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "852ffc368267fec4",
+        "type": "function",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "func": "var hostname = global.get('hostname')\nvar Location = \"http://\"+hostname.replace(/[^\\x20-\\x7E]/g, '')+\":1880\"\n\nmsg.statusCode = 303;\nmsg.headers = {Location}\ndelete msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 420,
+        "wires": [
+            [
+                "c3144365fd84c245"
+            ]
+        ]
+    },
+    {
+        "id": "f6f7fc1d1ca591cd",
+        "type": "http in",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "url": "/ui/Grafana",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 220,
+        "y": 440,
+        "wires": [
+            [
+                "e1079bfffd705742"
+            ]
+        ]
+    },
+    {
+        "id": "ca1a6fb8733136ea",
+        "type": "http response",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 530,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "e1079bfffd705742",
+        "type": "function",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "func": "var hostname = global.get('hostname')\nvar Location = \"http://\"+hostname.replace(/[^\\x20-\\x7E]/g, '')+\":3000/d/_6ZBVeRgk/historical-temperatures?orgId=1&from=now-7d&to=now&fullscreen&panelId=4\"\n\nmsg.statusCode = 303;\nmsg.headers = {Location}\ndelete msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 440,
+        "wires": [
+            [
+                "ca1a6fb8733136ea"
+            ]
+        ]
+    },
+    {
+        "id": "f9460b8af28fe098",
+        "type": "comment",
+        "z": "98e4246c87add39e",
+        "name": "system commands",
+        "info": "",
+        "x": 110,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "d50ee496a66536be",
+        "type": "comment",
+        "z": "98e4246c87add39e",
+        "name": "web redirection",
+        "info": "",
+        "x": 100,
+        "y": 360,
         "wires": []
     }
 ]
