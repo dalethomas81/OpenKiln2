@@ -8487,14 +8487,14 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 310,
+        "x": 315,
         "y": 220,
         "wires": [
             [
-                "bd45525a6924a5c5",
-                "dcbc073ea7b777ee"
+                "bbab6af088f829c2"
             ]
-        ]
+        ],
+        "l": false
     },
     {
         "id": "1235c1dcd4711779",
@@ -8579,7 +8579,7 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 175,
+        "x": 235,
         "y": 240,
         "wires": [
             [
@@ -8648,14 +8648,14 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 310,
+        "x": 315,
         "y": 260,
         "wires": [
             [
-                "6c490df17d1de881",
-                "e65201e766b76bfd"
+                "acb33ff4507d9a9b"
             ]
-        ]
+        ],
+        "l": false
     },
     {
         "id": "d76c7ce673b280af",
@@ -8831,7 +8831,7 @@
         "links": [
             "a3ad47349ae89c29"
         ],
-        "x": 115,
+        "x": 175,
         "y": 240,
         "wires": [
             [
@@ -9247,6 +9247,48 @@
         "libs": [],
         "x": 375,
         "y": 400,
+        "wires": [
+            [
+                "6c490df17d1de881",
+                "e65201e766b76bfd"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "bbab6af088f829c2",
+        "type": "function",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "func": "msg.payload = parseFloat(msg.payload.toFixed(2))\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 375,
+        "y": 220,
+        "wires": [
+            [
+                "dcbc073ea7b777ee",
+                "bd45525a6924a5c5"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "acb33ff4507d9a9b",
+        "type": "function",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "func": "msg.payload = parseFloat(msg.payload.toFixed(2))\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 375,
+        "y": 260,
         "wires": [
             [
                 "6c490df17d1de881",
