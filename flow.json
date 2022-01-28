@@ -8463,7 +8463,7 @@
         "type": "function",
         "z": "3154c44d1a91de38",
         "name": "set precision",
-        "func": "msg.payload = msg.payload.toFixed(2);\nreturn msg;",
+        "func": "msg.payload = parseFloat(msg.payload.toFixed(2));\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -8483,7 +8483,7 @@
         "type": "function",
         "z": "3154c44d1a91de38",
         "name": "set precision",
-        "func": "msg.payload = msg.payload.toFixed(2);\nreturn msg;",
+        "func": "msg.payload = parseFloat(msg.payload.toFixed(2));\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -9120,8 +9120,7 @@
             [
                 "bd45525a6924a5c5",
                 "51e9a32e9cfe0fc0",
-                "d1a65eb3c343781d",
-                "42e8d9123d93b8fd"
+                "d1a65eb3c343781d"
             ]
         ],
         "l": false
@@ -9296,22 +9295,6 @@
         "statusType": "auto",
         "x": 760,
         "y": 300,
-        "wires": []
-    },
-    {
-        "id": "42e8d9123d93b8fd",
-        "type": "debug",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 760,
-        "y": 360,
         "wires": []
     },
     {
