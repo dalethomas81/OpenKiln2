@@ -8556,8 +8556,8 @@
         "officon": "",
         "offcolor": "",
         "animate": false,
-        "x": 490,
-        "y": 500,
+        "x": 330,
+        "y": 520,
         "wires": [
             [
                 "d76c7ce673b280af"
@@ -8618,8 +8618,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 595,
-        "y": 500,
+        "x": 435,
+        "y": 520,
         "wires": [
             [
                 "a3ad47349ae89c29"
@@ -8727,51 +8727,15 @@
         "type": "ui_ui_control",
         "z": "3154c44d1a91de38",
         "name": "",
-        "events": "all",
-        "x": 160,
-        "y": 500,
+        "events": "connect",
+        "x": 155,
+        "y": 520,
         "wires": [
-            [
-                "85cd714804063e2b"
-            ]
-        ]
-    },
-    {
-        "id": "85cd714804063e2b",
-        "type": "switch",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "lost",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "connect",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "change",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 3,
-        "x": 290,
-        "y": 500,
-        "wires": [
-            [],
             [
                 "477ed7158a34c5bf"
-            ],
-            []
-        ]
+            ]
+        ],
+        "l": false
     },
     {
         "id": "477ed7158a34c5bf",
@@ -8792,8 +8756,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 375,
-        "y": 500,
+        "x": 215,
+        "y": 520,
         "wires": [
             [
                 "bc3e2212fd11e206"
@@ -8826,8 +8790,8 @@
         "links": [
             "218ba5aacd9d564e"
         ],
-        "x": 655,
-        "y": 500,
+        "x": 495,
+        "y": 520,
         "wires": []
     },
     {
