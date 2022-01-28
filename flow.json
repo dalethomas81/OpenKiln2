@@ -8186,6 +8186,86 @@
         "wires": []
     },
     {
+        "id": "53681c7211103452",
+        "type": "link in",
+        "z": "b83fb43068cdf48f",
+        "name": "input - zone 0 - SP",
+        "links": [],
+        "x": 255,
+        "y": 180,
+        "wires": [
+            [
+                "15a8037dcc3b6a5a"
+            ]
+        ]
+    },
+    {
+        "id": "15a8037dcc3b6a5a",
+        "type": "change",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "pid.zone[0].parameters.setpoint",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 315,
+        "y": 180,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "4840d3b8dd483cff",
+        "type": "link in",
+        "z": "b83fb43068cdf48f",
+        "name": "input - zone 1 - SP",
+        "links": [],
+        "x": 715,
+        "y": 180,
+        "wires": [
+            [
+                "9fa5332fb445e60b"
+            ]
+        ]
+    },
+    {
+        "id": "9fa5332fb445e60b",
+        "type": "change",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "pid.zone[1].parameters.setpoint",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 775,
+        "y": 180,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
         "id": "c96f9cb61b158baf",
         "type": "inject",
         "z": "3154c44d1a91de38",
