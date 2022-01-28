@@ -8188,7 +8188,9 @@
         "name": "",
         "props": [
             {
-                "p": "payload"
+                "p": "timestamp",
+                "v": "",
+                "vt": "date"
             }
         ],
         "repeat": "1",
@@ -8196,7 +8198,6 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payloadType": "date",
         "x": 115,
         "y": 360,
         "wires": [
@@ -8211,7 +8212,7 @@
         "type": "function",
         "z": "3154c44d1a91de38",
         "name": "get upper temp",
-        "func": "// https://github.com/maugdog/max31855\n\n/**\n * Node.js module for driving the Adafruit MAX31855 thermocouple temperature amplifier on Raspberry Pi.\n *\n * Currently supports only hardware SPI configuration (as opposed to software SPI using GPIO pins).\n * Note: May require running under sudo for SPI permissions.\n * Note: The SPI master driver is disabled by default on Raspian Linux and must be enabled. see here:\n * https://www.raspberrypi.org/documentation/hardware/raspberrypi/spi/README.md\n */\n\n//var SPI = require('pi-spi');\n\nfunction MAX31855(spidev) {\n  // Initialize the SPI settings\n  //this._spi = SPI.initialize(\"/dev/spidev0.0\");\n  this._spi = SPI.initialize(spidev);\n  this._spi.clockSpeed(5000000);\n  this._spi.dataMode(0);\n  this._spi.bitOrder(SPI.order.MSB_FIRST);\n}\n\n/** Read 32 bits from the SPI bus. */\nMAX31855.prototype._read32 = function (callback) {\n  this._spi.read(4, function (error, bytes) {\n    if (error) {\n      console.error(error);\n    } else {\n      if (!bytes || bytes.length != 4) {\n        throw new Error('MAX31855: Did not read expected number of bytes from device!');\n      } else {\n        var value\n        value = bytes[0] << 24 | bytes[1] << 16 | bytes[2] << 8 | bytes[3];\n        //console.log('Raw value: ', value);\n        callback(value);\n      }\n    }\n  });\n};\n\n/** Returns the internal temperature value in degrees Celsius. */\nMAX31855.prototype.readInternalC = function (callback) {\n  if (callback) {\n    this._read32(function (value) {\n      // Ignore bottom 4 bits of thermocouple data.\n      value >>= 4;\n      // Grab bottom 11 bits as internal temperature data.\n      var internal = value & 0x7FF;\n      if (value & 0x800) {\n        // Negative value, take 2's compliment.\n        internal = ~internal + 1;\n      }\n      // Scale by 0.0625 degrees C per bit and return value.\n      callback(internal * 0.0625);\n    });\n  } else {\n    console.log('MAX31855: Read request issued with no callback.');\n  }\n};\n\n/** Return the thermocouple temperature value. Value is returned in degrees celsius */\nMAX31855.prototype.readTempC = function (callback) {\n  if (callback) {\n    var self = this; // Scope closure\n    this._read32(function (value) {\n      // Check for error reading value.\n      if (value & 0x7) {\n        callback(NaN);\n      } else {\n        if (value & 0x80000000) { // Check if signed bit is set.\n          // Negative value, shift the bits and take 2's compliment.\n          value >>= 18;\n          value = ~value + 1;\n        } else { // Positive value, just shift the bits to get the value.\n          value >>= 18;\n        }\n        // Scale by 0.25 degrees C per bit\n        callback(value * 0.25);\n      }\n    });\n  } else {\n    console.log('MAX31855: Read request issued with no callback.');\n  }\n};\n\nvar thermoSensor = new MAX31855(msg.spidev);\nthermoSensor.readTempC(function (temp) {\n  temp = temp * 9 / 5 + 32\n  node.status({ fill: \"green\", shape: \"dot\", text: temp + '°F' });\n  var newMsg = {\n    \"temperature\": temp,\n    \"payload\": msg.payload\n  }\n  node.send(newMsg); // node.send() is needed for async\n  node.done();\n});",
+        "func": "// https://github.com/maugdog/max31855\n\n/**\n * Node.js module for driving the Adafruit MAX31855 thermocouple temperature amplifier on Raspberry Pi.\n *\n * Currently supports only hardware SPI configuration (as opposed to software SPI using GPIO pins).\n * Note: May require running under sudo for SPI permissions.\n * Note: The SPI master driver is disabled by default on Raspian Linux and must be enabled. see here:\n * https://www.raspberrypi.org/documentation/hardware/raspberrypi/spi/README.md\n */\n\n//var SPI = require('pi-spi');\n\nfunction MAX31855(spidev) {\n  // Initialize the SPI settings\n  //this._spi = SPI.initialize(\"/dev/spidev0.0\");\n  this._spi = SPI.initialize(spidev);\n  this._spi.clockSpeed(5000000);\n  this._spi.dataMode(0);\n  this._spi.bitOrder(SPI.order.MSB_FIRST);\n}\n\n/** Read 32 bits from the SPI bus. */\nMAX31855.prototype._read32 = function (callback) {\n  this._spi.read(4, function (error, bytes) {\n    if (error) {\n      console.error(error);\n    } else {\n      if (!bytes || bytes.length != 4) {\n        throw new Error('MAX31855: Did not read expected number of bytes from device!');\n      } else {\n        var value\n        value = bytes[0] << 24 | bytes[1] << 16 | bytes[2] << 8 | bytes[3];\n        //console.log('Raw value: ', value);\n        callback(value);\n      }\n    }\n  });\n};\n\n/** Returns the internal temperature value in degrees Celsius. */\nMAX31855.prototype.readInternalC = function (callback) {\n  if (callback) {\n    this._read32(function (value) {\n      // Ignore bottom 4 bits of thermocouple data.\n      value >>= 4;\n      // Grab bottom 11 bits as internal temperature data.\n      var internal = value & 0x7FF;\n      if (value & 0x800) {\n        // Negative value, take 2's compliment.\n        internal = ~internal + 1;\n      }\n      // Scale by 0.0625 degrees C per bit and return value.\n      callback(internal * 0.0625);\n    });\n  } else {\n    console.log('MAX31855: Read request issued with no callback.');\n  }\n};\n\n/** Return the thermocouple temperature value. Value is returned in degrees celsius */\nMAX31855.prototype.readTempC = function (callback) {\n  if (callback) {\n    var self = this; // Scope closure\n    this._read32(function (value) {\n      // Check for error reading value.\n      if (value & 0x7) {\n        callback(NaN);\n      } else {\n        if (value & 0x80000000) { // Check if signed bit is set.\n          // Negative value, shift the bits and take 2's compliment.\n          value >>= 18;\n          value = ~value + 1;\n        } else { // Positive value, just shift the bits to get the value.\n          value >>= 18;\n        }\n        // Scale by 0.25 degrees C per bit\n        callback(value * 0.25);\n      }\n    });\n  } else {\n    console.log('MAX31855: Read request issued with no callback.');\n  }\n};\n\nvar thermoSensor = new MAX31855(msg.spidev);\nthermoSensor.readTempC(function (temp) {\n  temp = temp * 9 / 5 + 32\n  node.status({ fill: \"green\", shape: \"dot\", text: temp + '°F' });\n  var newMsg = { \"payload\": temp }\n  node.send(newMsg); // node.send() is needed for async\n  node.done();\n});",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -8236,7 +8237,7 @@
         "type": "function",
         "z": "3154c44d1a91de38",
         "name": "get lower temp",
-        "func": "// https://github.com/maugdog/max31855\n\n/**\n * Node.js module for driving the Adafruit MAX31855 thermocouple temperature amplifier on Raspberry Pi.\n *\n * Currently supports only hardware SPI configuration (as opposed to software SPI using GPIO pins).\n * Note: May require running under sudo for SPI permissions.\n * Note: The SPI master driver is disabled by default on Raspian Linux and must be enabled. see here:\n * https://www.raspberrypi.org/documentation/hardware/raspberrypi/spi/README.md\n */\n\n//var SPI = require('pi-spi');\n\nfunction MAX31855(spidev) {\n  // Initialize the SPI settings\n  //this._spi = SPI.initialize(\"/dev/spidev0.0\");\n  this._spi = SPI.initialize(spidev);\n  this._spi.clockSpeed(5000000);\n  this._spi.dataMode(0);\n  this._spi.bitOrder(SPI.order.MSB_FIRST);\n}\n\n/** Read 32 bits from the SPI bus. */\nMAX31855.prototype._read32 = function(callback) {\n  this._spi.read(4, function(error, bytes) {\n    if(error) {\n      console.error(error);\n    } else {\n      if(!bytes || bytes.length != 4) {\n        throw new Error('MAX31855: Did not read expected number of bytes from device!');\n      } else {\n        var value\n        value = bytes[0] << 24 | bytes[1] << 16 | bytes[2] << 8 | bytes[3];\n        //console.log('Raw value: ', value);\n        callback(value);\n      }\n    }\n  });\n};\n\n/** Returns the internal temperature value in degrees Celsius. */\nMAX31855.prototype.readInternalC = function(callback) {\n  if(callback) {\n    this._read32(function(value) {\n      // Ignore bottom 4 bits of thermocouple data.\n  \t\tvalue >>= 4;\n  \t\t// Grab bottom 11 bits as internal temperature data.\n  \t\tvar internal = value & 0x7FF;\n  \t\tif(value & 0x800) {\n        // Negative value, take 2's compliment.\n        internal = ~internal + 1;\n      }\n      // Scale by 0.0625 degrees C per bit and return value.\n      callback(internal * 0.0625);\n    });\n  } else {\n    console.log('MAX31855: Read request issued with no callback.');\n  }\n};\n\n/** Return the thermocouple temperature value. Value is returned in degrees celsius */\nMAX31855.prototype.readTempC = function(callback) {\n  if(callback) {\n    var self = this; // Scope closure\n    this._read32(function(value) {\n      // Check for error reading value.\n      if(value & 0x7) {\n        callback(NaN);\n      } else {\n        if(value & 0x80000000) { // Check if signed bit is set.\n          // Negative value, shift the bits and take 2's compliment.\n          value >>= 18;\n          value = ~value + 1;\n        } else { // Positive value, just shift the bits to get the value.\n          value >>= 18;\n        }\n        // Scale by 0.25 degrees C per bit\n        callback(value * 0.25);\n      }\n    });\n  } else {\n    console.log('MAX31855: Read request issued with no callback.');\n  }\n};\n\nvar thermoSensor = new MAX31855(msg.spidev);\nthermoSensor.readTempC(function(temp) {\n  temp = temp*9/5+32\n  node.status({ fill: \"green\", shape: \"dot\", text: temp + '°F' });\n  var newMsg = {\n    \"temperature\" : temp,\n    \"payload\": msg.payload\n  }\n  node.send(newMsg); // node.send() is needed for async\n  node.done();\n});",
+        "func": "// https://github.com/maugdog/max31855\n\n/**\n * Node.js module for driving the Adafruit MAX31855 thermocouple temperature amplifier on Raspberry Pi.\n *\n * Currently supports only hardware SPI configuration (as opposed to software SPI using GPIO pins).\n * Note: May require running under sudo for SPI permissions.\n * Note: The SPI master driver is disabled by default on Raspian Linux and must be enabled. see here:\n * https://www.raspberrypi.org/documentation/hardware/raspberrypi/spi/README.md\n */\n\n//var SPI = require('pi-spi');\n\nfunction MAX31855(spidev) {\n  // Initialize the SPI settings\n  //this._spi = SPI.initialize(\"/dev/spidev0.0\");\n  this._spi = SPI.initialize(spidev);\n  this._spi.clockSpeed(5000000);\n  this._spi.dataMode(0);\n  this._spi.bitOrder(SPI.order.MSB_FIRST);\n}\n\n/** Read 32 bits from the SPI bus. */\nMAX31855.prototype._read32 = function(callback) {\n  this._spi.read(4, function(error, bytes) {\n    if(error) {\n      console.error(error);\n    } else {\n      if(!bytes || bytes.length != 4) {\n        throw new Error('MAX31855: Did not read expected number of bytes from device!');\n      } else {\n        var value\n        value = bytes[0] << 24 | bytes[1] << 16 | bytes[2] << 8 | bytes[3];\n        //console.log('Raw value: ', value);\n        callback(value);\n      }\n    }\n  });\n};\n\n/** Returns the internal temperature value in degrees Celsius. */\nMAX31855.prototype.readInternalC = function(callback) {\n  if(callback) {\n    this._read32(function(value) {\n      // Ignore bottom 4 bits of thermocouple data.\n  \t\tvalue >>= 4;\n  \t\t// Grab bottom 11 bits as internal temperature data.\n  \t\tvar internal = value & 0x7FF;\n  \t\tif(value & 0x800) {\n        // Negative value, take 2's compliment.\n        internal = ~internal + 1;\n      }\n      // Scale by 0.0625 degrees C per bit and return value.\n      callback(internal * 0.0625);\n    });\n  } else {\n    console.log('MAX31855: Read request issued with no callback.');\n  }\n};\n\n/** Return the thermocouple temperature value. Value is returned in degrees celsius */\nMAX31855.prototype.readTempC = function(callback) {\n  if(callback) {\n    var self = this; // Scope closure\n    this._read32(function(value) {\n      // Check for error reading value.\n      if(value & 0x7) {\n        callback(NaN);\n      } else {\n        if(value & 0x80000000) { // Check if signed bit is set.\n          // Negative value, shift the bits and take 2's compliment.\n          value >>= 18;\n          value = ~value + 1;\n        } else { // Positive value, just shift the bits to get the value.\n          value >>= 18;\n        }\n        // Scale by 0.25 degrees C per bit\n        callback(value * 0.25);\n      }\n    });\n  } else {\n    console.log('MAX31855: Read request issued with no callback.');\n  }\n};\n\nvar thermoSensor = new MAX31855(msg.spidev);\nthermoSensor.readTempC(function (temp) {\n  temp = temp * 9 / 5 + 32\n  node.status({ fill: \"green\", shape: \"dot\", text: temp + '°F' });\n  var newMsg = { \"payload\": temp }\n  node.send(newMsg); // node.send() is needed for async\n  node.done();\n});",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -8298,7 +8299,7 @@
         "start": "",
         "inout": "out",
         "septopics": false,
-        "property": "temperature",
+        "property": "payload",
         "topi": "topic",
         "x": 515,
         "y": 220,
@@ -8319,69 +8320,13 @@
         "start": "",
         "inout": "out",
         "septopics": false,
-        "property": "temperature",
+        "property": "payload",
         "topi": "topic",
         "x": 515,
         "y": 180,
         "wires": [
             [
                 "5cdb1e903b180a71"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "aa4ddf8613c60dce",
-        "type": "change",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "temperature",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 515,
-        "y": 280,
-        "wires": [
-            [
-                "d1a65eb3c343781d"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "d89f8dde7ffe2c9d",
-        "type": "change",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "temperature",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 515,
-        "y": 320,
-        "wires": [
-            [
-                "23a36d0bd1c7574b"
             ]
         ],
         "l": false
@@ -8395,7 +8340,7 @@
         "links": [
             "9b6b7f2249d013ba"
         ],
-        "x": 635,
+        "x": 575,
         "y": 280,
         "wires": []
     },
@@ -8408,7 +8353,7 @@
         "links": [
             "4ea9f6ce194f1281"
         ],
-        "x": 635,
+        "x": 575,
         "y": 320,
         "wires": []
     },
@@ -8427,7 +8372,7 @@
             },
             {
                 "t": "set",
-                "p": "temperature",
+                "p": "payload",
                 "pt": "msg",
                 "to": "#:(memoryOnly)::kiln_01.UpperSetpoint",
                 "tot": "global"
@@ -8442,8 +8387,8 @@
         "y": 220,
         "wires": [
             [
-                "aa4ddf8613c60dce",
-                "bd45525a6924a5c5"
+                "bd45525a6924a5c5",
+                "d1a65eb3c343781d"
             ]
         ]
     },
@@ -8464,18 +8409,6 @@
                 "pt": "msg",
                 "to": "Kiln_01_UpperTemperature",
                 "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "temperature",
-                "tot": "msg"
-            },
-            {
-                "t": "delete",
-                "p": "temperature",
-                "pt": "msg"
             }
         ],
         "action": "",
@@ -8509,18 +8442,6 @@
                 "pt": "msg",
                 "to": "Kiln_01_LowerTemperature",
                 "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "temperature",
-                "tot": "msg"
-            },
-            {
-                "t": "delete",
-                "p": "temperature",
-                "pt": "msg"
             }
         ],
         "action": "",
@@ -8548,7 +8469,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 575,
+        "x": 515,
         "y": 320,
         "wires": [
             [
@@ -8568,7 +8489,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 575,
+        "x": 515,
         "y": 280,
         "wires": [
             [
@@ -8652,7 +8573,7 @@
             },
             {
                 "t": "set",
-                "p": "temperature",
+                "p": "payload",
                 "pt": "msg",
                 "to": "#:(memoryOnly)::kiln_01.LowerSetpoint",
                 "tot": "global"
@@ -8667,8 +8588,8 @@
         "y": 260,
         "wires": [
             [
-                "d89f8dde7ffe2c9d",
-                "6c490df17d1de881"
+                "6c490df17d1de881",
+                "23a36d0bd1c7574b"
             ]
         ]
     },
@@ -8748,7 +8669,7 @@
         "type": "switch",
         "z": "3154c44d1a91de38",
         "name": "temp cutoff",
-        "property": "temperature",
+        "property": "payload",
         "propertyType": "msg",
         "rules": [
             {
@@ -8774,7 +8695,7 @@
         "type": "switch",
         "z": "3154c44d1a91de38",
         "name": "temp cutoff",
-        "property": "temperature",
+        "property": "payload",
         "propertyType": "msg",
         "rules": [
             {
@@ -9090,13 +9011,6 @@
         "name": "",
         "rules": [
             {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "temperature",
-                "tot": "msg"
-            },
-            {
                 "t": "delete",
                 "p": "topic",
                 "pt": "msg"
@@ -9198,7 +9112,7 @@
         "type": "smooth",
         "z": "3154c44d1a91de38",
         "name": "",
-        "property": "temperature",
+        "property": "payload",
         "action": "low",
         "count": "10",
         "round": "",
@@ -9209,8 +9123,8 @@
         "wires": [
             [
                 "bd45525a6924a5c5",
-                "aa4ddf8613c60dce",
-                "51e9a32e9cfe0fc0"
+                "51e9a32e9cfe0fc0",
+                "d1a65eb3c343781d"
             ]
         ],
         "l": false
@@ -9220,7 +9134,7 @@
         "type": "smooth",
         "z": "3154c44d1a91de38",
         "name": "",
-        "property": "temperature",
+        "property": "payload",
         "action": "low",
         "count": "10",
         "round": "",
@@ -9231,8 +9145,8 @@
         "wires": [
             [
                 "9136a429c48c2758",
-                "d89f8dde7ffe2c9d",
-                "6c490df17d1de881"
+                "6c490df17d1de881",
+                "23a36d0bd1c7574b"
             ]
         ],
         "l": false
