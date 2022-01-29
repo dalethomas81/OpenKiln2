@@ -7,7 +7,9 @@
         "node-red-contrib-influxdb": "0.6.1",
         "node-red-dashboard": "3.1.5",
         "node-red-node-pi-gpio": "2.0.1",
-        "node-red-node-smooth": "0.1.2"
+        "node-red-node-smooth": "0.1.2",
+        "node-red-contrib-pid": "1.1.7",
+        "node-red-contrib-pid-autotune": "1.2.2"
     },
     "node-red": {
         "settings": {
