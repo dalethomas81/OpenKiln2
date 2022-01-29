@@ -472,16 +472,6 @@
         "collapse": false
     },
     {
-        "id": "980de4a53ccfb887",
-        "type": "ui_spacer",
-        "z": "3154c44d1a91de38",
-        "name": "spacer",
-        "group": "90879df8d2ee4c5d",
-        "order": 3,
-        "width": 1,
-        "height": 1
-    },
-    {
         "id": "f86f065176941099",
         "type": "ui_spacer",
         "z": "3154c44d1a91de38",
@@ -931,7 +921,7 @@
         "height": 1
     },
     {
-        "id": "816b2a875be625a5",
+        "id": "e78c211a864b4657",
         "type": "ui_spacer",
         "z": "3154c44d1a91de38",
         "name": "spacer",
@@ -941,7 +931,7 @@
         "height": 1
     },
     {
-        "id": "7776a2eaa510e5a4",
+        "id": "81b7b37ff10b3df1",
         "type": "ui_spacer",
         "z": "3154c44d1a91de38",
         "name": "spacer",
@@ -951,12 +941,12 @@
         "height": 1
     },
     {
-        "id": "34c9ce9e9bf0028f",
+        "id": "796ef493768b6034",
         "type": "ui_spacer",
         "z": "3154c44d1a91de38",
         "name": "spacer",
-        "group": "2201d496820b415d",
-        "order": 11,
+        "group": "90879df8d2ee4c5d",
+        "order": 3,
         "width": 1,
         "height": 1
     },
@@ -2126,7 +2116,7 @@
         "group": "2201d496820b415d",
         "order": 7,
         "width": 3,
-        "height": 3,
+        "height": 2,
         "gtype": "gage",
         "title": "Upper Temperature",
         "label": "°F",
@@ -2152,7 +2142,7 @@
         "group": "2201d496820b415d",
         "order": 9,
         "width": 3,
-        "height": 3,
+        "height": 2,
         "gtype": "gage",
         "title": "Lower Temperature",
         "label": "°F",
@@ -2208,9 +2198,9 @@
         "z": "592b686edd11b813",
         "name": "",
         "group": "2201d496820b415d",
-        "order": 12,
+        "order": 11,
         "width": 7,
-        "height": 4,
+        "height": 5,
         "label": "",
         "chartType": "line",
         "legend": "true",
