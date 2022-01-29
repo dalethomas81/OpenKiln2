@@ -9346,24 +9346,6 @@
         "l": false
     },
     {
-        "id": "d1acfe26c3c1d7cb",
-        "type": "function",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "func": "msg.payload = parseFloat(msg.payload.toFixed(2))\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 595,
-        "y": 400,
-        "wires": [
-            []
-        ],
-        "l": false
-    },
-    {
         "id": "bbab6af088f829c2",
         "type": "function",
         "z": "3154c44d1a91de38",
