@@ -7369,7 +7369,7 @@
         "topic": "topic",
         "topicType": "msg",
         "min": 0,
-        "max": "100",
+        "max": "2500",
         "step": 1,
         "x": 755,
         "y": 580,
