@@ -9196,7 +9196,7 @@
         "name": "",
         "property": "payload",
         "action": "low",
-        "count": "50",
+        "count": "10",
         "round": "2",
         "mult": "single",
         "reduce": false,
