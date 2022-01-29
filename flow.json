@@ -9282,7 +9282,8 @@
         "wires": [
             [
                 "dcbc073ea7b777ee",
-                "bd45525a6924a5c5"
+                "bd45525a6924a5c5",
+                "aec3c2c38a63dd10"
             ]
         ],
         "l": false
@@ -9303,7 +9304,8 @@
         "wires": [
             [
                 "6c490df17d1de881",
-                "e65201e766b76bfd"
+                "e65201e766b76bfd",
+                "6ab284ac808bee4a"
             ]
         ],
         "l": false
@@ -9500,6 +9502,58 @@
         "x": 430,
         "y": 680,
         "wires": []
+    },
+    {
+        "id": "aec3c2c38a63dd10",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "#:(memoryOnly)::kiln_01.UpperTemperature",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 555,
+        "y": 340,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "6ab284ac808bee4a",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "#:(memoryOnly)::kiln_01.LowerTemperature",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 555,
+        "y": 400,
+        "wires": [
+            []
+        ],
+        "l": false
     },
     {
         "id": "1c9e79b136a623e2",
