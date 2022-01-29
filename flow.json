@@ -7045,7 +7045,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "",
-        "func": "msg.payload = msg.payload.toFixed(2)\nvar selected_zone = global.get('pid.selected_zone') || 0\nvar setpoint = parseFloat(global.get('pid.zone[' + selected_zone + '].autotune.setpoint'))\nsetpoint = setpoint * 1.3 // 130% of SP\nmsg = { payload: msg.payload, ui_control: { max: setpoint } }\nreturn msg;",
+        "func": "msg.payload = msg.payload.toFixed(2)\nvar selected_zone = global.get('pid.selected_zone') || 0\nvar setpoint = parseFloat(global.get('pid.zone[' + selected_zone + '].autotune.setpoint'))\nsetpoint = setpoint * 1.5 // 130% of SP\nmsg = { payload: msg.payload, ui_control: { max: setpoint } }\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
