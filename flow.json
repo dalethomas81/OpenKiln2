@@ -4936,7 +4936,7 @@
         "type": "function",
         "z": "e9cef8706a9cf7f6",
         "name": "check hold",
-        "func": "var HoldEnabled = msg.payload.data.segment_settings.hold\n\nif (HoldEnabled) {\n    msg.topic = 'hold';\n    return [null,msg];\n} else {\n    return [msg,null];\n}",
+        "func": "var HoldEnabled = msg.payload.data.segment_settings.hold\n\nif (HoldEnabled) {\n    msg.topic = 'hold';\n    return [null,msg];\n} else {\n    msg.payload = 'Advance'\n    return [msg,null];\n}",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
