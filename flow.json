@@ -9448,6 +9448,70 @@
         "l": false
     },
     {
+        "id": "ba263ec1075b0897",
+        "type": "function",
+        "z": "3154c44d1a91de38",
+        "name": "initialize variables",
+        "func": "\nvar input = []\nvar inputcount = 2\nfor (let index = 0; index < inputcount; index++) {\n    var obj1 = { x: { min: 0.0, max: 0.0 }, y: { min: 0.0, max: 0.0 }, span: 0.0, offset: 0.0 }\n    var calibration = Object.create(obj1)\n    var obj2 = { HiHi: 0.0, Hi: 0.0, Lo: 0.0, LoLo: 0.0 }\n    var limits = Object.create(obj2)\n    var obj3 = { HiHi: false, Hi: false, Lo: false, LoLo: false }\n    var alarms = Object.create(obj3)\n    input.push({ id: '', raw: 0.0, scaled: 0.0, calibration, limits, alarms })\n}\nvar analoginput = { selected_input: 0, input }\nglobal.set('analoginput', analoginput)\nmsg.payload = { analoginput }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 100,
+        "wires": [
+            [
+                "28039e0648bd6ac9"
+            ]
+        ]
+    },
+    {
+        "id": "28039e0648bd6ac9",
+        "type": "debug",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 850,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "de189d290a2ccfe0",
+        "type": "inject",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 490,
+        "y": 100,
+        "wires": [
+            [
+                "ba263ec1075b0897"
+            ]
+        ]
+    },
+    {
         "id": "1c9e79b136a623e2",
         "type": "catch",
         "z": "98e4246c87add39e",
