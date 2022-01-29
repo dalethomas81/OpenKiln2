@@ -8576,7 +8576,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 135,
+        "x": 75,
         "y": 360,
         "wires": [
             [
@@ -8601,11 +8601,11 @@
                 "module": "pi-spi"
             }
         ],
-        "x": 315,
+        "x": 255,
         "y": 340,
         "wires": [
             [
-                "0d670f61e6fde01c"
+                "7287721824e53891"
             ]
         ],
         "l": false
@@ -8626,11 +8626,11 @@
                 "module": "pi-spi"
             }
         ],
-        "x": 315,
+        "x": 255,
         "y": 400,
         "wires": [
             [
-                "8c970109233d3f07"
+                "9e74c237cf627626"
             ]
         ],
         "l": false
@@ -8976,7 +8976,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 195,
+        "x": 135,
         "y": 360,
         "wires": [
             [
@@ -9457,7 +9457,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 255,
+        "x": 195,
         "y": 340,
         "wires": [
             [
@@ -9485,7 +9485,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 255,
+        "x": 195,
         "y": 400,
         "wires": [
             [
@@ -9667,6 +9667,48 @@
                 "ba263ec1075b0897"
             ]
         ]
+    },
+    {
+        "id": "7287721824e53891",
+        "type": "range",
+        "z": "3154c44d1a91de38",
+        "minin": "0",
+        "maxin": "3000",
+        "minout": "0",
+        "maxout": "3000",
+        "action": "scale",
+        "round": false,
+        "property": "payload",
+        "name": "",
+        "x": 315,
+        "y": 340,
+        "wires": [
+            [
+                "0d670f61e6fde01c"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "9e74c237cf627626",
+        "type": "range",
+        "z": "3154c44d1a91de38",
+        "minin": "0",
+        "maxin": "3000",
+        "minout": "0",
+        "maxout": "3000",
+        "action": "scale",
+        "round": false,
+        "property": "payload",
+        "name": "",
+        "x": 315,
+        "y": 400,
+        "wires": [
+            [
+                "8c970109233d3f07"
+            ]
+        ],
+        "l": false
     },
     {
         "id": "1c9e79b136a623e2",
