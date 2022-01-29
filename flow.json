@@ -1558,47 +1558,47 @@
         "multiple": false,
         "options": [
             {
-                "label": "schedule 0",
+                "label": "schedule 1",
                 "value": 0,
                 "type": "num"
             },
             {
-                "label": "schedule 1",
+                "label": "schedule 2",
                 "value": 1,
                 "type": "num"
             },
             {
-                "label": "schedule 2",
+                "label": "schedule 3",
                 "value": 2,
                 "type": "num"
             },
             {
-                "label": "schedule 3",
+                "label": "schedule 4",
                 "value": 3,
                 "type": "num"
             },
             {
-                "label": "schedule 4",
+                "label": "schedule 5",
                 "value": 4,
                 "type": "num"
             },
             {
-                "label": "schedule 5",
+                "label": "schedule 6",
                 "value": 5,
                 "type": "num"
             },
             {
-                "label": "schedule 6",
+                "label": "schedule 7",
                 "value": 6,
                 "type": "num"
             },
             {
-                "label": "schedule 7",
+                "label": "schedule 8",
                 "value": 7,
                 "type": "num"
             },
             {
-                "label": "schedule 8",
+                "label": "schedule 9",
                 "value": 8,
                 "type": "num"
             }
@@ -2311,7 +2311,7 @@
                 "t": "set",
                 "p": "options",
                 "pt": "msg",
-                "to": "[{\"schedule 1\":\"0\"},{\"schedule 2\":\"1\"},{\"schedule 3\":\"2\"},{\"schedule 4\":\"3\"},{\"schedule 5\":\"4\"},{\"schedule 6\":\"5\"},{\"schedule 7\":\"6\"},{\"schedule 8\":\"7\"},{\"schedule 9\":\"8\"},{\"schedule 10\":\"9\"},{\"schedule 11\":\"10\"},{\"schedule 12\":\"11\"},{\"schedule 13\":\"12\"},{\"schedule 14\":\"13\"},{\"schedule 15\":\"14\"}]",
+                "to": "[{\"schedule 1\":\"0\"},{\"schedule 2\":\"1\"},{\"schedule 3\":\"2\"},{\"schedule 4\":\"3\"},{\"schedule 5\":\"4\"},{\"schedule 6\":\"5\"},{\"schedule 7\":\"6\"},{\"schedule 8\":\"7\"}]",
                 "tot": "json"
             }
         ],
