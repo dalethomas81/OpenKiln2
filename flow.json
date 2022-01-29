@@ -6013,6 +6013,8 @@
         "tempVariable": "payload",
         "tempVariableType": "msg",
         "tempVariableMsgTopic": "temp-BK",
+        "autoStart": "false",
+        "triggeredStartValue": "start",
         "x": 215,
         "y": 500,
         "wires": [
