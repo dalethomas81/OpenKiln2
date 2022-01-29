@@ -422,8 +422,7 @@
         "order": 2,
         "disp": true,
         "width": "7",
-        "collapse": false,
-        "className": ""
+        "collapse": false
     },
     {
         "id": "2201d496820b415d",
@@ -689,8 +688,7 @@
         "order": 3,
         "disp": true,
         "width": "12",
-        "collapse": false,
-        "className": ""
+        "collapse": false
     },
     {
         "id": "54f5b9405598d975",
@@ -700,8 +698,7 @@
         "order": 2,
         "disp": true,
         "width": "12",
-        "collapse": false,
-        "className": ""
+        "collapse": false
     },
     {
         "id": "49fcda6d9133abc2",
@@ -1290,11 +1287,12 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 750,
+        "x": 655,
         "y": 180,
         "wires": [
             []
-        ]
+        ],
+        "l": false
     },
     {
         "id": "f5070cef209d87e2",
@@ -1442,11 +1440,12 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 750,
+        "x": 655,
         "y": 220,
         "wires": [
             []
-        ]
+        ],
+        "l": false
     },
     {
         "id": "5192f533b0238631",
@@ -1485,8 +1484,9 @@
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
+        "payload": "",
         "payloadType": "date",
-        "x": 100,
+        "x": 135,
         "y": 180,
         "wires": [
             [
@@ -1494,7 +1494,8 @@
                 "8f21d66b67ab4695",
                 "63be7f287f0bdc31"
             ]
-        ]
+        ],
+        "l": false
     },
     {
         "id": "26aedf9d4f3e92fc",
@@ -1522,11 +1523,12 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 340,
+        "x": 235,
         "y": 140,
         "wires": [
             []
-        ]
+        ],
+        "l": false
     },
     {
         "id": "7a65114e3c2394b2",
@@ -1561,47 +1563,47 @@
         "multiple": false,
         "options": [
             {
-                "label": "schedule 0",
+                "label": "schedule 1",
                 "value": 0,
                 "type": "num"
             },
             {
-                "label": "schedule 1",
+                "label": "schedule 2",
                 "value": 1,
                 "type": "num"
             },
             {
-                "label": "schedule 2",
+                "label": "schedule 3",
                 "value": 2,
                 "type": "num"
             },
             {
-                "label": "schedule 3",
+                "label": "schedule 4",
                 "value": 3,
                 "type": "num"
             },
             {
-                "label": "schedule 4",
+                "label": "schedule 5",
                 "value": 4,
                 "type": "num"
             },
             {
-                "label": "schedule 5",
+                "label": "schedule 6",
                 "value": 5,
                 "type": "num"
             },
             {
-                "label": "schedule 6",
+                "label": "schedule 7",
                 "value": 6,
                 "type": "num"
             },
             {
-                "label": "schedule 7",
+                "label": "schedule 8",
                 "value": 7,
                 "type": "num"
             },
             {
-                "label": "schedule 8",
+                "label": "schedule 9",
                 "value": 8,
                 "type": "num"
             }
@@ -1942,13 +1944,14 @@
         "z": "592b686edd11b813",
         "name": "",
         "events": "all",
-        "x": 160,
+        "x": 215,
         "y": 380,
         "wires": [
             [
                 "52e7c1f8dff102dc"
             ]
-        ]
+        ],
+        "l": false
     },
     {
         "id": "52e7c1f8dff102dc",
@@ -1977,15 +1980,19 @@
         "checkall": "true",
         "repair": false,
         "outputs": 3,
-        "x": 310,
+        "x": 275,
         "y": 380,
         "wires": [
             [],
-            [],
+            [
+                "5192f533b0238631",
+                "c43fe6a6eabba842"
+            ],
             [
                 "5192f533b0238631"
             ]
-        ]
+        ],
+        "l": false
     },
     {
         "id": "87d7118f46499bc1",
@@ -2314,7 +2321,7 @@
                 "t": "set",
                 "p": "options",
                 "pt": "msg",
-                "to": "[{\"schedule 1\":\"0\"},{\"schedule 2\":\"1\"},{\"schedule 3\":\"2\"},{\"schedule 4\":\"3\"},{\"schedule 5\":\"4\"},{\"schedule 6\":\"5\"},{\"schedule 7\":\"6\"},{\"schedule 8\":\"7\"},{\"schedule 9\":\"8\"},{\"schedule 10\":\"9\"},{\"schedule 11\":\"10\"},{\"schedule 12\":\"11\"},{\"schedule 13\":\"12\"},{\"schedule 14\":\"13\"},{\"schedule 15\":\"14\"}]",
+                "to": "[{\"schedule 1\":\"0\"},{\"schedule 2\":\"1\"},{\"schedule 3\":\"2\"},{\"schedule 4\":\"3\"},{\"schedule 5\":\"4\"},{\"schedule 6\":\"5\"},{\"schedule 7\":\"6\"},{\"schedule 8\":\"7\"}]",
                 "tot": "json"
             }
         ],
@@ -2323,14 +2330,15 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 320,
+        "x": 235,
         "y": 180,
         "wires": [
             [
                 "f7a42259283f2fc9",
                 "a898206a716472e9"
             ]
-        ]
+        ],
+        "l": false
     },
     {
         "id": "e0f89df2c8e81cd9",
@@ -2399,7 +2407,7 @@
             "6b534a21adf47fbc",
             "bbb665c4fceb800d"
         ],
-        "x": 335,
+        "x": 355,
         "y": 420,
         "wires": [
             [
@@ -2452,13 +2460,14 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 330,
+        "x": 235,
         "y": 220,
         "wires": [
             [
                 "9256680a1dd25943"
             ]
-        ]
+        ],
+        "l": false
     },
     {
         "id": "7bfd8d56a8dba80e",
@@ -3186,7 +3195,7 @@
         "links": [
             "85642d7408d49cd8"
         ],
-        "x": 475,
+        "x": 295,
         "y": 140,
         "wires": []
     },
@@ -3554,6 +3563,92 @@
         "x": 110,
         "y": 960,
         "wires": []
+    },
+    {
+        "id": "096ffc209c7be3fb",
+        "type": "change",
+        "z": "592b686edd11b813",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "#:(memoryOnly)::schedule_index",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 375,
+        "y": 160,
+        "wires": [
+            [
+                "f7a42259283f2fc9"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "c43fe6a6eabba842",
+        "type": "link out",
+        "z": "592b686edd11b813",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "b5f8918b49462031"
+        ],
+        "x": 355,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "b5f8918b49462031",
+        "type": "link in",
+        "z": "592b686edd11b813",
+        "name": "",
+        "links": [
+            "c43fe6a6eabba842"
+        ],
+        "x": 295,
+        "y": 200,
+        "wires": [
+            [
+                "096ffc209c7be3fb",
+                "c8f11a608c8dcf6f"
+            ]
+        ]
+    },
+    {
+        "id": "c8f11a608c8dcf6f",
+        "type": "change",
+        "z": "592b686edd11b813",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "#:(memoryOnly)::segment_index",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 375,
+        "y": 200,
+        "wires": [
+            [
+                "9256680a1dd25943"
+            ]
+        ],
+        "l": false
     },
     {
         "id": "0f56f86bd83c9233",
@@ -6088,7 +6183,6 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "",
-        "className": "",
         "icon": "",
         "payload": "",
         "payloadType": "str",
@@ -6117,7 +6211,6 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "",
-        "className": "",
         "icon": "",
         "payload": "",
         "payloadType": "str",
@@ -6151,7 +6244,6 @@
         "min": 0,
         "max": "100",
         "step": "0.001",
-        "className": "",
         "x": 755,
         "y": 460,
         "wires": [
@@ -6180,7 +6272,6 @@
         "min": 0,
         "max": "100",
         "step": "0.001",
-        "className": "",
         "x": 755,
         "y": 480,
         "wires": [
@@ -6209,7 +6300,6 @@
         "min": 0,
         "max": "1000",
         "step": "0.001",
-        "className": "",
         "x": 755,
         "y": 500,
         "wires": [
@@ -6616,7 +6706,6 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "",
-        "className": "",
         "icon": "",
         "payload": "",
         "payloadType": "str",
@@ -6670,7 +6759,6 @@
         "min": 0,
         "max": "100",
         "step": "0.001",
-        "className": "",
         "x": 755,
         "y": 520,
         "wires": [
@@ -6699,7 +6787,6 @@
         "min": 0,
         "max": "100",
         "step": "0.001",
-        "className": "",
         "x": 755,
         "y": 540,
         "wires": [
@@ -6728,7 +6815,6 @@
         "min": 0,
         "max": "100",
         "step": "0.001",
-        "className": "",
         "x": 755,
         "y": 560,
         "wires": [
@@ -6932,7 +7018,6 @@
         ],
         "seg1": "",
         "seg2": "",
-        "className": "",
         "x": 795,
         "y": 780,
         "wires": [],
@@ -6960,7 +7045,6 @@
         ],
         "seg1": "",
         "seg2": "",
-        "className": "",
         "x": 795,
         "y": 720,
         "wires": [],
@@ -7003,7 +7087,6 @@
         ],
         "outputs": 1,
         "useDifferentColor": false,
-        "className": "",
         "x": 795,
         "y": 740,
         "wires": [
@@ -7048,7 +7131,6 @@
         ],
         "outputs": 1,
         "useDifferentColor": false,
-        "className": "",
         "x": 795,
         "y": 800,
         "wires": [
@@ -7061,7 +7143,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "",
-        "func": "msg.payload = msg.payload.toFixed(2)\nvar selected_zone = global.get('pid.selected_zone') || 0\nvar setpoint = parseFloat(global.get('pid.zone[' + selected_zone + '].parameters.setpoint'))\nsetpoint = setpoint * 1.3 // 130% of SP\nmsg = { payload: msg.payload, ui_control: { max: setpoint } }\nreturn msg;",
+        "func": "msg.payload = msg.payload.toFixed(2)\nvar selected_zone = global.get('pid.selected_zone') || 0\nvar setpoint = parseFloat(global.get('pid.zone[' + selected_zone + '].autotune.setpoint'))\nsetpoint = setpoint * 1.5 // 130% of SP\nmsg = { payload: msg.payload, ui_control: { max: setpoint } }\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -7289,7 +7371,6 @@
         "min": 0,
         "max": "100",
         "step": 1,
-        "className": "",
         "x": 755,
         "y": 580,
         "wires": [
@@ -7328,7 +7409,6 @@
         "payload": "",
         "topic": "topic",
         "topicType": "msg",
-        "className": "",
         "x": 755,
         "y": 600,
         "wires": [
@@ -8066,7 +8146,6 @@
         "min": 0,
         "max": "10000",
         "step": 1,
-        "className": "",
         "x": 755,
         "y": 640,
         "wires": [
@@ -8151,10 +8230,8 @@
         "height": 1,
         "passthru": false,
         "mode": "text",
-        "delay": 300,
+        "delay": "0",
         "topic": "topic",
-        "sendOnBlur": true,
-        "className": "",
         "topicType": "msg",
         "x": 755,
         "y": 660,
@@ -8450,7 +8527,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 75,
+        "x": 135,
         "y": 360,
         "wires": [
             [
@@ -8475,7 +8552,7 @@
                 "module": "pi-spi"
             }
         ],
-        "x": 255,
+        "x": 315,
         "y": 340,
         "wires": [
             [
@@ -8500,7 +8577,7 @@
                 "module": "pi-spi"
             }
         ],
-        "x": 255,
+        "x": 315,
         "y": 400,
         "wires": [
             [
@@ -8850,7 +8927,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 135,
+        "x": 195,
         "y": 360,
         "wires": [
             [
@@ -9197,14 +9274,16 @@
         "property": "payload",
         "action": "low",
         "count": "10",
-        "round": "",
+        "round": "2",
         "mult": "single",
         "reduce": false,
-        "x": 315,
+        "x": 375,
         "y": 340,
         "wires": [
             [
-                "0de46559b63c4b41"
+                "dcbc073ea7b777ee",
+                "bd45525a6924a5c5",
+                "aec3c2c38a63dd10"
             ]
         ],
         "l": false
@@ -9217,14 +9296,16 @@
         "property": "payload",
         "action": "low",
         "count": "10",
-        "round": "",
+        "round": "2",
         "mult": "single",
         "reduce": false,
-        "x": 315,
+        "x": 375,
         "y": 400,
         "wires": [
             [
-                "d1acfe26c3c1d7cb"
+                "6c490df17d1de881",
+                "e65201e766b76bfd",
+                "6ab284ac808bee4a"
             ]
         ],
         "l": false
@@ -9234,7 +9315,7 @@
         "type": "function",
         "z": "3154c44d1a91de38",
         "name": "",
-        "func": "// create a new message object to clean it up\nvar msg_out = { delay: msg.payload * 10 }; // should come in as 0 - 100%\nvar FsmStatus_Schedule = global.get('kiln_01.FsmStatus_Schedule','memoryOnly')\n//var FsmStatus_Segment = global.get('kiln_01.FsmStatus_Segment','memoryOnly')\nvar auto_tune_upper = global.get('kiln_01.pid[0].auto_tune_upper')\nvar auto_tune_lower = global.get('kiln_01.pid[0].auto_tune_lower')\nvar UpperSetpoint = global.get('kiln_01.UpperSetpoint','memoryOnly')\nvar LowerSetpoint = global.get('kiln_01.LowerSetpoint','memoryOnly')\nvar UpperTemperature = global.get('kiln_01.UpperTemperature','memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature','memoryOnly')\n\nif (Math.abs(UpperSetpoint - UpperTemperature) < 100 && Math.abs(LowerSetpoint - LowerTemperature) < 100) {\n    // temps a setpoints are within tolerance\n    node.status({fill:\"green\",shape:\"dot\",text:\"All good!\"});\n    // the trigger function locks up if you send it a zero\n    // similarly, we dont want to send it a value over\n    // the trigger time (1000 ms)\n    if (msg_out.delay > 0 && msg_out.delay < 1000 && (FsmStatus_Schedule != 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n        return [ msg_out, null ];\n    } else if (msg_out.delay <= 0 || (FsmStatus_Schedule == 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n        // send an \"off\" directly to the output node\n        msg_out.payload = \"0\"\n        return [ null, msg_out ];\n    } else if (msg_out.delay >= 1000){\n        // send an \"on\" directly to the output node\n        msg_out.payload = \"1\"\n        return [ null, msg_out ];\n    } else {\n        // send an \"off\" directly to the output node\n        msg_out.payload = \"0\"\n        return [ null, msg_out ];\n    }\n} else {\n    // temp is too far away from setpoint. something is wrong.\n    // send an \"off\" directly to the output node\n    //node.warn(\"temp is too far away from setpoint. something is wrong.\")\n    node.status({fill:\"red\",shape:\"dot\",text:\"Something is wrong!\"});\n    msg_out.payload = \"0\"\n    return [ null, msg_out ];\n}",
+        "func": "// create a new message object to clean it up\nvar msg_out = { delay: msg.payload * 10 }; // should come in as 0 - 100%\nvar FsmStatus_Schedule = global.get('kiln_01.FsmStatus_Schedule','memoryOnly')\n//var FsmStatus_Segment = global.get('kiln_01.FsmStatus_Segment','memoryOnly')\nvar auto_tune_upper = global.get('pid.zone[0].autotune.active')\nvar auto_tune_lower = global.get('pid.zone[1].autotune.active')\nvar UpperSetpoint = global.get('kiln_01.UpperSetpoint','memoryOnly')\nvar LowerSetpoint = global.get('kiln_01.LowerSetpoint','memoryOnly')\nvar UpperTemperature = global.get('kiln_01.UpperTemperature','memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature','memoryOnly')\n\nif (Math.abs(UpperSetpoint - UpperTemperature) < 100 && Math.abs(LowerSetpoint - LowerTemperature) < 100 \n    || auto_tune_upper || auto_tune_lower) {\n        // temps a setpoints are within tolerance\n        node.status({fill:\"green\",shape:\"dot\",text:\"All good!\"});\n        // the trigger function locks up if you send it a zero\n        // similarly, we dont want to send it a value over\n        // the trigger time (1000 ms)\n        if (msg_out.delay > 0 && msg_out.delay < 1000 && (FsmStatus_Schedule != 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n            return [ msg_out, null ];\n        } else if (msg_out.delay <= 0 || (FsmStatus_Schedule == 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n            // send an \"off\" directly to the output node\n            msg_out.payload = \"0\"\n            return [ null, msg_out ];\n        } else if (msg_out.delay >= 1000){\n            // send an \"on\" directly to the output node\n            msg_out.payload = \"1\"\n            return [ null, msg_out ];\n        } else {\n            // send an \"off\" directly to the output node\n            msg_out.payload = \"0\"\n            return [ null, msg_out ];\n        }\n} else {\n    // temp is too far away from setpoint. something is wrong.\n    // send an \"off\" directly to the output node\n    //node.warn(\"temp is too far away from setpoint. something is wrong.\")\n    node.status({fill:\"red\",shape:\"dot\",text:\"Something is wrong!\"});\n    msg_out.payload = \"0\"\n    return [ null, msg_out ];\n}",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -9257,7 +9338,7 @@
         "type": "function",
         "z": "3154c44d1a91de38",
         "name": "",
-        "func": "// create a new message object to clean it up\nvar msg_out = { delay: msg.payload * 10 }; // should come in as 0 - 100%\nvar FsmStatus_Schedule = global.get('kiln_01.FsmStatus_Schedule','memoryOnly')\n//var FsmStatus_Segment = global.get('kiln_01.FsmStatus_Segment','memoryOnly')\nvar auto_tune_upper = global.get('kiln_01.pid[0].auto_tune_upper')\nvar auto_tune_lower = global.get('kiln_01.pid[0].auto_tune_lower')\nvar UpperSetpoint = global.get('kiln_01.UpperSetpoint','memoryOnly')\nvar LowerSetpoint = global.get('kiln_01.LowerSetpoint','memoryOnly')\nvar UpperTemperature = global.get('kiln_01.UpperTemperature','memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature','memoryOnly')\n\nif (Math.abs(UpperSetpoint - UpperTemperature) < 100 && Math.abs(LowerSetpoint - LowerTemperature) < 100) {\n    // temps a setpoints are within tolerance\n    node.status({fill:\"green\",shape:\"dot\",text:\"All good!\"});\n    // the trigger function locks up if you send it a zero\n    // similarly, we dont want to send it a value over\n    // the trigger time (1000 ms)\n    if (msg_out.delay > 0 && msg_out.delay < 1000 && (FsmStatus_Schedule != 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n        return [ msg_out, null ];\n    } else if (msg_out.delay <= 0 || (FsmStatus_Schedule == 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n        // send an \"off\" directly to the output node\n        msg_out.payload = \"0\"\n        return [ null, msg_out ];\n    } else if (msg_out.delay >= 1000){\n        // send an \"on\" directly to the output node\n        msg_out.payload = \"1\"\n        return [ null, msg_out ];\n    } else {\n        // send an \"off\" directly to the output node\n        msg_out.payload = \"0\"\n        return [ null, msg_out ];\n    }\n} else {\n    // temp is too far away from setpoint. something is wrong.\n    // send an \"off\" directly to the output node\n    //node.warn(\"temp is too far away from setpoint. something is wrong.\")\n    node.status({fill:\"red\",shape:\"dot\",text:\"Something is wrong!\"});\n    msg_out.payload = \"0\"\n    return [ null, msg_out ];\n}",
+        "func": "// create a new message object to clean it up\nvar msg_out = { delay: msg.payload * 10 }; // should come in as 0 - 100%\nvar FsmStatus_Schedule = global.get('kiln_01.FsmStatus_Schedule','memoryOnly')\n//var FsmStatus_Segment = global.get('kiln_01.FsmStatus_Segment','memoryOnly')\nvar auto_tune_upper = global.get('pid.zone[0].autotune.active')\nvar auto_tune_lower = global.get('pid.zone[1].autotune.active')\nvar UpperSetpoint = global.get('kiln_01.UpperSetpoint','memoryOnly')\nvar LowerSetpoint = global.get('kiln_01.LowerSetpoint','memoryOnly')\nvar UpperTemperature = global.get('kiln_01.UpperTemperature','memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature','memoryOnly')\n\nif (Math.abs(UpperSetpoint - UpperTemperature) < 100 && Math.abs(LowerSetpoint - LowerTemperature) < 100 \n    || auto_tune_upper || auto_tune_lower) {\n        // temps a setpoints are within tolerance\n        node.status({fill:\"green\",shape:\"dot\",text:\"All good!\"});\n        // the trigger function locks up if you send it a zero\n        // similarly, we dont want to send it a value over\n        // the trigger time (1000 ms)\n        if (msg_out.delay > 0 && msg_out.delay < 1000 && (FsmStatus_Schedule != 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n            return [ msg_out, null ];\n        } else if (msg_out.delay <= 0 || (FsmStatus_Schedule == 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n            // send an \"off\" directly to the output node\n            msg_out.payload = \"0\"\n            return [ null, msg_out ];\n        } else if (msg_out.delay >= 1000){\n            // send an \"on\" directly to the output node\n            msg_out.payload = \"1\"\n            return [ null, msg_out ];\n        } else {\n            // send an \"off\" directly to the output node\n            msg_out.payload = \"0\"\n            return [ null, msg_out ];\n        }\n} else {\n    // temp is too far away from setpoint. something is wrong.\n    // send an \"off\" directly to the output node\n    //node.warn(\"temp is too far away from setpoint. something is wrong.\")\n    node.status({fill:\"red\",shape:\"dot\",text:\"Something is wrong!\"});\n    msg_out.payload = \"0\"\n    return [ null, msg_out ];\n}",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -9287,7 +9368,8 @@
         "y": 740,
         "wires": [
             [
-                "d4cb1a52a4fe0d75"
+                "d4cb1a52a4fe0d75",
+                "2dc776b16235c7a0"
             ]
         ]
     },
@@ -9326,7 +9408,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 195,
+        "x": 255,
         "y": 340,
         "wires": [
             [
@@ -9354,53 +9436,11 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 195,
+        "x": 255,
         "y": 400,
         "wires": [
             [
                 "90d2df249ed5559d"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "0de46559b63c4b41",
-        "type": "function",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "func": "msg.payload = parseFloat(msg.payload.toFixed(2))\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 375,
-        "y": 340,
-        "wires": [
-            [
-                "dcbc073ea7b777ee",
-                "bd45525a6924a5c5"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "d1acfe26c3c1d7cb",
-        "type": "function",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "func": "msg.payload = parseFloat(msg.payload.toFixed(2))\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 375,
-        "y": 400,
-        "wires": [
-            [
-                "6c490df17d1de881",
-                "e65201e766b76bfd"
             ]
         ],
         "l": false
@@ -9444,6 +9484,74 @@
                 "6c490df17d1de881",
                 "e65201e766b76bfd"
             ]
+        ],
+        "l": false
+    },
+    {
+        "id": "2dc776b16235c7a0",
+        "type": "debug",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 430,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "aec3c2c38a63dd10",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "#:(memoryOnly)::kiln_01.UpperTemperature",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 555,
+        "y": 340,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "6ab284ac808bee4a",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "#:(memoryOnly)::kiln_01.LowerTemperature",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 555,
+        "y": 400,
+        "wires": [
+            []
         ],
         "l": false
     },
