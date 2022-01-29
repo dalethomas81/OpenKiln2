@@ -3689,7 +3689,7 @@
         "type": "debug",
         "z": "e9cef8706a9cf7f6",
         "name": "",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
