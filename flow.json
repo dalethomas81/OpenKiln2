@@ -10502,7 +10502,7 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
-        "x": 1250,
+        "x": 1330,
         "y": 360,
         "wires": []
     },
@@ -10519,7 +10519,7 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
-        "x": 1250,
+        "x": 1330,
         "y": 400,
         "wires": []
     },
@@ -10534,11 +10534,15 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1040,
-        "y": 380,
+        "x": 1135,
+        "y": 360,
         "wires": [
-            []
-        ]
+            [
+                "09c327324c82be14",
+                "6fb0f8c5feb054a3"
+            ]
+        ],
+        "l": false
     },
     {
         "id": "80370a11a44695e7",
@@ -10554,15 +10558,15 @@
                 "vt": "str"
             }
         ],
-        "repeat": "",
+        "repeat": "1",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 900,
-        "y": 380,
+        "x": 1010,
+        "y": 320,
         "wires": [
             [
                 "b537b846c99d5ba0"
@@ -10579,8 +10583,8 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "",
-                "tot": "str"
+                "to": "input.raw",
+                "tot": "msg"
             }
         ],
         "action": "",
@@ -10588,10 +10592,55 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1070,
-        "y": 480,
+        "x": 1235,
+        "y": 360,
         "wires": [
-            []
+            [
+                "dd5fa1a2a7edec40"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "6fb0f8c5feb054a3",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "input.scaled",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1235,
+        "y": 400,
+        "wires": [
+            [
+                "9d1d6fc5b853b597"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "b5c2cc920b1f3fd8",
+        "type": "link in",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "links": [],
+        "x": 1075,
+        "y": 360,
+        "wires": [
+            [
+                "b537b846c99d5ba0"
+            ]
         ]
     },
     {
