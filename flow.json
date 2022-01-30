@@ -11830,6 +11830,195 @@
         "l": false
     },
     {
+        "id": "babdd556d27c32aa",
+        "type": "trigger",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "5",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 535,
+        "y": 580,
+        "wires": [
+            [
+                "7c7540817434016c"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "7c7540817434016c",
+        "type": "debug",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "1219bcc4367384ed",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "reset",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 485,
+        "y": 600,
+        "wires": [
+            [
+                "babdd556d27c32aa"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "f484e601c7a47daa",
+        "type": "switch",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 425,
+        "y": 580,
+        "wires": [
+            [
+                "babdd556d27c32aa"
+            ],
+            [
+                "1219bcc4367384ed"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "4886367df9d162c6",
+        "type": "function",
+        "z": "3154c44d1a91de38",
+        "name": "temp is bad",
+        "func": "if (isNaN(msg.payload) || msg.payload == 32) {\n    flow.set('upper_thermocouple_bad', true)\n} else {\n    flow.set('upper_thermocouple_bad', false)\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 615,
+        "y": 580,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "ee0291f3aba6669c",
+        "type": "function",
+        "z": "3154c44d1a91de38",
+        "name": "temp is bad",
+        "func": "if (isNaN(msg.payload) || msg.payload == 32) {\n    //flow.set('upper_thermocouple_bad', true)\n    msg.payload = true\n} else {\n    //flow.set('upper_thermocouple_bad', false)\n    msg.paylaod = false\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 365,
+        "y": 580,
+        "wires": [
+            [
+                "f484e601c7a47daa"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "6ee95b6259b56d05",
+        "type": "inject",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "100",
+        "payloadType": "num",
+        "x": 230,
+        "y": 540,
+        "wires": [
+            [
+                "ee0291f3aba6669c"
+            ]
+        ]
+    },
+    {
+        "id": "1ec99b5ce2746dc9",
+        "type": "inject",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "32",
+        "payloadType": "num",
+        "x": 230,
+        "y": 560,
+        "wires": [
+            [
+                "ee0291f3aba6669c"
+            ]
+        ]
+    },
+    {
         "id": "1c9e79b136a623e2",
         "type": "catch",
         "z": "98e4246c87add39e",
