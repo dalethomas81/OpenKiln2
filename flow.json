@@ -3478,7 +3478,7 @@
         "order": 3,
         "width": 0,
         "height": 0,
-        "passthru": true,
+        "passthru": false,
         "mode": "text",
         "delay": "0",
         "topic": "topic",
