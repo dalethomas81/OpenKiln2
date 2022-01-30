@@ -4397,10 +4397,11 @@
         "name": "",
         "events": "connect",
         "x": 1095,
-        "y": 840,
+        "y": 960,
         "wires": [
             [
-                "f034eb576e335825"
+                "f034eb576e335825",
+                "4c5cb4d50d6fc7e2"
             ]
         ],
         "l": false
@@ -4425,7 +4426,7 @@
         "to": "",
         "reg": false,
         "x": 1155,
-        "y": 840,
+        "y": 960,
         "wires": [
             [
                 "b6253d729bb70f15"
@@ -4501,7 +4502,90 @@
         "allowrate": false,
         "outputs": 1,
         "x": 1215,
-        "y": 840,
+        "y": 960,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "704c9d7362c26e4e",
+        "type": "ui_button",
+        "z": "592b686edd11b813",
+        "name": "",
+        "group": "97a4a070263bb997",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "button",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "Control",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1095,
+        "y": 880,
+        "wires": [
+            [
+                "e8fb2f356c4749fc"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "e8fb2f356c4749fc",
+        "type": "change",
+        "z": "592b686edd11b813",
+        "name": "show",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"group\":{\"hide\":[\"Main_Enable_Control\"],\"show\":[\"Main_Control\"],\"focus\":true}}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1155,
+        "y": 880,
+        "wires": [
+            [
+                "6af73a69a0827774"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "4c5cb4d50d6fc7e2",
+        "type": "change",
+        "z": "592b686edd11b813",
+        "name": "hide",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"group\":{\"hide\":[\"Main_Control\"],\"show\":[\"Main_Enable_Control\"],\"focus\":false}}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1155,
+        "y": 920,
         "wires": [
             [
                 "6af73a69a0827774"
