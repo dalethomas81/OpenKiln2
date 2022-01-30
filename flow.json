@@ -465,12 +465,13 @@
     {
         "id": "112aa19380852c23",
         "type": "ui_group",
-        "name": "Settings",
+        "name": "Analog Inputs",
         "tab": "de5db1c89316833e",
         "order": 4,
         "disp": true,
-        "width": 12,
-        "collapse": false
+        "width": "12",
+        "collapse": false,
+        "className": ""
     },
     {
         "id": "f86f065176941099",
@@ -10487,6 +10488,23 @@
             ]
         ],
         "l": false
+    },
+    {
+        "id": "dd5fa1a2a7edec40",
+        "type": "ui_text",
+        "z": "3154c44d1a91de38",
+        "group": "112aa19380852c23",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Raw",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1080,
+        "y": 280,
+        "wires": []
     },
     {
         "id": "1c9e79b136a623e2",
