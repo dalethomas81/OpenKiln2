@@ -3709,7 +3709,7 @@
         "type": "function",
         "z": "592b686edd11b813",
         "name": "",
-        "func": "var schedule_index = flow.get('schedule_index', 'memoryOnly');\nvar segment = 'kiln_01.schedules['+ schedule_index.toString() + '].name'\n\nglobal.get(segment);\n\nreturn msg;",
+        "func": "var schedule_index = flow.get('schedule_index', 'memoryOnly');\nvar name = 'kiln_01.schedules['+ schedule_index.toString() + '].name'\n\nmsg.payload = global.get(name);\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
