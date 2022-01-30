@@ -9849,8 +9849,8 @@
         "officon": "",
         "offcolor": "",
         "animate": false,
-        "x": 790,
-        "y": 460,
+        "x": 1230,
+        "y": 160,
         "wires": [
             [
                 "d76c7ce673b280af"
@@ -9911,8 +9911,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 895,
-        "y": 460,
+        "x": 1335,
+        "y": 160,
         "wires": [
             [
                 "a3ad47349ae89c29"
@@ -10022,8 +10022,8 @@
         "z": "3154c44d1a91de38",
         "name": "",
         "events": "connect",
-        "x": 615,
-        "y": 460,
+        "x": 1055,
+        "y": 160,
         "wires": [
             [
                 "477ed7158a34c5bf",
@@ -10051,8 +10051,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 675,
-        "y": 460,
+        "x": 1115,
+        "y": 160,
         "wires": [
             [
                 "bc3e2212fd11e206"
@@ -10085,8 +10085,8 @@
         "links": [
             "218ba5aacd9d564e"
         ],
-        "x": 955,
-        "y": 460,
+        "x": 1395,
+        "y": 160,
         "wires": []
     },
     {
@@ -10709,7 +10709,7 @@
         "type": "function",
         "z": "3154c44d1a91de38",
         "name": "handle analog input",
-        "func": "var analoginput = global.get('analoginput')\n\ntry {\n    analoginput.input[msg.inputnumber].raw = msg.payload\n    analoginput.input[msg.inputnumber].scaled = msg.payload * analoginput.input[msg.inputnumber].calibration.span + analoginput.input[msg.inputnumber].calibration.offset;\n    if (analoginput.input[msg.inputnumber].scaled >= analoginput.input[msg.inputnumber].limits.HiHi) { analoginput.input[msg.inputnumber].alarms.HiHi = true } else { analoginput.input[msg.inputnumber].alarms.HiHi = false };\n    if (analoginput.input[msg.inputnumber].scaled >= analoginput.input[msg.inputnumber].limits.Hi) { analoginput.input[msg.inputnumber].alarms.Hi = true } else { analoginput.input[msg.inputnumber].alarms.Hi = false };\n    if (analoginput.input[msg.inputnumber].scaled <= analoginput.input[msg.inputnumber].limits.Lo) { analoginput.input[msg.inputnumber].alarms.Lo = true } else { analoginput.input[msg.inputnumber].alarms.Lo = false };\n    if (analoginput.input[msg.inputnumber].scaled <= analoginput.input[msg.inputnumber].limits.LoLo) { analoginput.input[msg.inputnumber].alarms.LoLo = true } else { analoginput.input[msg.inputnumber].alarms.LoLo = false };\n} catch (error) {\n    node.warn(error)\n};\n\nglobal.set('analoginput', analoginput)\nreturn msg;",
+        "func": "var analoginput = global.get('analoginput')\n\ntry {\n    analoginput.input[msg.inputnumber].raw = msg.payload\n    analoginput.input[msg.inputnumber].scaled = msg.payload * analoginput.input[msg.inputnumber].calibration.span + analoginput.input[msg.inputnumber].calibration.offset;\n    if (analoginput.input[msg.inputnumber].scaled >= analoginput.input[msg.inputnumber].limits.HiHi) { analoginput.input[msg.inputnumber].alarms.HiHi = true } else { analoginput.input[msg.inputnumber].alarms.HiHi = false };\n    if (analoginput.input[msg.inputnumber].scaled >= analoginput.input[msg.inputnumber].limits.Hi) { analoginput.input[msg.inputnumber].alarms.Hi = true } else { analoginput.input[msg.inputnumber].alarms.Hi = false };\n    if (analoginput.input[msg.inputnumber].scaled <= analoginput.input[msg.inputnumber].limits.Lo) { analoginput.input[msg.inputnumber].alarms.Lo = true } else { analoginput.input[msg.inputnumber].alarms.Lo = false };\n    if (analoginput.input[msg.inputnumber].scaled <= analoginput.input[msg.inputnumber].limits.LoLo) { analoginput.input[msg.inputnumber].alarms.LoLo = true } else { analoginput.input[msg.inputnumber].alarms.LoLo = false };\n} catch (error) {\n    node.warn(error)\n};\n\nglobal.set('analoginput', analoginput)\n\nmsg.payload = analoginput.input[msg.inputnumber].scaled\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -10755,7 +10755,7 @@
         "type": "function",
         "z": "3154c44d1a91de38",
         "name": "handle analog input",
-        "func": "var analoginput = global.get('analoginput')\n\ntry {\n    analoginput.input[msg.inputnumber].raw = msg.payload\n    analoginput.input[msg.inputnumber].scaled = msg.payload * analoginput.input[msg.inputnumber].calibration.span + analoginput.input[msg.inputnumber].calibration.offset;\n    if (analoginput.input[msg.inputnumber].scaled >= analoginput.input[msg.inputnumber].limits.HiHi) { analoginput.input[msg.inputnumber].alarms.HiHi = true } else { analoginput.input[msg.inputnumber].alarms.HiHi = false };\n    if (analoginput.input[msg.inputnumber].scaled >= analoginput.input[msg.inputnumber].limits.Hi) { analoginput.input[msg.inputnumber].alarms.Hi = true } else { analoginput.input[msg.inputnumber].alarms.Hi = false };\n    if (analoginput.input[msg.inputnumber].scaled <= analoginput.input[msg.inputnumber].limits.Lo) { analoginput.input[msg.inputnumber].alarms.Lo = true } else { analoginput.input[msg.inputnumber].alarms.Lo = false };\n    if (analoginput.input[msg.inputnumber].scaled <= analoginput.input[msg.inputnumber].limits.LoLo) { analoginput.input[msg.inputnumber].alarms.LoLo = true } else { analoginput.input[msg.inputnumber].alarms.LoLo = false };\n} catch (error) {\n    node.warn(error)\n};\n\nglobal.set('analoginput', analoginput)\nreturn msg;",
+        "func": "var analoginput = global.get('analoginput')\n\ntry {\n    analoginput.input[msg.inputnumber].raw = msg.payload\n    analoginput.input[msg.inputnumber].scaled = msg.payload * analoginput.input[msg.inputnumber].calibration.span + analoginput.input[msg.inputnumber].calibration.offset;\n    if (analoginput.input[msg.inputnumber].scaled >= analoginput.input[msg.inputnumber].limits.HiHi) { analoginput.input[msg.inputnumber].alarms.HiHi = true } else { analoginput.input[msg.inputnumber].alarms.HiHi = false };\n    if (analoginput.input[msg.inputnumber].scaled >= analoginput.input[msg.inputnumber].limits.Hi) { analoginput.input[msg.inputnumber].alarms.Hi = true } else { analoginput.input[msg.inputnumber].alarms.Hi = false };\n    if (analoginput.input[msg.inputnumber].scaled <= analoginput.input[msg.inputnumber].limits.Lo) { analoginput.input[msg.inputnumber].alarms.Lo = true } else { analoginput.input[msg.inputnumber].alarms.Lo = false };\n    if (analoginput.input[msg.inputnumber].scaled <= analoginput.input[msg.inputnumber].limits.LoLo) { analoginput.input[msg.inputnumber].alarms.LoLo = true } else { analoginput.input[msg.inputnumber].alarms.LoLo = false };\n} catch (error) {\n    node.warn(error)\n};\n\nglobal.set('analoginput', analoginput)\n\nmsg.payload = analoginput.input[msg.inputnumber].scaled\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -10809,8 +10809,8 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
-        "x": 470,
-        "y": 580,
+        "x": 1210,
+        "y": 300,
         "wires": []
     },
     {
@@ -10826,8 +10826,8 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
-        "x": 470,
-        "y": 620,
+        "x": 1210,
+        "y": 340,
         "wires": []
     },
     {
@@ -10841,8 +10841,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 275,
-        "y": 580,
+        "x": 1015,
+        "y": 300,
         "wires": [
             [
                 "09c327324c82be14",
@@ -10870,8 +10870,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 375,
-        "y": 580,
+        "x": 1115,
+        "y": 300,
         "wires": [
             [
                 "dd5fa1a2a7edec40"
@@ -10898,8 +10898,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 375,
-        "y": 620,
+        "x": 1115,
+        "y": 340,
         "wires": [
             [
                 "9d1d6fc5b853b597"
@@ -10916,8 +10916,8 @@
             "9845b4c4a04ffa83",
             "0eea54bbcfd6ede8"
         ],
-        "x": 215,
-        "y": 580,
+        "x": 955,
+        "y": 300,
         "wires": [
             [
                 "b537b846c99d5ba0"
@@ -11064,8 +11064,8 @@
         "max": "1",
         "step": 1,
         "className": "",
-        "x": 790,
-        "y": 520,
+        "x": 1230,
+        "y": 220,
         "wires": [
             [
                 "c84c7544fd660421"
@@ -11091,8 +11091,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 675,
-        "y": 520,
+        "x": 1115,
+        "y": 220,
         "wires": [
             [
                 "e5017d61ae5c7809"
@@ -11119,12 +11119,168 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 895,
-        "y": 520,
+        "x": 1335,
+        "y": 220,
         "wires": [
             []
         ],
         "l": false
+    },
+    {
+        "id": "4aa0d55a58d20193",
+        "type": "ui_numeric",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "label": "xmin",
+        "tooltip": "",
+        "group": "112aa19380852c23",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{msg.payload}}",
+        "min": 0,
+        "max": "2500",
+        "step": 1,
+        "className": "",
+        "x": 1190,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e62882e76d5a3ed0",
+        "type": "ui_numeric",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "label": "xmax",
+        "tooltip": "",
+        "group": "112aa19380852c23",
+        "order": 13,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{msg.payload}}",
+        "min": 0,
+        "max": "2500",
+        "step": 1,
+        "className": "",
+        "x": 1190,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f840ee76882f8428",
+        "type": "ui_numeric",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "label": "ymin",
+        "tooltip": "",
+        "group": "112aa19380852c23",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{msg.payload}}",
+        "min": 0,
+        "max": "2500",
+        "step": 1,
+        "className": "",
+        "x": 1190,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "69a195c61a15f1ff",
+        "type": "ui_numeric",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "label": "ymax",
+        "tooltip": "",
+        "group": "112aa19380852c23",
+        "order": 13,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{msg.payload}}",
+        "min": 0,
+        "max": "2500",
+        "step": 1,
+        "className": "",
+        "x": 1190,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "32539e809a4ab257",
+        "type": "ui_numeric",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "label": "span",
+        "tooltip": "",
+        "group": "112aa19380852c23",
+        "order": 13,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{msg.payload}}",
+        "min": 0,
+        "max": "2500",
+        "step": 1,
+        "className": "",
+        "x": 1190,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f78df4f546d5323b",
+        "type": "ui_numeric",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "label": "offset",
+        "tooltip": "",
+        "group": "112aa19380852c23",
+        "order": 13,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{msg.payload}}",
+        "min": 0,
+        "max": "2500",
+        "step": 1,
+        "className": "",
+        "x": 1190,
+        "y": 500,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "1c9e79b136a623e2",
