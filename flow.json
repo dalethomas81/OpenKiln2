@@ -1212,7 +1212,7 @@
         },
         "payload": "",
         "submit": "submit",
-        "cancel": "cancel",
+        "cancel": "",
         "topic": "topic",
         "topicType": "msg",
         "splitLayout": "",
