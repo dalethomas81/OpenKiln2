@@ -10447,7 +10447,7 @@
         "type": "function",
         "z": "3154c44d1a91de38",
         "name": "",
-        "func": "var analoginput = global.get('analoginput')\n\ntry {\n    analoginput[msg.inputnumber].raw = msg.payload\n} catch (error) {\n    node.warn(error)\n};\n\nglobal.set('analoginput', analoginput)\nreturn msg;",
+        "func": "var analoginput = global.get('analoginput')\n\ntry {\n    analoginput.input[msg.inputnumber].raw = msg.payload\n} catch (error) {\n    node.warn(error)\n};\n\nglobal.set('analoginput', analoginput)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
