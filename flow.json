@@ -3722,38 +3722,20 @@
         "id": "f4bb65861a8f2d49",
         "type": "function",
         "z": "592b686edd11b813",
-        "name": "",
+        "name": "TODO: schedule names",
         "func": "var schedules = global.get('kiln_01.schedules')\nvar schedule_names = []\nfor (let index = 0; index < schedules.length; index++) {\n    var name = {}\n    name[schedules[index].name] = index.toString()\n    schedule_names.push(name)\n}\nmsg.options = schedule_names\nreturn msg;\n\n/*\n[\n    {\n        \"schedule 1\": \"0\"\n    },\n    {\n        \"schedule 2\": \"1\"\n    }\n\n]\n[\n    {\n        \"Cone 04 Bisque\":\"0\"\n    },\n    {\n        \"Cone 6 Glaze\":\"1\"\n    }\n]\n*/\n/*\nvar obj1 = { x: { min: 0.0, max: 0.0 }, y: { min: 0.0, max: 0.0 }, span: 0.0, offset: 0.0 }\nvar calibration = Object.create(obj1)\ninput.push({ id: '', raw: 0.0, scaled: 0.0, calibration, limits, alarms })\n*/",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 450,
+        "x": 590,
         "y": 500,
         "wires": [
             [
-                "b4de42784295d251",
-                "2d20c7f7e6ea78c2",
                 "f7a42259283f2fc9"
             ]
         ]
-    },
-    {
-        "id": "b4de42784295d251",
-        "type": "debug",
-        "z": "592b686edd11b813",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 630,
-        "y": 480,
-        "wires": []
     },
     {
         "id": "f303084817f644d0",
@@ -3776,45 +3758,13 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 290,
+        "x": 380,
         "y": 500,
         "wires": [
             [
                 "f4bb65861a8f2d49"
             ]
         ]
-    },
-    {
-        "id": "2d20c7f7e6ea78c2",
-        "type": "json",
-        "z": "592b686edd11b813",
-        "name": "",
-        "property": "payload",
-        "action": "str",
-        "pretty": false,
-        "x": 610,
-        "y": 520,
-        "wires": [
-            [
-                "9087d79ed815d98e"
-            ]
-        ]
-    },
-    {
-        "id": "9087d79ed815d98e",
-        "type": "debug",
-        "z": "592b686edd11b813",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 770,
-        "y": 520,
-        "wires": []
     },
     {
         "id": "0f56f86bd83c9233",
