@@ -12333,6 +12333,26 @@
         "l": false
     },
     {
+        "id": "badbd5684182eea0",
+        "type": "comment",
+        "z": "3154c44d1a91de38",
+        "name": "monitor thermocouple failure",
+        "info": "this section of nodes will start a timer when \nthe thermocouple returned data is either\n32 or NaN.\n\nafter the timer has expired the thermocouple\nwill be considered faulty.\n\nwhen the thermocouple begins transmitting \nvalues other than 32 or NaN again another\ntimer will start.\n\nonce this timer expires then the thermocouple\nwill be considered ok again.",
+        "x": 460,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "3aa120f2e22a021e",
+        "type": "comment",
+        "z": "3154c44d1a91de38",
+        "name": "monitor thermocouple failure",
+        "info": "this section of nodes will start a timer when \nthe thermocouple returned data is either\n32 or NaN.\n\nafter the timer has expired the thermocouple\nwill be considered faulty.\n\nwhen the thermocouple begins transmitting \nvalues other than 32 or NaN again another\ntimer will start.\n\nonce this timer expires then the thermocouple\nwill be considered ok again.",
+        "x": 460,
+        "y": 520,
+        "wires": []
+    },
+    {
         "id": "1c9e79b136a623e2",
         "type": "catch",
         "z": "98e4246c87add39e",
