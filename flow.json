@@ -11048,7 +11048,7 @@
         "id": "e5017d61ae5c7809",
         "type": "ui_numeric",
         "z": "3154c44d1a91de38",
-        "name": "",
+        "name": "select input",
         "label": "Input",
         "tooltip": "",
         "group": "112aa19380852c23",
@@ -11064,7 +11064,7 @@
         "max": "1",
         "step": 1,
         "className": "",
-        "x": 770,
+        "x": 790,
         "y": 520,
         "wires": [
             [
