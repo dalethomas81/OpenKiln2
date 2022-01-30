@@ -1288,14 +1288,14 @@
         "id": "f5070cef209d87e2",
         "type": "function",
         "z": "592b686edd11b813",
-        "name": "",
+        "name": "set segment",
         "func": "//global.set('kiln_01.selected_schedule', temp);\nvar schedule_index = flow.get('schedule_index', 'memoryOnly');\nvar segment_index = flow.get('segment_index', 'memoryOnly');\nvar segment = 'kiln_01.schedules['+ schedule_index.toString() + '].segments[' + segment_index.toString() + ']'\nglobal.set(segment, msg.payload);\nmsg.payload = segment\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 680,
+        "x": 690,
         "y": 260,
         "wires": [
             [
@@ -2286,14 +2286,14 @@
         "id": "d815b4776bb0f1aa",
         "type": "function",
         "z": "592b686edd11b813",
-        "name": "",
+        "name": "delete segment",
         "func": "var schedule_index = flow.get('schedule_index', 'memoryOnly');\nvar segment_index = flow.get('segment_index', 'memoryOnly');\nvar segment = 'kiln_01.schedules['+ schedule_index.toString() + '].segments[' + segment_index.toString() + ']'\n\nglobal.set(segment, undefined);\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 680,
+        "x": 700,
         "y": 340,
         "wires": [
             [
