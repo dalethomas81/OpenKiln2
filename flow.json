@@ -10265,7 +10265,7 @@
         "type": "function",
         "z": "3154c44d1a91de38",
         "name": "initialize variables",
-        "func": "\nvar input = []\nvar inputcount = 2\nfor (let index = 0; index < inputcount; index++) {\n    var x = { min: 0.0, max: 0.0 };\n    var y = { min: 0.0, max: 0.0 };\n    var calibration = { x, y, span: 0.0, offset: 0.0 }\n    calibration.x.min = 0.0; calibration.x.max = 0.0; calibration.y.min = 0.0; calibration.y.max = 0.0;\n    calibration.span = 0.0; calibration.offset = 0.0;\n    var obj2 = { HiHi: 0.0, Hi: 0.0, Lo: 0.0, LoLo: 0.0 }\n    var limits = Object.create(obj2)\n    limits.HiHi = 0.0; limits.Hi = 0.0; limits.Lo = 0.0; limits.LoLo = 0.0;\n    var obj3 = { HiHi: false, Hi: false, Lo: false, LoLo: false }\n    var alarms = Object.create(obj3)\n    alarms.HiHi = false; alarms.Hi = false; alarms.Lo = false; alarms.LoLo = false;\n    input.push({ id: '', raw: 0.0, scaled: 0.0, calibration, limits, alarms })\n}\nvar analoginput = { selected_input: 0, input }\nvar cloneinput = Object.assign({}, input)\nvar analoginput_disk = { selected_input: 0, cloneinput }\nglobal.set('analoginput', analoginput, 'memoryOnly')\nglobal.set('analoginput', analoginput_disk)\nmsg.payload = { analoginput }\nreturn msg;",
+        "func": "\nvar input = []\nvar inputcount = 2\nfor (let index = 0; index < inputcount; index++) {\n    var x = { min: 0.0, max: 0.0 };\n    var y = { min: 0.0, max: 0.0 };\n    var calibration = { x, y, span: 0.0, offset: 0.0 }\n    calibration.x.min = 0.0; calibration.x.max = 0.0; calibration.y.min = 0.0; calibration.y.max = 0.0;\n    calibration.span = 0.0; calibration.offset = 0.0;\n    var obj2 = { HiHi: 0.0, Hi: 0.0, Lo: 0.0, LoLo: 0.0 }\n    var limits = Object.create(obj2)\n    limits.HiHi = 0.0; limits.Hi = 0.0; limits.Lo = 0.0; limits.LoLo = 0.0;\n    var obj3 = { HiHi: false, Hi: false, Lo: false, LoLo: false }\n    var alarms = Object.create(obj3)\n    alarms.HiHi = false; alarms.Hi = false; alarms.Lo = false; alarms.LoLo = false;\n    input.push({ id: '', raw: 0.0, scaled: 0.0, calibration, limits, alarms })\n}\nvar analoginput = { selected_input: 0, input }\nglobal.set('analoginput', analoginput, 'memoryOnly')\nglobal.set('analoginput', analoginput)\nmsg.payload = { analoginput }\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -10443,8 +10443,7 @@
         "y": 360,
         "wires": [
             [
-                "44fc0716fdc686dc",
-                "844bca0fc6cb0173"
+                "44fc0716fdc686dc"
             ]
         ],
         "l": false
@@ -10494,23 +10493,6 @@
             ]
         ],
         "l": false
-    },
-    {
-        "id": "844bca0fc6cb0173",
-        "type": "debug",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 460,
-        "y": 300,
-        "wires": []
     },
     {
         "id": "227bd039c79e1580",
