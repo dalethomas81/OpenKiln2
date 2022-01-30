@@ -10498,14 +10498,14 @@
                 "t": "set",
                 "p": "analoginput.input[0].calibration.offset",
                 "pt": "global",
-                "to": "10",
+                "to": "0",
                 "tot": "num"
             },
             {
                 "t": "set",
                 "p": "analoginput.input[0].calibration.span",
                 "pt": "global",
-                "to": "100",
+                "to": "1",
                 "tot": "num"
             }
         ],
