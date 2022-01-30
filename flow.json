@@ -3589,7 +3589,8 @@
         "name": "",
         "mode": "link",
         "links": [
-            "b5f8918b49462031"
+            "b5f8918b49462031",
+            "223bca47aa31a4da"
         ],
         "x": 355,
         "y": 360,
@@ -3636,6 +3637,86 @@
         "wires": [
             [
                 "9256680a1dd25943"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "023f6eeca8781228",
+        "type": "ui_text_input",
+        "z": "592b686edd11b813",
+        "name": "",
+        "label": "Schedule Name",
+        "tooltip": "",
+        "group": "5e1bdbab1ef4cbe6",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 500,
+        "y": 60,
+        "wires": [
+            [
+                "7d3f232e7739f144"
+            ]
+        ]
+    },
+    {
+        "id": "7d3f232e7739f144",
+        "type": "function",
+        "z": "592b686edd11b813",
+        "name": "",
+        "func": "var schedule_index = flow.get('schedule_index', 'memoryOnly');\nvar segment = 'kiln_01.schedules['+ schedule_index.toString() + '].name'\n\nglobal.set(segment, msg.payload);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 615,
+        "y": 60,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "223bca47aa31a4da",
+        "type": "link in",
+        "z": "592b686edd11b813",
+        "name": "",
+        "links": [
+            "c43fe6a6eabba842"
+        ],
+        "x": 295,
+        "y": 60,
+        "wires": [
+            [
+                "7560c351d622b7c2"
+            ]
+        ]
+    },
+    {
+        "id": "7560c351d622b7c2",
+        "type": "function",
+        "z": "592b686edd11b813",
+        "name": "",
+        "func": "var schedule_index = flow.get('schedule_index', 'memoryOnly');\nvar segment = 'kiln_01.schedules['+ schedule_index.toString() + '].name'\n\nglobal.get(segment);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 375,
+        "y": 60,
+        "wires": [
+            [
+                "023f6eeca8781228"
             ]
         ],
         "l": false
