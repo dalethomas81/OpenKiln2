@@ -11839,8 +11839,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 455,
-        "y": 300,
+        "x": 415,
+        "y": 320,
         "wires": [
             [
                 "babdd556d27c32aa"
@@ -11875,7 +11875,8 @@
             ],
             [
                 "1219bcc4367384ed",
-                "a8b1edd17a18f4ac"
+                "a8b1edd17a18f4ac",
+                "69efb80c32c6808b"
             ]
         ],
         "l": false
@@ -12234,7 +12235,7 @@
         "repair": false,
         "outputs": 1,
         "x": 415,
-        "y": 260,
+        "y": 220,
         "wires": [
             [
                 "babdd556d27c32aa"
@@ -12257,7 +12258,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 415,
+        "x": 455,
         "y": 300,
         "wires": [
             [
@@ -12265,6 +12266,23 @@
             ]
         ],
         "l": false
+    },
+    {
+        "id": "69efb80c32c6808b",
+        "type": "debug",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 280,
+        "wires": []
     },
     {
         "id": "1c9e79b136a623e2",
