@@ -10833,6 +10833,37 @@
         "l": false
     },
     {
+        "id": "9eb19eb290b55af6",
+        "type": "ui_ui_control",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "events": "all",
+        "x": 770,
+        "y": 600,
+        "wires": [
+            [
+                "11e0a47b0c3f8924"
+            ]
+        ]
+    },
+    {
+        "id": "11e0a47b0c3f8924",
+        "type": "debug",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 910,
+        "y": 600,
+        "wires": []
+    },
+    {
         "id": "1c9e79b136a623e2",
         "type": "catch",
         "z": "98e4246c87add39e",
