@@ -11308,12 +11308,13 @@
         "z": "3154c44d1a91de38",
         "name": "",
         "events": "all",
-        "x": 935,
+        "x": 915,
         "y": 400,
         "wires": [
             [
                 "59e10ec9698b12e7",
-                "91e990d43d30f9c6"
+                "91e990d43d30f9c6",
+                "57fabf8420eb8b51"
             ]
         ],
         "l": false
@@ -11658,6 +11659,66 @@
         "reg": false,
         "x": 1095,
         "y": 340,
+        "wires": [
+            [
+                "193129d955d22371"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "57fabf8420eb8b51",
+        "type": "switch",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "change",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "lost",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1035,
+        "y": 320,
+        "wires": [
+            [
+                "877974758133d165"
+            ],
+            [
+                "06678430389b644d"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "877974758133d165",
+        "type": "switch",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "property": "tab",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "5",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1095,
+        "y": 300,
         "wires": [
             [
                 "193129d955d22371"
