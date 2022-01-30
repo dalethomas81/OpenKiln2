@@ -1081,7 +1081,7 @@
         "repair": false,
         "outputs": 1,
         "x": 315,
-        "y": 1280,
+        "y": 1340,
         "wires": [
             [
                 "a65357c5f5e0b6d3"
@@ -1101,7 +1101,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 210,
-        "y": 1280,
+        "y": 1340,
         "wires": [
             [
                 "51523551dd33a6f6"
@@ -1178,7 +1178,7 @@
         "splitLayout": "",
         "className": "",
         "x": 490,
-        "y": 260,
+        "y": 320,
         "wires": [
             [
                 "f5070cef209d87e2"
@@ -1205,7 +1205,7 @@
         "topicType": "msg",
         "className": "",
         "x": 500,
-        "y": 180,
+        "y": 240,
         "wires": [
             [
                 "338932c551eabbf7",
@@ -1233,7 +1233,7 @@
         "to": "",
         "reg": false,
         "x": 655,
-        "y": 180,
+        "y": 240,
         "wires": [
             []
         ],
@@ -1250,13 +1250,14 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 680,
-        "y": 260,
+        "x": 635,
+        "y": 320,
         "wires": [
             [
                 "6b534a21adf47fbc"
             ]
-        ]
+        ],
+        "l": false
     },
     {
         "id": "9256680a1dd25943",
@@ -1278,7 +1279,7 @@
         "topicType": "msg",
         "className": "",
         "x": 500,
-        "y": 220,
+        "y": 280,
         "wires": [
             [
                 "b88e332b4ed39aac",
@@ -1306,7 +1307,7 @@
         "to": "",
         "reg": false,
         "x": 655,
-        "y": 220,
+        "y": 280,
         "wires": [
             []
         ],
@@ -1323,8 +1324,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 490,
-        "y": 400,
+        "x": 530,
+        "y": 600,
         "wires": [
             [
                 "3fda2bd34a7c89b2"
@@ -1352,7 +1353,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 135,
-        "y": 180,
+        "y": 240,
         "wires": [
             [
                 "26aedf9d4f3e92fc",
@@ -1389,28 +1390,11 @@
         "to": "",
         "reg": false,
         "x": 235,
-        "y": 140,
+        "y": 200,
         "wires": [
             []
         ],
         "l": false
-    },
-    {
-        "id": "7a65114e3c2394b2",
-        "type": "function",
-        "z": "592b686edd11b813",
-        "name": "",
-        "func": "//global.set('kiln_01.selected_schedule', temp);\nvar schedule_index = msg.payload //flow.get('schedule_index', 'memoryOnly');\nvar segment_index = flow.get('segment_index', 'memoryOnly');\nvar schedules = global.get('kiln_01.schedules');\nvar selected_schedule = schedules[schedule_index].segments[segment_index]\n\nmsg.payload = ''\nfor (let key in selected_schedule) {\n  let value = selected_schedule[key];\n  if (selected_schedule.hasOwnProperty(key)) {\n    //node.warn(`Property ${key} is NOT from prototype chain`)\n    msg.payload = msg.payload + key.toString() + \":\" + value.toString() + \",\"\n  } else {\n    //node.warn(`Property ${key} is NOT from prototype chain`)\n  }\n}\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 840,
-        "y": 140,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "782f21bebe74bd1c",
@@ -1477,7 +1461,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 660,
-        "y": 580,
+        "y": 740,
         "wires": [
             [
                 "245aecb0a76e7750"
@@ -1496,7 +1480,7 @@
         "finalize": "",
         "libs": [],
         "x": 775,
-        "y": 580,
+        "y": 740,
         "wires": [
             []
         ],
@@ -1509,7 +1493,7 @@
         "name": "Control Dashboard",
         "info": "",
         "x": 110,
-        "y": 520,
+        "y": 700,
         "wires": []
     },
     {
@@ -1532,7 +1516,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 290,
-        "y": 680,
+        "y": 840,
         "wires": [
             [
                 "c03c7fb7458a9e9f"
@@ -1559,7 +1543,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 290,
-        "y": 720,
+        "y": 880,
         "wires": [
             [
                 "c03c7fb7458a9e9f"
@@ -1586,7 +1570,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 280,
-        "y": 800,
+        "y": 960,
         "wires": [
             [
                 "c03c7fb7458a9e9f"
@@ -1604,7 +1588,7 @@
             "81fb9a528731184e"
         ],
         "x": 435,
-        "y": 740,
+        "y": 900,
         "wires": []
     },
     {
@@ -1620,7 +1604,7 @@
         "format": "<font color='green'>{{msg.payload}}</font>",
         "layout": "row-spread",
         "x": 320,
-        "y": 1080,
+        "y": 1140,
         "wires": []
     },
     {
@@ -1632,7 +1616,7 @@
             "fb11495e37bdb84b"
         ],
         "x": 175,
-        "y": 1080,
+        "y": 1140,
         "wires": [
             [
                 "219b6df02966d0e3"
@@ -1652,7 +1636,7 @@
         "format": "<font color='green'>{{msg.payload}}</font>",
         "layout": "row-spread",
         "x": 320,
-        "y": 1040,
+        "y": 1100,
         "wires": []
     },
     {
@@ -1664,7 +1648,7 @@
             "b33e0726c17b668b"
         ],
         "x": 175,
-        "y": 1040,
+        "y": 1100,
         "wires": [
             [
                 "1de58add27ec2baf"
@@ -1684,7 +1668,7 @@
         "format": "<font color='green'>{{msg.payload}} °F</font>",
         "layout": "row-spread",
         "x": 300,
-        "y": 1200,
+        "y": 1260,
         "wires": []
     },
     {
@@ -1696,7 +1680,7 @@
             "edf985d2d969c4b4"
         ],
         "x": 175,
-        "y": 1200,
+        "y": 1260,
         "wires": [
             [
                 "2e9532e03f213fb4"
@@ -1714,7 +1698,7 @@
             "a898206a716472e9"
         ],
         "x": 535,
-        "y": 580,
+        "y": 740,
         "wires": [
             [
                 "782f21bebe74bd1c"
@@ -1728,7 +1712,7 @@
         "name": "",
         "events": "all",
         "x": 155,
-        "y": 580,
+        "y": 740,
         "wires": [
             [
                 "c35a667653959ba3"
@@ -1754,7 +1738,7 @@
         "repair": false,
         "outputs": 1,
         "x": 215,
-        "y": 580,
+        "y": 740,
         "wires": [
             [
                 "d1b9dbb996bc65fd"
@@ -1774,7 +1758,7 @@
         "finalize": "",
         "libs": [],
         "x": 275,
-        "y": 580,
+        "y": 740,
         "wires": [
             [
                 "75b14d458cd1e761"
@@ -1792,7 +1776,7 @@
             "85642d7408d49cd8"
         ],
         "x": 335,
-        "y": 580,
+        "y": 740,
         "wires": []
     },
     {
@@ -1801,8 +1785,8 @@
         "z": "592b686edd11b813",
         "name": "",
         "events": "all",
-        "x": 215,
-        "y": 380,
+        "x": 255,
+        "y": 580,
         "wires": [
             [
                 "52e7c1f8dff102dc"
@@ -1837,8 +1821,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 3,
-        "x": 275,
-        "y": 380,
+        "x": 315,
+        "y": 580,
         "wires": [
             [],
             [
@@ -1860,7 +1844,7 @@
             "f59050e178b63b1a"
         ],
         "x": 155,
-        "y": 800,
+        "y": 960,
         "wires": [
             [
                 "95a54e2f0c9b2382"
@@ -1874,7 +1858,7 @@
         "name": "Input - advance button",
         "links": [],
         "x": 155,
-        "y": 760,
+        "y": 920,
         "wires": [
             [
                 "7bfd8d56a8dba80e"
@@ -1888,7 +1872,7 @@
         "name": "Input - stop button",
         "links": [],
         "x": 155,
-        "y": 720,
+        "y": 880,
         "wires": [
             [
                 "ae53f4a3aef75fe8"
@@ -1902,7 +1886,7 @@
         "name": "Input - start button",
         "links": [],
         "x": 155,
-        "y": 680,
+        "y": 840,
         "wires": [
             [
                 "71b520a30c4deec4"
@@ -1922,7 +1906,7 @@
         "format": "<font color='green'>{{msg.payload}}</font>",
         "layout": "row-spread",
         "x": 330,
-        "y": 1120,
+        "y": 1180,
         "wires": []
     },
     {
@@ -1934,7 +1918,7 @@
             "3ab377921817af3f"
         ],
         "x": 175,
-        "y": 1120,
+        "y": 1180,
         "wires": [
             [
                 "e5aec5149ce37d5d"
@@ -1954,7 +1938,7 @@
         "format": "<font color='green'>{{msg.payload}} min</font>",
         "layout": "row-spread",
         "x": 320,
-        "y": 1160,
+        "y": 1220,
         "wires": []
     },
     {
@@ -1968,7 +1952,7 @@
             "f1d4774590c51f3d"
         ],
         "x": 175,
-        "y": 1160,
+        "y": 1220,
         "wires": [
             [
                 "f9d4fdfcb6abeb41"
@@ -1998,7 +1982,7 @@
         "seg1": "",
         "seg2": "",
         "x": 790,
-        "y": 1080,
+        "y": 1140,
         "wires": []
     },
     {
@@ -2024,7 +2008,7 @@
         "seg1": "",
         "seg2": "",
         "x": 790,
-        "y": 1120,
+        "y": 1180,
         "wires": []
     },
     {
@@ -2036,7 +2020,7 @@
             "dcbc073ea7b777ee"
         ],
         "x": 635,
-        "y": 1080,
+        "y": 1140,
         "wires": [
             [
                 "4610f0d05bf3b4b1"
@@ -2052,7 +2036,7 @@
             "e65201e766b76bfd"
         ],
         "x": 635,
-        "y": 1120,
+        "y": 1180,
         "wires": [
             [
                 "1a904f944ba81c1b"
@@ -2097,7 +2081,7 @@
         "outputs": 1,
         "useDifferentColor": false,
         "x": 790,
-        "y": 1280,
+        "y": 1340,
         "wires": [
             []
         ]
@@ -2117,7 +2101,7 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "x": 500,
-        "y": 300,
+        "y": 360,
         "wires": [
             []
         ]
@@ -2143,7 +2127,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 520,
-        "y": 340,
+        "y": 400,
         "wires": [
             [
                 "d815b4776bb0f1aa"
@@ -2161,37 +2145,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 680,
-        "y": 340,
+        "x": 635,
+        "y": 400,
         "wires": [
             [
                 "6b534a21adf47fbc"
             ]
-        ]
-    },
-    {
-        "id": "8f21d66b67ab4695",
-        "type": "change",
-        "z": "592b686edd11b813",
-        "name": "set schedule names",
-        "rules": [
-            {
-                "t": "set",
-                "p": "options",
-                "pt": "msg",
-                "to": "[{\"schedule 1\":\"0\"},{\"schedule 2\":\"1\"},{\"schedule 3\":\"2\"},{\"schedule 4\":\"3\"},{\"schedule 5\":\"4\"},{\"schedule 6\":\"5\"},{\"schedule 7\":\"6\"},{\"schedule 8\":\"7\"}]",
-                "tot": "json"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 55,
-        "y": 180,
-        "wires": [
-            []
         ],
         "l": false
     },
@@ -2204,7 +2163,7 @@
             "3fda2bd34a7c89b2"
         ],
         "x": 395,
-        "y": 260,
+        "y": 320,
         "wires": [
             [
                 "018ef11ba74cb510"
@@ -2220,7 +2179,7 @@
             "338980eff32a3206"
         ],
         "x": 395,
-        "y": 300,
+        "y": 360,
         "wires": [
             [
                 "89090e12b153c6a4"
@@ -2236,8 +2195,8 @@
         "links": [
             "e0f89df2c8e81cd9"
         ],
-        "x": 615,
-        "y": 380,
+        "x": 655,
+        "y": 580,
         "wires": []
     },
     {
@@ -2249,8 +2208,8 @@
         "links": [
             "ae2b5be430abc93f"
         ],
-        "x": 615,
-        "y": 420,
+        "x": 655,
+        "y": 620,
         "wires": []
     },
     {
@@ -2260,11 +2219,10 @@
         "name": "",
         "links": [
             "6b534a21adf47fbc",
-            "bbb665c4fceb800d",
-            "beee976f9bb8a5fd"
+            "bbb665c4fceb800d"
         ],
-        "x": 355,
-        "y": 420,
+        "x": 395,
+        "y": 620,
         "wires": [
             [
                 "5192f533b0238631"
@@ -2280,8 +2238,8 @@
         "links": [
             "006321a7d5098eed"
         ],
-        "x": 815,
-        "y": 320,
+        "x": 715,
+        "y": 360,
         "wires": []
     },
     {
@@ -2295,7 +2253,7 @@
             "223bca47aa31a4da"
         ],
         "x": 655,
-        "y": 140,
+        "y": 200,
         "wires": []
     },
     {
@@ -2318,7 +2276,7 @@
         "to": "",
         "reg": false,
         "x": 235,
-        "y": 220,
+        "y": 280,
         "wires": [
             [
                 "9256680a1dd25943"
@@ -2346,7 +2304,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 280,
-        "y": 760,
+        "y": 920,
         "wires": [
             [
                 "c03c7fb7458a9e9f"
@@ -2373,7 +2331,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 290,
-        "y": 840,
+        "y": 1000,
         "wires": [
             [
                 "c03c7fb7458a9e9f"
@@ -2387,7 +2345,7 @@
         "name": "Input - hold button",
         "links": [],
         "x": 155,
-        "y": 840,
+        "y": 1000,
         "wires": [
             [
                 "8058b979887ff4eb"
@@ -2401,7 +2359,7 @@
         "name": "https://klarsys.github.io/angular-material-icons/",
         "info": "",
         "x": 300,
-        "y": 640,
+        "y": 800,
         "wires": []
     },
     {
@@ -2411,7 +2369,7 @@
         "name": "",
         "events": "all",
         "x": 280,
-        "y": 1340,
+        "y": 1400,
         "wires": [
             [
                 "cf385be5a48bd527"
@@ -2446,7 +2404,7 @@
         "repair": false,
         "outputs": 3,
         "x": 410,
-        "y": 1340,
+        "y": 1400,
         "wires": [
             [
                 "2f728d5ae34b85ed"
@@ -2477,7 +2435,7 @@
         "to": "",
         "reg": false,
         "x": 590,
-        "y": 1320,
+        "y": 1380,
         "wires": [
             []
         ]
@@ -2502,7 +2460,7 @@
         "to": "",
         "reg": false,
         "x": 590,
-        "y": 1340,
+        "y": 1400,
         "wires": [
             []
         ]
@@ -2520,7 +2478,7 @@
         "format": "<font color='green'>{{msg.payload}} deg/h</font>",
         "layout": "row-spread",
         "x": 770,
-        "y": 1040,
+        "y": 1100,
         "wires": []
     },
     {
@@ -2534,7 +2492,7 @@
             "c5180a0a450ebd11"
         ],
         "x": 635,
-        "y": 1040,
+        "y": 1100,
         "wires": [
             [
                 "2b7d853b4ddd2588"
@@ -2781,7 +2739,7 @@
         "retentionPolicy": "",
         "org": "organisation",
         "x": 540,
-        "y": 1280,
+        "y": 1340,
         "wires": [
             [
                 "566ce4114146f76d"
@@ -2808,7 +2766,7 @@
         "to": "",
         "reg": false,
         "x": 375,
-        "y": 1280,
+        "y": 1340,
         "wires": [
             [
                 "fb07d106257c09b8"
@@ -2828,7 +2786,7 @@
         "finalize": "",
         "libs": [],
         "x": 695,
-        "y": 1280,
+        "y": 1340,
         "wires": [
             [
                 "0ced5c373a61386b"
@@ -3040,7 +2998,7 @@
         "name": "Recipe Dashboard",
         "info": "",
         "x": 110,
-        "y": 100,
+        "y": 80,
         "wires": []
     },
     {
@@ -3053,7 +3011,7 @@
             "85642d7408d49cd8"
         ],
         "x": 295,
-        "y": 140,
+        "y": 200,
         "wires": []
     },
     {
@@ -3323,7 +3281,7 @@
         "voice": "com.apple.speech.synthesis.voice.Alex",
         "always": true,
         "x": 420,
-        "y": 1460,
+        "y": 1500,
         "wires": []
     },
     {
@@ -3344,7 +3302,7 @@
         "payload": "The Kiln is on fire.",
         "payloadType": "str",
         "x": 150,
-        "y": 1460,
+        "y": 1500,
         "wires": [
             [
                 "c8796bffe6a96967"
@@ -3358,7 +3316,7 @@
         "name": "announcements",
         "info": "",
         "x": 100,
-        "y": 1400,
+        "y": 1460,
         "wires": []
     },
     {
@@ -3379,7 +3337,7 @@
         "payload": "Kiln has entered a hold.",
         "payloadType": "str",
         "x": 160,
-        "y": 1500,
+        "y": 1540,
         "wires": [
             [
                 "c8796bffe6a96967"
@@ -3404,7 +3362,7 @@
         "payload": "Kiln schedule is complete.",
         "payloadType": "str",
         "x": 170,
-        "y": 1540,
+        "y": 1580,
         "wires": [
             [
                 "c8796bffe6a96967"
@@ -3418,7 +3376,7 @@
         "name": "Status dashboard",
         "info": "",
         "x": 110,
-        "y": 960,
+        "y": 1060,
         "wires": []
     },
     {
@@ -3441,7 +3399,7 @@
         "to": "",
         "reg": false,
         "x": 375,
-        "y": 160,
+        "y": 220,
         "wires": [
             [
                 "f7a42259283f2fc9"
@@ -3459,8 +3417,8 @@
             "b5f8918b49462031",
             "223bca47aa31a4da"
         ],
-        "x": 355,
-        "y": 360,
+        "x": 395,
+        "y": 560,
         "wires": []
     },
     {
@@ -3472,7 +3430,7 @@
             "c43fe6a6eabba842"
         ],
         "x": 295,
-        "y": 200,
+        "y": 260,
         "wires": [
             [
                 "096ffc209c7be3fb",
@@ -3500,7 +3458,7 @@
         "to": "",
         "reg": false,
         "x": 375,
-        "y": 200,
+        "y": 260,
         "wires": [
             [
                 "9256680a1dd25943"
@@ -3527,7 +3485,7 @@
         "className": "",
         "topicType": "msg",
         "x": 500,
-        "y": 60,
+        "y": 120,
         "wires": [
             [
                 "7d3f232e7739f144"
@@ -3546,7 +3504,7 @@
         "finalize": "",
         "libs": [],
         "x": 615,
-        "y": 60,
+        "y": 120,
         "wires": [
             [
                 "7ada905b810b30c6"
@@ -3564,7 +3522,7 @@
             "bbb665c4fceb800d"
         ],
         "x": 295,
-        "y": 60,
+        "y": 120,
         "wires": [
             [
                 "7560c351d622b7c2"
@@ -3583,7 +3541,7 @@
         "finalize": "",
         "libs": [],
         "x": 375,
-        "y": 60,
+        "y": 120,
         "wires": [
             [
                 "023f6eeca8781228"
@@ -3603,7 +3561,7 @@
         "finalize": "",
         "libs": [],
         "x": 235,
-        "y": 180,
+        "y": 240,
         "wires": [
             [
                 "a898206a716472e9",
@@ -3632,8 +3590,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 500,
-        "y": 460,
+        "x": 520,
+        "y": 440,
         "wires": [
             [
                 "63dcf2f8335202df"
@@ -3645,14 +3603,14 @@
         "type": "function",
         "z": "592b686edd11b813",
         "name": "",
-        "func": "var schedules = global.get('kiln_01.schedules')\nvar segment = {name:\"new segment\",enabled:true,hold:false,setpoint:0,ramp_rate:0,soak_time:0}\n//var segment = Object.create(obj)\nvar segments = []\nsegments.push(segment)\nvar schedule = {name:\"new schedule\", segments}\n//var schedule = Object.create(obj2)\nschedules.push(schedule)\nglobal.set('kiln_01.schedules', schedules)\nmsg.payload = schedules.length - 1\nreturn msg;",
+        "func": "var schedules = global.get('kiln_01.schedules')\nvar segment = {name:\"new segment\",enabled:true,hold:false,setpoint:0,ramp_rate:0,soak_time:0}\n//var segment = Object.create(obj)\nvar segments = []\nsegments.push(segment)\nvar schedule = {name:\"new schedule\", segments}\n//var schedule = Object.create(obj2)\nschedules.push(schedule)\nglobal.set('kiln_01.schedules', schedules)\n\nflow.set('schedule_index', schedules.length - 1, 'memoryOnly');\n//msg.payload = schedules.length - 1 //  this should make the schedules dropdown go to this new schedule\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 615,
-        "y": 460,
+        "x": 635,
+        "y": 440,
         "wires": [
             [
                 "beee976f9bb8a5fd"
@@ -3665,14 +3623,14 @@
         "type": "function",
         "z": "592b686edd11b813",
         "name": "",
-        "func": "var schedule_index = flow.get('schedule_index', 'memoryOnly');\nvar schedule = 'kiln_01.schedules['+ schedule_index.toString() + ']'\n\nglobal.set(schedule, undefined);\n\nmsg.payload = 0 // send this so the drop down menu goes back to index 0\nreturn msg;",
+        "func": "var schedule_index = flow.get('schedule_index', 'memoryOnly');\nvar schedule = 'kiln_01.schedules['+ schedule_index.toString() + ']'\n\nglobal.set(schedule, undefined);\n\nflow.set('schedule_index', 0, 'memoryOnly');\n//msg.payload = 0 // send this so the drop down menu goes back to index 0\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 615,
-        "y": 500,
+        "x": 635,
+        "y": 480,
         "wires": [
             [
                 "beee976f9bb8a5fd"
@@ -3700,8 +3658,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 500,
-        "y": 500,
+        "x": 520,
+        "y": 480,
         "wires": [
             [
                 "8ffc6beb541bf7e0"
@@ -3715,11 +3673,10 @@
         "name": "",
         "mode": "link",
         "links": [
-            "af271e715f494e25",
-            "006321a7d5098eed"
+            "af271e715f494e25"
         ],
-        "x": 705,
-        "y": 480,
+        "x": 725,
+        "y": 460,
         "wires": []
     },
     {
@@ -3731,8 +3688,8 @@
             "beee976f9bb8a5fd",
             "7ada905b810b30c6"
         ],
-        "x": 155,
-        "y": 240,
+        "x": 135,
+        "y": 280,
         "wires": [
             [
                 "f4bb65861a8f2d49"
@@ -3749,7 +3706,7 @@
             "af271e715f494e25"
         ],
         "x": 685,
-        "y": 60,
+        "y": 120,
         "wires": []
     },
     {
