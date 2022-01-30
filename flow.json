@@ -3123,7 +3123,7 @@
         "group": "2201d496820b415d",
         "voice": "com.apple.speech.synthesis.voice.Alex",
         "always": true,
-        "x": 420,
+        "x": 640,
         "y": 1500,
         "wires": []
     },
@@ -3131,24 +3131,18 @@
         "id": "5aac6d66af0d0e21",
         "type": "inject",
         "z": "592b686edd11b813",
-        "name": "The Kiln is on fire.",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
+        "name": "",
+        "props": [],
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "The Kiln is on fire.",
-        "payloadType": "str",
-        "x": 150,
+        "x": 110,
         "y": 1500,
         "wires": [
             [
-                "c8796bffe6a96967"
+                "dcdb2c44aaed16a4"
             ]
         ]
     },
@@ -3166,24 +3160,18 @@
         "id": "b1abc1b4bcb481ab",
         "type": "inject",
         "z": "592b686edd11b813",
-        "name": "Kiln has entered a hold.",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
+        "name": "",
+        "props": [],
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "Kiln has entered a hold.",
-        "payloadType": "str",
-        "x": 160,
+        "x": 110,
         "y": 1540,
         "wires": [
             [
-                "c8796bffe6a96967"
+                "073493472e3f15af"
             ]
         ]
     },
@@ -3191,24 +3179,18 @@
         "id": "e4bb3457a8359d15",
         "type": "inject",
         "z": "592b686edd11b813",
-        "name": "Kiln schedule is complete.",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
+        "name": "",
+        "props": [],
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "Kiln schedule is complete.",
-        "payloadType": "str",
-        "x": 170,
+        "x": 110,
         "y": 1580,
         "wires": [
             [
-                "c8796bffe6a96967"
+                "154551a7ba429601"
             ]
         ]
     },
@@ -4584,6 +4566,129 @@
             ]
         ],
         "l": false
+    },
+    {
+        "id": "154551a7ba429601",
+        "type": "change",
+        "z": "592b686edd11b813",
+        "name": "The kiln schedule is complete.",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "The kiln schedule is complete.",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 370,
+        "y": 1580,
+        "wires": [
+            [
+                "c8796bffe6a96967"
+            ]
+        ]
+    },
+    {
+        "id": "073493472e3f15af",
+        "type": "change",
+        "z": "592b686edd11b813",
+        "name": "The kiln has entered a hold.",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "The kiln has entered a hold.",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 1540,
+        "wires": [
+            [
+                "c8796bffe6a96967"
+            ]
+        ]
+    },
+    {
+        "id": "dcdb2c44aaed16a4",
+        "type": "change",
+        "z": "592b686edd11b813",
+        "name": "The Kiln is on fire.",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "The Kiln is on fire.",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 1500,
+        "wires": [
+            [
+                "c8796bffe6a96967"
+            ]
+        ]
+    },
+    {
+        "id": "1c4a0c29242ea67f",
+        "type": "link in",
+        "z": "592b686edd11b813",
+        "name": "The Kiln is on fire.",
+        "links": [],
+        "x": 195,
+        "y": 1500,
+        "wires": [
+            [
+                "dcdb2c44aaed16a4"
+            ]
+        ]
+    },
+    {
+        "id": "b7e67964f0dbbbd9",
+        "type": "link in",
+        "z": "592b686edd11b813",
+        "name": "The kiln has entered a hold.",
+        "links": [],
+        "x": 195,
+        "y": 1540,
+        "wires": [
+            [
+                "073493472e3f15af"
+            ]
+        ]
+    },
+    {
+        "id": "365612cabf4e1f82",
+        "type": "link in",
+        "z": "592b686edd11b813",
+        "name": "The kiln schedule is complete.",
+        "links": [],
+        "x": 195,
+        "y": 1580,
+        "wires": [
+            [
+                "154551a7ba429601"
+            ]
+        ]
     },
     {
         "id": "0f56f86bd83c9233",
