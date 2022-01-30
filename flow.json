@@ -2028,7 +2028,7 @@
         "width": 3,
         "height": 1,
         "passthru": false,
-        "label": "Delete",
+        "label": "Delete Segment",
         "tooltip": "",
         "color": "",
         "bgcolor": "",
