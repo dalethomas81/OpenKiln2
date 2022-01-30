@@ -4667,7 +4667,9 @@
         "type": "link in",
         "z": "592b686edd11b813",
         "name": "The kiln has entered a hold.",
-        "links": [],
+        "links": [
+            "6c4b614fba70c14d"
+        ],
         "x": 195,
         "y": 1540,
         "wires": [
@@ -6740,7 +6742,8 @@
         "y": 820,
         "wires": [
             [
-                "717c700de0abd324"
+                "717c700de0abd324",
+                "6c4b614fba70c14d"
             ],
             [
                 "73d963005cc1351a"
@@ -6953,6 +6956,19 @@
         "info": "",
         "x": 930,
         "y": 720,
+        "wires": []
+    },
+    {
+        "id": "6c4b614fba70c14d",
+        "type": "link out",
+        "z": "e9cef8706a9cf7f6",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "b7e67964f0dbbbd9"
+        ],
+        "x": 895,
+        "y": 780,
         "wires": []
     },
     {
