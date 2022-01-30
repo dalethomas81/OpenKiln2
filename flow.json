@@ -4357,7 +4357,7 @@
         "topic": "",
         "payload": "{\"group\":{\"hide\":[\"Main_Enable_Control\"],\"show\":[\"Main_Control\"],\"focus\":false}}",
         "payloadType": "json",
-        "x": 1170,
+        "x": 1150,
         "y": 700,
         "wires": [
             [
@@ -4382,7 +4382,7 @@
         "topic": "",
         "payload": "{\"group\":{\"hide\":[\"Main_Control\"],\"show\":[\"Main_Enable_Control\"],\"focus\":false}}",
         "payloadType": "json",
-        "x": 1170,
+        "x": 1150,
         "y": 720,
         "wires": [
             [
@@ -4396,8 +4396,8 @@
         "z": "592b686edd11b813",
         "name": "",
         "events": "connect",
-        "x": 1175,
-        "y": 860,
+        "x": 1095,
+        "y": 840,
         "wires": [
             [
                 "f034eb576e335825"
@@ -4424,8 +4424,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1235,
-        "y": 860,
+        "x": 1155,
+        "y": 840,
         "wires": [
             [
                 "b6253d729bb70f15"
@@ -4489,7 +4489,7 @@
         "z": "592b686edd11b813",
         "name": "",
         "pauseType": "delay",
-        "timeout": "2",
+        "timeout": "1",
         "timeoutUnits": "seconds",
         "rate": "1",
         "nbRateUnits": "1",
@@ -4500,8 +4500,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 1295,
-        "y": 860,
+        "x": 1215,
+        "y": 840,
         "wires": [
             [
                 "6af73a69a0827774"
