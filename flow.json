@@ -11283,6 +11283,214 @@
         ]
     },
     {
+        "id": "59e10ec9698b12e7",
+        "type": "function",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "func": "var selected_input = global.get('analoginput.selected_input')\nvar input = global.get('analoginput.input['+selected_input+']')\nmsg.input = input\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 995,
+        "y": 400,
+        "wires": [
+            [
+                "eb5f0cccbdddec17",
+                "40253492d076eefe",
+                "473527177fd9918f",
+                "4ec6890d736cceb7",
+                "024a786b0d40ab92",
+                "c9be4acf1148863b"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "ac3165fc542f149f",
+        "type": "ui_ui_control",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "events": "connect",
+        "x": 935,
+        "y": 400,
+        "wires": [
+            [
+                "59e10ec9698b12e7"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "eb5f0cccbdddec17",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "input.calibration.x.min",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1095,
+        "y": 400,
+        "wires": [
+            [
+                "4aa0d55a58d20193"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "40253492d076eefe",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "input.calibration.x.max",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1095,
+        "y": 420,
+        "wires": [
+            [
+                "e62882e76d5a3ed0"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "473527177fd9918f",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "input.calibration.y.min",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1095,
+        "y": 440,
+        "wires": [
+            [
+                "f840ee76882f8428"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "4ec6890d736cceb7",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "input.calibration.y.max",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1095,
+        "y": 460,
+        "wires": [
+            [
+                "69a195c61a15f1ff"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "024a786b0d40ab92",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "input.calibration.span",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1095,
+        "y": 480,
+        "wires": [
+            [
+                "32539e809a4ab257"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "c9be4acf1148863b",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "input.calibration.offset",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1095,
+        "y": 500,
+        "wires": [
+            [
+                "f78df4f546d5323b"
+            ]
+        ],
+        "l": false
+    },
+    {
         "id": "1c9e79b136a623e2",
         "type": "catch",
         "z": "98e4246c87add39e",
