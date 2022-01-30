@@ -11149,7 +11149,9 @@
         "x": 1190,
         "y": 400,
         "wires": [
-            []
+            [
+                "04a2c6955256b33d"
+            ]
         ]
     },
     {
@@ -11175,7 +11177,9 @@
         "x": 1190,
         "y": 420,
         "wires": [
-            []
+            [
+                "17fc1b2042cdf560"
+            ]
         ]
     },
     {
@@ -11201,7 +11205,9 @@
         "x": 1190,
         "y": 440,
         "wires": [
-            []
+            [
+                "4c63d16ed31f0cef"
+            ]
         ]
     },
     {
@@ -11227,7 +11233,9 @@
         "x": 1190,
         "y": 460,
         "wires": [
-            []
+            [
+                "3a01c95b8d6798e9"
+            ]
         ]
     },
     {
@@ -11253,7 +11261,9 @@
         "x": 1190,
         "y": 480,
         "wires": [
-            []
+            [
+                "498cdc7652234764"
+            ]
         ]
     },
     {
@@ -11279,7 +11289,9 @@
         "x": 1190,
         "y": 500,
         "wires": [
-            []
+            [
+                "5656a39db7b6dad7"
+            ]
         ]
     },
     {
@@ -11312,7 +11324,7 @@
         "type": "ui_ui_control",
         "z": "3154c44d1a91de38",
         "name": "",
-        "events": "connect",
+        "events": "all",
         "x": 935,
         "y": 400,
         "wires": [
@@ -11487,6 +11499,162 @@
             [
                 "f78df4f546d5323b"
             ]
+        ],
+        "l": false
+    },
+    {
+        "id": "04a2c6955256b33d",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "input.calibration.x.min",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1275,
+        "y": 400,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "17fc1b2042cdf560",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "input.calibration.x.max",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1275,
+        "y": 420,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "4c63d16ed31f0cef",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "input.calibration.y.min",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1275,
+        "y": 440,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "3a01c95b8d6798e9",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "input.calibration.y.max",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1275,
+        "y": 460,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "498cdc7652234764",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "input.calibration.span",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1275,
+        "y": 480,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "5656a39db7b6dad7",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "input.calibration.offset",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1275,
+        "y": 500,
+        "wires": [
+            []
         ],
         "l": false
     },
