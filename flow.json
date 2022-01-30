@@ -972,7 +972,7 @@
         "height": 1
     },
     {
-        "id": "95364977196b2fda",
+        "id": "6cd661421bb26dd5",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -982,7 +982,7 @@
         "height": 1
     },
     {
-        "id": "431c628f5d62aa2c",
+        "id": "daa3f38705ae6148",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -992,7 +992,7 @@
         "height": 1
     },
     {
-        "id": "3f5714ab2e32da88",
+        "id": "e914d3a13f2d4aae",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1002,7 +1002,7 @@
         "height": 1
     },
     {
-        "id": "169f50fde22340ed",
+        "id": "b1abd13127e15660",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1012,32 +1012,12 @@
         "height": 1
     },
     {
-        "id": "de078ebc319f57cb",
+        "id": "c8a865a51cc3e0d2",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
         "group": "90879df8d2ee4c5d",
         "order": 8,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "a5aac6f4ae17528d",
-        "type": "ui_spacer",
-        "z": "592b686edd11b813",
-        "name": "spacer",
-        "group": "90879df8d2ee4c5d",
-        "order": 9,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "e3e0d1c1609be576",
-        "type": "ui_spacer",
-        "z": "592b686edd11b813",
-        "name": "spacer",
-        "group": "90879df8d2ee4c5d",
-        "order": 11,
         "width": 1,
         "height": 1
     },
@@ -1538,7 +1518,7 @@
         "z": "592b686edd11b813",
         "name": "",
         "group": "90879df8d2ee4c5d",
-        "order": 12,
+        "order": 10,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -2247,7 +2227,7 @@
         "z": "592b686edd11b813",
         "name": "",
         "group": "90879df8d2ee4c5d",
-        "order": 14,
+        "order": 12,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -2274,7 +2254,7 @@
         "z": "592b686edd11b813",
         "name": "",
         "group": "90879df8d2ee4c5d",
-        "order": 13,
+        "order": 11,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -4152,8 +4132,8 @@
         "type": "ui_text",
         "z": "592b686edd11b813",
         "group": "90879df8d2ee4c5d",
-        "order": 10,
-        "width": 5,
+        "order": 9,
+        "width": 7,
         "height": 1,
         "name": "",
         "label": "Delay time Remaining",
