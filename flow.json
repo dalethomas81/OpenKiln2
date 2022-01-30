@@ -9224,7 +9224,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 75,
+        "x": 55,
         "y": 360,
         "wires": [
             [
@@ -9249,12 +9249,13 @@
                 "module": "pi-spi"
             }
         ],
-        "x": 255,
+        "x": 235,
         "y": 340,
         "wires": [
             [
                 "7287721824e53891",
-                "b6ebd001961d2111"
+                "b6ebd001961d2111",
+                "88697b6b43b4084e"
             ]
         ],
         "l": false
@@ -9275,8 +9276,8 @@
                 "module": "pi-spi"
             }
         ],
-        "x": 255,
-        "y": 400,
+        "x": 235,
+        "y": 420,
         "wires": [
             [
                 "9e74c237cf627626",
@@ -9384,7 +9385,7 @@
             "9fea36d4825b738a"
         ],
         "x": 615,
-        "y": 400,
+        "y": 420,
         "wires": []
     },
     {
@@ -9626,7 +9627,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 135,
+        "x": 115,
         "y": 360,
         "wires": [
             [
@@ -10014,7 +10015,7 @@
         "mult": "single",
         "reduce": false,
         "x": 495,
-        "y": 400,
+        "y": 420,
         "wires": [
             [
                 "6c490df17d1de881",
@@ -10121,7 +10122,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 195,
+        "x": 175,
         "y": 340,
         "wires": [
             [
@@ -10149,8 +10150,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 195,
-        "y": 400,
+        "x": 175,
+        "y": 420,
         "wires": [
             [
                 "90d2df249ed5559d"
@@ -10246,7 +10247,7 @@
         "to": "",
         "reg": false,
         "x": 675,
-        "y": 400,
+        "y": 420,
         "wires": [
             []
         ],
@@ -10350,7 +10351,7 @@
         "property": "payload",
         "name": "",
         "x": 435,
-        "y": 400,
+        "y": 420,
         "wires": [
             [
                 "8c970109233d3f07"
@@ -10369,7 +10370,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 335,
+        "x": 315,
         "y": 320,
         "wires": [
             []
@@ -10387,8 +10388,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 335,
-        "y": 380,
+        "x": 315,
+        "y": 400,
         "wires": [
             []
         ],
@@ -10405,11 +10406,86 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 690,
-        "y": 620,
+        "x": 375,
+        "y": 360,
         "wires": [
             []
-        ]
+        ],
+        "l": false
+    },
+    {
+        "id": "88697b6b43b4084e",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "inputnumber",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 325,
+        "y": 360,
+        "wires": [
+            [
+                "44fc0716fdc686dc"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "10d4807e18c79f6f",
+        "type": "function",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "func": "var analoginput = global.get('analoginput')\n\ntry {\n    analoginput[msg.inputnumber].raw = msg.payload\n} catch (error) {\n    \n};\n\nglobal.set('analoginput',analoginput)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 375,
+        "y": 440,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "409049cb84c39312",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "inputnumber",
+                "pt": "msg",
+                "to": "1",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 325,
+        "y": 440,
+        "wires": [
+            [
+                "10d4807e18c79f6f"
+            ]
+        ],
+        "l": false
     },
     {
         "id": "1c9e79b136a623e2",
