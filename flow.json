@@ -10945,7 +10945,7 @@
         "step": 1,
         "className": "",
         "x": 430,
-        "y": 980,
+        "y": 960,
         "wires": [
             [
                 "c84c7544fd660421"
@@ -10972,7 +10972,7 @@
         "to": "",
         "reg": false,
         "x": 315,
-        "y": 980,
+        "y": 960,
         "wires": [
             [
                 "e5017d61ae5c7809"
@@ -11000,7 +11000,7 @@
         "to": "",
         "reg": false,
         "x": 535,
-        "y": 980,
+        "y": 960,
         "wires": [
             []
         ],
@@ -12201,6 +12201,16 @@
         "info": "",
         "x": 100,
         "y": 880,
+        "wires": []
+    },
+    {
+        "id": "480f5fe1d4ea8460",
+        "type": "comment",
+        "z": "3154c44d1a91de38",
+        "name": "detect when connect to dashboard tab",
+        "info": "",
+        "x": 290,
+        "y": 1040,
         "wires": []
     },
     {
