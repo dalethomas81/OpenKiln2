@@ -11843,15 +11843,12 @@
         "reset": "",
         "bytopic": "all",
         "topic": "topic",
-        "outputs": 2,
+        "outputs": 1,
         "x": 535,
         "y": 580,
         "wires": [
             [
                 "7c7540817434016c"
-            ],
-            [
-                "67456a4e0149a566"
             ]
         ],
         "l": false
@@ -11923,12 +11920,10 @@
         "y": 580,
         "wires": [
             [
-                "babdd556d27c32aa",
-                "1984de9b30f45731"
+                "babdd556d27c32aa"
             ],
             [
-                "1219bcc4367384ed",
-                "4a1f17dfe3c56a8a"
+                "1219bcc4367384ed"
             ]
         ],
         "l": false
@@ -12020,57 +12015,6 @@
                 "ee0291f3aba6669c"
             ]
         ]
-    },
-    {
-        "id": "67456a4e0149a566",
-        "type": "debug",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 630,
-        "y": 620,
-        "wires": []
-    },
-    {
-        "id": "1984de9b30f45731",
-        "type": "debug",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 590,
-        "y": 500,
-        "wires": []
-    },
-    {
-        "id": "4a1f17dfe3c56a8a",
-        "type": "debug",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 630,
-        "y": 660,
-        "wires": []
     },
     {
         "id": "1c9e79b136a623e2",
