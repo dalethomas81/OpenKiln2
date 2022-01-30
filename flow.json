@@ -3783,6 +3783,53 @@
         ]
     },
     {
+        "id": "8ffc6beb541bf7e0",
+        "type": "function",
+        "z": "592b686edd11b813",
+        "name": "",
+        "func": "var schedule_index = flow.get('schedule_index', 'memoryOnly');\nvar schedule = 'kiln_01.schedules['+ schedule_index.toString() + ']'\n\nglobal.set(schedule, undefined);\n\nmsg.payload = 0 // send this so the drop down menu goes back to index 0\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 340,
+        "wires": [
+            [
+                "f4bb65861a8f2d49"
+            ]
+        ]
+    },
+    {
+        "id": "b14e70c4caa1f3f5",
+        "type": "ui_button",
+        "z": "592b686edd11b813",
+        "name": "",
+        "group": "5e1bdbab1ef4cbe6",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Delete Schedule",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 100,
+        "y": 340,
+        "wires": [
+            [
+                "8ffc6beb541bf7e0"
+            ]
+        ]
+    },
+    {
         "id": "0f56f86bd83c9233",
         "type": "finite-state-machine",
         "z": "e9cef8706a9cf7f6",
