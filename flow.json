@@ -3768,7 +3768,7 @@
         "type": "function",
         "z": "592b686edd11b813",
         "name": "",
-        "func": "var schedules = global.get('kiln_01.schedules')\nvar obj = {name:\"name\",enabled:true,hold:false,setpoint:0,ramp_rate:0,soak_time:0}\nvar segment = Object.create(obj)\nvar segments = []\nsegments.push(segment)\nvar obj2 = {name:\"name\", segments}\nvar schedule = Object.create(obj2)\nschedules.push(schedule)\nglobal.set('kiln_01.schedules', schedules)\n//return msg;",
+        "func": "var schedules = global.get('kiln_01.schedules')\nvar obj = {name:\"name\",enabled:true,hold:false,setpoint:0,ramp_rate:0,soak_time:0}\nvar segment = Object.create(obj)\nvar segments = []\nsegments.push(segment)\nvar schedule = {name:\"name\", segments}\n//var schedule = Object.create(obj2)\nschedules.push(schedule)\nglobal.set('kiln_01.schedules', schedules)\n//return msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
