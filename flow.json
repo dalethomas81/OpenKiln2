@@ -10879,7 +10879,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "{\"group\":{\"hide\":[\"Main_Control\"],\"show\":[\"\"],\"focus\":false}}",
+        "payload": "{\"group\":{\"hide\":[\"\"],\"show\":[\"Main_Control\"],\"focus\":false}}",
         "payloadType": "json",
         "x": 650,
         "y": 620,
