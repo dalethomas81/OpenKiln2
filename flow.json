@@ -10868,7 +10868,7 @@
         "id": "9a82607f9f924494",
         "type": "inject",
         "z": "3154c44d1a91de38",
-        "name": "",
+        "name": "show",
         "props": [
             {
                 "p": "payload"
@@ -10883,6 +10883,81 @@
         "payloadType": "json",
         "x": 650,
         "y": 620,
+        "wires": [
+            [
+                "9eb19eb290b55af6"
+            ]
+        ]
+    },
+    {
+        "id": "7df5c0f1d98b8fb6",
+        "type": "inject",
+        "z": "3154c44d1a91de38",
+        "name": "hide",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"group\":{\"hide\":[\"Main_Control\"],\"show\":[\"\"],\"focus\":false}}",
+        "payloadType": "json",
+        "x": 650,
+        "y": 640,
+        "wires": [
+            [
+                "9eb19eb290b55af6"
+            ]
+        ]
+    },
+    {
+        "id": "021bbfddf01cfe80",
+        "type": "inject",
+        "z": "3154c44d1a91de38",
+        "name": "disable",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"group\":{\"disable\":[\"Main_Control\"],\"enable\":[\"\"],\"focus\":false}}",
+        "payloadType": "json",
+        "x": 650,
+        "y": 660,
+        "wires": [
+            [
+                "9eb19eb290b55af6"
+            ]
+        ]
+    },
+    {
+        "id": "80a0570656c260c3",
+        "type": "inject",
+        "z": "3154c44d1a91de38",
+        "name": "enable",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"group\":{\"disable\":[\"\"],\"enable\":[\"Main_Control\"],\"focus\":false}}",
+        "payloadType": "json",
+        "x": 650,
+        "y": 680,
         "wires": [
             [
                 "9eb19eb290b55af6"
