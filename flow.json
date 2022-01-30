@@ -10502,8 +10502,8 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
-        "x": 1150,
-        "y": 260,
+        "x": 1250,
+        "y": 360,
         "wires": []
     },
     {
@@ -10519,8 +10519,8 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
-        "x": 1150,
-        "y": 300,
+        "x": 1250,
+        "y": 400,
         "wires": []
     },
     {
@@ -10534,12 +10534,10 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 980,
+        "x": 1040,
         "y": 380,
         "wires": [
-            [
-                "3b9e5c6b6db17d40"
-            ]
+            []
         ]
     },
     {
@@ -10563,7 +10561,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 840,
+        "x": 900,
         "y": 380,
         "wires": [
             [
@@ -10572,21 +10570,29 @@
         ]
     },
     {
-        "id": "3b9e5c6b6db17d40",
-        "type": "debug",
+        "id": "09c327324c82be14",
+        "type": "change",
         "z": "3154c44d1a91de38",
         "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1150,
-        "y": 380,
-        "wires": []
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1070,
+        "y": 480,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "1c9e79b136a623e2",
