@@ -972,7 +972,7 @@
         "height": 1
     },
     {
-        "id": "e362d1f7aae378ba",
+        "id": "cce6eb9e6fb787c3",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -982,7 +982,7 @@
         "height": 1
     },
     {
-        "id": "25227f01d2d109d2",
+        "id": "ca7fb135362857ed",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -992,7 +992,7 @@
         "height": 1
     },
     {
-        "id": "224fed10dd5ec365",
+        "id": "a9ed192e73938d5e",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -3841,33 +3841,6 @@
         "l": false
     },
     {
-        "id": "5ff098981c808a07",
-        "type": "ui_slider",
-        "z": "592b686edd11b813",
-        "name": "",
-        "label": "Hours",
-        "tooltip": "",
-        "group": "90879df8d2ee4c5d",
-        "order": 6,
-        "width": 3,
-        "height": 1,
-        "passthru": true,
-        "outs": "end",
-        "topic": "topic",
-        "topicType": "msg",
-        "min": 0,
-        "max": 10,
-        "step": "0.5",
-        "className": "",
-        "x": 710,
-        "y": 900,
-        "wires": [
-            [
-                "50762693207ba7b8"
-            ]
-        ]
-    },
-    {
         "id": "2644df39e84cb1af",
         "type": "ui_switch",
         "z": "592b686edd11b813",
@@ -4125,7 +4098,7 @@
         "z": "592b686edd11b813",
         "group": "90879df8d2ee4c5d",
         "order": 7,
-        "width": 2,
+        "width": 3,
         "height": 1,
         "name": "",
         "label": "T-",
@@ -4135,6 +4108,34 @@
         "x": 920,
         "y": 1000,
         "wires": []
+    },
+    {
+        "id": "5ecdaca58bba18a3",
+        "type": "ui_numeric",
+        "z": "592b686edd11b813",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "group": "90879df8d2ee4c5d",
+        "order": 6,
+        "width": 2,
+        "height": 1,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}h",
+        "min": 0,
+        "max": 10,
+        "step": "0.5",
+        "className": "",
+        "x": 700,
+        "y": 900,
+        "wires": [
+            [
+                "50762693207ba7b8"
+            ]
+        ]
     },
     {
         "id": "0f56f86bd83c9233",
