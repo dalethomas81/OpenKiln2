@@ -1074,6 +1074,17 @@
         "height": 1
     },
     {
+        "id": "97a4a070263bb997",
+        "type": "ui_group",
+        "name": "Enable Control",
+        "tab": "6e4426eb24a8676f",
+        "order": 3,
+        "disp": false,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
         "id": "d3de24e635754f29",
         "type": "influxdb in",
         "z": "592b686edd11b813",
@@ -4344,7 +4355,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "{\"group\":{\"hide\":[\"\"],\"show\":[\"Main_Control\"],\"focus\":false}}",
+        "payload": "{\"group\":{\"hide\":[\"Main_Enable_Control\"],\"show\":[\"Main_Control\"],\"focus\":false}}",
         "payloadType": "json",
         "x": 1170,
         "y": 760,
@@ -4369,7 +4380,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "{\"group\":{\"hide\":[\"Main_Control\"],\"show\":[\"\"],\"focus\":false}}",
+        "payload": "{\"group\":{\"hide\":[\"Main_Control\"],\"show\":[\"Main_Enable_Control\"],\"focus\":false}}",
         "payloadType": "json",
         "x": 1170,
         "y": 780,
@@ -4404,7 +4415,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "{\"group\":{\"hide\":[\"Main_Control\"],\"show\":[\"\"],\"focus\":false}}",
+                "to": "{\"group\":{\"hide\":[\"Main_Control\"],\"show\":[\"Main_Enable_Control\"],\"focus\":false}}",
                 "tot": "json"
             }
         ],
@@ -4431,7 +4442,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "{\"group\":{\"hide\":[\"\"],\"show\":[\"Main_Control\"],\"focus\":false}}",
+                "to": "{\"group\":{\"hide\":[\"Main_Enable_Control\"],\"show\":[\"Main_Control\"],\"focus\":false}}",
                 "tot": "json"
             }
         ],
@@ -4441,12 +4452,41 @@
         "to": "",
         "reg": false,
         "x": 1150,
-        "y": 840,
+        "y": 860,
         "wires": [
             [
                 "6af73a69a0827774"
             ]
         ]
+    },
+    {
+        "id": "a4dc1c9eb44ce478",
+        "type": "ui_button",
+        "z": "592b686edd11b813",
+        "name": "",
+        "group": "97a4a070263bb997",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Control",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1035,
+        "y": 860,
+        "wires": [
+            [
+                "0ec0847fdce57e83"
+            ]
+        ],
+        "l": false
     },
     {
         "id": "0f56f86bd83c9233",
