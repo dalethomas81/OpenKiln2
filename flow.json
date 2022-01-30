@@ -10347,9 +10347,9 @@
         "propertyType": "msg",
         "rules": [
             {
-                "t": "eq",
-                "v": "NaN",
-                "vt": "str"
+                "t": "istype",
+                "v": "undefined",
+                "vt": "undefined"
             }
         ],
         "checkall": "true",
