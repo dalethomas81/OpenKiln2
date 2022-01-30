@@ -10502,8 +10502,90 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
-        "x": 1080,
-        "y": 280,
+        "x": 1150,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "9d1d6fc5b853b597",
+        "type": "ui_text",
+        "z": "3154c44d1a91de38",
+        "group": "112aa19380852c23",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Scaled",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1150,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "b537b846c99d5ba0",
+        "type": "function",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "func": "var selected_input = global.get('analoginput.selected_input')\nvar input = global.get('analoginput.input['+selected_input+']')\nmsg.input = input\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 980,
+        "y": 380,
+        "wires": [
+            [
+                "3b9e5c6b6db17d40"
+            ]
+        ]
+    },
+    {
+        "id": "80370a11a44695e7",
+        "type": "inject",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 840,
+        "y": 380,
+        "wires": [
+            [
+                "b537b846c99d5ba0"
+            ]
+        ]
+    },
+    {
+        "id": "3b9e5c6b6db17d40",
+        "type": "debug",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1150,
+        "y": 380,
         "wires": []
     },
     {
