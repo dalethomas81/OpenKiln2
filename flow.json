@@ -9673,7 +9673,6 @@
         "y": 240,
         "wires": [
             [
-                "7287721824e53891",
                 "88697b6b43b4084e",
                 "ee0291f3aba6669c"
             ]
@@ -9700,9 +9699,9 @@
         "y": 480,
         "wires": [
             [
-                "9e74c237cf627626",
                 "409049cb84c39312",
-                "b439be6284f42bd5"
+                "b439be6284f42bd5",
+                "8c970109233d3f07"
             ]
         ],
         "l": false
@@ -10394,7 +10393,7 @@
         "round": "2",
         "mult": "single",
         "reduce": false,
-        "x": 515,
+        "x": 495,
         "y": 240,
         "wires": [
             [
@@ -10720,48 +10719,6 @@
         ]
     },
     {
-        "id": "7287721824e53891",
-        "type": "range",
-        "z": "3154c44d1a91de38",
-        "minin": "0",
-        "maxin": "3000",
-        "minout": "0",
-        "maxout": "3000",
-        "action": "scale",
-        "round": false,
-        "property": "payload",
-        "name": "",
-        "x": 455,
-        "y": 240,
-        "wires": [
-            [
-                "0d670f61e6fde01c"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "9e74c237cf627626",
-        "type": "range",
-        "z": "3154c44d1a91de38",
-        "minin": "0",
-        "maxin": "3000",
-        "minout": "0",
-        "maxout": "3000",
-        "action": "scale",
-        "round": false,
-        "property": "payload",
-        "name": "",
-        "x": 455,
-        "y": 480,
-        "wires": [
-            [
-                "8c970109233d3f07"
-            ]
-        ],
-        "l": false
-    },
-    {
         "id": "44fc0716fdc686dc",
         "type": "function",
         "z": "3154c44d1a91de38",
@@ -10772,10 +10729,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 455,
-        "y": 280,
+        "x": 435,
+        "y": 240,
         "wires": [
-            []
+            [
+                "0d670f61e6fde01c"
+            ]
         ],
         "l": false
     },
@@ -10798,8 +10757,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 395,
-        "y": 280,
+        "x": 375,
+        "y": 240,
         "wires": [
             [
                 "44fc0716fdc686dc"
