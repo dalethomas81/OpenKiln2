@@ -9644,10 +9644,12 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 115,
-        "y": 300,
+        "x": 55,
+        "y": 460,
         "wires": [
-            []
+            [
+                "f45e246dbf521446"
+            ]
         ],
         "l": false
     },
@@ -9667,13 +9669,14 @@
                 "module": "pi-spi"
             }
         ],
-        "x": 295,
-        "y": 280,
+        "x": 215,
+        "y": 340,
         "wires": [
             [
                 "7287721824e53891",
                 "88697b6b43b4084e",
-                "bffcdf74fd95f01d"
+                "bffcdf74fd95f01d",
+                "ee0291f3aba6669c"
             ]
         ],
         "l": false
@@ -9694,13 +9697,14 @@
                 "module": "pi-spi"
             }
         ],
-        "x": 295,
-        "y": 400,
+        "x": 215,
+        "y": 580,
         "wires": [
             [
                 "9e74c237cf627626",
                 "409049cb84c39312",
-                "9139d82cbd6c2070"
+                "9139d82cbd6c2070",
+                "6685085eb2478086"
             ]
         ],
         "l": false
@@ -9790,7 +9794,7 @@
             "9b6b7f2249d013ba"
         ],
         "x": 675,
-        "y": 280,
+        "y": 340,
         "wires": []
     },
     {
@@ -9804,7 +9808,7 @@
             "9fea36d4825b738a"
         ],
         "x": 675,
-        "y": 400,
+        "y": 580,
         "wires": []
     },
     {
@@ -10046,8 +10050,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 175,
-        "y": 300,
+        "x": 115,
+        "y": 460,
         "wires": [
             [
                 "159e09add5a1e1ed",
@@ -10413,7 +10417,7 @@
         "mult": "single",
         "reduce": false,
         "x": 555,
-        "y": 280,
+        "y": 340,
         "wires": [
             [
                 "dcbc073ea7b777ee",
@@ -10435,7 +10439,7 @@
         "mult": "single",
         "reduce": false,
         "x": 555,
-        "y": 400,
+        "y": 580,
         "wires": [
             [
                 "6c490df17d1de881",
@@ -10542,8 +10546,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 235,
-        "y": 280,
+        "x": 155,
+        "y": 340,
         "wires": [
             [
                 "35573d9f8cb557cc"
@@ -10570,8 +10574,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 235,
-        "y": 400,
+        "x": 155,
+        "y": 580,
         "wires": [
             [
                 "90d2df249ed5559d"
@@ -10641,7 +10645,7 @@
         "to": "",
         "reg": false,
         "x": 735,
-        "y": 280,
+        "y": 340,
         "wires": [
             []
         ],
@@ -10667,7 +10671,7 @@
         "to": "",
         "reg": false,
         "x": 735,
-        "y": 400,
+        "y": 580,
         "wires": [
             []
         ],
@@ -10750,7 +10754,7 @@
         "property": "payload",
         "name": "",
         "x": 495,
-        "y": 280,
+        "y": 340,
         "wires": [
             [
                 "0d670f61e6fde01c"
@@ -10771,47 +10775,11 @@
         "property": "payload",
         "name": "",
         "x": 495,
-        "y": 400,
+        "y": 580,
         "wires": [
             [
                 "8c970109233d3f07"
             ]
-        ],
-        "l": false
-    },
-    {
-        "id": "b6ebd001961d2111",
-        "type": "function",
-        "z": "3154c44d1a91de38",
-        "name": "temp is bad",
-        "func": "if (isNaN(msg.payload) || msg.payload == 32) {\n    flow.set('upper_thermocouple_bad', true)\n} else {\n    flow.set('upper_thermocouple_bad', false)\n}",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 375,
-        "y": 260,
-        "wires": [
-            []
-        ],
-        "l": false
-    },
-    {
-        "id": "380f0d0617d1cdd6",
-        "type": "function",
-        "z": "3154c44d1a91de38",
-        "name": "temp is bad",
-        "func": "if (isNaN(msg.payload) || msg.payload == 32) {\n    flow.set('lower_thermocouple_bad', true)\n} else {\n    flow.set('lower_thermocouple_bad', false)\n}",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 375,
-        "y": 380,
-        "wires": [
-            []
         ],
         "l": false
     },
@@ -10827,7 +10795,7 @@
         "finalize": "",
         "libs": [],
         "x": 435,
-        "y": 300,
+        "y": 360,
         "wires": [
             []
         ],
@@ -10853,7 +10821,7 @@
         "to": "",
         "reg": false,
         "x": 385,
-        "y": 300,
+        "y": 360,
         "wires": [
             [
                 "44fc0716fdc686dc"
@@ -10873,7 +10841,7 @@
         "finalize": "",
         "libs": [],
         "x": 435,
-        "y": 420,
+        "y": 600,
         "wires": [
             []
         ],
@@ -10899,7 +10867,7 @@
         "to": "",
         "reg": false,
         "x": 385,
-        "y": 420,
+        "y": 600,
         "wires": [
             [
                 "10d4807e18c79f6f"
@@ -11031,7 +10999,7 @@
         "property": "payload",
         "topi": "topic",
         "x": 455,
-        "y": 340,
+        "y": 400,
         "wires": [
             [
                 "9845b4c4a04ffa83"
@@ -11057,7 +11025,7 @@
         "repair": false,
         "outputs": 1,
         "x": 395,
-        "y": 340,
+        "y": 400,
         "wires": [
             [
                 "03566e1b13552b14"
@@ -11075,7 +11043,7 @@
             "b5c2cc920b1f3fd8"
         ],
         "x": 515,
-        "y": 340,
+        "y": 400,
         "wires": []
     },
     {
@@ -11091,7 +11059,7 @@
         "property": "payload",
         "topi": "topic",
         "x": 455,
-        "y": 460,
+        "y": 640,
         "wires": [
             [
                 "0eea54bbcfd6ede8"
@@ -11117,7 +11085,7 @@
         "repair": false,
         "outputs": 1,
         "x": 395,
-        "y": 460,
+        "y": 640,
         "wires": [
             [
                 "3167570cb65e962c"
@@ -11135,7 +11103,7 @@
             "b5c2cc920b1f3fd8"
         ],
         "x": 515,
-        "y": 460,
+        "y": 640,
         "wires": []
     },
     {
@@ -11844,8 +11812,8 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 575,
-        "y": 540,
+        "x": 495,
+        "y": 260,
         "wires": [
             [
                 "d7036bba6f2040c6"
@@ -11872,8 +11840,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 495,
-        "y": 620,
+        "x": 415,
+        "y": 300,
         "wires": [
             [
                 "babdd556d27c32aa"
@@ -11899,8 +11867,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 425,
-        "y": 580,
+        "x": 345,
+        "y": 280,
         "wires": [
             [
                 "babdd556d27c32aa",
@@ -11924,64 +11892,14 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 365,
-        "y": 580,
+        "x": 285,
+        "y": 280,
         "wires": [
             [
                 "f484e601c7a47daa"
             ]
         ],
         "l": false
-    },
-    {
-        "id": "6ee95b6259b56d05",
-        "type": "inject",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "100",
-        "payloadType": "num",
-        "x": 230,
-        "y": 560,
-        "wires": [
-            [
-                "ee0291f3aba6669c"
-            ]
-        ]
-    },
-    {
-        "id": "1ec99b5ce2746dc9",
-        "type": "inject",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "32",
-        "payloadType": "num",
-        "x": 230,
-        "y": 580,
-        "wires": [
-            [
-                "ee0291f3aba6669c"
-            ]
-        ]
     },
     {
         "id": "d7036bba6f2040c6",
@@ -12002,8 +11920,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 635,
-        "y": 540,
+        "x": 555,
+        "y": 260,
         "wires": [
             []
         ],
@@ -12026,8 +11944,8 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 575,
-        "y": 620,
+        "x": 495,
+        "y": 300,
         "wires": [
             [
                 "1baf34e0f140c835"
@@ -12054,8 +11972,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 495,
-        "y": 540,
+        "x": 415,
+        "y": 260,
         "wires": [
             [
                 "be6db2014d2266f4"
@@ -12082,8 +12000,220 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 635,
-        "y": 620,
+        "x": 555,
+        "y": 300,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "f50459f8c149afbb",
+        "type": "trigger",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "5",
+        "extend": false,
+        "overrideDelay": true,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 495,
+        "y": 500,
+        "wires": [
+            [
+                "8ab1a0522debbe43"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "7f4a79972ba73366",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "reset",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 415,
+        "y": 540,
+        "wires": [
+            [
+                "f50459f8c149afbb"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "22f0c8104ebeb00e",
+        "type": "switch",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 345,
+        "y": 520,
+        "wires": [
+            [
+                "f50459f8c149afbb",
+                "2199d41556e4c14b"
+            ],
+            [
+                "7f4a79972ba73366",
+                "1645ba00b6d77c55"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "6685085eb2478086",
+        "type": "function",
+        "z": "3154c44d1a91de38",
+        "name": "temp is bad",
+        "func": "if (isNaN(msg.payload) || msg.payload == 32) {\n    //flow.set('upper_thermocouple_bad', true)\n    msg.payload = true\n    msg.delay = 10000\n} else {\n    //flow.set('upper_thermocouple_bad', false)\n    msg.payload = false\n    msg.delay = 5000\n}\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 285,
+        "y": 520,
+        "wires": [
+            [
+                "22f0c8104ebeb00e"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "8ab1a0522debbe43",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "lower_thermocouple_bad",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 555,
+        "y": 500,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "1645ba00b6d77c55",
+        "type": "trigger",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "5",
+        "extend": false,
+        "overrideDelay": true,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 495,
+        "y": 540,
+        "wires": [
+            [
+                "3305c97a98d8de19"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "2199d41556e4c14b",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "reset",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 415,
+        "y": 500,
+        "wires": [
+            [
+                "1645ba00b6d77c55"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "3305c97a98d8de19",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "lower_thermocouple_bad",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 555,
+        "y": 540,
         "wires": [
             []
         ],
