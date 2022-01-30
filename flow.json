@@ -10839,8 +10839,8 @@
         "z": "3154c44d1a91de38",
         "name": "",
         "events": "all",
-        "x": 770,
-        "y": 600,
+        "x": 820,
+        "y": 620,
         "wires": [
             [
                 "11e0a47b0c3f8924"
@@ -10860,9 +10860,34 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 910,
-        "y": 600,
+        "x": 950,
+        "y": 620,
         "wires": []
+    },
+    {
+        "id": "9a82607f9f924494",
+        "type": "inject",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"group\":{\"hide\":[\"Main_Control\"],\"show\":[\"\"],\"focus\":false}}",
+        "payloadType": "json",
+        "x": 650,
+        "y": 620,
+        "wires": [
+            [
+                "9eb19eb290b55af6"
+            ]
+        ]
     },
     {
         "id": "1c9e79b136a623e2",
