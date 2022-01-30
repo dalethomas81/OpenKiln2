@@ -1206,32 +1206,6 @@
         ]
     },
     {
-        "id": "338932c551eabbf7",
-        "type": "change",
-        "z": "592b686edd11b813",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "#:(memoryOnly)::schedule_index",
-                "pt": "flow",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 655,
-        "y": 240,
-        "wires": [
-            []
-        ],
-        "l": false
-    },
-    {
         "id": "f5070cef209d87e2",
         "type": "function",
         "z": "592b686edd11b813",
@@ -1242,38 +1216,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 635,
+        "x": 595,
         "y": 320,
         "wires": [
             [
                 "6b534a21adf47fbc"
             ]
-        ],
-        "l": false
-    },
-    {
-        "id": "b88e332b4ed39aac",
-        "type": "change",
-        "z": "592b686edd11b813",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "#:(memoryOnly)::segment_index",
-                "pt": "flow",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 655,
-        "y": 280,
-        "wires": [
-            []
         ],
         "l": false
     },
@@ -2058,11 +2006,12 @@
         "order": 1,
         "width": 15,
         "height": 10,
-        "format": "<style>\n.table\n{\nwidth: 100%;\n//width:500px;\n//background:lightblue;\n//border:1px solid black;\n//border-collapse: collapse;\n//font-size:10px;\ntext-align: center;\nvertical-align: center;\n}\n.data {\n  //width: 15%\n  //white-space: nowrap\n  //white-space: normal\n}\n.main\n{\n//height:400px;\n}\n</style>\n<div class=\"main\">\n    <table class=\"table\">  \n        <tr>\n        <th style=\"text-decoration: underline;\">Index</th>\n        <th class=\"data\" style=\"text-decoration: underline;\">Name</th>\n        <th class=\"data\" style=\"text-decoration: underline;\">Enabled</th>\n        <th class=\"data\" style=\"text-decoration: underline;\">Hold</th>\n        <th class=\"data\" style=\"text-decoration: underline;\">Setpoint (°F)</th>\n        <th class=\"data\" style=\"text-decoration: underline;\">Ramp (deg/h)</th>\n        <th class=\"data\" style=\"text-decoration: underline;\">Soak (min)</th>\n        </tr>\n        <tr ng-repeat = \"payload in msg.payload\"><td>{{$index+1}}</td><td ng-repeat =\"(key,value) in payload\">{{value}}</td></tr>\n    </table>\n</div>",
+        "format": "<style>\n.table\n{\nwidth: 100%;\n//width:500px;\n//background:lightblue;\n//border:1px solid black;\n//border-collapse: collapse;\n//font-size:10px;\ntext-align: center;\nvertical-align: center;\n}\n.data {\n  //width: 15%\n  //white-space: nowrap\n  //white-space: normal\n}\n.main\n{\n//height:400px;\n}\n</style>\n<div class=\"main\">\n    <table class=\"table\">  \n        <tr>\n        <th style=\"text-decoration: underline;\">Segment</th>\n        <th class=\"data\" style=\"text-decoration: underline;\">Name</th>\n        <th class=\"data\" style=\"text-decoration: underline;\">Enabled</th>\n        <th class=\"data\" style=\"text-decoration: underline;\">Hold</th>\n        <th class=\"data\" style=\"text-decoration: underline;\">Setpoint (°F)</th>\n        <th class=\"data\" style=\"text-decoration: underline;\">Ramp (deg/h)</th>\n        <th class=\"data\" style=\"text-decoration: underline;\">Soak (min)</th>\n        </tr>\n        <tr ng-repeat = \"payload in msg.payload\"><td>{{$index+1}}</td><td ng-repeat =\"(key,value) in payload\">{{value}}</td></tr>\n    </table>\n</div>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
         "templateScope": "local",
+        "className": "",
         "x": 500,
         "y": 360,
         "wires": [
@@ -2217,7 +2166,7 @@
             "223bca47aa31a4da"
         ],
         "x": 655,
-        "y": 200,
+        "y": 240,
         "wires": []
     },
     {
@@ -3303,41 +3252,6 @@
         "wires": []
     },
     {
-        "id": "096ffc209c7be3fb",
-        "type": "change",
-        "z": "592b686edd11b813",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "#:(memoryOnly)::schedule_index",
-                "tot": "flow"
-            },
-            {
-                "t": "set",
-                "p": "options",
-                "pt": "msg",
-                "to": "[{\"schedule 1\":\"0\"},{\"schedule 2\":\"1\"},{\"schedule 3\":\"2\"},{\"schedule 4\":\"3\"},{\"schedule 5\":\"4\"},{\"schedule 6\":\"5\"},{\"schedule 7\":\"6\"},{\"schedule 8\":\"7\"},{\"schedule 9\":\"8\"},{\"schedule 10\":\"9\"}]",
-                "tot": "json"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 395,
-        "y": 240,
-        "wires": [
-            [
-                "9ac0734e2471a4ae"
-            ]
-        ],
-        "l": false
-    },
-    {
         "id": "c43fe6a6eabba842",
         "type": "link out",
         "z": "592b686edd11b813",
@@ -3363,45 +3277,10 @@
         "y": 240,
         "wires": [
             [
-                "096ffc209c7be3fb",
-                "c8f11a608c8dcf6f"
+                "fc2609866ba68e99",
+                "d8c55002e59fcada"
             ]
         ]
-    },
-    {
-        "id": "c8f11a608c8dcf6f",
-        "type": "change",
-        "z": "592b686edd11b813",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "#:(memoryOnly)::segment_index",
-                "tot": "flow"
-            },
-            {
-                "t": "set",
-                "p": "options",
-                "pt": "msg",
-                "to": "[{\"segment 1\":\"0\"},{\"segment 2\":\"1\"},{\"segment 3\":\"2\"},{\"segment 4\":\"3\"},{\"segment 5\":\"4\"},{\"segment 6\":\"5\"},{\"segment 7\":\"6\"},{\"segment 8\":\"7\"},{\"segment 9\":\"8\"},{\"segment 10\":\"9\"},{\"segment 11\":\"10\"},{\"segment 12\":\"11\"},{\"segment 13\":\"12\"},{\"segment 14\":\"13\"},{\"segment 15\":\"14\"}]",
-                "tot": "json"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 395,
-        "y": 280,
-        "wires": [
-            [
-                "6de15819559dade9"
-            ]
-        ],
-        "l": false
     },
     {
         "id": "023f6eeca8781228",
@@ -3618,7 +3497,7 @@
         "topic": "topic",
         "topicType": "msg",
         "format": "{{value}}",
-        "min": 0,
+        "min": "1",
         "max": "15",
         "step": 1,
         "className": "",
@@ -3626,8 +3505,7 @@
         "y": 240,
         "wires": [
             [
-                "bbb665c4fceb800d",
-                "338932c551eabbf7"
+                "fee462e7f0afe7fe"
             ]
         ]
     },
@@ -3647,18 +3525,97 @@
         "topic": "topic",
         "topicType": "msg",
         "format": "{{value}}",
-        "min": 0,
-        "max": "15",
+        "min": "1",
+        "max": "16",
         "step": 1,
         "className": "",
         "x": 500,
         "y": 280,
         "wires": [
             [
-                "bbb665c4fceb800d",
-                "b88e332b4ed39aac"
+                "982ec52ff0e6cfbf"
             ]
         ]
+    },
+    {
+        "id": "fc2609866ba68e99",
+        "type": "function",
+        "z": "592b686edd11b813",
+        "name": "",
+        "func": "var schedule_index = flow.get('schedule_index', 'memoryOnly');\nmsg.payload = schedule_index + 1\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 395,
+        "y": 240,
+        "wires": [
+            [
+                "9ac0734e2471a4ae"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "d8c55002e59fcada",
+        "type": "function",
+        "z": "592b686edd11b813",
+        "name": "",
+        "func": "var segment_index = flow.get('segment_index', 'memoryOnly');\nmsg.payload = segment_index + 1\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 395,
+        "y": 280,
+        "wires": [
+            [
+                "6de15819559dade9"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "fee462e7f0afe7fe",
+        "type": "function",
+        "z": "592b686edd11b813",
+        "name": "",
+        "func": "flow.set('schedule_index', msg.payload - 1, 'memoryOnly');\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 595,
+        "y": 240,
+        "wires": [
+            [
+                "bbb665c4fceb800d"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "982ec52ff0e6cfbf",
+        "type": "function",
+        "z": "592b686edd11b813",
+        "name": "",
+        "func": "flow.set('segment_index', msg.payload - 1, 'memoryOnly');\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 595,
+        "y": 280,
+        "wires": [
+            [
+                "bbb665c4fceb800d"
+            ]
+        ],
+        "l": false
     },
     {
         "id": "0f56f86bd83c9233",
