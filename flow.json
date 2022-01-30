@@ -9644,7 +9644,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 55,
+        "x": 75,
         "y": 360,
         "wires": [
             [
@@ -9669,13 +9669,12 @@
                 "module": "pi-spi"
             }
         ],
-        "x": 215,
+        "x": 315,
         "y": 240,
         "wires": [
             [
                 "7287721824e53891",
                 "88697b6b43b4084e",
-                "bffcdf74fd95f01d",
                 "ee0291f3aba6669c"
             ]
         ],
@@ -9697,13 +9696,12 @@
                 "module": "pi-spi"
             }
         ],
-        "x": 215,
+        "x": 315,
         "y": 480,
         "wires": [
             [
                 "9e74c237cf627626",
                 "409049cb84c39312",
-                "9139d82cbd6c2070",
                 "b439be6284f42bd5"
             ]
         ],
@@ -9753,7 +9751,7 @@
         "septopics": false,
         "property": "payload",
         "topi": "topic",
-        "x": 655,
+        "x": 615,
         "y": 380,
         "wires": [
             [
@@ -9774,7 +9772,7 @@
         "septopics": false,
         "property": "payload",
         "topi": "topic",
-        "x": 655,
+        "x": 615,
         "y": 340,
         "wires": [
             [
@@ -9793,7 +9791,7 @@
             "26cb94d0aa740af8",
             "9b6b7f2249d013ba"
         ],
-        "x": 675,
+        "x": 635,
         "y": 240,
         "wires": []
     },
@@ -9807,7 +9805,7 @@
             "4ea9f6ce194f1281",
             "9fea36d4825b738a"
         ],
-        "x": 675,
+        "x": 635,
         "y": 480,
         "wires": []
     },
@@ -9837,7 +9835,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 395,
+        "x": 355,
         "y": 340,
         "wires": [
             [
@@ -9870,7 +9868,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 775,
+        "x": 735,
         "y": 340,
         "wires": [
             [
@@ -9903,7 +9901,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 775,
+        "x": 735,
         "y": 380,
         "wires": [
             [
@@ -9929,7 +9927,7 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 315,
+        "x": 275,
         "y": 360,
         "wires": [
             [
@@ -9998,7 +9996,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 395,
+        "x": 355,
         "y": 380,
         "wires": [
             [
@@ -10050,7 +10048,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 115,
+        "x": 135,
         "y": 360,
         "wires": [
             [
@@ -10074,7 +10072,7 @@
         "retentionPolicyV18Flux": "52w",
         "org": "organisation",
         "bucket": "bucket",
-        "x": 855,
+        "x": 815,
         "y": 360,
         "wires": [],
         "l": false
@@ -10096,7 +10094,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 715,
+        "x": 675,
         "y": 380,
         "wires": [
             [
@@ -10122,7 +10120,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 715,
+        "x": 675,
         "y": 340,
         "wires": [
             [
@@ -10183,7 +10181,7 @@
         "links": [
             "a3ad47349ae89c29"
         ],
-        "x": 255,
+        "x": 215,
         "y": 360,
         "wires": [
             [
@@ -10396,7 +10394,7 @@
         "round": "2",
         "mult": "single",
         "reduce": false,
-        "x": 555,
+        "x": 515,
         "y": 240,
         "wires": [
             [
@@ -10418,7 +10416,7 @@
         "round": "2",
         "mult": "single",
         "reduce": false,
-        "x": 555,
+        "x": 515,
         "y": 480,
         "wires": [
             [
@@ -10526,7 +10524,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 155,
+        "x": 255,
         "y": 240,
         "wires": [
             [
@@ -10554,7 +10552,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 155,
+        "x": 255,
         "y": 480,
         "wires": [
             [
@@ -10574,7 +10572,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 455,
+        "x": 415,
         "y": 340,
         "wires": [
             [
@@ -10595,7 +10593,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 455,
+        "x": 415,
         "y": 380,
         "wires": [
             [
@@ -10624,7 +10622,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 735,
+        "x": 695,
         "y": 240,
         "wires": [
             []
@@ -10650,7 +10648,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 735,
+        "x": 695,
         "y": 480,
         "wires": [
             []
@@ -10733,7 +10731,7 @@
         "round": false,
         "property": "payload",
         "name": "",
-        "x": 495,
+        "x": 455,
         "y": 240,
         "wires": [
             [
@@ -10754,7 +10752,7 @@
         "round": false,
         "property": "payload",
         "name": "",
-        "x": 495,
+        "x": 455,
         "y": 480,
         "wires": [
             [
@@ -10774,8 +10772,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 395,
-        "y": 260,
+        "x": 455,
+        "y": 280,
         "wires": [
             []
         ],
@@ -10800,8 +10798,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 335,
-        "y": 260,
+        "x": 395,
+        "y": 280,
         "wires": [
             [
                 "44fc0716fdc686dc"
@@ -10820,8 +10818,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 395,
-        "y": 460,
+        "x": 455,
+        "y": 440,
         "wires": [
             []
         ],
@@ -10846,8 +10844,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 335,
-        "y": 460,
+        "x": 395,
+        "y": 440,
         "wires": [
             [
                 "10d4807e18c79f6f"
@@ -10965,126 +10963,6 @@
             ]
         ],
         "l": false
-    },
-    {
-        "id": "03566e1b13552b14",
-        "type": "rbe",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "func": "deadbandEq",
-        "gap": "1",
-        "start": "",
-        "inout": "out",
-        "septopics": false,
-        "property": "payload",
-        "topi": "topic",
-        "x": 395,
-        "y": 300,
-        "wires": [
-            [
-                "9845b4c4a04ffa83"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "bffcdf74fd95f01d",
-        "type": "switch",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "property": "analoginput.selected_input",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "0",
-                "vt": "num"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 335,
-        "y": 300,
-        "wires": [
-            [
-                "03566e1b13552b14"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "9845b4c4a04ffa83",
-        "type": "link out",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "mode": "link",
-        "links": [
-            "b5c2cc920b1f3fd8"
-        ],
-        "x": 455,
-        "y": 300,
-        "wires": []
-    },
-    {
-        "id": "3167570cb65e962c",
-        "type": "rbe",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "func": "deadbandEq",
-        "gap": "1",
-        "start": "",
-        "inout": "out",
-        "septopics": false,
-        "property": "payload",
-        "topi": "topic",
-        "x": 395,
-        "y": 420,
-        "wires": [
-            [
-                "0eea54bbcfd6ede8"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "9139d82cbd6c2070",
-        "type": "switch",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "property": "analoginput.selected_input",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "1",
-                "vt": "num"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 335,
-        "y": 420,
-        "wires": [
-            [
-                "3167570cb65e962c"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "0eea54bbcfd6ede8",
-        "type": "link out",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "mode": "link",
-        "links": [
-            "b5c2cc920b1f3fd8"
-        ],
-        "x": 455,
-        "y": 420,
-        "wires": []
     },
     {
         "id": "e5017d61ae5c7809",
@@ -11792,7 +11670,7 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 495,
+        "x": 635,
         "y": 160,
         "wires": [
             [
@@ -11820,7 +11698,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 375,
+        "x": 515,
         "y": 200,
         "wires": [
             [
@@ -11847,7 +11725,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 325,
+        "x": 465,
         "y": 180,
         "wires": [
             [
@@ -11872,7 +11750,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 265,
+        "x": 405,
         "y": 180,
         "wires": [
             [
@@ -11900,7 +11778,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 555,
+        "x": 695,
         "y": 160,
         "wires": [
             []
@@ -11924,7 +11802,7 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 495,
+        "x": 635,
         "y": 200,
         "wires": [
             [
@@ -11952,7 +11830,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 375,
+        "x": 515,
         "y": 160,
         "wires": [
             [
@@ -11980,7 +11858,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 555,
+        "x": 695,
         "y": 200,
         "wires": [
             []
@@ -12002,7 +11880,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 435,
+        "x": 575,
         "y": 160,
         "wires": [
             [
@@ -12026,7 +11904,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 435,
+        "x": 575,
         "y": 200,
         "wires": [
             [
@@ -12052,7 +11930,7 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 495,
+        "x": 635,
         "y": 520,
         "wires": [
             [
@@ -12080,7 +11958,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 375,
+        "x": 515,
         "y": 560,
         "wires": [
             [
@@ -12107,7 +11985,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 325,
+        "x": 465,
         "y": 540,
         "wires": [
             [
@@ -12132,7 +12010,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 265,
+        "x": 405,
         "y": 540,
         "wires": [
             [
@@ -12160,7 +12038,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 555,
+        "x": 695,
         "y": 520,
         "wires": [
             []
@@ -12184,7 +12062,7 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 495,
+        "x": 635,
         "y": 560,
         "wires": [
             [
@@ -12212,7 +12090,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 375,
+        "x": 515,
         "y": 520,
         "wires": [
             [
@@ -12240,7 +12118,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 555,
+        "x": 695,
         "y": 560,
         "wires": [
             []
@@ -12262,7 +12140,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 435,
+        "x": 575,
         "y": 520,
         "wires": [
             [
@@ -12286,7 +12164,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 435,
+        "x": 575,
         "y": 560,
         "wires": [
             [
@@ -12301,7 +12179,7 @@
         "z": "3154c44d1a91de38",
         "name": "monitor thermocouple failure",
         "info": "this section of nodes will start a timer when \nthe thermocouple returned data is either\n32 or NaN.\n\nafter the timer has expired the thermocouple\nwill be considered faulty.\n\nwhen the thermocouple begins transmitting \nvalues other than 32 or NaN again another\ntimer will start.\n\nonce this timer expires then the thermocouple\nwill be considered ok again.",
-        "x": 460,
+        "x": 600,
         "y": 180,
         "wires": []
     },
@@ -12311,8 +12189,18 @@
         "z": "3154c44d1a91de38",
         "name": "monitor thermocouple failure",
         "info": "this section of nodes will start a timer when \nthe thermocouple returned data is either\n32 or NaN.\n\nafter the timer has expired the thermocouple\nwill be considered faulty.\n\nwhen the thermocouple begins transmitting \nvalues other than 32 or NaN again another\ntimer will start.\n\nonce this timer expires then the thermocouple\nwill be considered ok again.",
-        "x": 460,
+        "x": 600,
         "y": 540,
+        "wires": []
+    },
+    {
+        "id": "60ed4618490b6af6",
+        "type": "comment",
+        "z": "3154c44d1a91de38",
+        "name": "data collection",
+        "info": "",
+        "x": 680,
+        "y": 360,
         "wires": []
     },
     {
