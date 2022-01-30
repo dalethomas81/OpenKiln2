@@ -423,7 +423,8 @@
         "order": 2,
         "disp": true,
         "width": "7",
-        "collapse": false
+        "collapse": true,
+        "className": ""
     },
     {
         "id": "2201d496820b415d",
