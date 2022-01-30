@@ -1325,7 +1325,7 @@
         "finalize": "",
         "libs": [],
         "x": 530,
-        "y": 620,
+        "y": 580,
         "wires": [
             [
                 "3fda2bd34a7c89b2"
@@ -1352,13 +1352,11 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 135,
-        "y": 240,
+        "x": 75,
+        "y": 120,
         "wires": [
             [
-                "26aedf9d4f3e92fc",
-                "63be7f287f0bdc31",
-                "f4bb65861a8f2d49"
+                "26aedf9d4f3e92fc"
             ]
         ],
         "l": false
@@ -1389,8 +1387,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 235,
-        "y": 200,
+        "x": 135,
+        "y": 120,
         "wires": [
             []
         ],
@@ -1695,13 +1693,14 @@
         "links": [
             "7b896f97e70ee242",
             "75b14d458cd1e761",
-            "a898206a716472e9"
+            "a898206a716472e9",
+            "7ada905b810b30c6"
         ],
-        "x": 535,
+        "x": 475,
         "y": 740,
         "wires": [
             [
-                "782f21bebe74bd1c"
+                "7dc828597fda8316"
             ]
         ]
     },
@@ -1786,7 +1785,7 @@
         "name": "",
         "events": "all",
         "x": 255,
-        "y": 600,
+        "y": 560,
         "wires": [
             [
                 "52e7c1f8dff102dc"
@@ -1822,7 +1821,7 @@
         "repair": false,
         "outputs": 3,
         "x": 315,
-        "y": 600,
+        "y": 560,
         "wires": [
             [],
             [
@@ -2110,7 +2109,6 @@
         "id": "22fd3eb6907ee40d",
         "type": "ui_button",
         "z": "592b686edd11b813",
-        "d": true,
         "name": "delete segment",
         "group": "5e1bdbab1ef4cbe6",
         "order": 6,
@@ -2139,7 +2137,7 @@
         "id": "d815b4776bb0f1aa",
         "type": "function",
         "z": "592b686edd11b813",
-        "name": "",
+        "name": "delete segment",
         "func": "var schedule_index = flow.get('schedule_index', 'memoryOnly');\nvar segment_index = flow.get('segment_index', 'memoryOnly');\nvar segment = 'kiln_01.schedules['+ schedule_index.toString() + '].segments[' + segment_index.toString() + ']'\n\nglobal.set(segment, undefined);\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
@@ -2197,7 +2195,7 @@
             "e0f89df2c8e81cd9"
         ],
         "x": 655,
-        "y": 600,
+        "y": 560,
         "wires": []
     },
     {
@@ -2210,7 +2208,7 @@
             "ae2b5be430abc93f"
         ],
         "x": 655,
-        "y": 640,
+        "y": 600,
         "wires": []
     },
     {
@@ -2224,7 +2222,7 @@
             "beee976f9bb8a5fd"
         ],
         "x": 395,
-        "y": 640,
+        "y": 600,
         "wires": [
             [
                 "5192f533b0238631"
@@ -2257,34 +2255,6 @@
         "x": 655,
         "y": 200,
         "wires": []
-    },
-    {
-        "id": "63be7f287f0bdc31",
-        "type": "change",
-        "z": "592b686edd11b813",
-        "name": "set segment names",
-        "rules": [
-            {
-                "t": "set",
-                "p": "options",
-                "pt": "msg",
-                "to": "[{\"segment 1\":\"0\"},{\"segment 2\":\"1\"},{\"segment 3\":\"2\"},{\"segment 4\":\"3\"},{\"segment 5\":\"4\"},{\"segment 6\":\"5\"},{\"segment 7\":\"6\"},{\"segment 8\":\"7\"},{\"segment 9\":\"8\"},{\"segment 10\":\"9\"},{\"segment 11\":\"10\"},{\"segment 12\":\"11\"},{\"segment 13\":\"12\"},{\"segment 14\":\"13\"},{\"segment 15\":\"14\"}]",
-                "tot": "json"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 235,
-        "y": 280,
-        "wires": [
-            [
-                "9256680a1dd25943"
-            ]
-        ],
-        "l": false
     },
     {
         "id": "7bfd8d56a8dba80e",
@@ -3004,19 +2974,6 @@
         "wires": []
     },
     {
-        "id": "a898206a716472e9",
-        "type": "link out",
-        "z": "592b686edd11b813",
-        "name": "",
-        "mode": "link",
-        "links": [
-            "85642d7408d49cd8"
-        ],
-        "x": 295,
-        "y": 200,
-        "wires": []
-    },
-    {
         "id": "92026a952d5a807a",
         "type": "comment",
         "z": "592b686edd11b813",
@@ -3393,6 +3350,13 @@
                 "pt": "msg",
                 "to": "#:(memoryOnly)::schedule_index",
                 "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "options",
+                "pt": "msg",
+                "to": "[{\"schedule 1\":\"0\"},{\"schedule 2\":\"1\"},{\"schedule 3\":\"2\"},{\"schedule 4\":\"3\"},{\"schedule 5\":\"4\"},{\"schedule 6\":\"5\"},{\"schedule 7\":\"6\"},{\"schedule 8\":\"7\"},{\"schedule 9\":\"8\"},{\"schedule 10\":\"9\"}]",
+                "tot": "json"
             }
         ],
         "action": "",
@@ -3400,8 +3364,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 375,
-        "y": 220,
+        "x": 395,
+        "y": 240,
         "wires": [
             [
                 "f7a42259283f2fc9"
@@ -3420,7 +3384,7 @@
             "223bca47aa31a4da"
         ],
         "x": 395,
-        "y": 580,
+        "y": 540,
         "wires": []
     },
     {
@@ -3431,8 +3395,8 @@
         "links": [
             "c43fe6a6eabba842"
         ],
-        "x": 295,
-        "y": 260,
+        "x": 315,
+        "y": 240,
         "wires": [
             [
                 "096ffc209c7be3fb",
@@ -3452,6 +3416,13 @@
                 "pt": "msg",
                 "to": "#:(memoryOnly)::segment_index",
                 "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "options",
+                "pt": "msg",
+                "to": "[{\"segment 1\":\"0\"},{\"segment 2\":\"1\"},{\"segment 3\":\"2\"},{\"segment 4\":\"3\"},{\"segment 5\":\"4\"},{\"segment 6\":\"5\"},{\"segment 7\":\"6\"},{\"segment 8\":\"7\"},{\"segment 9\":\"8\"},{\"segment 10\":\"9\"},{\"segment 11\":\"10\"},{\"segment 12\":\"11\"},{\"segment 13\":\"12\"},{\"segment 14\":\"13\"},{\"segment 15\":\"14\"}]",
+                "tot": "json"
             }
         ],
         "action": "",
@@ -3459,8 +3430,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 375,
-        "y": 260,
+        "x": 395,
+        "y": 280,
         "wires": [
             [
                 "9256680a1dd25943"
@@ -3553,60 +3524,10 @@
         "l": false
     },
     {
-        "id": "f4bb65861a8f2d49",
-        "type": "function",
-        "z": "592b686edd11b813",
-        "name": "get schedule names",
-        "func": "var schedules = global.get('kiln_01.schedules')\nvar schedule_names = []\nfor (let index = 0; index < schedules.length; index++) {\n    var name = {}\n    name[schedules[index].name] = index.toString()\n    schedule_names.push(name)\n}\nmsg.options = schedule_names\nreturn msg;\n\n/*\n[\n    {\n        \"schedule 1\": \"0\"\n    },\n    {\n        \"schedule 2\": \"1\"\n    }\n\n]\n[\n    {\n        \"Cone 04 Bisque\":\"0\"\n    },\n    {\n        \"Cone 6 Glaze\":\"1\"\n    }\n]\n*/",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 235,
-        "y": 240,
-        "wires": [
-            [
-                "a898206a716472e9",
-                "096ffc209c7be3fb"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "d72368991af180f7",
-        "type": "ui_button",
-        "z": "592b686edd11b813",
-        "d": true,
-        "name": "new schedule",
-        "group": "5e1bdbab1ef4cbe6",
-        "order": 2,
-        "width": 2,
-        "height": 1,
-        "passthru": false,
-        "label": "New",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 520,
-        "y": 440,
-        "wires": [
-            [
-                "63dcf2f8335202df"
-            ]
-        ]
-    },
-    {
         "id": "63dcf2f8335202df",
         "type": "function",
         "z": "592b686edd11b813",
-        "name": "",
+        "name": "new schedule",
         "func": "var schedules = global.get('kiln_01.schedules')\nvar segment = {name:\"new segment\",enabled:true,hold:false,setpoint:0,ramp_rate:0,soak_time:0}\n//var segment = Object.create(obj)\nvar segments = []\nsegments.push(segment)\nvar schedule = {name:\"new schedule\", segments}\n//var schedule = Object.create(obj2)\nschedules.push(schedule)\nglobal.set('kiln_01.schedules', schedules)\n\nflow.set('schedule_index', schedules.length - 1, 'memoryOnly');\n//msg.payload = schedules.length - 1 //  this should make the schedules dropdown go to this new schedule\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
@@ -3626,7 +3547,7 @@
         "id": "8ffc6beb541bf7e0",
         "type": "function",
         "z": "592b686edd11b813",
-        "name": "",
+        "name": "delete schedule",
         "func": "var schedule_index = flow.get('schedule_index', 'memoryOnly');\nvar schedule = 'kiln_01.schedules['+ schedule_index.toString() + ']'\n\nglobal.set(schedule, undefined);\n\nflow.set('schedule_index', 0, 'memoryOnly');\n//msg.payload = 0 // send this so the drop down menu goes back to index 0\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
@@ -3641,35 +3562,6 @@
             ]
         ],
         "l": false
-    },
-    {
-        "id": "b14e70c4caa1f3f5",
-        "type": "ui_button",
-        "z": "592b686edd11b813",
-        "d": true,
-        "name": "delete schedule",
-        "group": "5e1bdbab1ef4cbe6",
-        "order": 3,
-        "width": 2,
-        "height": 1,
-        "passthru": false,
-        "label": "Delete",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 520,
-        "y": 480,
-        "wires": [
-            [
-                "8ffc6beb541bf7e0"
-            ]
-        ]
     },
     {
         "id": "beee976f9bb8a5fd",
@@ -3687,77 +3579,62 @@
         "wires": []
     },
     {
-        "id": "af271e715f494e25",
-        "type": "link in",
-        "z": "592b686edd11b813",
-        "name": "",
-        "links": [
-            "beee976f9bb8a5fd",
-            "7ada905b810b30c6"
-        ],
-        "x": 135,
-        "y": 280,
-        "wires": [
-            [
-                "f4bb65861a8f2d49"
-            ]
-        ]
-    },
-    {
         "id": "7ada905b810b30c6",
         "type": "link out",
         "z": "592b686edd11b813",
         "name": "",
         "mode": "link",
         "links": [
-            "af271e715f494e25"
+            "af271e715f494e25",
+            "85642d7408d49cd8"
         ],
         "x": 685,
         "y": 120,
         "wires": []
     },
     {
-        "id": "8dfa5897ec9ede7f",
-        "type": "ui_button",
-        "z": "592b686edd11b813",
-        "d": true,
-        "name": "new segment",
-        "group": "5e1bdbab1ef4cbe6",
-        "order": 5,
-        "width": 2,
-        "height": 1,
-        "passthru": false,
-        "label": "New",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 520,
-        "y": 520,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "61684fbcc4722255",
+        "id": "7dc828597fda8316",
         "type": "function",
         "z": "592b686edd11b813",
-        "name": "",
-        "func": "var schedules = global.get('kiln_01.schedules')\nvar segment = {name:\"new segment\",enabled:true,hold:false,setpoint:0,ramp_rate:0,soak_time:0}\n//var segment = Object.create(obj)\nvar segments = []\nsegments.push(segment)\nvar schedule = {name:\"new schedule\", segments}\n//var schedule = Object.create(obj2)\nschedules.push(schedule)\nglobal.set('kiln_01.schedules', schedules)\n\nflow.set('schedule_index', schedules.length - 1, 'memoryOnly');\n//msg.payload = schedules.length - 1 //  this should make the schedules dropdown go to this new schedule\nreturn msg;",
+        "name": "get schedule names",
+        "func": "var schedules = global.get('kiln_01.schedules')\nvar schedule_names = []\nfor (let index = 0; index < schedules.length; index++) {\n    var name = {}\n    name[schedules[index].name] = index.toString()\n    schedule_names.push(name)\n}\nmsg.options = schedule_names\nreturn msg;\n\n/*\n[\n    {\n        \"schedule 1\": \"0\"\n    },\n    {\n        \"schedule 2\": \"1\"\n    }\n\n]\n[\n    {\n        \"Cone 04 Bisque\":\"0\"\n    },\n    {\n        \"Cone 6 Glaze\":\"1\"\n    }\n]\n*/",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 635,
-        "y": 520,
+        "x": 535,
+        "y": 740,
         "wires": [
-            []
+            [
+                "782f21bebe74bd1c"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "41b8c810b1294a96",
+        "type": "inject",
+        "z": "592b686edd11b813",
+        "name": "Initialize",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 475,
+        "y": 700,
+        "wires": [
+            [
+                "7dc828597fda8316"
+            ]
         ],
         "l": false
     },
