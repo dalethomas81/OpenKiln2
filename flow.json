@@ -1180,8 +1180,7 @@
         "y": 260,
         "wires": [
             [
-                "f5070cef209d87e2",
-                "f146889e531269db"
+                "f5070cef209d87e2"
             ]
         ]
     },
@@ -1290,7 +1289,7 @@
         "type": "function",
         "z": "592b686edd11b813",
         "name": "set segment",
-        "func": "//global.set('kiln_01.selected_schedule', temp);\nvar schedule_index = flow.get('schedule_index', 'memoryOnly');\nvar segment_index = flow.get('segment_index', 'memoryOnly');\nvar segment = 'kiln_01.schedules['+ schedule_index.toString() + '].segments[' + segment_index.toString() + ']'\nglobal.set(segment, msg.payload);\nmsg.payload = segment\nreturn msg;",
+        "func": "//global.set('kiln_01.selected_schedule', temp);\nvar schedule_index = flow.get('schedule_index', 'memoryOnly');\nvar segment_index = flow.get('segment_index', 'memoryOnly');\nvar segment = 'kiln_01.schedules['+ schedule_index.toString() + '].segments[' + segment_index.toString() + ']'\n//global.set(segment, msg.payload);\nmsg.payload = segment\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3640,22 +3639,6 @@
             ]
         ],
         "l": false
-    },
-    {
-        "id": "f146889e531269db",
-        "type": "debug",
-        "z": "592b686edd11b813",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 800,
-        "y": 200,
-        "wires": []
     },
     {
         "id": "0f56f86bd83c9233",
