@@ -10271,8 +10271,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 670,
-        "y": 120,
+        "x": 650,
+        "y": 80,
         "wires": [
             [
                 "28039e0648bd6ac9"
@@ -10291,8 +10291,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 850,
-        "y": 120,
+        "x": 830,
+        "y": 80,
         "wires": []
     },
     {
@@ -10316,8 +10316,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 490,
-        "y": 120,
+        "x": 480,
+        "y": 80,
         "wires": [
             [
                 "ba263ec1075b0897"
@@ -10511,6 +10511,56 @@
         "x": 460,
         "y": 300,
         "wires": []
+    },
+    {
+        "id": "227bd039c79e1580",
+        "type": "inject",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "28800",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 490,
+        "y": 120,
+        "wires": [
+            [
+                "bc3a543e872d0aec"
+            ]
+        ]
+    },
+    {
+        "id": "bc3a543e872d0aec",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "backup",
+        "rules": [
+            {
+                "t": "set",
+                "p": "analoginput",
+                "pt": "global",
+                "to": "#:(memoryOnly)::analoginput",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 120,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "1c9e79b136a623e2",
