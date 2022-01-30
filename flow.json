@@ -178,7 +178,7 @@
     {
         "id": "1f041bb493bd73c1",
         "type": "ui_tab",
-        "name": "Schedule",
+        "name": "Schedules",
         "icon": "mode_edit",
         "order": 3,
         "disabled": false,
@@ -951,43 +951,23 @@
         "height": 1
     },
     {
-        "id": "0d54490cafd212ba",
+        "id": "1cdd5704620bb19e",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
         "group": "5e1bdbab1ef4cbe6",
         "order": 4,
-        "width": 2,
+        "width": 1,
         "height": 1
     },
     {
-        "id": "f335a21ace4e6654",
+        "id": "3ff6b3b1d626ed9f",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
         "group": "5e1bdbab1ef4cbe6",
         "order": 6,
         "width": 1,
-        "height": 1
-    },
-    {
-        "id": "824a10ea89f9bff0",
-        "type": "ui_spacer",
-        "z": "592b686edd11b813",
-        "name": "spacer",
-        "group": "5e1bdbab1ef4cbe6",
-        "order": 8,
-        "width": 9,
-        "height": 1
-    },
-    {
-        "id": "bc1f8ef8f28c554f",
-        "type": "ui_spacer",
-        "z": "592b686edd11b813",
-        "name": "spacer",
-        "group": "5e1bdbab1ef4cbe6",
-        "order": 10,
-        "width": 3,
         "height": 1
     },
     {
@@ -1226,31 +1206,6 @@
         ]
     },
     {
-        "id": "f7a42259283f2fc9",
-        "type": "ui_dropdown",
-        "z": "592b686edd11b813",
-        "name": "",
-        "label": "Schedule",
-        "tooltip": "",
-        "place": "Select option",
-        "group": "5e1bdbab1ef4cbe6",
-        "order": 9,
-        "width": 6,
-        "height": 1,
-        "passthru": false,
-        "multiple": false,
-        "options": [],
-        "payload": "",
-        "topic": "topic",
-        "topicType": "msg",
-        "className": "",
-        "x": 180,
-        "y": 360,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "338932c551eabbf7",
         "type": "change",
         "z": "592b686edd11b813",
@@ -1295,34 +1250,6 @@
             ]
         ],
         "l": false
-    },
-    {
-        "id": "9256680a1dd25943",
-        "type": "ui_dropdown",
-        "z": "592b686edd11b813",
-        "name": "",
-        "label": "Segment",
-        "tooltip": "",
-        "place": "Select option",
-        "group": "5e1bdbab1ef4cbe6",
-        "order": 3,
-        "width": 4,
-        "height": 1,
-        "passthru": false,
-        "multiple": false,
-        "options": [],
-        "payload": "",
-        "topic": "topic",
-        "topicType": "msg",
-        "className": "",
-        "x": 500,
-        "y": 280,
-        "wires": [
-            [
-                "b88e332b4ed39aac",
-                "bbb665c4fceb800d"
-            ]
-        ]
     },
     {
         "id": "b88e332b4ed39aac",
@@ -2149,7 +2076,7 @@
         "name": "delete segment",
         "group": "5e1bdbab1ef4cbe6",
         "order": 5,
-        "width": 2,
+        "width": 3,
         "height": 1,
         "passthru": false,
         "label": "Delete",
@@ -3471,7 +3398,7 @@
         "y": 280,
         "wires": [
             [
-                "9256680a1dd25943"
+                "6de15819559dade9"
             ]
         ],
         "l": false
@@ -3687,7 +3614,7 @@
         "width": 4,
         "height": 1,
         "wrap": true,
-        "passthru": true,
+        "passthru": false,
         "topic": "topic",
         "topicType": "msg",
         "format": "{{value}}",
@@ -3696,11 +3623,40 @@
         "step": 1,
         "className": "",
         "x": 500,
-        "y": 180,
+        "y": 240,
         "wires": [
             [
                 "bbb665c4fceb800d",
                 "338932c551eabbf7"
+            ]
+        ]
+    },
+    {
+        "id": "6de15819559dade9",
+        "type": "ui_numeric",
+        "z": "592b686edd11b813",
+        "name": "",
+        "label": "Segment",
+        "tooltip": "",
+        "group": "5e1bdbab1ef4cbe6",
+        "order": 3,
+        "width": 4,
+        "height": 1,
+        "wrap": true,
+        "passthru": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "15",
+        "step": 1,
+        "className": "",
+        "x": 500,
+        "y": 280,
+        "wires": [
+            [
+                "bbb665c4fceb800d",
+                "b88e332b4ed39aac"
             ]
         ]
     },
