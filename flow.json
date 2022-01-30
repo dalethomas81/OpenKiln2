@@ -11956,7 +11956,7 @@
         "type": "function",
         "z": "3154c44d1a91de38",
         "name": "temp is bad",
-        "func": "if (isNaN(msg.payload) || msg.payload == 32) {\n    //flow.set('upper_thermocouple_bad', true)\n    msg.payload = true\n} else {\n    //flow.set('upper_thermocouple_bad', false)\n    msg.paylaod = false\n}\nreturn msg",
+        "func": "if (isNaN(msg.payload) || msg.payload == 32) {\n    //flow.set('upper_thermocouple_bad', true)\n    msg.payload = true\n} else {\n    //flow.set('upper_thermocouple_bad', false)\n    msg.payload = false\n}\nreturn msg",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
