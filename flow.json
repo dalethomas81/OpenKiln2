@@ -3687,7 +3687,7 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 695,
+        "x": 775,
         "y": 960,
         "wires": [
             [
@@ -3718,7 +3718,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 755,
+        "x": 835,
         "y": 960,
         "wires": [
             [
@@ -3741,7 +3741,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 695,
+        "x": 775,
         "y": 1020,
         "wires": [
             [
@@ -3779,7 +3779,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 615,
+        "x": 715,
         "y": 960,
         "wires": [
             [
@@ -3814,7 +3814,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 615,
+        "x": 715,
         "y": 1020,
         "wires": [
             [
@@ -3829,7 +3829,7 @@
         "z": "592b686edd11b813",
         "name": "custom timer with status output",
         "info": "",
-        "x": 710,
+        "x": 790,
         "y": 1040,
         "wires": []
     },
@@ -3852,7 +3852,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 775,
+        "x": 835,
         "y": 1020,
         "wires": [
             [
@@ -3887,7 +3887,7 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 730,
+        "x": 770,
         "y": 860,
         "wires": [
             [
@@ -3906,7 +3906,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 875,
+        "x": 915,
         "y": 900,
         "wires": [
             []
@@ -3953,7 +3953,7 @@
             "defcc28b265151c2",
             "81fb9a528731184e"
         ],
-        "x": 835,
+        "x": 915,
         "y": 960,
         "wires": []
     },
@@ -3976,7 +3976,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 835,
+        "x": 875,
         "y": 860,
         "wires": [
             []
@@ -4002,7 +4002,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 615,
+        "x": 655,
         "y": 860,
         "wires": [
             [
@@ -4017,7 +4017,7 @@
         "z": "592b686edd11b813",
         "name": "",
         "events": "connect",
-        "x": 555,
+        "x": 595,
         "y": 860,
         "wires": [
             [
@@ -4060,7 +4060,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 835,
+        "x": 875,
         "y": 820,
         "wires": [
             []
@@ -4084,7 +4084,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 775,
+        "x": 815,
         "y": 820,
         "wires": [
             [
@@ -4119,7 +4119,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 555,
+        "x": 655,
         "y": 960,
         "wires": [
             [
@@ -4141,9 +4141,10 @@
         "format": "<font color='green'>{{msg.payload}}</font>",
         "layout": "row-spread",
         "className": "",
-        "x": 930,
+        "x": 895,
         "y": 1020,
-        "wires": []
+        "wires": [],
+        "l": false
     },
     {
         "id": "5ecdaca58bba18a3",
@@ -4163,9 +4164,9 @@
         "format": "{{value}}h",
         "min": 0,
         "max": 10,
-        "step": "0.5",
+        "step": "0.01",
         "className": "",
-        "x": 760,
+        "x": 800,
         "y": 900,
         "wires": [
             [
@@ -4184,7 +4185,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 635,
+        "x": 675,
         "y": 900,
         "wires": [
             [
@@ -4212,7 +4213,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 555,
+        "x": 655,
         "y": 1020,
         "wires": [
             [
@@ -4236,7 +4237,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 495,
+        "x": 595,
         "y": 960,
         "wires": [
             [
