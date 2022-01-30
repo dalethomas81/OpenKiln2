@@ -951,23 +951,43 @@
         "height": 1
     },
     {
-        "id": "ca23814491832215",
+        "id": "0d54490cafd212ba",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
         "group": "5e1bdbab1ef4cbe6",
-        "order": 2,
-        "width": 3,
+        "order": 4,
+        "width": 2,
         "height": 1
     },
     {
-        "id": "dbf55a64d1998ba1",
+        "id": "f335a21ace4e6654",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
         "group": "5e1bdbab1ef4cbe6",
-        "order": 5,
+        "order": 6,
         "width": 1,
+        "height": 1
+    },
+    {
+        "id": "824a10ea89f9bff0",
+        "type": "ui_spacer",
+        "z": "592b686edd11b813",
+        "name": "spacer",
+        "group": "5e1bdbab1ef4cbe6",
+        "order": 8,
+        "width": 9,
+        "height": 1
+    },
+    {
+        "id": "bc1f8ef8f28c554f",
+        "type": "ui_spacer",
+        "z": "592b686edd11b813",
+        "name": "spacer",
+        "group": "5e1bdbab1ef4cbe6",
+        "order": 10,
+        "width": 3,
         "height": 1
     },
     {
@@ -1214,7 +1234,7 @@
         "tooltip": "",
         "place": "Select option",
         "group": "5e1bdbab1ef4cbe6",
-        "order": 1,
+        "order": 9,
         "width": 6,
         "height": 1,
         "passthru": false,
@@ -1224,13 +1244,10 @@
         "topic": "topic",
         "topicType": "msg",
         "className": "",
-        "x": 500,
-        "y": 240,
+        "x": 180,
+        "y": 360,
         "wires": [
-            [
-                "338932c551eabbf7",
-                "bbb665c4fceb800d"
-            ]
+            []
         ]
     },
     {
@@ -1289,7 +1306,7 @@
         "place": "Select option",
         "group": "5e1bdbab1ef4cbe6",
         "order": 3,
-        "width": 6,
+        "width": 4,
         "height": 1,
         "passthru": false,
         "multiple": false,
@@ -2131,7 +2148,7 @@
         "z": "592b686edd11b813",
         "name": "delete segment",
         "group": "5e1bdbab1ef4cbe6",
-        "order": 4,
+        "order": 5,
         "width": 2,
         "height": 1,
         "passthru": false,
@@ -3388,7 +3405,7 @@
         "y": 240,
         "wires": [
             [
-                "f7a42259283f2fc9"
+                "9ac0734e2471a4ae"
             ]
         ],
         "l": false
@@ -3463,13 +3480,13 @@
         "id": "023f6eeca8781228",
         "type": "ui_text_input",
         "z": "592b686edd11b813",
-        "name": "",
-        "label": "Schedule Name",
+        "name": "schedule name",
+        "label": "Name",
         "tooltip": "",
         "group": "5e1bdbab1ef4cbe6",
-        "order": 6,
-        "width": 0,
-        "height": 0,
+        "order": 2,
+        "width": 5,
+        "height": 1,
         "passthru": false,
         "mode": "text",
         "delay": "0",
@@ -3657,6 +3674,35 @@
             ]
         ],
         "l": false
+    },
+    {
+        "id": "9ac0734e2471a4ae",
+        "type": "ui_numeric",
+        "z": "592b686edd11b813",
+        "name": "",
+        "label": "Schedule",
+        "tooltip": "",
+        "group": "5e1bdbab1ef4cbe6",
+        "order": 1,
+        "width": 4,
+        "height": 1,
+        "wrap": true,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "15",
+        "step": 1,
+        "className": "",
+        "x": 500,
+        "y": 180,
+        "wires": [
+            [
+                "bbb665c4fceb800d",
+                "338932c551eabbf7"
+            ]
+        ]
     },
     {
         "id": "0f56f86bd83c9233",
