@@ -4346,7 +4346,7 @@
         "topic": "",
         "payload": "{\"group\":{\"hide\":[\"\"],\"show\":[\"Main_Control\"],\"focus\":false}}",
         "payloadType": "json",
-        "x": 1090,
+        "x": 1170,
         "y": 760,
         "wires": [
             [
@@ -4371,7 +4371,7 @@
         "topic": "",
         "payload": "{\"group\":{\"hide\":[\"Main_Control\"],\"show\":[\"\"],\"focus\":false}}",
         "payloadType": "json",
-        "x": 1090,
+        "x": 1170,
         "y": 780,
         "wires": [
             [
