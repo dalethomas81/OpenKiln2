@@ -3723,7 +3723,7 @@
         "type": "function",
         "z": "592b686edd11b813",
         "name": "",
-        "func": "var schedules = global.get('kiln_01.schedules')\nvar schedule_names = {}\nfor (let index = 0; index < schedules.length; index++) {\n    schedule_names[schedules[index].name] = index\n}\nmsg.payload = schedule_names\nreturn msg;\n\n/*\n[\n    {\n        \"schedule 1\": \"0\"\n    },\n    {\n        \"schedule 2\": \"1\"\n    },\n\n]\n*/",
+        "func": "var schedules = global.get('kiln_01.schedules')\nvar schedule_names = []\nfor (let index = 0; index < schedules.length; index++) {\n    var name = {}\n    name[schedules[index].name] = index.toString()\n    schedule_names.push(name)\n}\nmsg.payload = schedule_names\nreturn msg;\n\n/*\n[\n    {\n        \"schedule 1\": \"0\"\n    },\n    {\n        \"schedule 2\": \"1\"\n    },\n\n]\n*/\n/*\nvar obj1 = { x: { min: 0.0, max: 0.0 }, y: { min: 0.0, max: 0.0 }, span: 0.0, offset: 0.0 }\nvar calibration = Object.create(obj1)\ninput.push({ id: '', raw: 0.0, scaled: 0.0, calibration, limits, alarms })\n*/",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
