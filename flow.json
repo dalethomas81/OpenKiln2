@@ -11844,8 +11844,8 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 535,
-        "y": 580,
+        "x": 575,
+        "y": 540,
         "wires": [
             [
                 "d7036bba6f2040c6"
@@ -11865,13 +11865,6 @@
                 "pt": "msg",
                 "to": "true",
                 "tot": "bool"
-            },
-            {
-                "t": "set",
-                "p": "upper_thermocouple_bad",
-                "pt": "flow",
-                "to": "false",
-                "tot": "bool"
             }
         ],
         "action": "",
@@ -11879,8 +11872,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 485,
-        "y": 600,
+        "x": 495,
+        "y": 620,
         "wires": [
             [
                 "babdd556d27c32aa"
@@ -11910,10 +11903,12 @@
         "y": 580,
         "wires": [
             [
-                "babdd556d27c32aa"
+                "babdd556d27c32aa",
+                "6404ddd0204a1536"
             ],
             [
-                "1219bcc4367384ed"
+                "1219bcc4367384ed",
+                "be6db2014d2266f4"
             ]
         ],
         "l": false
@@ -12007,8 +12002,88 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 615,
-        "y": 580,
+        "x": 635,
+        "y": 540,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "be6db2014d2266f4",
+        "type": "trigger",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "5",
+        "extend": false,
+        "overrideDelay": true,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 575,
+        "y": 620,
+        "wires": [
+            [
+                "1baf34e0f140c835"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "6404ddd0204a1536",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "reset",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 495,
+        "y": 540,
+        "wires": [
+            [
+                "be6db2014d2266f4"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "1baf34e0f140c835",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "upper_thermocouple_bad",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 635,
+        "y": 620,
         "wires": [
             []
         ],
