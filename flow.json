@@ -4299,6 +4299,156 @@
         "l": false
     },
     {
+        "id": "6af73a69a0827774",
+        "type": "ui_ui_control",
+        "z": "592b686edd11b813",
+        "name": "",
+        "events": "all",
+        "x": 1340,
+        "y": 760,
+        "wires": [
+            [
+                "dda4818a67893de7"
+            ]
+        ]
+    },
+    {
+        "id": "dda4818a67893de7",
+        "type": "debug",
+        "z": "592b686edd11b813",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1470,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "e44f2942256d3524",
+        "type": "inject",
+        "z": "592b686edd11b813",
+        "name": "show",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"group\":{\"hide\":[\"\"],\"show\":[\"Main_Control\"],\"focus\":false}}",
+        "payloadType": "json",
+        "x": 1090,
+        "y": 760,
+        "wires": [
+            [
+                "6af73a69a0827774"
+            ]
+        ]
+    },
+    {
+        "id": "6c5b55d7c2cfacd7",
+        "type": "inject",
+        "z": "592b686edd11b813",
+        "name": "hide",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"group\":{\"hide\":[\"Main_Control\"],\"show\":[\"\"],\"focus\":false}}",
+        "payloadType": "json",
+        "x": 1090,
+        "y": 780,
+        "wires": [
+            [
+                "6af73a69a0827774"
+            ]
+        ]
+    },
+    {
+        "id": "868e286e0f3e80b4",
+        "type": "ui_ui_control",
+        "z": "592b686edd11b813",
+        "name": "",
+        "events": "connect",
+        "x": 1035,
+        "y": 820,
+        "wires": [
+            [
+                "f034eb576e335825"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "f034eb576e335825",
+        "type": "change",
+        "z": "592b686edd11b813",
+        "name": "hide control",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"group\":{\"hide\":[\"Main_Control\"],\"show\":[\"\"],\"focus\":false}}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1150,
+        "y": 820,
+        "wires": [
+            [
+                "6af73a69a0827774"
+            ]
+        ]
+    },
+    {
+        "id": "0ec0847fdce57e83",
+        "type": "change",
+        "z": "592b686edd11b813",
+        "name": "show control",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"group\":{\"hide\":[\"\"],\"show\":[\"Main_Control\"],\"focus\":false}}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1150,
+        "y": 840,
+        "wires": [
+            [
+                "6af73a69a0827774"
+            ]
+        ]
+    },
+    {
         "id": "0f56f86bd83c9233",
         "type": "finite-state-machine",
         "z": "e9cef8706a9cf7f6",
@@ -10832,137 +10982,6 @@
             []
         ],
         "l": false
-    },
-    {
-        "id": "9eb19eb290b55af6",
-        "type": "ui_ui_control",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "events": "all",
-        "x": 820,
-        "y": 620,
-        "wires": [
-            [
-                "11e0a47b0c3f8924"
-            ]
-        ]
-    },
-    {
-        "id": "11e0a47b0c3f8924",
-        "type": "debug",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 950,
-        "y": 620,
-        "wires": []
-    },
-    {
-        "id": "9a82607f9f924494",
-        "type": "inject",
-        "z": "3154c44d1a91de38",
-        "name": "show",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"group\":{\"hide\":[\"\"],\"show\":[\"Main_Control\"],\"focus\":false}}",
-        "payloadType": "json",
-        "x": 650,
-        "y": 620,
-        "wires": [
-            [
-                "9eb19eb290b55af6"
-            ]
-        ]
-    },
-    {
-        "id": "7df5c0f1d98b8fb6",
-        "type": "inject",
-        "z": "3154c44d1a91de38",
-        "name": "hide",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"group\":{\"hide\":[\"Main_Control\"],\"show\":[\"\"],\"focus\":false}}",
-        "payloadType": "json",
-        "x": 650,
-        "y": 640,
-        "wires": [
-            [
-                "9eb19eb290b55af6"
-            ]
-        ]
-    },
-    {
-        "id": "021bbfddf01cfe80",
-        "type": "inject",
-        "z": "3154c44d1a91de38",
-        "name": "disable",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"group\":{\"disable\":[\"Main_Control\"],\"enable\":[\"\"],\"focus\":false}}",
-        "payloadType": "json",
-        "x": 650,
-        "y": 660,
-        "wires": [
-            [
-                "9eb19eb290b55af6"
-            ]
-        ]
-    },
-    {
-        "id": "80a0570656c260c3",
-        "type": "inject",
-        "z": "3154c44d1a91de38",
-        "name": "enable",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"group\":{\"disable\":[\"\"],\"enable\":[\"Main_Control\"],\"focus\":false}}",
-        "payloadType": "json",
-        "x": 650,
-        "y": 680,
-        "wires": [
-            [
-                "9eb19eb290b55af6"
-            ]
-        ]
     },
     {
         "id": "1c9e79b136a623e2",
