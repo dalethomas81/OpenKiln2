@@ -10348,8 +10348,8 @@
         "rules": [
             {
                 "t": "istype",
-                "v": "undefined",
-                "vt": "undefined"
+                "v": "number",
+                "vt": "number"
             }
         ],
         "checkall": "true",
