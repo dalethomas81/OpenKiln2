@@ -11843,12 +11843,15 @@
         "reset": "",
         "bytopic": "all",
         "topic": "topic",
-        "outputs": 1,
+        "outputs": 2,
         "x": 535,
         "y": 580,
         "wires": [
             [
                 "7c7540817434016c"
+            ],
+            [
+                "67456a4e0149a566"
             ]
         ],
         "l": false
@@ -12032,6 +12035,23 @@
         "statusType": "auto",
         "x": 490,
         "y": 520,
+        "wires": []
+    },
+    {
+        "id": "67456a4e0149a566",
+        "type": "debug",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 630,
+        "y": 620,
         "wires": []
     },
     {
