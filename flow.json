@@ -4540,6 +4540,56 @@
         "l": false
     },
     {
+        "id": "e4fd76baca9b5cfe",
+        "type": "inject",
+        "z": "592b686edd11b813",
+        "name": "open",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"group\":{\"open\":[\"Main_Control\"],\"close\":[\"\"],\"focus\":false}}",
+        "payloadType": "json",
+        "x": 1150,
+        "y": 780,
+        "wires": [
+            [
+                "6af73a69a0827774"
+            ]
+        ]
+    },
+    {
+        "id": "3595691ed098ee6e",
+        "type": "inject",
+        "z": "592b686edd11b813",
+        "name": "close",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"group\":{\"open\":[\"\"],\"close\":[\"Main_Control\"],\"focus\":false}}",
+        "payloadType": "json",
+        "x": 1150,
+        "y": 800,
+        "wires": [
+            [
+                "6af73a69a0827774"
+            ]
+        ]
+    },
+    {
         "id": "0f56f86bd83c9233",
         "type": "finite-state-machine",
         "z": "e9cef8706a9cf7f6",
