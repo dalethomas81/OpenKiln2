@@ -11177,7 +11177,9 @@
         "x": 1190,
         "y": 420,
         "wires": [
-            []
+            [
+                "effc4b19720ccea9"
+            ]
         ]
     },
     {
@@ -11203,7 +11205,9 @@
         "x": 1190,
         "y": 440,
         "wires": [
-            []
+            [
+                "aa4ea636d07ed467"
+            ]
         ]
     },
     {
@@ -11229,7 +11233,9 @@
         "x": 1190,
         "y": 460,
         "wires": [
-            []
+            [
+                "98fe73aa5a255e16"
+            ]
         ]
     },
     {
@@ -11255,7 +11261,9 @@
         "x": 1190,
         "y": 480,
         "wires": [
-            []
+            [
+                "9edae096c12a993e"
+            ]
         ]
     },
     {
@@ -11281,7 +11289,9 @@
         "x": 1190,
         "y": 500,
         "wires": [
-            []
+            [
+                "6eba4c323a68d274"
+            ]
         ]
     },
     {
@@ -11505,6 +11515,96 @@
         "libs": [],
         "x": 1275,
         "y": 400,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "effc4b19720ccea9",
+        "type": "function",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "func": "var selected_input = global.get('analoginput.selected_input')\nglobal.set('analoginput.input['+selected_input+'].calibration.x.max', msg.payload)\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1275,
+        "y": 420,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "aa4ea636d07ed467",
+        "type": "function",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "func": "var selected_input = global.get('analoginput.selected_input')\nglobal.set('analoginput.input['+selected_input+'].calibration.y.min', msg.payload)\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1275,
+        "y": 440,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "98fe73aa5a255e16",
+        "type": "function",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "func": "var selected_input = global.get('analoginput.selected_input')\nglobal.set('analoginput.input['+selected_input+'].calibration.y.max', msg.payload)\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1275,
+        "y": 460,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "9edae096c12a993e",
+        "type": "function",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "func": "var selected_input = global.get('analoginput.selected_input')\nglobal.set('analoginput.input['+selected_input+'].calibration.span', msg.payload)\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1275,
+        "y": 480,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "6eba4c323a68d274",
+        "type": "function",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "func": "var selected_input = global.get('analoginput.selected_input')\nglobal.set('analoginput.input['+selected_input+'].calibration.offset', msg.payload)\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1275,
+        "y": 500,
         "wires": [
             []
         ],
