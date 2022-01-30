@@ -4164,7 +4164,7 @@
         "format": "{{value}}h",
         "min": 0,
         "max": 10,
-        "step": "0.01",
+        "step": "0.5",
         "className": "",
         "x": 800,
         "y": 900,
