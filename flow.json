@@ -922,9 +922,59 @@
         "height": 1
     },
     {
-        "id": "e78c211a864b4657",
+        "id": "c1fb89ba5c85b8ce",
         "type": "ui_spacer",
-        "z": "3154c44d1a91de38",
+        "z": "592b686edd11b813",
+        "name": "spacer",
+        "group": "5e1bdbab1ef4cbe6",
+        "order": 3,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "f2eeec9bb5c43d9d",
+        "type": "ui_spacer",
+        "z": "592b686edd11b813",
+        "name": "spacer",
+        "group": "5e1bdbab1ef4cbe6",
+        "order": 4,
+        "width": 9,
+        "height": 1
+    },
+    {
+        "id": "a438b8e530db1f0d",
+        "type": "ui_spacer",
+        "z": "592b686edd11b813",
+        "name": "spacer",
+        "group": "5e1bdbab1ef4cbe6",
+        "order": 5,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "d7d524b58b4ff1eb",
+        "type": "ui_spacer",
+        "z": "592b686edd11b813",
+        "name": "spacer",
+        "group": "5e1bdbab1ef4cbe6",
+        "order": 7,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "90376bc11d5dc504",
+        "type": "ui_spacer",
+        "z": "592b686edd11b813",
+        "name": "spacer",
+        "group": "5e1bdbab1ef4cbe6",
+        "order": 9,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "26eae6714d337f96",
+        "type": "ui_spacer",
+        "z": "592b686edd11b813",
         "name": "spacer",
         "group": "2201d496820b415d",
         "order": 8,
@@ -932,9 +982,9 @@
         "height": 1
     },
     {
-        "id": "81b7b37ff10b3df1",
+        "id": "2396133016ea4929",
         "type": "ui_spacer",
-        "z": "3154c44d1a91de38",
+        "z": "592b686edd11b813",
         "name": "spacer",
         "group": "2201d496820b415d",
         "order": 10,
@@ -942,9 +992,9 @@
         "height": 1
     },
     {
-        "id": "796ef493768b6034",
+        "id": "6e0bb2dd11f11fe7",
         "type": "ui_spacer",
-        "z": "3154c44d1a91de38",
+        "z": "592b686edd11b813",
         "name": "spacer",
         "group": "90879df8d2ee4c5d",
         "order": 3,
@@ -1351,7 +1401,7 @@
         "payload": "",
         "topic": "topic",
         "topicType": "msg",
-        "x": 660,
+        "x": 760,
         "y": 740,
         "wires": [
             [
@@ -1370,7 +1420,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 775,
+        "x": 875,
         "y": 740,
         "wires": [
             []
@@ -1410,7 +1460,7 @@
         "y": 840,
         "wires": [
             [
-                "c03c7fb7458a9e9f"
+                "218ec5179ca4b0eb"
             ]
         ]
     },
@@ -1447,7 +1497,7 @@
         "z": "592b686edd11b813",
         "name": "",
         "group": "90879df8d2ee4c5d",
-        "order": 5,
+        "order": 7,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -1589,7 +1639,7 @@
             "a898206a716472e9",
             "7ada905b810b30c6"
         ],
-        "x": 475,
+        "x": 575,
         "y": 740,
         "wires": [
             [
@@ -2156,7 +2206,7 @@
         "z": "592b686edd11b813",
         "name": "",
         "group": "90879df8d2ee4c5d",
-        "order": 7,
+        "order": 9,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -2183,7 +2233,7 @@
         "z": "592b686edd11b813",
         "name": "",
         "group": "90879df8d2ee4c5d",
-        "order": 6,
+        "order": 8,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -3264,6 +3314,781 @@
         ]
     },
     {
+        "id": "023f6eeca8781228",
+        "type": "ui_text_input",
+        "z": "592b686edd11b813",
+        "name": "schedule name",
+        "label": "",
+        "tooltip": "",
+        "group": "5e1bdbab1ef4cbe6",
+        "order": 1,
+        "width": 5,
+        "height": 1,
+        "passthru": false,
+        "mode": "text",
+        "delay": "300",
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 500,
+        "y": 120,
+        "wires": [
+            [
+                "7d3f232e7739f144"
+            ]
+        ]
+    },
+    {
+        "id": "7d3f232e7739f144",
+        "type": "function",
+        "z": "592b686edd11b813",
+        "name": "",
+        "func": "var schedule_index = flow.get('schedule_index', 'memoryOnly');\nvar segment = 'kiln_01.schedules['+ schedule_index.toString() + '].name'\n\nglobal.set(segment, msg.payload);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 615,
+        "y": 120,
+        "wires": [
+            [
+                "7ada905b810b30c6"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "223bca47aa31a4da",
+        "type": "link in",
+        "z": "592b686edd11b813",
+        "name": "",
+        "links": [
+            "c43fe6a6eabba842",
+            "bbb665c4fceb800d",
+            "beee976f9bb8a5fd"
+        ],
+        "x": 295,
+        "y": 120,
+        "wires": [
+            [
+                "7560c351d622b7c2"
+            ]
+        ]
+    },
+    {
+        "id": "7560c351d622b7c2",
+        "type": "function",
+        "z": "592b686edd11b813",
+        "name": "",
+        "func": "var schedule_index = flow.get('schedule_index', 'memoryOnly');\nvar name = 'kiln_01.schedules['+ schedule_index.toString() + '].name'\n\nmsg.payload = global.get(name);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 375,
+        "y": 120,
+        "wires": [
+            [
+                "023f6eeca8781228"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "63dcf2f8335202df",
+        "type": "function",
+        "z": "592b686edd11b813",
+        "name": "new schedule",
+        "func": "var schedules = global.get('kiln_01.schedules')\nvar segment = {name:\"new segment\",enabled:true,hold:false,setpoint:0,ramp_rate:0,soak_time:0}\n//var segment = Object.create(obj)\nvar segments = []\nsegments.push(segment)\nvar schedule = {name:\"new schedule\", segments}\n//var schedule = Object.create(obj2)\nschedules.push(schedule)\nglobal.set('kiln_01.schedules', schedules)\n\nflow.set('schedule_index', schedules.length - 1, 'memoryOnly');\n//msg.payload = schedules.length - 1 //  this should make the schedules dropdown go to this new schedule\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 635,
+        "y": 380,
+        "wires": [
+            [
+                "beee976f9bb8a5fd"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "8ffc6beb541bf7e0",
+        "type": "function",
+        "z": "592b686edd11b813",
+        "name": "delete schedule",
+        "func": "var schedule_index = flow.get('schedule_index', 'memoryOnly');\nvar schedule = 'kiln_01.schedules['+ schedule_index.toString() + ']'\n\nglobal.set(schedule, undefined);\n\nflow.set('schedule_index', 0, 'memoryOnly');\n//msg.payload = 0 // send this so the drop down menu goes back to index 0\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 635,
+        "y": 420,
+        "wires": [
+            [
+                "beee976f9bb8a5fd"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "beee976f9bb8a5fd",
+        "type": "link out",
+        "z": "592b686edd11b813",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "af271e715f494e25",
+            "006321a7d5098eed",
+            "223bca47aa31a4da"
+        ],
+        "x": 725,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "7ada905b810b30c6",
+        "type": "link out",
+        "z": "592b686edd11b813",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "af271e715f494e25",
+            "85642d7408d49cd8"
+        ],
+        "x": 685,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "7dc828597fda8316",
+        "type": "function",
+        "z": "592b686edd11b813",
+        "name": "get schedule names",
+        "func": "var schedules = global.get('kiln_01.schedules')\nvar schedule_names = []\nfor (let index = 0; index < schedules.length; index++) {\n    var name = {}\n    name[schedules[index].name] = index.toString()\n    schedule_names.push(name)\n}\nmsg.options = schedule_names\nreturn msg;\n\n/*\n[\n    {\n        \"schedule 1\": \"0\"\n    },\n    {\n        \"schedule 2\": \"1\"\n    }\n\n]\n[\n    {\n        \"Cone 04 Bisque\":\"0\"\n    },\n    {\n        \"Cone 6 Glaze\":\"1\"\n    }\n]\n*/",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 635,
+        "y": 740,
+        "wires": [
+            [
+                "782f21bebe74bd1c"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "41b8c810b1294a96",
+        "type": "inject",
+        "z": "592b686edd11b813",
+        "name": "Initialize",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 575,
+        "y": 780,
+        "wires": [
+            [
+                "7dc828597fda8316"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "9ac0734e2471a4ae",
+        "type": "ui_numeric",
+        "z": "592b686edd11b813",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "group": "5e1bdbab1ef4cbe6",
+        "order": 2,
+        "width": 3,
+        "height": 1,
+        "wrap": true,
+        "passthru": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": "1",
+        "max": "16",
+        "step": 1,
+        "className": "",
+        "x": 500,
+        "y": 180,
+        "wires": [
+            [
+                "fee462e7f0afe7fe"
+            ]
+        ]
+    },
+    {
+        "id": "6de15819559dade9",
+        "type": "ui_numeric",
+        "z": "592b686edd11b813",
+        "name": "",
+        "label": "Segment",
+        "tooltip": "",
+        "group": "5e1bdbab1ef4cbe6",
+        "order": 6,
+        "width": 3,
+        "height": 1,
+        "wrap": true,
+        "passthru": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": "1",
+        "max": "16",
+        "step": 1,
+        "className": "",
+        "x": 500,
+        "y": 220,
+        "wires": [
+            [
+                "982ec52ff0e6cfbf"
+            ]
+        ]
+    },
+    {
+        "id": "fc2609866ba68e99",
+        "type": "function",
+        "z": "592b686edd11b813",
+        "name": "",
+        "func": "var schedule_index = flow.get('schedule_index', 'memoryOnly');\nmsg.payload = schedule_index + 1\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 395,
+        "y": 180,
+        "wires": [
+            [
+                "9ac0734e2471a4ae"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "d8c55002e59fcada",
+        "type": "function",
+        "z": "592b686edd11b813",
+        "name": "",
+        "func": "var segment_index = flow.get('segment_index', 'memoryOnly');\nmsg.payload = segment_index + 1\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 395,
+        "y": 220,
+        "wires": [
+            [
+                "6de15819559dade9"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "fee462e7f0afe7fe",
+        "type": "function",
+        "z": "592b686edd11b813",
+        "name": "",
+        "func": "flow.set('schedule_index', msg.payload - 1, 'memoryOnly');\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 595,
+        "y": 180,
+        "wires": [
+            [
+                "bbb665c4fceb800d"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "982ec52ff0e6cfbf",
+        "type": "function",
+        "z": "592b686edd11b813",
+        "name": "",
+        "func": "flow.set('segment_index', msg.payload - 1, 'memoryOnly');\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 595,
+        "y": 220,
+        "wires": [
+            [
+                "bbb665c4fceb800d"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "c5f9f24aff96d7cb",
+        "type": "delay",
+        "z": "592b686edd11b813",
+        "name": "Soak Timer",
+        "pauseType": "delayv",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 735,
+        "y": 940,
+        "wires": [
+            [
+                "bc38816db3f974c5"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "bc38816db3f974c5",
+        "type": "switch",
+        "z": "592b686edd11b813",
+        "name": "done",
+        "property": "remaining_milliseconds",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lte",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "gt",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 795,
+        "y": 940,
+        "wires": [
+            [
+                "084f011204f8cadc"
+            ],
+            [
+                "06a98691587aad1c"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "06a98691587aad1c",
+        "type": "function",
+        "z": "592b686edd11b813",
+        "name": "status",
+        "func": "var time\n\nif (!msg.reset){\n    msg.remaining_milliseconds = msg.remaining_milliseconds - 1000\n    if (msg.remaining_milliseconds <= 0) {\n        msg.delay = 0;\n        msg.flush = true;\n    }\n} else {\n    msg.remaining_milliseconds = 0\n}\n\ntime = { minutes: msg.remaining_milliseconds / 1000.0 / 60.0, seconds: msg.remaining_milliseconds / 1000.0, milliseconds: msg.remaining_milliseconds };\ntime.minutes = time.minutes.toFixed(2);\ntime.seconds = time.seconds.toFixed(2);\ntime.milliseconds = time.milliseconds.toFixed(2);\n\nif (time.milliseconds >= 0){\n    return [msg,time];\n} else {\n    return [msg,null];\n}",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 735,
+        "y": 1000,
+        "wires": [
+            [
+                "c5f9f24aff96d7cb"
+            ],
+            [
+                "f040abfd68065067"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "5f9c6c60065b8f08",
+        "type": "change",
+        "z": "592b686edd11b813",
+        "name": "start",
+        "rules": [
+            {
+                "t": "set",
+                "p": "remaining_milliseconds",
+                "pt": "msg",
+                "to": "delay",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "delay",
+                "pt": "msg",
+                "to": "1000",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 655,
+        "y": 940,
+        "wires": [
+            [
+                "c5f9f24aff96d7cb"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "73d3d8e5967488da",
+        "type": "change",
+        "z": "592b686edd11b813",
+        "name": "reset",
+        "rules": [
+            {
+                "t": "set",
+                "p": "remaining_milliseconds",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "reset",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 655,
+        "y": 1000,
+        "wires": [
+            [
+                "06a98691587aad1c"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "0f7049822af7ce2d",
+        "type": "comment",
+        "z": "592b686edd11b813",
+        "name": "custom timer with status output",
+        "info": "",
+        "x": 750,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "f040abfd68065067",
+        "type": "change",
+        "z": "592b686edd11b813",
+        "name": "send minutes",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "minutes",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 815,
+        "y": 1000,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "5ff098981c808a07",
+        "type": "ui_slider",
+        "z": "592b686edd11b813",
+        "name": "",
+        "label": "Hours",
+        "tooltip": "",
+        "group": "90879df8d2ee4c5d",
+        "order": 6,
+        "width": 4,
+        "height": 1,
+        "passthru": true,
+        "outs": "end",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": 10,
+        "step": "0.5",
+        "className": "",
+        "x": 710,
+        "y": 900,
+        "wires": [
+            [
+                "50762693207ba7b8"
+            ]
+        ]
+    },
+    {
+        "id": "2644df39e84cb1af",
+        "type": "ui_switch",
+        "z": "592b686edd11b813",
+        "name": "",
+        "label": "Delay Start",
+        "tooltip": "",
+        "group": "90879df8d2ee4c5d",
+        "order": 5,
+        "width": 3,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 730,
+        "y": 860,
+        "wires": [
+            [
+                "01324301a21bcd20"
+            ]
+        ]
+    },
+    {
+        "id": "50762693207ba7b8",
+        "type": "function",
+        "z": "592b686edd11b813",
+        "name": "",
+        "func": "msg.delay = msg.payload * 60.0 * 60.0 * 1000 // convert hours to milliseconds\nflow.set('delay_start_ms', msg.delay)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 795,
+        "y": 900,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "218ec5179ca4b0eb",
+        "type": "switch",
+        "z": "592b686edd11b813",
+        "name": "",
+        "property": "delay_start",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 375,
+        "y": 840,
+        "wires": [
+            [
+                "5f9c6c60065b8f08"
+            ],
+            [
+                "c03c7fb7458a9e9f"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "084f011204f8cadc",
+        "type": "link out",
+        "z": "592b686edd11b813",
+        "name": "Output - Buttons",
+        "mode": "link",
+        "links": [
+            "defcc28b265151c2",
+            "81fb9a528731184e"
+        ],
+        "x": 875,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "01324301a21bcd20",
+        "type": "change",
+        "z": "592b686edd11b813",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "delay_start",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 835,
+        "y": 860,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "6f1a074c6a1a494f",
+        "type": "change",
+        "z": "592b686edd11b813",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "delay_start",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 615,
+        "y": 860,
+        "wires": [
+            [
+                "2644df39e84cb1af"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "d4c50b8d835c526f",
+        "type": "ui_ui_control",
+        "z": "592b686edd11b813",
+        "name": "",
+        "events": "connect",
+        "x": 555,
+        "y": 860,
+        "wires": [
+            [
+                "6f1a074c6a1a494f"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "9be32d3453fc15e7",
+        "type": "change",
+        "z": "592b686edd11b813",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "delay_start",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "delay_start_ms",
+                "pt": "flow",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 835,
+        "y": 820,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "b18c724cefd5d345",
+        "type": "inject",
+        "z": "592b686edd11b813",
+        "name": "Initialize",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 775,
+        "y": 820,
+        "wires": [
+            [
+                "9be32d3453fc15e7"
+            ]
+        ],
+        "l": false
+    },
+    {
         "id": "0f56f86bd83c9233",
         "type": "finite-state-machine",
         "z": "e9cef8706a9cf7f6",
@@ -3372,7 +4197,8 @@
         "z": "e9cef8706a9cf7f6",
         "name": "Input - Control Buttons",
         "links": [
-            "c03c7fb7458a9e9f"
+            "c03c7fb7458a9e9f",
+            "084f011204f8cadc"
         ],
         "x": 155,
         "y": 340,
@@ -3598,7 +4424,8 @@
         "z": "e9cef8706a9cf7f6",
         "name": "Input - Control Buttons",
         "links": [
-            "c03c7fb7458a9e9f"
+            "c03c7fb7458a9e9f",
+            "084f011204f8cadc"
         ],
         "x": 155,
         "y": 860,
@@ -9758,390 +10585,5 @@
         "x": 100,
         "y": 360,
         "wires": []
-    },
-    {
-        "id": "c1fb89ba5c85b8ce",
-        "type": "ui_spacer",
-        "z": "592b686edd11b813",
-        "name": "spacer",
-        "group": "5e1bdbab1ef4cbe6",
-        "order": 3,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "f2eeec9bb5c43d9d",
-        "type": "ui_spacer",
-        "z": "592b686edd11b813",
-        "name": "spacer",
-        "group": "5e1bdbab1ef4cbe6",
-        "order": 4,
-        "width": 9,
-        "height": 1
-    },
-    {
-        "id": "a438b8e530db1f0d",
-        "type": "ui_spacer",
-        "z": "592b686edd11b813",
-        "name": "spacer",
-        "group": "5e1bdbab1ef4cbe6",
-        "order": 5,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "d7d524b58b4ff1eb",
-        "type": "ui_spacer",
-        "z": "592b686edd11b813",
-        "name": "spacer",
-        "group": "5e1bdbab1ef4cbe6",
-        "order": 7,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "90376bc11d5dc504",
-        "type": "ui_spacer",
-        "z": "592b686edd11b813",
-        "name": "spacer",
-        "group": "5e1bdbab1ef4cbe6",
-        "order": 9,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "023f6eeca8781228",
-        "type": "ui_text_input",
-        "z": "592b686edd11b813",
-        "name": "schedule name",
-        "label": "",
-        "tooltip": "",
-        "group": "5e1bdbab1ef4cbe6",
-        "order": 1,
-        "width": 5,
-        "height": 1,
-        "passthru": false,
-        "mode": "text",
-        "delay": "300",
-        "topic": "topic",
-        "sendOnBlur": true,
-        "className": "",
-        "topicType": "msg",
-        "x": 500,
-        "y": 120,
-        "wires": [
-            [
-                "7d3f232e7739f144"
-            ]
-        ]
-    },
-    {
-        "id": "7d3f232e7739f144",
-        "type": "function",
-        "z": "592b686edd11b813",
-        "name": "",
-        "func": "var schedule_index = flow.get('schedule_index', 'memoryOnly');\nvar segment = 'kiln_01.schedules['+ schedule_index.toString() + '].name'\n\nglobal.set(segment, msg.payload);\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 615,
-        "y": 120,
-        "wires": [
-            [
-                "7ada905b810b30c6"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "223bca47aa31a4da",
-        "type": "link in",
-        "z": "592b686edd11b813",
-        "name": "",
-        "links": [
-            "c43fe6a6eabba842",
-            "bbb665c4fceb800d",
-            "beee976f9bb8a5fd"
-        ],
-        "x": 295,
-        "y": 120,
-        "wires": [
-            [
-                "7560c351d622b7c2"
-            ]
-        ]
-    },
-    {
-        "id": "7560c351d622b7c2",
-        "type": "function",
-        "z": "592b686edd11b813",
-        "name": "",
-        "func": "var schedule_index = flow.get('schedule_index', 'memoryOnly');\nvar name = 'kiln_01.schedules['+ schedule_index.toString() + '].name'\n\nmsg.payload = global.get(name);\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 375,
-        "y": 120,
-        "wires": [
-            [
-                "023f6eeca8781228"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "63dcf2f8335202df",
-        "type": "function",
-        "z": "592b686edd11b813",
-        "name": "new schedule",
-        "func": "var schedules = global.get('kiln_01.schedules')\nvar segment = {name:\"new segment\",enabled:true,hold:false,setpoint:0,ramp_rate:0,soak_time:0}\n//var segment = Object.create(obj)\nvar segments = []\nsegments.push(segment)\nvar schedule = {name:\"new schedule\", segments}\n//var schedule = Object.create(obj2)\nschedules.push(schedule)\nglobal.set('kiln_01.schedules', schedules)\n\nflow.set('schedule_index', schedules.length - 1, 'memoryOnly');\n//msg.payload = schedules.length - 1 //  this should make the schedules dropdown go to this new schedule\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 635,
-        "y": 380,
-        "wires": [
-            [
-                "beee976f9bb8a5fd"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "8ffc6beb541bf7e0",
-        "type": "function",
-        "z": "592b686edd11b813",
-        "name": "delete schedule",
-        "func": "var schedule_index = flow.get('schedule_index', 'memoryOnly');\nvar schedule = 'kiln_01.schedules['+ schedule_index.toString() + ']'\n\nglobal.set(schedule, undefined);\n\nflow.set('schedule_index', 0, 'memoryOnly');\n//msg.payload = 0 // send this so the drop down menu goes back to index 0\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 635,
-        "y": 420,
-        "wires": [
-            [
-                "beee976f9bb8a5fd"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "beee976f9bb8a5fd",
-        "type": "link out",
-        "z": "592b686edd11b813",
-        "name": "",
-        "mode": "link",
-        "links": [
-            "af271e715f494e25",
-            "006321a7d5098eed",
-            "223bca47aa31a4da"
-        ],
-        "x": 725,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "7ada905b810b30c6",
-        "type": "link out",
-        "z": "592b686edd11b813",
-        "name": "",
-        "mode": "link",
-        "links": [
-            "af271e715f494e25",
-            "85642d7408d49cd8"
-        ],
-        "x": 685,
-        "y": 120,
-        "wires": []
-    },
-    {
-        "id": "7dc828597fda8316",
-        "type": "function",
-        "z": "592b686edd11b813",
-        "name": "get schedule names",
-        "func": "var schedules = global.get('kiln_01.schedules')\nvar schedule_names = []\nfor (let index = 0; index < schedules.length; index++) {\n    var name = {}\n    name[schedules[index].name] = index.toString()\n    schedule_names.push(name)\n}\nmsg.options = schedule_names\nreturn msg;\n\n/*\n[\n    {\n        \"schedule 1\": \"0\"\n    },\n    {\n        \"schedule 2\": \"1\"\n    }\n\n]\n[\n    {\n        \"Cone 04 Bisque\":\"0\"\n    },\n    {\n        \"Cone 6 Glaze\":\"1\"\n    }\n]\n*/",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 535,
-        "y": 740,
-        "wires": [
-            [
-                "782f21bebe74bd1c"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "41b8c810b1294a96",
-        "type": "inject",
-        "z": "592b686edd11b813",
-        "name": "Initialize",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 475,
-        "y": 700,
-        "wires": [
-            [
-                "7dc828597fda8316"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "9ac0734e2471a4ae",
-        "type": "ui_numeric",
-        "z": "592b686edd11b813",
-        "name": "",
-        "label": "",
-        "tooltip": "",
-        "group": "5e1bdbab1ef4cbe6",
-        "order": 2,
-        "width": 3,
-        "height": 1,
-        "wrap": true,
-        "passthru": false,
-        "topic": "topic",
-        "topicType": "msg",
-        "format": "{{value}}",
-        "min": "1",
-        "max": "16",
-        "step": 1,
-        "className": "",
-        "x": 500,
-        "y": 180,
-        "wires": [
-            [
-                "fee462e7f0afe7fe"
-            ]
-        ]
-    },
-    {
-        "id": "6de15819559dade9",
-        "type": "ui_numeric",
-        "z": "592b686edd11b813",
-        "name": "",
-        "label": "Segment",
-        "tooltip": "",
-        "group": "5e1bdbab1ef4cbe6",
-        "order": 6,
-        "width": 3,
-        "height": 1,
-        "wrap": true,
-        "passthru": false,
-        "topic": "topic",
-        "topicType": "msg",
-        "format": "{{value}}",
-        "min": "1",
-        "max": "16",
-        "step": 1,
-        "className": "",
-        "x": 500,
-        "y": 220,
-        "wires": [
-            [
-                "982ec52ff0e6cfbf"
-            ]
-        ]
-    },
-    {
-        "id": "fc2609866ba68e99",
-        "type": "function",
-        "z": "592b686edd11b813",
-        "name": "",
-        "func": "var schedule_index = flow.get('schedule_index', 'memoryOnly');\nmsg.payload = schedule_index + 1\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 395,
-        "y": 180,
-        "wires": [
-            [
-                "9ac0734e2471a4ae"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "d8c55002e59fcada",
-        "type": "function",
-        "z": "592b686edd11b813",
-        "name": "",
-        "func": "var segment_index = flow.get('segment_index', 'memoryOnly');\nmsg.payload = segment_index + 1\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 395,
-        "y": 220,
-        "wires": [
-            [
-                "6de15819559dade9"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "fee462e7f0afe7fe",
-        "type": "function",
-        "z": "592b686edd11b813",
-        "name": "",
-        "func": "flow.set('schedule_index', msg.payload - 1, 'memoryOnly');\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 595,
-        "y": 180,
-        "wires": [
-            [
-                "bbb665c4fceb800d"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "982ec52ff0e6cfbf",
-        "type": "function",
-        "z": "592b686edd11b813",
-        "name": "",
-        "func": "flow.set('segment_index', msg.payload - 1, 'memoryOnly');\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 595,
-        "y": 220,
-        "wires": [
-            [
-                "bbb665c4fceb800d"
-            ]
-        ],
-        "l": false
     }
 ]
