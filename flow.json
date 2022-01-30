@@ -11848,7 +11848,8 @@
         "y": 580,
         "wires": [
             [
-                "7c7540817434016c"
+                "7c7540817434016c",
+                "d7036bba6f2040c6"
             ]
         ],
         "l": false
@@ -11882,6 +11883,13 @@
                 "pt": "msg",
                 "to": "true",
                 "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "upper_thermocouple_bad",
+                "pt": "flow",
+                "to": "false",
+                "tot": "str"
             }
         ],
         "action": "",
@@ -11925,24 +11933,6 @@
             [
                 "1219bcc4367384ed"
             ]
-        ],
-        "l": false
-    },
-    {
-        "id": "4886367df9d162c6",
-        "type": "function",
-        "z": "3154c44d1a91de38",
-        "name": "temp is bad",
-        "func": "if (isNaN(msg.payload) || msg.payload == 32) {\n    flow.set('upper_thermocouple_bad', true)\n} else {\n    flow.set('upper_thermocouple_bad', false)\n}",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 615,
-        "y": 580,
-        "wires": [
-            []
         ],
         "l": false
     },
@@ -12015,6 +12005,32 @@
                 "ee0291f3aba6669c"
             ]
         ]
+    },
+    {
+        "id": "d7036bba6f2040c6",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "upper_thermocouple_bad",
+                "pt": "flow",
+                "to": "true",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 615,
+        "y": 580,
+        "wires": [
+            []
+        ],
+        "l": false
     },
     {
         "id": "1c9e79b136a623e2",
