@@ -4319,7 +4319,8 @@
         "y": 760,
         "wires": [
             [
-                "dda4818a67893de7"
+                "dda4818a67893de7",
+                "4caca9f4d73774c0"
             ]
         ]
     },
@@ -4358,7 +4359,7 @@
         "payload": "{\"group\":{\"hide\":[\"Main_Enable_Control\"],\"show\":[\"Main_Control\"],\"focus\":false}}",
         "payloadType": "json",
         "x": 1170,
-        "y": 760,
+        "y": 700,
         "wires": [
             [
                 "6af73a69a0827774"
@@ -4383,7 +4384,7 @@
         "payload": "{\"group\":{\"hide\":[\"Main_Control\"],\"show\":[\"Main_Enable_Control\"],\"focus\":false}}",
         "payloadType": "json",
         "x": 1170,
-        "y": 780,
+        "y": 720,
         "wires": [
             [
                 "6af73a69a0827774"
@@ -4396,8 +4397,8 @@
         "z": "592b686edd11b813",
         "name": "",
         "events": "connect",
-        "x": 1035,
-        "y": 820,
+        "x": 1175,
+        "y": 860,
         "wires": [
             [
                 "f034eb576e335825"
@@ -4424,13 +4425,14 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1150,
-        "y": 820,
+        "x": 1235,
+        "y": 860,
         "wires": [
             [
                 "6af73a69a0827774"
             ]
-        ]
+        ],
+        "l": false
     },
     {
         "id": "0ec0847fdce57e83",
@@ -4451,13 +4453,14 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1150,
-        "y": 860,
+        "x": 1235,
+        "y": 900,
         "wires": [
             [
                 "6af73a69a0827774"
             ]
-        ]
+        ],
+        "l": false
     },
     {
         "id": "a4dc1c9eb44ce478",
@@ -4479,11 +4482,61 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 1035,
-        "y": 860,
+        "x": 1175,
+        "y": 900,
         "wires": [
             [
                 "0ec0847fdce57e83"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "4caca9f4d73774c0",
+        "type": "switch",
+        "z": "592b686edd11b813",
+        "name": "",
+        "property": "group",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Main_Control",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1455,
+        "y": 800,
+        "wires": [
+            [
+                "4221f6aa7c5b2f55"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "4221f6aa7c5b2f55",
+        "type": "switch",
+        "z": "592b686edd11b813",
+        "name": "",
+        "property": "open",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1505,
+        "y": 800,
+        "wires": [
+            [
+                "f034eb576e335825"
             ]
         ],
         "l": false
