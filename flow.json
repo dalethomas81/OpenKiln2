@@ -10360,7 +10360,7 @@
         "type": "function",
         "z": "3154c44d1a91de38",
         "name": "",
-        "func": "if (isNaN(msg.payload)) {\n    return msg;\n}",
+        "func": "if (!isNaN(msg.payload)) {\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
