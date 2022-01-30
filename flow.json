@@ -4329,7 +4329,7 @@
         "type": "debug",
         "z": "592b686edd11b813",
         "name": "",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -4535,9 +4535,7 @@
         "x": 1505,
         "y": 800,
         "wires": [
-            [
-                "f034eb576e335825"
-            ]
+            []
         ],
         "l": false
     },
