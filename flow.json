@@ -1175,7 +1175,7 @@
         "cancel": "cancel",
         "topic": "topic",
         "topicType": "msg",
-        "splitLayout": true,
+        "splitLayout": false,
         "x": 490,
         "y": 260,
         "wires": [
