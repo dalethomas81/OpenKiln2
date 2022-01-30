@@ -178,7 +178,7 @@
     {
         "id": "1f041bb493bd73c1",
         "type": "ui_tab",
-        "name": "Schedules",
+        "name": "Schedule",
         "icon": "mode_edit",
         "order": 3,
         "disabled": false,
@@ -397,12 +397,13 @@
     {
         "id": "5e1bdbab1ef4cbe6",
         "type": "ui_group",
-        "name": "Schedule",
+        "name": "Schedules",
         "tab": "1f041bb493bd73c1",
         "order": 1,
         "disp": true,
-        "width": 9,
-        "collapse": false
+        "width": "9",
+        "collapse": false,
+        "className": ""
     },
     {
         "id": "abf790e2f9501fc7",
