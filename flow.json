@@ -11510,9 +11510,9 @@
         "rules": [
             {
                 "t": "set",
-                "p": "payload",
+                "p": "input.calibration.x.min",
                 "pt": "msg",
-                "to": "input.calibration.x.min",
+                "to": "payload",
                 "tot": "msg"
             }
         ],
@@ -11653,6 +11653,24 @@
         "reg": false,
         "x": 1275,
         "y": 500,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "b985d102fbee08b0",
+        "type": "function",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "func": "var selected_input = global.get('analoginput.selected_input')\nvar input = global.get('analoginput.input['+selected_input+']')\nmsg.input = input\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1395,
+        "y": 400,
         "wires": [
             []
         ],
