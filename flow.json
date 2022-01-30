@@ -3736,6 +3736,53 @@
         "l": false
     },
     {
+        "id": "d72368991af180f7",
+        "type": "ui_button",
+        "z": "592b686edd11b813",
+        "name": "",
+        "group": "5e1bdbab1ef4cbe6",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "New Schedule",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 100,
+        "y": 300,
+        "wires": [
+            [
+                "63dcf2f8335202df"
+            ]
+        ]
+    },
+    {
+        "id": "63dcf2f8335202df",
+        "type": "function",
+        "z": "592b686edd11b813",
+        "name": "",
+        "func": "var schedules = global.get('kiln_01.schedules')\nvar obj = {name:\"name\",enabled:true,hold:false,setpoint:0,ramp_rate:0,soak_time:0}\nvar segment = Object.create(obj)\nvar segments = []\nsegments.push(segment)\nvar obj2 = {name:\"name\", segments}\nvar schedule = Object.create(obj2)\nschedules.push(schedule)\nglobal.set('kiln_01.schedules', schedules)\n//return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 300,
+        "wires": [
+            [
+                "f4bb65861a8f2d49"
+            ]
+        ]
+    },
+    {
         "id": "0f56f86bd83c9233",
         "type": "finite-state-machine",
         "z": "e9cef8706a9cf7f6",
