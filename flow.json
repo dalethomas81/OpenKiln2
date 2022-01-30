@@ -9545,8 +9545,8 @@
         "officon": "",
         "offcolor": "",
         "animate": false,
-        "x": 450,
-        "y": 520,
+        "x": 790,
+        "y": 460,
         "wires": [
             [
                 "d76c7ce673b280af"
@@ -9607,8 +9607,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 555,
-        "y": 520,
+        "x": 895,
+        "y": 460,
         "wires": [
             [
                 "a3ad47349ae89c29"
@@ -9718,11 +9718,12 @@
         "z": "3154c44d1a91de38",
         "name": "",
         "events": "connect",
-        "x": 275,
-        "y": 520,
+        "x": 615,
+        "y": 460,
         "wires": [
             [
-                "477ed7158a34c5bf"
+                "477ed7158a34c5bf",
+                "d9fcdb3e4f6fe46a"
             ]
         ],
         "l": false
@@ -9746,8 +9747,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 335,
-        "y": 520,
+        "x": 675,
+        "y": 460,
         "wires": [
             [
                 "bc3e2212fd11e206"
@@ -9780,8 +9781,8 @@
         "links": [
             "218ba5aacd9d564e"
         ],
-        "x": 615,
-        "y": 520,
+        "x": 955,
+        "y": 460,
         "wires": []
     },
     {
@@ -10738,6 +10739,88 @@
         "x": 515,
         "y": 460,
         "wires": []
+    },
+    {
+        "id": "e5017d61ae5c7809",
+        "type": "ui_numeric",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "label": "Input",
+        "tooltip": "",
+        "group": "112aa19380852c23",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "wrap": true,
+        "passthru": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1",
+        "step": 1,
+        "className": "",
+        "x": 770,
+        "y": 520,
+        "wires": [
+            [
+                "c84c7544fd660421"
+            ]
+        ]
+    },
+    {
+        "id": "d9fcdb3e4f6fe46a",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "get sim temp",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "analoginput.selected_input",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 675,
+        "y": 520,
+        "wires": [
+            [
+                "e5017d61ae5c7809"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "c84c7544fd660421",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "get sim temp",
+        "rules": [
+            {
+                "t": "set",
+                "p": "analoginput.selected_input",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 895,
+        "y": 520,
+        "wires": [
+            []
+        ],
+        "l": false
     },
     {
         "id": "1c9e79b136a623e2",
