@@ -1900,6 +1900,7 @@
         "label": "Soak Remaining",
         "format": "<font color='green'>{{msg.payload}} min</font>",
         "layout": "row-spread",
+        "className": "",
         "x": 320,
         "y": 1220,
         "wires": []
@@ -4137,8 +4138,8 @@
         "height": 1,
         "name": "",
         "label": "Delay time Remaining",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
+        "format": "<font color='green'>{{msg.payload}}</font>",
+        "layout": "row-spread",
         "className": "",
         "x": 930,
         "y": 1020,
