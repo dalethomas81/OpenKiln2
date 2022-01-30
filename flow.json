@@ -1604,8 +1604,8 @@
         "payload": "",
         "topic": "topic",
         "topicType": "msg",
-        "x": 440,
-        "y": 560,
+        "x": 660,
+        "y": 580,
         "wires": [
             [
                 "245aecb0a76e7750"
@@ -1623,11 +1623,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 630,
-        "y": 560,
+        "x": 775,
+        "y": 580,
         "wires": [
             []
-        ]
+        ],
+        "l": false
     },
     {
         "id": "b5b651e02428cab0",
@@ -1659,7 +1660,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 290,
-        "y": 660,
+        "y": 680,
         "wires": [
             [
                 "c03c7fb7458a9e9f"
@@ -1686,7 +1687,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 290,
-        "y": 700,
+        "y": 720,
         "wires": [
             [
                 "c03c7fb7458a9e9f"
@@ -1713,7 +1714,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 280,
-        "y": 780,
+        "y": 800,
         "wires": [
             [
                 "c03c7fb7458a9e9f"
@@ -1731,7 +1732,7 @@
             "81fb9a528731184e"
         ],
         "x": 435,
-        "y": 720,
+        "y": 740,
         "wires": []
     },
     {
@@ -1840,8 +1841,8 @@
             "75b14d458cd1e761",
             "a898206a716472e9"
         ],
-        "x": 315,
-        "y": 560,
+        "x": 535,
+        "y": 580,
         "wires": [
             [
                 "782f21bebe74bd1c"
@@ -1854,13 +1855,14 @@
         "z": "592b686edd11b813",
         "name": "",
         "events": "all",
-        "x": 160,
-        "y": 880,
+        "x": 155,
+        "y": 580,
         "wires": [
             [
                 "c35a667653959ba3"
             ]
-        ]
+        ],
+        "l": false
     },
     {
         "id": "c35a667653959ba3",
@@ -1872,32 +1874,21 @@
         "rules": [
             {
                 "t": "eq",
-                "v": "lost",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "connect",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
                 "v": "change",
                 "vt": "str"
             }
         ],
         "checkall": "true",
         "repair": false,
-        "outputs": 3,
-        "x": 290,
-        "y": 880,
+        "outputs": 1,
+        "x": 215,
+        "y": 580,
         "wires": [
-            [],
-            [],
             [
                 "d1b9dbb996bc65fd"
             ]
-        ]
+        ],
+        "l": false
     },
     {
         "id": "d1b9dbb996bc65fd",
@@ -1910,13 +1901,14 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 590,
-        "y": 880,
+        "x": 275,
+        "y": 580,
         "wires": [
             [
                 "75b14d458cd1e761"
             ]
-        ]
+        ],
+        "l": false
     },
     {
         "id": "75b14d458cd1e761",
@@ -1927,8 +1919,8 @@
         "links": [
             "85642d7408d49cd8"
         ],
-        "x": 835,
-        "y": 880,
+        "x": 335,
+        "y": 580,
         "wires": []
     },
     {
@@ -1996,7 +1988,7 @@
             "f59050e178b63b1a"
         ],
         "x": 155,
-        "y": 780,
+        "y": 800,
         "wires": [
             [
                 "95a54e2f0c9b2382"
@@ -2010,7 +2002,7 @@
         "name": "Input - advance button",
         "links": [],
         "x": 155,
-        "y": 740,
+        "y": 760,
         "wires": [
             [
                 "7bfd8d56a8dba80e"
@@ -2024,7 +2016,7 @@
         "name": "Input - stop button",
         "links": [],
         "x": 155,
-        "y": 700,
+        "y": 720,
         "wires": [
             [
                 "ae53f4a3aef75fe8"
@@ -2038,7 +2030,7 @@
         "name": "Input - start button",
         "links": [],
         "x": 155,
-        "y": 660,
+        "y": 680,
         "wires": [
             [
                 "71b520a30c4deec4"
@@ -2483,7 +2475,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 280,
-        "y": 740,
+        "y": 760,
         "wires": [
             [
                 "c03c7fb7458a9e9f"
@@ -2510,7 +2502,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 290,
-        "y": 820,
+        "y": 840,
         "wires": [
             [
                 "c03c7fb7458a9e9f"
@@ -2524,7 +2516,7 @@
         "name": "Input - hold button",
         "links": [],
         "x": 155,
-        "y": 820,
+        "y": 840,
         "wires": [
             [
                 "8058b979887ff4eb"
@@ -2538,7 +2530,7 @@
         "name": "https://klarsys.github.io/angular-material-icons/",
         "info": "",
         "x": 300,
-        "y": 620,
+        "y": 640,
         "wires": []
     },
     {
@@ -3725,6 +3717,70 @@
             ]
         ],
         "l": false
+    },
+    {
+        "id": "f4bb65861a8f2d49",
+        "type": "function",
+        "z": "592b686edd11b813",
+        "name": "",
+        "func": "var schedules = global.get('kiln_01.schedules')\nvar schedule_names = []\nfor (let index = 0; index < schedules.length; index++) {\n    schedule_names.push(schedules[index].name)\n}\nmsg.payload = schedule_names\nreturn msg;\n\n/*\n[\n    {\n        \"schedule 1\": \"0\"\n    },\n    {\n        \"schedule 2\": \"1\"\n    },\n\n]\n*/",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 500,
+        "wires": [
+            [
+                "b4de42784295d251"
+            ]
+        ]
+    },
+    {
+        "id": "b4de42784295d251",
+        "type": "debug",
+        "z": "592b686edd11b813",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "f303084817f644d0",
+        "type": "inject",
+        "z": "592b686edd11b813",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 290,
+        "y": 500,
+        "wires": [
+            [
+                "f4bb65861a8f2d49"
+            ]
+        ]
     },
     {
         "id": "0f56f86bd83c9233",
