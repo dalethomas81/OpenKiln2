@@ -11497,7 +11497,7 @@
         "type": "function",
         "z": "3154c44d1a91de38",
         "name": "",
-        "func": "var selected_input = global.get('analoginput.selected_input')\nglobal.set('analoginput.input['+selected_input+'].calibration.x.min')\n\nreturn msg;",
+        "func": "var selected_input = global.get('analoginput.selected_input')\nglobal.set('analoginput.input['+selected_input+'].calibration.x.min', msg.payload)\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
