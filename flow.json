@@ -11848,28 +11848,10 @@
         "y": 580,
         "wires": [
             [
-                "7c7540817434016c",
                 "d7036bba6f2040c6"
             ]
         ],
         "l": false
-    },
-    {
-        "id": "7c7540817434016c",
-        "type": "debug",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 650,
-        "y": 540,
-        "wires": []
     },
     {
         "id": "1219bcc4367384ed",
