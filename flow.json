@@ -10489,6 +10489,67 @@
         "l": false
     },
     {
+        "id": "942adbfbc16865d7",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "analoginput.input[0].calibration.offset",
+                "pt": "global",
+                "to": "10",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "analoginput.input[0].calibration.span",
+                "pt": "global",
+                "to": "100",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 610,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a81ffb07a8735a74",
+        "type": "inject",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 370,
+        "y": 600,
+        "wires": [
+            [
+                "942adbfbc16865d7"
+            ]
+        ]
+    },
+    {
         "id": "1c9e79b136a623e2",
         "type": "catch",
         "z": "98e4246c87add39e",
