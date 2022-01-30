@@ -10507,6 +10507,20 @@
                 "pt": "global",
                 "to": "1",
                 "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "analoginput.input[1].calibration.offset",
+                "pt": "global",
+                "to": "0",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "analoginput.input[1].calibration.span",
+                "pt": "global",
+                "to": "1",
+                "tot": "num"
             }
         ],
         "action": "",
