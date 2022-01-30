@@ -1484,8 +1484,8 @@
         "wires": [
             [
                 "26aedf9d4f3e92fc",
-                "8f21d66b67ab4695",
-                "63be7f287f0bdc31"
+                "63be7f287f0bdc31",
+                "f4bb65861a8f2d49"
             ]
         ],
         "l": false
@@ -2315,13 +2315,10 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 235,
+        "x": 55,
         "y": 180,
         "wires": [
-            [
-                "f7a42259283f2fc9",
-                "a898206a716472e9"
-            ]
+            []
         ],
         "l": false
     },
@@ -3182,7 +3179,7 @@
             "85642d7408d49cd8"
         ],
         "x": 295,
-        "y": 140,
+        "y": 160,
         "wires": []
     },
     {
@@ -3722,50 +3719,22 @@
         "id": "f4bb65861a8f2d49",
         "type": "function",
         "z": "592b686edd11b813",
-        "name": "TODO: schedule names",
-        "func": "var schedules = global.get('kiln_01.schedules')\nvar schedule_names = []\nfor (let index = 0; index < schedules.length; index++) {\n    var name = {}\n    name[schedules[index].name] = index.toString()\n    schedule_names.push(name)\n}\nmsg.options = schedule_names\nreturn msg;\n\n/*\n[\n    {\n        \"schedule 1\": \"0\"\n    },\n    {\n        \"schedule 2\": \"1\"\n    }\n\n]\n[\n    {\n        \"Cone 04 Bisque\":\"0\"\n    },\n    {\n        \"Cone 6 Glaze\":\"1\"\n    }\n]\n*/\n/*\nvar obj1 = { x: { min: 0.0, max: 0.0 }, y: { min: 0.0, max: 0.0 }, span: 0.0, offset: 0.0 }\nvar calibration = Object.create(obj1)\ninput.push({ id: '', raw: 0.0, scaled: 0.0, calibration, limits, alarms })\n*/",
+        "name": "get schedule names",
+        "func": "var schedules = global.get('kiln_01.schedules')\nvar schedule_names = []\nfor (let index = 0; index < schedules.length; index++) {\n    var name = {}\n    name[schedules[index].name] = index.toString()\n    schedule_names.push(name)\n}\nmsg.options = schedule_names\nreturn msg;\n\n/*\n[\n    {\n        \"schedule 1\": \"0\"\n    },\n    {\n        \"schedule 2\": \"1\"\n    }\n\n]\n[\n    {\n        \"Cone 04 Bisque\":\"0\"\n    },\n    {\n        \"Cone 6 Glaze\":\"1\"\n    }\n]\n*/",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 590,
-        "y": 500,
+        "x": 235,
+        "y": 180,
         "wires": [
             [
                 "f7a42259283f2fc9",
-                "782f21bebe74bd1c"
+                "a898206a716472e9"
             ]
-        ]
-    },
-    {
-        "id": "f303084817f644d0",
-        "type": "inject",
-        "z": "592b686edd11b813",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
         ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 380,
-        "y": 500,
-        "wires": [
-            [
-                "f4bb65861a8f2d49"
-            ]
-        ]
+        "l": false
     },
     {
         "id": "0f56f86bd83c9233",
