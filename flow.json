@@ -9214,7 +9214,6 @@
         "wires": [
             [
                 "7287721824e53891",
-                "2c24ab584a947199",
                 "b6ebd001961d2111"
             ]
         ],
@@ -9240,7 +9239,8 @@
         "y": 400,
         "wires": [
             [
-                "9e74c237cf627626"
+                "9e74c237cf627626",
+                "380f0d0617d1cdd6"
             ]
         ],
         "l": false
@@ -9832,6 +9832,20 @@
                 "pt": "global",
                 "to": "false",
                 "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "upper_thermocouple_bad",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "lower_thermocouple_bad",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
             }
         ],
         "action": "",
@@ -9975,7 +9989,7 @@
         "type": "function",
         "z": "3154c44d1a91de38",
         "name": "",
-        "func": "// create a new message object to clean it up\nvar msg_out = { delay: msg.payload * 10 }; // should come in as 0 - 100%\nvar dutycycle = msg.payload * 1\nvar FsmStatus_Schedule = global.get('kiln_01.FsmStatus_Schedule','memoryOnly')\n//var FsmStatus_Segment = global.get('kiln_01.FsmStatus_Segment','memoryOnly')\nvar auto_tune_upper = global.get('pid.zone[0].autotune.active')\nvar auto_tune_lower = global.get('pid.zone[1].autotune.active')\nvar UpperSetpoint = global.get('kiln_01.UpperSetpoint','memoryOnly')\nvar LowerSetpoint = global.get('kiln_01.LowerSetpoint','memoryOnly')\nvar UpperTemperature = global.get('kiln_01.UpperTemperature','memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature','memoryOnly')\n\n//if (Math.abs(UpperSetpoint - UpperTemperature) < 100 && Math.abs(LowerSetpoint - LowerTemperature) < 100 \n//    || auto_tune_upper || auto_tune_lower) {\n        // temps a setpoints are within tolerance\n        //node.status({fill:\"green\",shape:\"dot\",text:\"All good!\"});\n        // the trigger function locks up if you send it a zero\n        // similarly, we dont want to send it a value over\n        // the trigger time (1000 ms)\n        if (msg_out.delay > 0 && msg_out.delay < 1000 && (FsmStatus_Schedule != 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n            node.status({fill:\"green\",shape:\"dot\",text:dutycycle.toFixed(1) + '%'});\n            return [ msg_out, null ];\n        } else if (msg_out.delay <= 0 || (FsmStatus_Schedule == 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n            // send an \"off\" directly to the output node\n            node.status({fill:\"green\",shape:\"ring\",text:'0%'});\n            msg_out.payload = \"0\"\n            return [ null, msg_out ];\n        } else if (msg_out.delay >= 1000){\n            // send an \"on\" directly to the output node\n            node.status({fill:\"green\",shape:\"dot\",text:'100%'});\n            msg_out.payload = \"1\"\n            return [ null, msg_out ];\n        } else {\n            // send an \"off\" directly to the output node\n            node.status({fill:\"green\",shape:\"ring\",text:'0%'});\n            msg_out.payload = \"0\"\n            return [ null, msg_out ];\n        }\n//} else {\n    // temp is too far away from setpoint. something is wrong.\n    // send an \"off\" directly to the output node\n    //node.warn(\"temp is too far away from setpoint. something is wrong.\")\n//    node.status({fill:\"red\",shape:\"dot\",text:\"Something is wrong!\"});\n//    msg_out.payload = \"0\"\n//    return [ null, msg_out ];\n//}",
+        "func": "// create a new message object to clean it up\nvar msg_out = { delay: msg.payload * 10 }; // should come in as 0 - 100%\nvar dutycycle = msg.payload * 1\nvar FsmStatus_Schedule = global.get('kiln_01.FsmStatus_Schedule','memoryOnly')\n//var FsmStatus_Segment = global.get('kiln_01.FsmStatus_Segment','memoryOnly')\nvar auto_tune_upper = global.get('pid.zone[0].autotune.active')\nvar auto_tune_lower = global.get('pid.zone[1].autotune.active')\nvar UpperSetpoint = global.get('kiln_01.UpperSetpoint','memoryOnly')\nvar LowerSetpoint = global.get('kiln_01.LowerSetpoint','memoryOnly')\nvar UpperTemperature = global.get('kiln_01.UpperTemperature','memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature','memoryOnly')\nvar upper_thermocouple_bad = flow.get('upper_thermocouple_bad')\nvar lower_thermocouple_bad = flow.get('lower_thermocouple_bad')\n\n//if (Math.abs(UpperSetpoint - UpperTemperature) < 100 && Math.abs(LowerSetpoint - LowerTemperature) < 100 \n//    || auto_tune_upper || auto_tune_lower) {\nif (!upper_thermocouple_bad && !lower_thermocouple_bad) {\n        // temps a setpoints are within tolerance\n        //node.status({fill:\"green\",shape:\"dot\",text:\"All good!\"});\n        // the trigger function locks up if you send it a zero\n        // similarly, we dont want to send it a value over\n        // the trigger time (1000 ms)\n        if (msg_out.delay > 0 && msg_out.delay < 1000 && (FsmStatus_Schedule != 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n            node.status({fill:\"green\",shape:\"dot\",text:dutycycle.toFixed(1) + '%'});\n            return [ msg_out, null ];\n        } else if (msg_out.delay <= 0 || (FsmStatus_Schedule == 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n            // send an \"off\" directly to the output node\n            node.status({fill:\"green\",shape:\"ring\",text:'0%'});\n            msg_out.payload = \"0\"\n            return [ null, msg_out ];\n        } else if (msg_out.delay >= 1000){\n            // send an \"on\" directly to the output node\n            node.status({fill:\"green\",shape:\"dot\",text:'100%'});\n            msg_out.payload = \"1\"\n            return [ null, msg_out ];\n        } else {\n            // send an \"off\" directly to the output node\n            node.status({fill:\"green\",shape:\"ring\",text:'0%'});\n            msg_out.payload = \"0\"\n            return [ null, msg_out ];\n        }\n} else {\n    // temp is too far away from setpoint. something is wrong.\n    // send an \"off\" directly to the output node\n    //node.warn(\"temp is too far away from setpoint. something is wrong.\")\n    node.status({fill:\"red\",shape:\"dot\",text:\"Something is wrong!\"});\n    msg_out.payload = \"0\"\n    return [ null, msg_out ];\n}",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -9998,7 +10012,7 @@
         "type": "function",
         "z": "3154c44d1a91de38",
         "name": "",
-        "func": "// create a new message object to clean it up\nvar msg_out = { delay: msg.payload * 10 }; // should come in as 0 - 100%\nvar dutycycle = msg.payload * 1\nvar FsmStatus_Schedule = global.get('kiln_01.FsmStatus_Schedule','memoryOnly')\n//var FsmStatus_Segment = global.get('kiln_01.FsmStatus_Segment','memoryOnly')\nvar auto_tune_upper = global.get('pid.zone[0].autotune.active')\nvar auto_tune_lower = global.get('pid.zone[1].autotune.active')\nvar UpperSetpoint = global.get('kiln_01.UpperSetpoint','memoryOnly')\nvar LowerSetpoint = global.get('kiln_01.LowerSetpoint','memoryOnly')\nvar UpperTemperature = global.get('kiln_01.UpperTemperature','memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature','memoryOnly')\n\n//if (Math.abs(UpperSetpoint - UpperTemperature) < 100 && Math.abs(LowerSetpoint - LowerTemperature) < 100 \n//    || auto_tune_upper || auto_tune_lower) {\n        // temps a setpoints are within tolerance\n        //node.status({fill:\"green\",shape:\"dot\",text:\"All good!\"});\n        // the trigger function locks up if you send it a zero\n        // similarly, we dont want to send it a value over\n        // the trigger time (1000 ms)\n        if (msg_out.delay > 0 && msg_out.delay < 1000 && (FsmStatus_Schedule != 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n            node.status({fill:\"green\",shape:\"dot\",text:dutycycle.toFixed(1) + '%'});\n            return [ msg_out, null ];\n        } else if (msg_out.delay <= 0 || (FsmStatus_Schedule == 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n            // send an \"off\" directly to the output node\n            node.status({fill:\"green\",shape:\"ring\",text:'0%'});\n            msg_out.payload = \"0\"\n            return [ null, msg_out ];\n        } else if (msg_out.delay >= 1000){\n            // send an \"on\" directly to the output node\n            node.status({fill:\"green\",shape:\"dot\",text:'100%'});\n            msg_out.payload = \"1\"\n            return [ null, msg_out ];\n        } else {\n            // send an \"off\" directly to the output node\n            node.status({fill:\"green\",shape:\"ring\",text:'0%'});\n            msg_out.payload = \"0\"\n            return [ null, msg_out ];\n        }\n//} else {\n    // temp is too far away from setpoint. something is wrong.\n    // send an \"off\" directly to the output node\n    //node.warn(\"temp is too far away from setpoint. something is wrong.\")\n//    node.status({fill:\"red\",shape:\"dot\",text:\"Something is wrong!\"});\n//    msg_out.payload = \"0\"\n//    return [ null, msg_out ];\n//}",
+        "func": "// create a new message object to clean it up\nvar msg_out = { delay: msg.payload * 10 }; // should come in as 0 - 100%\nvar dutycycle = msg.payload * 1\nvar FsmStatus_Schedule = global.get('kiln_01.FsmStatus_Schedule', 'memoryOnly')\n//var FsmStatus_Segment = global.get('kiln_01.FsmStatus_Segment','memoryOnly')\nvar auto_tune_upper = global.get('pid.zone[0].autotune.active')\nvar auto_tune_lower = global.get('pid.zone[1].autotune.active')\nvar UpperSetpoint = global.get('kiln_01.UpperSetpoint', 'memoryOnly')\nvar LowerSetpoint = global.get('kiln_01.LowerSetpoint', 'memoryOnly')\nvar UpperTemperature = global.get('kiln_01.UpperTemperature', 'memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature', 'memoryOnly')\nvar upper_thermocouple_bad = flow.get('upper_thermocouple_bad')\nvar lower_thermocouple_bad = flow.get('lower_thermocouple_bad')\n\n//if (Math.abs(UpperSetpoint - UpperTemperature) < 100 && Math.abs(LowerSetpoint - LowerTemperature) < 100 \n//    || auto_tune_upper || auto_tune_lower) {\nif (!upper_thermocouple_bad && !lower_thermocouple_bad) {\n    // temps a setpoints are within tolerance\n    //node.status({fill:\"green\",shape:\"dot\",text:\"All good!\"});\n    // the trigger function locks up if you send it a zero\n    // similarly, we dont want to send it a value over\n    // the trigger time (1000 ms)\n    if (msg_out.delay > 0 && msg_out.delay < 1000 && (FsmStatus_Schedule != 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n        node.status({ fill: \"green\", shape: \"dot\", text: dutycycle.toFixed(1) + '%' });\n        return [msg_out, null];\n    } else if (msg_out.delay <= 0 || (FsmStatus_Schedule == 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n        // send an \"off\" directly to the output node\n        node.status({ fill: \"green\", shape: \"ring\", text: '0%' });\n        msg_out.payload = \"0\"\n        return [null, msg_out];\n    } else if (msg_out.delay >= 1000) {\n        // send an \"on\" directly to the output node\n        node.status({ fill: \"green\", shape: \"dot\", text: '100%' });\n        msg_out.payload = \"1\"\n        return [null, msg_out];\n    } else {\n        // send an \"off\" directly to the output node\n        node.status({ fill: \"green\", shape: \"ring\", text: '0%' });\n        msg_out.payload = \"0\"\n        return [null, msg_out];\n    }\n} else {\n    // temp is too far away from setpoint. something is wrong.\n    // send an \"off\" directly to the output node\n    //node.warn(\"temp is too far away from setpoint. something is wrong.\")\n    node.status({ fill: \"red\", shape: \"dot\", text: \"Something is wrong!\" });\n    msg_out.payload = \"0\"\n    return [null, msg_out];\n}",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -10322,57 +10336,40 @@
         "l": false
     },
     {
-        "id": "2c24ab584a947199",
-        "type": "debug",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 310,
-        "y": 180,
-        "wires": []
-    },
-    {
-        "id": "b247d90ad06d8978",
-        "type": "debug",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 660,
-        "y": 460,
-        "wires": []
-    },
-    {
         "id": "b6ebd001961d2111",
         "type": "function",
         "z": "3154c44d1a91de38",
-        "name": "",
-        "func": "if (!isNaN(msg.payload)) {\n    return msg;\n}",
+        "name": "temp is bad",
+        "func": "if (isNaN(msg.payload)) {\n    flow.set('upper_thermocouple_bad', true)\n} else {\n    flow.set('upper_thermocouple_bad', false)\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 370,
-        "y": 460,
+        "x": 335,
+        "y": 320,
         "wires": [
-            [
-                "b247d90ad06d8978"
-            ]
-        ]
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "380f0d0617d1cdd6",
+        "type": "function",
+        "z": "3154c44d1a91de38",
+        "name": "temp is bad",
+        "func": "if (isNaN(msg.payload)) {\n    flow.set('lower_thermocouple_bad', true)\n} else {\n    flow.set('lower_thermocouple_bad', false)\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 335,
+        "y": 380,
+        "wires": [
+            []
+        ],
+        "l": false
     },
     {
         "id": "1c9e79b136a623e2",
