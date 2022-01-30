@@ -9675,7 +9675,8 @@
             [
                 "7287721824e53891",
                 "88697b6b43b4084e",
-                "bffcdf74fd95f01d"
+                "bffcdf74fd95f01d",
+                "ee0291f3aba6669c"
             ]
         ],
         "l": false
@@ -11810,7 +11811,7 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 495,
+        "x": 515,
         "y": 260,
         "wires": [
             [
@@ -11838,7 +11839,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 415,
+        "x": 455,
         "y": 300,
         "wires": [
             [
@@ -11869,12 +11870,12 @@
         "y": 280,
         "wires": [
             [
-                "babdd556d27c32aa",
-                "6404ddd0204a1536"
+                "6404ddd0204a1536",
+                "e2173a2b70e6db18"
             ],
             [
                 "1219bcc4367384ed",
-                "be6db2014d2266f4"
+                "a8b1edd17a18f4ac"
             ]
         ],
         "l": false
@@ -11918,7 +11919,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 555,
+        "x": 575,
         "y": 260,
         "wires": [
             []
@@ -11942,7 +11943,7 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 495,
+        "x": 515,
         "y": 300,
         "wires": [
             [
@@ -11970,7 +11971,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 415,
+        "x": 455,
         "y": 260,
         "wires": [
             [
@@ -11998,7 +11999,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 555,
+        "x": 575,
         "y": 300,
         "wires": [
             []
@@ -12214,6 +12215,54 @@
         "y": 540,
         "wires": [
             []
+        ],
+        "l": false
+    },
+    {
+        "id": "e2173a2b70e6db18",
+        "type": "switch",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "property": "upper_thermocouple_bad",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 415,
+        "y": 260,
+        "wires": [
+            [
+                "babdd556d27c32aa"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "a8b1edd17a18f4ac",
+        "type": "switch",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "property": "upper_thermocouple_bad",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 415,
+        "y": 300,
+        "wires": [
+            [
+                "be6db2014d2266f4"
+            ]
         ],
         "l": false
     },
