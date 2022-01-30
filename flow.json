@@ -9703,7 +9703,8 @@
             [
                 "9e74c237cf627626",
                 "409049cb84c39312",
-                "9139d82cbd6c2070"
+                "9139d82cbd6c2070",
+                "b439be6284f42bd5"
             ]
         ],
         "l": false
@@ -12070,6 +12071,266 @@
         "x": 720,
         "y": 280,
         "wires": []
+    },
+    {
+        "id": "e4959970166cb7b8",
+        "type": "trigger",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "5",
+        "extend": false,
+        "overrideDelay": true,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 495,
+        "y": 500,
+        "wires": [
+            [
+                "7da29b2e3863d1aa"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "4c8ebe9638c55c70",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "reset",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 375,
+        "y": 540,
+        "wires": [
+            [
+                "e4959970166cb7b8"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "dc3a71b261563fe2",
+        "type": "switch",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 325,
+        "y": 520,
+        "wires": [
+            [
+                "dae562d71b9ae21c",
+                "d043340fbb846d3b"
+            ],
+            [
+                "4c8ebe9638c55c70",
+                "8c3dd26e3857506d"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "b439be6284f42bd5",
+        "type": "function",
+        "z": "3154c44d1a91de38",
+        "name": "temp is bad",
+        "func": "if (isNaN(msg.payload) || msg.payload == 32) {\n    //flow.set('upper_thermocouple_bad', true)\n    msg.payload = true\n    msg.delay = 10000\n} else {\n    //flow.set('upper_thermocouple_bad', false)\n    msg.payload = false\n    msg.delay = 5000\n}\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 265,
+        "y": 520,
+        "wires": [
+            [
+                "dc3a71b261563fe2"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "7da29b2e3863d1aa",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "lower_thermocouple_bad",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 555,
+        "y": 500,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "ae394a8879fd0b69",
+        "type": "trigger",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "5",
+        "extend": false,
+        "overrideDelay": true,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 495,
+        "y": 540,
+        "wires": [
+            [
+                "4bd08057d4fc464e"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "dae562d71b9ae21c",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "reset",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 375,
+        "y": 500,
+        "wires": [
+            [
+                "ae394a8879fd0b69"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "4bd08057d4fc464e",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "lower_thermocouple_bad",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 555,
+        "y": 540,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "d043340fbb846d3b",
+        "type": "switch",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "property": "lower_thermocouple_bad",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 435,
+        "y": 500,
+        "wires": [
+            [
+                "e4959970166cb7b8"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "8c3dd26e3857506d",
+        "type": "switch",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "property": "lower_thermocouple_bad",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 435,
+        "y": 540,
+        "wires": [
+            [
+                "ae394a8879fd0b69"
+            ]
+        ],
+        "l": false
     },
     {
         "id": "1c9e79b136a623e2",
