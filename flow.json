@@ -9215,7 +9215,7 @@
             [
                 "7287721824e53891",
                 "2c24ab584a947199",
-                "6b7e0ac9f537e04b"
+                "b6ebd001961d2111"
             ]
         ],
         "l": false
@@ -10339,32 +10339,6 @@
         "wires": []
     },
     {
-        "id": "6b7e0ac9f537e04b",
-        "type": "switch",
-        "z": "3154c44d1a91de38",
-        "name": "check if NaN",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "istype",
-                "v": "number",
-                "vt": "number"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 325,
-        "y": 320,
-        "wires": [
-            [
-                "b247d90ad06d8978"
-            ]
-        ],
-        "l": false
-    },
-    {
         "id": "b247d90ad06d8978",
         "type": "debug",
         "z": "3154c44d1a91de38",
@@ -10380,6 +10354,25 @@
         "x": 660,
         "y": 460,
         "wires": []
+    },
+    {
+        "id": "b6ebd001961d2111",
+        "type": "function",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "func": "if (isNaN(msg.payload)) {\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 460,
+        "wires": [
+            [
+                "b247d90ad06d8978"
+            ]
+        ]
     },
     {
         "id": "1c9e79b136a623e2",
