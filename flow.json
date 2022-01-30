@@ -11871,7 +11871,7 @@
                 "p": "upper_thermocouple_bad",
                 "pt": "flow",
                 "to": "false",
-                "tot": "str"
+                "tot": "bool"
             }
         ],
         "action": "",
@@ -11999,7 +11999,7 @@
                 "p": "upper_thermocouple_bad",
                 "pt": "flow",
                 "to": "true",
-                "tot": "str"
+                "tot": "bool"
             }
         ],
         "action": "",
