@@ -3789,7 +3789,7 @@
         "z": "592b686edd11b813",
         "name": "",
         "property": "payload",
-        "action": "obj",
+        "action": "str",
         "pretty": false,
         "x": 610,
         "y": 520,
