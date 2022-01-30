@@ -1528,7 +1528,7 @@
         "wires": [
             [
                 "c03c7fb7458a9e9f",
-                "73d3d8e5967488da"
+                "09a19e4fb99f4ef4"
             ]
         ]
     },
@@ -3706,7 +3706,7 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 735,
+        "x": 695,
         "y": 960,
         "wires": [
             [
@@ -3737,7 +3737,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 795,
+        "x": 755,
         "y": 960,
         "wires": [
             [
@@ -3760,7 +3760,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 735,
+        "x": 695,
         "y": 1020,
         "wires": [
             [
@@ -3798,7 +3798,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 655,
+        "x": 615,
         "y": 960,
         "wires": [
             [
@@ -3833,7 +3833,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 655,
+        "x": 615,
         "y": 1020,
         "wires": [
             [
@@ -3848,7 +3848,7 @@
         "z": "592b686edd11b813",
         "name": "custom timer with status output",
         "info": "",
-        "x": 750,
+        "x": 710,
         "y": 1040,
         "wires": []
     },
@@ -3871,7 +3871,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 815,
+        "x": 775,
         "y": 1020,
         "wires": [
             [
@@ -3954,7 +3954,7 @@
         "y": 840,
         "wires": [
             [
-                "4d90359030b767aa"
+                "d3643650aa18d173"
             ],
             [
                 "c03c7fb7458a9e9f"
@@ -3972,7 +3972,7 @@
             "defcc28b265151c2",
             "81fb9a528731184e"
         ],
-        "x": 875,
+        "x": 835,
         "y": 960,
         "wires": []
     },
@@ -4065,6 +4065,13 @@
                 "pt": "flow",
                 "to": "0",
                 "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "delay_start_running",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
             }
         ],
         "action": "",
@@ -4117,6 +4124,13 @@
                 "pt": "msg",
                 "to": "delay_start_ms",
                 "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "delay_start_running",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
             }
         ],
         "action": "",
@@ -4124,7 +4138,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 595,
+        "x": 555,
         "y": 960,
         "wires": [
             [
@@ -4142,11 +4156,11 @@
         "width": 5,
         "height": 1,
         "name": "",
-        "label": "Time till start",
+        "label": "Delay time Remaining",
         "format": "{{msg.payload}}",
         "layout": "row-left",
         "className": "",
-        "x": 940,
+        "x": 930,
         "y": 1020,
         "wires": []
     },
@@ -4194,6 +4208,58 @@
         "wires": [
             [
                 "5ecdaca58bba18a3"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "09a19e4fb99f4ef4",
+        "type": "change",
+        "z": "592b686edd11b813",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "delay_start_running",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 555,
+        "y": 1020,
+        "wires": [
+            [
+                "73d3d8e5967488da"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "d3643650aa18d173",
+        "type": "switch",
+        "z": "592b686edd11b813",
+        "name": "",
+        "property": "delay_start_running",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 495,
+        "y": 960,
+        "wires": [
+            [
+                "4d90359030b767aa"
             ]
         ],
         "l": false
