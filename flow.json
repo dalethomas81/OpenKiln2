@@ -3885,7 +3885,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 795,
+        "x": 875,
         "y": 900,
         "wires": [
             []
@@ -4000,7 +4000,8 @@
         "y": 860,
         "wires": [
             [
-                "6f1a074c6a1a494f"
+                "6f1a074c6a1a494f",
+                "dd8c493f3d3692df"
             ]
         ],
         "l": false
@@ -4083,8 +4084,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 555,
-        "y": 900,
+        "x": 595,
+        "y": 940,
         "wires": [
             [
                 "5f9c6c60065b8f08"
@@ -4129,13 +4130,33 @@
         "max": 10,
         "step": "0.5",
         "className": "",
-        "x": 700,
+        "x": 760,
         "y": 900,
         "wires": [
             [
                 "50762693207ba7b8"
             ]
         ]
+    },
+    {
+        "id": "dd8c493f3d3692df",
+        "type": "function",
+        "z": "592b686edd11b813",
+        "name": "",
+        "func": "var delay_start_ms = flow.get('delay_start_ms')\nmsg.payload = delay_start_ms / 1000.0 / 60.0 / 60.0 // convert milliseconds to hours\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 635,
+        "y": 900,
+        "wires": [
+            [
+                "5ecdaca58bba18a3"
+            ]
+        ],
+        "l": false
     },
     {
         "id": "0f56f86bd83c9233",
