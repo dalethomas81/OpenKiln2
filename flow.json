@@ -9700,8 +9700,7 @@
         "wires": [
             [
                 "409049cb84c39312",
-                "b439be6284f42bd5",
-                "8c970109233d3f07"
+                "b439be6284f42bd5"
             ]
         ],
         "l": false
@@ -10415,7 +10414,7 @@
         "round": "2",
         "mult": "single",
         "reduce": false,
-        "x": 515,
+        "x": 495,
         "y": 480,
         "wires": [
             [
@@ -10777,10 +10776,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 455,
-        "y": 440,
+        "x": 435,
+        "y": 480,
         "wires": [
-            []
+            [
+                "8c970109233d3f07"
+            ]
         ],
         "l": false
     },
@@ -10803,8 +10804,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 395,
-        "y": 440,
+        "x": 375,
+        "y": 480,
         "wires": [
             [
                 "10d4807e18c79f6f"
@@ -12170,6 +12171,26 @@
         "info": "",
         "x": 440,
         "y": 360,
+        "wires": []
+    },
+    {
+        "id": "cfb3bf9c5adf407a",
+        "type": "comment",
+        "z": "3154c44d1a91de38",
+        "name": "scale and smooth",
+        "info": "",
+        "x": 450,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "6005d5278907e1eb",
+        "type": "comment",
+        "z": "3154c44d1a91de38",
+        "name": "scale and smooth",
+        "info": "",
+        "x": 450,
+        "y": 260,
         "wires": []
     },
     {
