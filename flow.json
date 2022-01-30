@@ -3723,7 +3723,7 @@
         "type": "function",
         "z": "592b686edd11b813",
         "name": "",
-        "func": "var schedules = global.get('kiln_01.schedules')\nvar schedule_names = []\nfor (let index = 0; index < schedules.length; index++) {\n    schedule_names.push(schedules[index].name)\n}\nmsg.payload = schedule_names\nreturn msg;\n\n/*\n[\n    {\n        \"schedule 1\": \"0\"\n    },\n    {\n        \"schedule 2\": \"1\"\n    },\n\n]\n*/",
+        "func": "var schedules = global.get('kiln_01.schedules')\nvar schedule_names = {}\nfor (let index = 0; index < schedules.length; index++) {\n    schedule_names[schedules[index].name] = index\n}\nmsg.payload = schedule_names\nreturn msg;\n\n/*\n[\n    {\n        \"schedule 1\": \"0\"\n    },\n    {\n        \"schedule 2\": \"1\"\n    },\n\n]\n*/",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
