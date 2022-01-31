@@ -12317,7 +12317,7 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 180,
+        "x": 380,
         "y": 1340,
         "wires": [
             [
@@ -12336,14 +12336,43 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 275,
+        "x": 475,
         "y": 1340,
+        "wires": [
+            [
+                "60667a7d4305efa8"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "60667a7d4305efa8",
+        "type": "link out",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "cfd69a7faaed9708"
+        ],
+        "x": 535,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "cfd69a7faaed9708",
+        "type": "link in",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "links": [
+            "60667a7d4305efa8"
+        ],
+        "x": 115,
+        "y": 1200,
         "wires": [
             [
                 "59e10ec9698b12e7"
             ]
-        ],
-        "l": false
+        ]
     },
     {
         "id": "1c9e79b136a623e2",
