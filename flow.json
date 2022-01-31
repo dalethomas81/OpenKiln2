@@ -12317,7 +12317,7 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 410,
+        "x": 180,
         "y": 1340,
         "wires": [
             [
@@ -12336,10 +12336,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 515,
+        "x": 275,
         "y": 1340,
         "wires": [
-            []
+            [
+                "59e10ec9698b12e7"
+            ]
         ],
         "l": false
     },
