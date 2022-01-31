@@ -12320,8 +12320,28 @@
         "x": 410,
         "y": 1340,
         "wires": [
-            []
+            [
+                "39644811da3119d6"
+            ]
         ]
+    },
+    {
+        "id": "39644811da3119d6",
+        "type": "function",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "func": "var selected_input = global.get('analoginput.selected_input')\nvar input = global.get('analoginput['+selected_input+']')\n\ntry {\n    // m = y2*y1/x2*x1\n    input.calibration.span = (input.calibration.y.max * input.calibration.y.min) / (input.calibration.x.max * input.calibration.x.min)\n\n    // b = y-mx\n    input.calibration.offset = input.calibration.y.max - input.calibration.span * input.calibration.x.max\n\n} catch (error) {\n    node.warn(error)\n};\n\nglobal.set('analoginput[' + selected_input + ']', input)\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 515,
+        "y": 1340,
+        "wires": [
+            []
+        ],
+        "l": false
     },
     {
         "id": "1c9e79b136a623e2",
