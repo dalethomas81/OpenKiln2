@@ -1214,23 +1214,43 @@
         "height": 1
     },
     {
-        "id": "c10c2daaabba2a6f",
+        "id": "4f8cce8fe3907522",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
         "group": "5e1bdbab1ef4cbe6",
-        "order": 5,
+        "order": 1,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "2a25bf99f4ec740d",
+        "type": "ui_spacer",
+        "z": "592b686edd11b813",
+        "name": "spacer",
+        "group": "5e1bdbab1ef4cbe6",
+        "order": 4,
         "width": 1,
         "height": 1
     },
     {
-        "id": "bdb99c8de10d53b8",
+        "id": "66781177fc738dea",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
         "group": "5e1bdbab1ef4cbe6",
         "order": 6,
-        "width": 7,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "3d1b8bd772fbf947",
+        "type": "ui_spacer",
+        "z": "592b686edd11b813",
+        "name": "spacer",
+        "group": "5e1bdbab1ef4cbe6",
+        "order": 9,
+        "width": 3,
         "height": 1
     },
     {
@@ -2244,8 +2264,8 @@
         "z": "592b686edd11b813",
         "name": "delete segment",
         "group": "5e1bdbab1ef4cbe6",
-        "order": 4,
-        "width": 3,
+        "order": 5,
+        "width": 2,
         "height": 1,
         "passthru": false,
         "label": "Delete Segment",
@@ -3389,7 +3409,7 @@
         "label": "",
         "tooltip": "",
         "group": "5e1bdbab1ef4cbe6",
-        "order": 1,
+        "order": 8,
         "width": 4,
         "height": 1,
         "passthru": false,
