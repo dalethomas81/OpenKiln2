@@ -2405,7 +2405,7 @@
             "006321a7d5098eed",
             "223bca47aa31a4da"
         ],
-        "x": 655,
+        "x": 715,
         "y": 180,
         "wires": []
     },
@@ -3603,7 +3603,7 @@
         "id": "9ac0734e2471a4ae",
         "type": "ui_numeric",
         "z": "592b686edd11b813",
-        "name": "",
+        "name": "schedule index",
         "label": "",
         "tooltip": "",
         "group": "5e1bdbab1ef4cbe6",
@@ -3618,7 +3618,8 @@
         "min": "1",
         "max": "16",
         "step": 1,
-        "x": 500,
+        "className": "",
+        "x": 520,
         "y": 180,
         "wires": [
             [
@@ -3630,7 +3631,7 @@
         "id": "6de15819559dade9",
         "type": "ui_numeric",
         "z": "592b686edd11b813",
-        "name": "",
+        "name": "segment index",
         "label": "",
         "tooltip": "",
         "group": "5e1bdbab1ef4cbe6",
@@ -3646,7 +3647,7 @@
         "max": "16",
         "step": 1,
         "className": "",
-        "x": 500,
+        "x": 520,
         "y": 220,
         "wires": [
             [
@@ -3705,7 +3706,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 595,
+        "x": 655,
         "y": 180,
         "wires": [
             [
@@ -3725,7 +3726,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 595,
+        "x": 655,
         "y": 220,
         "wires": [
             [
