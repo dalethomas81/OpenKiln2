@@ -405,16 +405,6 @@
         "collapse": false
     },
     {
-        "id": "abf790e2f9501fc7",
-        "type": "ui_group",
-        "name": "Segments",
-        "tab": "1f041bb493bd73c1",
-        "order": 2,
-        "disp": true,
-        "width": 7,
-        "collapse": false
-    },
-    {
         "id": "90879df8d2ee4c5d",
         "type": "ui_group",
         "name": "Control",
