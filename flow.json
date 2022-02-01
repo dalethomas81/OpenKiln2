@@ -3641,7 +3641,7 @@
         "type": "ui_numeric",
         "z": "592b686edd11b813",
         "name": "",
-        "label": "Segment",
+        "label": "",
         "tooltip": "",
         "group": "5e1bdbab1ef4cbe6",
         "order": 7,
@@ -3655,6 +3655,7 @@
         "min": "1",
         "max": "16",
         "step": 1,
+        "className": "",
         "x": 500,
         "y": 220,
         "wires": [
