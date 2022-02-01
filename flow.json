@@ -1469,7 +1469,7 @@
         "type": "function",
         "z": "592b686edd11b813",
         "name": "update form",
-        "func": "//global.set('kiln_01.selected_schedule', temp, 'memoryOnly');\nvar schedule_index = flow.get('schedule_index', 'memoryOnly');\nvar segment_index = flow.get('segment_index', 'memoryOnly');\nmsg.payload = global.get('kiln_01.schedules['+ schedule_index.toString() + '].segments[' + segment_index.toString() + ']');\nvar msg2 = {}\nmsg2.payload = global.get('kiln_01.schedules['+ schedule_index.toString() + '].segments');\nreturn [msg,msg2];",
+        "func": "\nvar schedule_index = flow.get('schedule_index', 'memoryOnly');\nvar segment_index = flow.get('segment_index', 'memoryOnly');\n\nvar segment = global.get('kiln_01.schedules['+ schedule_index.toString() + '].segments[' + segment_index.toString() + ']');\nif (segment == undefined) {\n    msg.payload = {name:\"\",enabled:false,hold:false,setpoint:0,ramp_rate:0,soak_time:0}\n} else {\n    msg.payload = segment\n}\n\nvar msg2 = {}\nmsg2.payload = global.get('kiln_01.schedules['+ schedule_index.toString() + '].segments');\n\nreturn [msg,msg2];",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
