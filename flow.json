@@ -4969,7 +4969,7 @@
         "y": 860,
         "wires": [
             [
-                "5b4645244b57514e"
+                "66a35e0ed6e0c321"
             ]
         ]
     },
@@ -5000,7 +5000,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 3,
-        "x": 215,
+        "x": 275,
         "y": 860,
         "wires": [
             [
@@ -5414,7 +5414,7 @@
         "links": [
             "ec192310dbd48cdd"
         ],
-        "x": 295,
+        "x": 355,
         "y": 840,
         "wires": []
     },
@@ -6006,7 +6006,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 295,
+        "x": 355,
         "y": 880,
         "wires": [
             [
@@ -6024,7 +6024,7 @@
         "links": [
             "fdfa744fcee6a3dd"
         ],
-        "x": 355,
+        "x": 415,
         "y": 880,
         "wires": []
     },
@@ -6904,6 +6904,32 @@
         "x": 895,
         "y": 780,
         "wires": []
+    },
+    {
+        "id": "66a35e0ed6e0c321",
+        "type": "switch",
+        "z": "e9cef8706a9cf7f6",
+        "name": "",
+        "property": "#:(memoryOnly)::kiln_01.FsmStatus_Schedule",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "IDLE",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 215,
+        "y": 860,
+        "wires": [
+            [
+                "5b4645244b57514e"
+            ]
+        ],
+        "l": false
     },
     {
         "id": "0d21e53eb5db0544",
