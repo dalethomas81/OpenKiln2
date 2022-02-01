@@ -10873,32 +10873,6 @@
         "l": false
     },
     {
-        "id": "6fb0f8c5feb054a3",
-        "type": "change",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "input.scaled",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 695,
-        "y": 1100,
-        "wires": [
-            []
-        ],
-        "l": false
-    },
-    {
         "id": "e5017d61ae5c7809",
         "type": "ui_numeric",
         "z": "3154c44d1a91de38",
