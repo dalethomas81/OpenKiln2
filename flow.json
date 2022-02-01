@@ -1214,7 +1214,7 @@
         "height": 1
     },
     {
-        "id": "d688b554ae9cbeb6",
+        "id": "a1e15da71a6b1036",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1224,7 +1224,7 @@
         "height": 1
     },
     {
-        "id": "6fccb9cc5f58ef5a",
+        "id": "84a625ffb76dce52",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1234,7 +1234,7 @@
         "height": 1
     },
     {
-        "id": "5830a00ceeb51c2b",
+        "id": "59d1f2cd05038b62",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1244,7 +1244,7 @@
         "height": 1
     },
     {
-        "id": "010e782855653db7",
+        "id": "4e98a44813492915",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1254,7 +1254,7 @@
         "height": 1
     },
     {
-        "id": "a22b36754eb6a34b",
+        "id": "cd577e7ffde17c61",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1264,7 +1264,7 @@
         "height": 1
     },
     {
-        "id": "f5e7e9808d6b1b4e",
+        "id": "a4541420117b9a75",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1274,42 +1274,12 @@
         "height": 1
     },
     {
-        "id": "fe73a27f10810270",
+        "id": "288ab1eb8aa1c5bb",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
         "group": "5e1bdbab1ef4cbe6",
         "order": 11,
-        "width": 7,
-        "height": 1
-    },
-    {
-        "id": "d727577e51deeee7",
-        "type": "ui_spacer",
-        "z": "592b686edd11b813",
-        "name": "spacer",
-        "group": "5e1bdbab1ef4cbe6",
-        "order": 12,
-        "width": 7,
-        "height": 1
-    },
-    {
-        "id": "fe690dc9f6997c9c",
-        "type": "ui_spacer",
-        "z": "592b686edd11b813",
-        "name": "spacer",
-        "group": "5e1bdbab1ef4cbe6",
-        "order": 13,
-        "width": 7,
-        "height": 1
-    },
-    {
-        "id": "2f2212a7dd028444",
-        "type": "ui_spacer",
-        "z": "592b686edd11b813",
-        "name": "spacer",
-        "group": "5e1bdbab1ef4cbe6",
-        "order": 14,
         "width": 7,
         "height": 1
     },
@@ -2325,7 +2295,7 @@
         "z": "592b686edd11b813",
         "name": "delete segment",
         "group": "5e1bdbab1ef4cbe6",
-        "order": 15,
+        "order": 12,
         "width": 0,
         "height": 0,
         "passthru": false,
