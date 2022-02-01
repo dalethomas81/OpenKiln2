@@ -10839,7 +10839,7 @@
         "wires": [
             [
                 "09c327324c82be14",
-                "6fb0f8c5feb054a3"
+                "ba082e8df156fb74"
             ]
         ],
         "l": false
@@ -10891,12 +10891,10 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 515,
+        "x": 695,
         "y": 1100,
         "wires": [
-            [
-                "9d1d6fc5b853b597"
-            ]
+            []
         ],
         "l": false
     },
@@ -12281,6 +12279,26 @@
         "x": 595,
         "y": 960,
         "wires": []
+    },
+    {
+        "id": "ba082e8df156fb74",
+        "type": "function",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "func": "msg.payload = parseFloat(msg.input.scaled.toFixed(2))\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 515,
+        "y": 1100,
+        "wires": [
+            [
+                "9d1d6fc5b853b597"
+            ]
+        ],
+        "l": false
     },
     {
         "id": "1c9e79b136a623e2",
