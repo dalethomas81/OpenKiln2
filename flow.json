@@ -1214,17 +1214,17 @@
         "height": 1
     },
     {
-        "id": "4f8cce8fe3907522",
+        "id": "3ae6b89f486ffb30",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
         "group": "5e1bdbab1ef4cbe6",
         "order": 1,
-        "width": 4,
+        "width": 1,
         "height": 1
     },
     {
-        "id": "2a25bf99f4ec740d",
+        "id": "7bfcae0b0e0585e8",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1234,7 +1234,7 @@
         "height": 1
     },
     {
-        "id": "66781177fc738dea",
+        "id": "1e7e81d7147c83ad",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1244,13 +1244,13 @@
         "height": 1
     },
     {
-        "id": "3d1b8bd772fbf947",
+        "id": "22821d44e808089a",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
         "group": "5e1bdbab1ef4cbe6",
-        "order": 9,
-        "width": 3,
+        "order": 8,
+        "width": 1,
         "height": 1
     },
     {
@@ -1375,7 +1375,7 @@
         "name": "",
         "label": "",
         "group": "5e1bdbab1ef4cbe6",
-        "order": 7,
+        "order": 9,
         "width": 7,
         "height": 1,
         "options": [
@@ -2264,7 +2264,7 @@
         "z": "592b686edd11b813",
         "name": "delete segment",
         "group": "5e1bdbab1ef4cbe6",
-        "order": 5,
+        "order": 7,
         "width": 2,
         "height": 1,
         "passthru": false,
@@ -3409,8 +3409,8 @@
         "label": "",
         "tooltip": "",
         "group": "5e1bdbab1ef4cbe6",
-        "order": 8,
-        "width": 4,
+        "order": 2,
+        "width": 3,
         "height": 1,
         "passthru": false,
         "mode": "text",
@@ -3606,8 +3606,8 @@
         "label": "",
         "tooltip": "",
         "group": "5e1bdbab1ef4cbe6",
-        "order": 2,
-        "width": 3,
+        "order": 3,
+        "width": 2,
         "height": 1,
         "wrap": true,
         "passthru": false,
@@ -3633,7 +3633,7 @@
         "label": "Segment",
         "tooltip": "",
         "group": "5e1bdbab1ef4cbe6",
-        "order": 3,
+        "order": 5,
         "width": 3,
         "height": 1,
         "wrap": true,
