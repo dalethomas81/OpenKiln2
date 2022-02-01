@@ -3666,7 +3666,7 @@
         "type": "function",
         "z": "592b686edd11b813",
         "name": "",
-        "func": "flow.set('schedule_index', msg.payload - 1, 'memoryOnly');\nflow.set('segment_index', 0, 'memoryOnly'); // reset the segment index when switching schedules\nreturn msg;",
+        "func": "flow.set('schedule_index', msg.payload - 1, 'memoryOnly');\nflow.set('segment_index', 1, 'memoryOnly'); // reset the segment index when switching schedules\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
