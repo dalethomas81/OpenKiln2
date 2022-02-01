@@ -411,7 +411,7 @@
         "tab": "1f041bb493bd73c1",
         "order": 2,
         "disp": true,
-        "width": "15",
+        "width": 7,
         "collapse": false
     },
     {
@@ -1214,7 +1214,7 @@
         "height": 1
     },
     {
-        "id": "5a3f57d37e8df58a",
+        "id": "5c5f51459f9658e4",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1224,7 +1224,7 @@
         "height": 1
     },
     {
-        "id": "ff9f1e174f2df44f",
+        "id": "696493320d5db862",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1234,7 +1234,7 @@
         "height": 1
     },
     {
-        "id": "0a5dc47ce20e13b8",
+        "id": "aff39908d42f3167",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1244,7 +1244,7 @@
         "height": 1
     },
     {
-        "id": "17283a23f7b36fc0",
+        "id": "ddc8927a2d4c7db7",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -2245,7 +2245,7 @@
         "group": "abf790e2f9501fc7",
         "name": "",
         "order": 1,
-        "width": 15,
+        "width": 7,
         "height": 10,
         "format": "<style>\n.table\n{\n//width: 100%;\n//width:500px;\n//background:lightblue;\n//border:1px solid black;\n//border-collapse: collapse;\nfont-size:8px;\ntext-align: center;\nvertical-align: center;\n}\n.data {\n  //width: 15%\n  //white-space: nowrap\n  //white-space: normal\n}\n.main\n{\n//height:400px;\n}\n</style>\n<div class=\"main\">\n    <table class=\"table\">  \n        <tr>\n        <th style=\"text-decoration: underline;\">Segment</th>\n        <th class=\"data\" style=\"text-decoration: underline;\">Name</th>\n        <th class=\"data\" style=\"text-decoration: underline;\">Enabled</th>\n        <th class=\"data\" style=\"text-decoration: underline;\">Hold</th>\n        <th class=\"data\" style=\"text-decoration: underline;\">Setpoint (°F)</th>\n        <th class=\"data\" style=\"text-decoration: underline;\">Ramp (deg/h)</th>\n        <th class=\"data\" style=\"text-decoration: underline;\">Soak (min)</th>\n        </tr>\n        <tr ng-repeat = \"payload in msg.payload\"><td>{{$index+1}}</td><td ng-repeat =\"(key,value) in payload\">{{value}}</td></tr>\n    </table>\n</div>",
         "storeOutMessages": true,
