@@ -1749,11 +1749,13 @@
             [],
             [
                 "5192f533b0238631",
-                "c43fe6a6eabba842"
+                "c43fe6a6eabba842",
+                "5865a142c61f2a14"
             ],
             [
                 "5192f533b0238631",
-                "c43fe6a6eabba842"
+                "c43fe6a6eabba842",
+                "475ebe579f8ab016"
             ]
         ],
         "l": false
@@ -4759,6 +4761,40 @@
             ]
         ],
         "l": false
+    },
+    {
+        "id": "5865a142c61f2a14",
+        "type": "debug",
+        "z": "592b686edd11b813",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "475ebe579f8ab016",
+        "type": "debug",
+        "z": "592b686edd11b813",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 360,
+        "wires": []
     },
     {
         "id": "0f56f86bd83c9233",
