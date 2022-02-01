@@ -4402,7 +4402,7 @@
         "rules": [
             {
                 "t": "eq",
-                "v": "connect",
+                "v": "change",
                 "vt": "str"
             },
             {
