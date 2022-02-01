@@ -1214,7 +1214,7 @@
         "height": 1
     },
     {
-        "id": "3ae6b89f486ffb30",
+        "id": "9d30256e04712113",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1224,7 +1224,7 @@
         "height": 1
     },
     {
-        "id": "7bfcae0b0e0585e8",
+        "id": "445a908609a34ab1",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1234,23 +1234,53 @@
         "height": 1
     },
     {
-        "id": "1e7e81d7147c83ad",
+        "id": "ee941bc0d37ea24b",
+        "type": "ui_spacer",
+        "z": "592b686edd11b813",
+        "name": "spacer",
+        "group": "5e1bdbab1ef4cbe6",
+        "order": 5,
+        "width": 7,
+        "height": 1
+    },
+    {
+        "id": "5d6ebddf118f45e0",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
         "group": "5e1bdbab1ef4cbe6",
         "order": 6,
-        "width": 1,
+        "width": 2,
         "height": 1
     },
     {
-        "id": "22821d44e808089a",
+        "id": "faba5d662590d9d4",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
         "group": "5e1bdbab1ef4cbe6",
         "order": 8,
-        "width": 1,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "942c094ba7c533e0",
+        "type": "ui_spacer",
+        "z": "592b686edd11b813",
+        "name": "spacer",
+        "group": "5e1bdbab1ef4cbe6",
+        "order": 9,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "d7979ecf3d9b7e39",
+        "type": "ui_spacer",
+        "z": "592b686edd11b813",
+        "name": "spacer",
+        "group": "5e1bdbab1ef4cbe6",
+        "order": 11,
+        "width": 2,
         "height": 1
     },
     {
@@ -1375,7 +1405,7 @@
         "name": "",
         "label": "",
         "group": "5e1bdbab1ef4cbe6",
-        "order": 9,
+        "order": 12,
         "width": 7,
         "height": 1,
         "options": [
@@ -2264,8 +2294,8 @@
         "z": "592b686edd11b813",
         "name": "delete segment",
         "group": "5e1bdbab1ef4cbe6",
-        "order": 7,
-        "width": 2,
+        "order": 10,
+        "width": 3,
         "height": 1,
         "passthru": false,
         "label": "Delete Segment",
@@ -3633,7 +3663,7 @@
         "label": "Segment",
         "tooltip": "",
         "group": "5e1bdbab1ef4cbe6",
-        "order": 5,
+        "order": 7,
         "width": 3,
         "height": 1,
         "wrap": true,
