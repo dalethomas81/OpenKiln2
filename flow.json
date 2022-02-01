@@ -1214,7 +1214,7 @@
         "height": 1
     },
     {
-        "id": "334e4577d8df694c",
+        "id": "d688b554ae9cbeb6",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1224,7 +1224,7 @@
         "height": 1
     },
     {
-        "id": "fa207179a55ee03a",
+        "id": "6fccb9cc5f58ef5a",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1234,7 +1234,7 @@
         "height": 1
     },
     {
-        "id": "1209756a29cbcbfe",
+        "id": "5830a00ceeb51c2b",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1244,7 +1244,7 @@
         "height": 1
     },
     {
-        "id": "8d1142d7ed849703",
+        "id": "010e782855653db7",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1254,7 +1254,7 @@
         "height": 1
     },
     {
-        "id": "efd48091044312af",
+        "id": "a22b36754eb6a34b",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1264,17 +1264,7 @@
         "height": 1
     },
     {
-        "id": "7931b7214cdac4e1",
-        "type": "ui_spacer",
-        "z": "592b686edd11b813",
-        "name": "spacer",
-        "group": "5e1bdbab1ef4cbe6",
-        "order": 9,
-        "width": 7,
-        "height": 1
-    },
-    {
-        "id": "6c3aba43f4685f03",
+        "id": "f5e7e9808d6b1b4e",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1284,7 +1274,7 @@
         "height": 1
     },
     {
-        "id": "c116a6cca55e543d",
+        "id": "fe73a27f10810270",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1294,7 +1284,7 @@
         "height": 1
     },
     {
-        "id": "bfda8c5188e9ea44",
+        "id": "d727577e51deeee7",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1304,7 +1294,7 @@
         "height": 1
     },
     {
-        "id": "1cf046f307df1bd6",
+        "id": "fe690dc9f6997c9c",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1314,22 +1304,12 @@
         "height": 1
     },
     {
-        "id": "d985c852d2bdbd6f",
+        "id": "2f2212a7dd028444",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
         "group": "5e1bdbab1ef4cbe6",
         "order": 14,
-        "width": 7,
-        "height": 1
-    },
-    {
-        "id": "21511d5c9e6318dd",
-        "type": "ui_spacer",
-        "z": "592b686edd11b813",
-        "name": "spacer",
-        "group": "5e1bdbab1ef4cbe6",
-        "order": 15,
         "width": 7,
         "height": 1
     },
@@ -1455,9 +1435,9 @@
         "name": "",
         "label": "",
         "group": "5e1bdbab1ef4cbe6",
-        "order": 16,
-        "width": 7,
-        "height": 1,
+        "order": 9,
+        "width": 0,
+        "height": 0,
         "options": [
             {
                 "label": "Segment Name",
@@ -2345,9 +2325,9 @@
         "z": "592b686edd11b813",
         "name": "delete segment",
         "group": "5e1bdbab1ef4cbe6",
-        "order": 17,
-        "width": 7,
-        "height": 1,
+        "order": 15,
+        "width": 0,
+        "height": 0,
         "passthru": false,
         "label": "Delete Segment",
         "tooltip": "",
