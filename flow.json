@@ -3666,7 +3666,7 @@
         "type": "function",
         "z": "592b686edd11b813",
         "name": "",
-        "func": "flow.set('schedule_index', msg.payload - 1, 'memoryOnly');\nreturn msg;",
+        "func": "flow.set('schedule_index', msg.payload - 1, 'memoryOnly');\nflow.set('segment_index', msg.payload - 1, 'memoryOnly');\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3676,7 +3676,8 @@
         "y": 160,
         "wires": [
             [
-                "bbb665c4fceb800d"
+                "bbb665c4fceb800d",
+                "d8c55002e59fcada"
             ]
         ],
         "l": false
