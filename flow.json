@@ -7436,11 +7436,11 @@
         "z": "b83fb43068cdf48f",
         "name": "dashboard events",
         "events": "connect",
-        "x": 515,
+        "x": 455,
         "y": 440,
         "wires": [
             [
-                "a2cccb12b627c0e7"
+                "989fbf5d083c48b4"
             ]
         ],
         "l": false
@@ -9567,6 +9567,32 @@
                 "ad72ca96abbbda04"
             ]
         ]
+    },
+    {
+        "id": "989fbf5d083c48b4",
+        "type": "switch",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "property": "tab",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 515,
+        "y": 440,
+        "wires": [
+            [
+                "a2cccb12b627c0e7"
+            ]
+        ],
+        "l": false
     },
     {
         "id": "c96f9cb61b158baf",
