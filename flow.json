@@ -1214,7 +1214,7 @@
         "height": 1
     },
     {
-        "id": "9d30256e04712113",
+        "id": "b8555d206b74b462",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1224,7 +1224,7 @@
         "height": 1
     },
     {
-        "id": "445a908609a34ab1",
+        "id": "2ae5d08f8bba08cd",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1234,7 +1234,7 @@
         "height": 1
     },
     {
-        "id": "ee941bc0d37ea24b",
+        "id": "06fd67817176ce18",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1244,7 +1244,7 @@
         "height": 1
     },
     {
-        "id": "5d6ebddf118f45e0",
+        "id": "0afd65bfc24214a3",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1254,32 +1254,12 @@
         "height": 1
     },
     {
-        "id": "faba5d662590d9d4",
+        "id": "d4a3a31b04bcde38",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
         "group": "5e1bdbab1ef4cbe6",
         "order": 8,
-        "width": 2,
-        "height": 1
-    },
-    {
-        "id": "942c094ba7c533e0",
-        "type": "ui_spacer",
-        "z": "592b686edd11b813",
-        "name": "spacer",
-        "group": "5e1bdbab1ef4cbe6",
-        "order": 9,
-        "width": 2,
-        "height": 1
-    },
-    {
-        "id": "d7979ecf3d9b7e39",
-        "type": "ui_spacer",
-        "z": "592b686edd11b813",
-        "name": "spacer",
-        "group": "5e1bdbab1ef4cbe6",
-        "order": 11,
         "width": 2,
         "height": 1
     },
@@ -1405,7 +1385,7 @@
         "name": "",
         "label": "",
         "group": "5e1bdbab1ef4cbe6",
-        "order": 12,
+        "order": 9,
         "width": 7,
         "height": 1,
         "options": [
@@ -2295,14 +2275,15 @@
         "name": "delete segment",
         "group": "5e1bdbab1ef4cbe6",
         "order": 10,
-        "width": 3,
+        "width": 7,
         "height": 1,
         "passthru": false,
         "label": "Delete Segment",
         "tooltip": "",
         "color": "",
-        "bgcolor": "",
-        "icon": "",
+        "bgcolor": "orange",
+        "className": "",
+        "icon": "warning",
         "payload": "",
         "payloadType": "str",
         "topic": "topic",
