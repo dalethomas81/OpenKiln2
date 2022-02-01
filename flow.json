@@ -675,12 +675,14 @@
     {
         "id": "54f5b9405598d975",
         "type": "ui_group",
+        "d": true,
         "name": "Process",
         "tab": "de5db1c89316833e",
         "order": 2,
         "disp": true,
-        "width": 7,
-        "collapse": false
+        "width": "7",
+        "collapse": false,
+        "className": ""
     },
     {
         "id": "97a4a070263bb997",
@@ -7225,7 +7227,8 @@
         "format": "{{msg.payload}}",
         "min": 0,
         "max": "100",
-        "step": "0.001",
+        "step": "0.01",
+        "className": "",
         "x": 755,
         "y": 360,
         "wires": [
@@ -7253,7 +7256,8 @@
         "format": "{{msg.payload}}",
         "min": 0,
         "max": "100",
-        "step": "0.001",
+        "step": "0.01",
+        "className": "",
         "x": 755,
         "y": 380,
         "wires": [
@@ -7280,8 +7284,9 @@
         "topicType": "msg",
         "format": "{{msg.payload}}",
         "min": 0,
-        "max": "1000",
-        "step": "0.001",
+        "max": "100",
+        "step": "0.01",
+        "className": "",
         "x": 755,
         "y": 400,
         "wires": [
@@ -7740,7 +7745,8 @@
         "format": "{{msg.payload}}",
         "min": 0,
         "max": "100",
-        "step": "0.001",
+        "step": "0.01",
+        "className": "",
         "x": 755,
         "y": 420,
         "wires": [
@@ -7768,7 +7774,8 @@
         "format": "{{msg.payload}}",
         "min": 0,
         "max": "100",
-        "step": "0.001",
+        "step": "0.01",
+        "className": "",
         "x": 755,
         "y": 440,
         "wires": [
@@ -7796,7 +7803,8 @@
         "format": "{{msg.payload}}",
         "min": 0,
         "max": "100",
-        "step": "0.001",
+        "step": "0.01",
+        "className": "",
         "x": 755,
         "y": 460,
         "wires": [
@@ -8339,6 +8347,7 @@
         "id": "62fbfbaaf7103238",
         "type": "ui_slider",
         "z": "b83fb43068cdf48f",
+        "d": true,
         "name": "",
         "label": "SP",
         "tooltip": "",
@@ -8353,6 +8362,7 @@
         "min": 0,
         "max": "2500",
         "step": 1,
+        "className": "",
         "x": 755,
         "y": 480,
         "wires": [
