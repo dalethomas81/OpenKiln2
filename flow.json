@@ -3656,7 +3656,8 @@
         "y": 200,
         "wires": [
             [
-                "6de15819559dade9"
+                "6de15819559dade9",
+                "f7344552bf092a7c"
             ]
         ],
         "l": false
@@ -3666,7 +3667,7 @@
         "type": "function",
         "z": "592b686edd11b813",
         "name": "",
-        "func": "flow.set('schedule_index', msg.payload - 1, 'memoryOnly');\nflow.set('segment_index', 1, 'memoryOnly'); // reset the segment index when switching schedules\nreturn msg;",
+        "func": "flow.set('schedule_index', msg.payload - 1, 'memoryOnly');\nflow.set('segment_index', 0, 'memoryOnly'); // reset the segment index when switching schedules\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4832,6 +4833,22 @@
         "info": "",
         "x": 370,
         "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "f7344552bf092a7c",
+        "type": "debug",
+        "z": "592b686edd11b813",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 200,
         "wires": []
     },
     {
