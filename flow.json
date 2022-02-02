@@ -35,16 +35,6 @@
         "info": ""
     },
     {
-        "id": "8775e5df1b6887a4",
-        "type": "ui_tab",
-        "d": true,
-        "name": "Historical",
-        "icon": "timeline",
-        "order": 4,
-        "disabled": false,
-        "hidden": false
-    },
-    {
         "id": "443a1fa760cb1696",
         "type": "ui_base",
         "theme": {
@@ -146,7 +136,7 @@
         "id": "b96e65c991e4f663",
         "type": "ui_group",
         "name": "Historical Data",
-        "tab": "8775e5df1b6887a4",
+        "tab": "",
         "order": 1,
         "disp": true,
         "width": "20",
@@ -1142,33 +1132,6 @@
         "x": 190,
         "y": 20,
         "wires": []
-    },
-    {
-        "id": "fde73e3afa0924f7",
-        "type": "ui_button",
-        "z": "592b686edd11b813",
-        "name": "",
-        "group": "b96e65c991e4f663",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Show Last 48 Hours",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 160,
-        "y": 1680,
-        "wires": [
-            [
-                "d640cbec48042332"
-            ]
-        ]
     },
     {
         "id": "018ef11ba74cb510",
@@ -2559,154 +2522,6 @@
         ]
     },
     {
-        "id": "2a1f183bb4e05864",
-        "type": "ui_chart",
-        "z": "592b686edd11b813",
-        "name": "",
-        "group": "b96e65c991e4f663",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "label": "",
-        "chartType": "line",
-        "legend": "true",
-        "xformat": "Y-M-D",
-        "interpolate": "linear",
-        "nodata": "Refresh to see data",
-        "dot": true,
-        "ymin": "",
-        "ymax": "",
-        "removeOlder": 1,
-        "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#1f77b4",
-            "#aec7e8",
-            "#ff7f0e",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "x": 790,
-        "y": 1640,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "d640cbec48042332",
-        "type": "change",
-        "z": "592b686edd11b813",
-        "name": "downsampled data",
-        "rules": [
-            {
-                "t": "set",
-                "p": "query",
-                "pt": "msg",
-                "to": "SELECT * FROM downsampled_temps WHERE time > now() - 48h",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 310,
-        "y": 1640,
-        "wires": [
-            [
-                "a5b1ee57491885ff"
-            ]
-        ]
-    },
-    {
-        "id": "9dbd945c8b6f4bd5",
-        "type": "inject",
-        "z": "592b686edd11b813",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payloadType": "date",
-        "x": 155,
-        "y": 1640,
-        "wires": [
-            [
-                "d640cbec48042332"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "a5b1ee57491885ff",
-        "type": "influxdb in",
-        "z": "592b686edd11b813",
-        "influxdb": "1a7d214ba0ada216",
-        "name": "",
-        "query": "",
-        "rawOutput": true,
-        "precision": "",
-        "retentionPolicy": "",
-        "org": "organisation",
-        "x": 540,
-        "y": 1640,
-        "wires": [
-            [
-                "0c676b6e43885baa"
-            ]
-        ]
-    },
-    {
-        "id": "0c676b6e43885baa",
-        "type": "function",
-        "z": "592b686edd11b813",
-        "name": "",
-        "func": "\n\n// enable \"raw output\" from the influxdb node\n// use this query: SELECT * FROM downsampled_temps LIMIT 1000\nvar msg_out = {\"payload\":[{\"series\":[],\"data\":[],\"labels\":[]}]};\n\n// series 1\nvar series_data0 = [];\nvar series_data1 = [];\nfor(i = 0; i < msg.payload.results[0].series[0].values.length-1; i++){\n    series_data0.push({\n        x: msg.payload.results[0].series[0].values[i][0],\n        y: msg.payload.results[0].series[0].values[i][1],\n    })\n    series_data1.push({\n        x: msg.payload.results[0].series[0].values[i][0],\n        y: msg.payload.results[0].series[0].values[i][2],\n    })\n}\nmsg_out.payload[0].series[0] = msg.payload.results[0].series[0].columns[1]\n//msg_out.payload[0].labels[0] = \"Upper Temp Label\"\nmsg_out.payload[0].series[1] = msg.payload.results[0].series[0].columns[2]\n//msg_out.payload[0].labels[1] = \"Lower Temp Label\"\n\n// add all series to the data array\nvar data_array = [];\ndata_array[0] = series_data0\ndata_array[1] = series_data1\n\n// \nmsg_out.payload[0].data = data_array\n\nreturn msg_out;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 695,
-        "y": 1640,
-        "wires": [
-            [
-                "2a1f183bb4e05864"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "33d03b8549555671",
-        "type": "comment",
-        "z": "592b686edd11b813",
-        "name": "Historical dashboard",
-        "info": "",
-        "x": 110,
-        "y": 1600,
-        "wires": []
-    },
-    {
         "id": "0c9d08cd9424255c",
         "type": "comment",
         "z": "592b686edd11b813",
@@ -2725,48 +2540,6 @@
         "x": 1100,
         "y": 40,
         "wires": []
-    },
-    {
-        "id": "f14cba79aa9d3c56",
-        "type": "ui_date_picker",
-        "z": "592b686edd11b813",
-        "name": "",
-        "label": "From",
-        "group": "b96e65c991e4f663",
-        "order": 2,
-        "width": 10,
-        "height": 1,
-        "passthru": true,
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 110,
-        "y": 1720,
-        "wires": [
-            [
-                "081cd5a0f31c258c"
-            ]
-        ]
-    },
-    {
-        "id": "8909036cd50a1331",
-        "type": "ui_date_picker",
-        "z": "592b686edd11b813",
-        "name": "",
-        "label": "To",
-        "group": "b96e65c991e4f663",
-        "order": 3,
-        "width": 10,
-        "height": 1,
-        "passthru": true,
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 110,
-        "y": 1760,
-        "wires": [
-            [
-                "550ca7227c50c4c1"
-            ]
-        ]
     },
     {
         "id": "6a85377603e9249c",
@@ -2839,139 +2612,6 @@
         "statusType": "auto",
         "x": 1730,
         "y": 260,
-        "wires": []
-    },
-    {
-        "id": "081cd5a0f31c258c",
-        "type": "function",
-        "z": "592b686edd11b813",
-        "name": "set from",
-        "func": "global.set('kiln_01.dashboard.history_from',msg.payload*1000)\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 240,
-        "y": 1720,
-        "wires": [
-            [
-                "0874c32ca8bcb2e3"
-            ]
-        ]
-    },
-    {
-        "id": "550ca7227c50c4c1",
-        "type": "function",
-        "z": "592b686edd11b813",
-        "name": "set to",
-        "func": "global.set('kiln_01.dashboard.history_to',msg.payload*1000)\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 230,
-        "y": 1760,
-        "wires": [
-            [
-                "0874c32ca8bcb2e3"
-            ]
-        ]
-    },
-    {
-        "id": "0874c32ca8bcb2e3",
-        "type": "function",
-        "z": "592b686edd11b813",
-        "name": "create query",
-        "func": "// SELECT * FROM downsampled_temps WHERE time >= 1641945600000000 and time <= now()\n// note: timestamp should be in microseconds format. multiply node-red timestamp by 1000\n\nvar history_from = global.get('kiln_01.dashboard.history_from')\nvar history_to = global.get('kiln_01.dashboard.history_to')\n\nmsg.query = \"SELECT * FROM downsampled_temps WHERE time >= \"+ history_from + \" and time <= \"+ history_to + \" LIMIT 2000\"\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 410,
-        "y": 1740,
-        "wires": [
-            [
-                "a5b1ee57491885ff",
-                "f03ea226c20560aa"
-            ]
-        ]
-    },
-    {
-        "id": "f03ea226c20560aa",
-        "type": "debug",
-        "z": "592b686edd11b813",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 570,
-        "y": 1740,
-        "wires": []
-    },
-    {
-        "id": "255d64aa75db5203",
-        "type": "function",
-        "z": "592b686edd11b813",
-        "name": "clear chart",
-        "func": "var msg_out = {\"payload\":[{\"series\":[],\"data\":[],\"labels\":[]}]};\n\nvar series_data0 = [];\nvar series_data1 = [];\n\nvar data_array = [];\ndata_array[0] = series_data0\ndata_array[1] = series_data1\n\n// \nmsg_out.payload[0].data = data_array\n\nreturn msg_out;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 670,
-        "y": 1680,
-        "wires": [
-            [
-                "2a1f183bb4e05864"
-            ]
-        ]
-    },
-    {
-        "id": "77121f3416ca897f",
-        "type": "inject",
-        "z": "592b686edd11b813",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payloadType": "date",
-        "x": 555,
-        "y": 1680,
-        "wires": [
-            [
-                "255d64aa75db5203"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "74140b605a6c3c6b",
-        "type": "comment",
-        "z": "592b686edd11b813",
-        "name": "TODO: this isnt working well",
-        "info": "",
-        "x": 300,
-        "y": 1740,
         "wires": []
     },
     {
