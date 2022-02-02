@@ -4885,42 +4885,42 @@
             },
             {
                 "t": "set",
-                "p": "dashboard_client_count.tab0",
+                "p": "dashboard_client_count.tab[0]",
                 "pt": "global",
                 "to": "0",
                 "tot": "num"
             },
             {
                 "t": "set",
-                "p": "dashboard_client_count.tab1",
+                "p": "dashboard_client_count.tab[1]",
                 "pt": "global",
                 "to": "0",
                 "tot": "num"
             },
             {
                 "t": "set",
-                "p": "dashboard_client_count.tab2",
+                "p": "dashboard_client_count.tab[2]",
                 "pt": "global",
                 "to": "0",
                 "tot": "num"
             },
             {
                 "t": "set",
-                "p": "dashboard_client_count.tab3",
+                "p": "dashboard_client_count.tab[3]",
                 "pt": "global",
                 "to": "0",
                 "tot": "num"
             },
             {
                 "t": "set",
-                "p": "dashboard_client_count.tab4",
+                "p": "dashboard_client_count.tab[4]",
                 "pt": "global",
                 "to": "0",
                 "tot": "num"
             },
             {
                 "t": "set",
-                "p": "dashboard_client_count.tab5",
+                "p": "dashboard_client_count.tab[5]",
                 "pt": "global",
                 "to": "0",
                 "tot": "num"
