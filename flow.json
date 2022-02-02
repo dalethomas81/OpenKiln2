@@ -956,7 +956,7 @@
         "height": 1
     },
     {
-        "id": "f8f5fd579ac27a20",
+        "id": "cff69f86b0572e70",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -966,7 +966,7 @@
         "height": 1
     },
     {
-        "id": "107d0d22af06395c",
+        "id": "7f21f0a999dd59d4",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -976,7 +976,7 @@
         "height": 1
     },
     {
-        "id": "3761185cfdbb84ec",
+        "id": "8a07f6ddaff22140",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -986,7 +986,7 @@
         "height": 1
     },
     {
-        "id": "85afbfa641c68fd3",
+        "id": "9e16e715b6c4d60b",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -996,7 +996,7 @@
         "height": 1
     },
     {
-        "id": "2b8006f1e9e9fbda",
+        "id": "4703cfe40ed3024e",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1006,7 +1006,7 @@
         "height": 1
     },
     {
-        "id": "3d00a3f41eba71f5",
+        "id": "6b93baaa95ae19bc",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1016,7 +1016,7 @@
         "height": 1
     },
     {
-        "id": "f47bd4ae2ae67011",
+        "id": "9e6695ba98718fd7",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1026,7 +1026,7 @@
         "height": 1
     },
     {
-        "id": "274a017c5afb6542",
+        "id": "1b601606be94e9d2",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1036,7 +1036,7 @@
         "height": 1
     },
     {
-        "id": "f2e6b102bd93898e",
+        "id": "688796d61ce42579",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1046,7 +1046,7 @@
         "height": 1
     },
     {
-        "id": "ad02074663d0f731",
+        "id": "6c9cb97621e404c5",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1898,7 +1898,7 @@
         "group": "2201d496820b415d",
         "order": 10,
         "width": 7,
-        "height": 4,
+        "height": 5,
         "label": "",
         "chartType": "line",
         "legend": "true",
