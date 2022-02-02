@@ -1669,21 +1669,6 @@
         ]
     },
     {
-        "id": "91047655c7bbfdd5",
-        "type": "ui_ui_control",
-        "z": "592b686edd11b813",
-        "name": "",
-        "events": "all",
-        "x": 95,
-        "y": 640,
-        "wires": [
-            [
-                "e22edcc46fd64490"
-            ]
-        ],
-        "l": false
-    },
-    {
         "id": "d1b9dbb996bc65fd",
         "type": "function",
         "z": "592b686edd11b813",
@@ -3796,21 +3781,6 @@
         "l": false
     },
     {
-        "id": "d4c50b8d835c526f",
-        "type": "ui_ui_control",
-        "z": "592b686edd11b813",
-        "name": "",
-        "events": "all",
-        "x": 555,
-        "y": 780,
-        "wires": [
-            [
-                "f62427195cb0ab96"
-            ]
-        ],
-        "l": false
-    },
-    {
         "id": "9be32d3453fc15e7",
         "type": "change",
         "z": "592b686edd11b813",
@@ -4436,21 +4406,6 @@
         "l": false
     },
     {
-        "id": "6a2acefb59496cad",
-        "type": "ui_ui_control",
-        "z": "592b686edd11b813",
-        "name": "",
-        "events": "all",
-        "x": 245,
-        "y": 1320,
-        "wires": [
-            [
-                "4ba3b5ace9fff3d0"
-            ]
-        ],
-        "l": false
-    },
-    {
         "id": "154551a7ba429601",
         "type": "change",
         "z": "592b686edd11b813",
@@ -4612,21 +4567,6 @@
         "l": false
     },
     {
-        "id": "47a3b195217bb35f",
-        "type": "ui_ui_control",
-        "z": "592b686edd11b813",
-        "name": "",
-        "events": "all",
-        "x": 195,
-        "y": 400,
-        "wires": [
-            [
-                "34d747ac4d0ff66f"
-            ]
-        ],
-        "l": false
-    },
-    {
         "id": "e22edcc46fd64490",
         "type": "switch",
         "z": "592b686edd11b813",
@@ -4759,6 +4699,126 @@
             ]
         ],
         "l": false
+    },
+    {
+        "id": "edbc0dfd186a2ef1",
+        "type": "ui_ui_control",
+        "z": "592b686edd11b813",
+        "name": "dashboard events",
+        "events": "all",
+        "x": 435,
+        "y": 20,
+        "wires": [
+            [
+                "159ccdef6dc1d967"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "159ccdef6dc1d967",
+        "type": "function",
+        "z": "592b686edd11b813",
+        "name": "dashboard client count",
+        "func": "var dashboard_client_count = global.get('dashboard_client_count')\nif (msg.payload == 'connect'){\n    global.set('dashboard_client_count', dashboard_client_count + 1);\n} else if (msg.payload == 'lost') {\n    if (dashboard_client_count > 0) global.set('dashboard_client_count', dashboard_client_count - 1);\n}\nmsg.client_count = dashboard_client_count;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 20,
+        "wires": [
+            [
+                "0d7362ca2edd72c6"
+            ]
+        ]
+    },
+    {
+        "id": "0d7362ca2edd72c6",
+        "type": "link out",
+        "z": "592b686edd11b813",
+        "name": "dashboard events w/ client count",
+        "mode": "link",
+        "links": [
+            "c407645cd401c969",
+            "72e821de5a9c10a5",
+            "cc19dfacf51e9fc6",
+            "d3bb9cf4b0826a24",
+            "ae639127ca4d386d",
+            "c0707caf85c10e83"
+        ],
+        "x": 735,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "c407645cd401c969",
+        "type": "link in",
+        "z": "592b686edd11b813",
+        "name": "dashboard events",
+        "links": [
+            "0d7362ca2edd72c6"
+        ],
+        "x": 130,
+        "y": 400,
+        "wires": [
+            [
+                "34d747ac4d0ff66f"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "72e821de5a9c10a5",
+        "type": "link in",
+        "z": "592b686edd11b813",
+        "name": "dashboard events",
+        "links": [
+            "0d7362ca2edd72c6"
+        ],
+        "x": 110,
+        "y": 560,
+        "wires": [
+            [
+                "e22edcc46fd64490"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "cc19dfacf51e9fc6",
+        "type": "link in",
+        "z": "592b686edd11b813",
+        "name": "dashboard events",
+        "links": [
+            "0d7362ca2edd72c6"
+        ],
+        "x": 570,
+        "y": 740,
+        "wires": [
+            [
+                "f62427195cb0ab96"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "d3bb9cf4b0826a24",
+        "type": "link in",
+        "z": "592b686edd11b813",
+        "name": "dashboard events",
+        "links": [
+            "0d7362ca2edd72c6"
+        ],
+        "x": 310,
+        "y": 1380,
+        "wires": [
+            [
+                "4ba3b5ace9fff3d0"
+            ]
+        ],
+        "l": true
     },
     {
         "id": "0f56f86bd83c9233",
@@ -7487,21 +7547,6 @@
         "l": false
     },
     {
-        "id": "59d65a5a6cfe74b3",
-        "type": "ui_ui_control",
-        "z": "b83fb43068cdf48f",
-        "name": "dashboard events",
-        "events": "all",
-        "x": 435,
-        "y": 440,
-        "wires": [
-            [
-                "989fbf5d083c48b4"
-            ]
-        ],
-        "l": false
-    },
-    {
         "id": "92ddf9e5188bd64e",
         "type": "link in",
         "z": "b83fb43068cdf48f",
@@ -9689,6 +9734,23 @@
             ]
         ],
         "l": false
+    },
+    {
+        "id": "ae639127ca4d386d",
+        "type": "link in",
+        "z": "b83fb43068cdf48f",
+        "name": "dashboard events",
+        "links": [
+            "0d7362ca2edd72c6"
+        ],
+        "x": 410,
+        "y": 540,
+        "wires": [
+            [
+                "989fbf5d083c48b4"
+            ]
+        ],
+        "l": true
     },
     {
         "id": "c96f9cb61b158baf",
@@ -12337,21 +12399,6 @@
         "l": false
     },
     {
-        "id": "9903f30f73a98f3f",
-        "type": "ui_ui_control",
-        "z": "3154c44d1a91de38",
-        "name": "dashboard events",
-        "events": "all",
-        "x": 95,
-        "y": 1160,
-        "wires": [
-            [
-                "6934e6c8ca5ac2db"
-            ]
-        ],
-        "l": false
-    },
-    {
         "id": "6934e6c8ca5ac2db",
         "type": "switch",
         "z": "3154c44d1a91de38",
@@ -12413,22 +12460,6 @@
             ],
             [
                 "59e10ec9698b12e7"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "f3ea6a45cf59bb1d",
-        "type": "ui_ui_control",
-        "z": "3154c44d1a91de38",
-        "name": "dashboard events",
-        "events": "all",
-        "x": 95,
-        "y": 940,
-        "wires": [
-            [
-                "c5671e6fa247bedc",
-                "32f3ca062684b2b5"
             ]
         ],
         "l": false
@@ -12502,54 +12533,22 @@
         "l": false
     },
     {
-        "id": "e48385765bb694d3",
-        "type": "ui_ui_control",
+        "id": "c0707caf85c10e83",
+        "type": "link in",
         "z": "3154c44d1a91de38",
         "name": "dashboard events",
-        "events": "all",
-        "x": 215,
-        "y": 1080,
+        "links": [
+            "0d7362ca2edd72c6"
+        ],
+        "x": 130,
+        "y": 1100,
         "wires": [
             [
-                "57fabf8420eb8b51",
-                "cb77bfa774926772"
+                "6934e6c8ca5ac2db",
+                "57fabf8420eb8b51"
             ]
         ],
-        "l": false
-    },
-    {
-        "id": "cb77bfa774926772",
-        "type": "debug",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 360,
-        "y": 1120,
-        "wires": []
-    },
-    {
-        "id": "32f3ca062684b2b5",
-        "type": "function",
-        "z": "3154c44d1a91de38",
-        "name": "dashboard client count",
-        "func": "var dashboard_client_count = global.get('dashboard_client_count')\nif (msg.payload == 'connect'){\n    global.set('dashboard_client_count', dashboard_client_count + 1);\n} else if (msg.payload == 'lost') {\n    if (dashboard_client_count > 0) global.set('dashboard_client_count', dashboard_client_count - 1);\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 410,
-        "y": 860,
-        "wires": [
-            []
-        ]
+        "l": true
     },
     {
         "id": "1c9e79b136a623e2",
