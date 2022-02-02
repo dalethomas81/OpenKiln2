@@ -4375,6 +4375,177 @@
         "wires": []
     },
     {
+        "id": "6553a2457e1b301e",
+        "type": "comment",
+        "z": "592b686edd11b813",
+        "name": "PiSugar: https://github.com/PiSugar/pisugar-power-manager-rs",
+        "info": "",
+        "x": 370,
+        "y": 1720,
+        "wires": []
+    },
+    {
+        "id": "157d8d2802690122",
+        "type": "comment",
+        "z": "592b686edd11b813",
+        "name": "PiSugar user:admin pass:admin",
+        "info": "",
+        "x": 270,
+        "y": 1740,
+        "wires": []
+    },
+    {
+        "id": "001d25c9084d4855",
+        "type": "http in",
+        "z": "592b686edd11b813",
+        "name": "",
+        "url": "/ui/PiSugar",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 220,
+        "y": 1640,
+        "wires": [
+            [
+                "23f7dd1d1126cae8"
+            ]
+        ]
+    },
+    {
+        "id": "67da5f33484299fc",
+        "type": "http response",
+        "z": "592b686edd11b813",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 530,
+        "y": 1640,
+        "wires": []
+    },
+    {
+        "id": "23f7dd1d1126cae8",
+        "type": "function",
+        "z": "592b686edd11b813",
+        "name": "",
+        "func": "var hostname = global.get('hostname')\nvar Location = \"http://\"+hostname.replace(/[^\\x20-\\x7E]/g, '')+\":8421\"\n\nmsg.statusCode = 303;\nmsg.headers = {Location}\ndelete msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 1640,
+        "wires": [
+            [
+                "67da5f33484299fc"
+            ]
+        ]
+    },
+    {
+        "id": "8c3b80755b085d99",
+        "type": "http in",
+        "z": "592b686edd11b813",
+        "name": "",
+        "url": "/ui/NodeRed",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 210,
+        "y": 1660,
+        "wires": [
+            [
+                "7f69450907197558"
+            ]
+        ]
+    },
+    {
+        "id": "2b1845b10613decf",
+        "type": "http response",
+        "z": "592b686edd11b813",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 530,
+        "y": 1660,
+        "wires": []
+    },
+    {
+        "id": "7f69450907197558",
+        "type": "function",
+        "z": "592b686edd11b813",
+        "name": "",
+        "func": "var hostname = global.get('hostname')\nvar Location = \"http://\"+hostname.replace(/[^\\x20-\\x7E]/g, '')+\":1880\"\n\nmsg.statusCode = 303;\nmsg.headers = {Location}\ndelete msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 1660,
+        "wires": [
+            [
+                "2b1845b10613decf"
+            ]
+        ]
+    },
+    {
+        "id": "22060442e0a5d3cc",
+        "type": "http in",
+        "z": "592b686edd11b813",
+        "name": "",
+        "url": "/ui/Grafana",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 220,
+        "y": 1680,
+        "wires": [
+            [
+                "af782d0fb0a5975e"
+            ]
+        ]
+    },
+    {
+        "id": "97645d6a4b985196",
+        "type": "http response",
+        "z": "592b686edd11b813",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 530,
+        "y": 1680,
+        "wires": []
+    },
+    {
+        "id": "af782d0fb0a5975e",
+        "type": "function",
+        "z": "592b686edd11b813",
+        "name": "",
+        "func": "var hostname = global.get('hostname')\nvar Location = \"http://\" + hostname.replace(/[^\\x20-\\x7E]/g, '') + \":3000\"\n//var Location = \"http://\"+hostname.replace(/[^\\x20-\\x7E]/g, '')+\":3000/d/_6ZBVeRgk/historical-temperatures?orgId=1&from=now-7d&to=now&fullscreen&panelId=4\"\n\nmsg.statusCode = 303;\nmsg.headers = { Location }\ndelete msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 1680,
+        "wires": [
+            [
+                "97645d6a4b985196"
+            ]
+        ]
+    },
+    {
+        "id": "96518b72332bac16",
+        "type": "comment",
+        "z": "592b686edd11b813",
+        "name": "web redirection",
+        "info": "",
+        "x": 100,
+        "y": 1600,
+        "wires": []
+    },
+    {
         "id": "0f56f86bd83c9233",
         "type": "finite-state-machine",
         "z": "e9cef8706a9cf7f6",
@@ -12271,26 +12442,6 @@
         ]
     },
     {
-        "id": "596909473c6a4408",
-        "type": "comment",
-        "z": "98e4246c87add39e",
-        "name": "PiSugar: https://github.com/PiSugar/pisugar-power-manager-rs",
-        "info": "",
-        "x": 370,
-        "y": 480,
-        "wires": []
-    },
-    {
-        "id": "8de289bdc5fd2ca4",
-        "type": "comment",
-        "z": "98e4246c87add39e",
-        "name": "PiSugar user:admin pass:admin",
-        "info": "",
-        "x": 270,
-        "y": 500,
-        "wires": []
-    },
-    {
         "id": "136ed4e4c080a681",
         "type": "inject",
         "z": "98e4246c87add39e",
@@ -12357,147 +12508,6 @@
         ]
     },
     {
-        "id": "1097eb74c1ce2240",
-        "type": "http in",
-        "z": "98e4246c87add39e",
-        "name": "",
-        "url": "/ui/PiSugar",
-        "method": "get",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 220,
-        "y": 400,
-        "wires": [
-            [
-                "af3ca29e3470f492"
-            ]
-        ]
-    },
-    {
-        "id": "cdb3dcc1721e5831",
-        "type": "http response",
-        "z": "98e4246c87add39e",
-        "name": "",
-        "statusCode": "",
-        "headers": {},
-        "x": 530,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "af3ca29e3470f492",
-        "type": "function",
-        "z": "98e4246c87add39e",
-        "name": "",
-        "func": "var hostname = global.get('hostname')\nvar Location = \"http://\"+hostname.replace(/[^\\x20-\\x7E]/g, '')+\":8421\"\n\nmsg.statusCode = 303;\nmsg.headers = {Location}\ndelete msg.payload;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 390,
-        "y": 400,
-        "wires": [
-            [
-                "cdb3dcc1721e5831"
-            ]
-        ]
-    },
-    {
-        "id": "ca9e41f3290507c6",
-        "type": "http in",
-        "z": "98e4246c87add39e",
-        "name": "",
-        "url": "/ui/NodeRed",
-        "method": "get",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 210,
-        "y": 420,
-        "wires": [
-            [
-                "852ffc368267fec4"
-            ]
-        ]
-    },
-    {
-        "id": "c3144365fd84c245",
-        "type": "http response",
-        "z": "98e4246c87add39e",
-        "name": "",
-        "statusCode": "",
-        "headers": {},
-        "x": 530,
-        "y": 420,
-        "wires": []
-    },
-    {
-        "id": "852ffc368267fec4",
-        "type": "function",
-        "z": "98e4246c87add39e",
-        "name": "",
-        "func": "var hostname = global.get('hostname')\nvar Location = \"http://\"+hostname.replace(/[^\\x20-\\x7E]/g, '')+\":1880\"\n\nmsg.statusCode = 303;\nmsg.headers = {Location}\ndelete msg.payload;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 390,
-        "y": 420,
-        "wires": [
-            [
-                "c3144365fd84c245"
-            ]
-        ]
-    },
-    {
-        "id": "f6f7fc1d1ca591cd",
-        "type": "http in",
-        "z": "98e4246c87add39e",
-        "name": "",
-        "url": "/ui/Grafana",
-        "method": "get",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 220,
-        "y": 440,
-        "wires": [
-            [
-                "e1079bfffd705742"
-            ]
-        ]
-    },
-    {
-        "id": "ca1a6fb8733136ea",
-        "type": "http response",
-        "z": "98e4246c87add39e",
-        "name": "",
-        "statusCode": "",
-        "headers": {},
-        "x": 530,
-        "y": 440,
-        "wires": []
-    },
-    {
-        "id": "e1079bfffd705742",
-        "type": "function",
-        "z": "98e4246c87add39e",
-        "name": "",
-        "func": "var hostname = global.get('hostname')\nvar Location = \"http://\" + hostname.replace(/[^\\x20-\\x7E]/g, '') + \":3000/d/_6ZBVeRgk/historical-temperatures?orgId=1&from=now-24h&to=now&fullscreen&panelId=5\"\n//var Location = \"http://\"+hostname.replace(/[^\\x20-\\x7E]/g, '')+\":3000/d/_6ZBVeRgk/historical-temperatures?orgId=1&from=now-7d&to=now&fullscreen&panelId=4\"\n\nmsg.statusCode = 303;\nmsg.headers = { Location }\ndelete msg.payload;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 390,
-        "y": 440,
-        "wires": [
-            [
-                "ca1a6fb8733136ea"
-            ]
-        ]
-    },
-    {
         "id": "f9460b8af28fe098",
         "type": "comment",
         "z": "98e4246c87add39e",
@@ -12505,16 +12515,6 @@
         "info": "",
         "x": 110,
         "y": 100,
-        "wires": []
-    },
-    {
-        "id": "d50ee496a66536be",
-        "type": "comment",
-        "z": "98e4246c87add39e",
-        "name": "web redirection",
-        "info": "",
-        "x": 100,
-        "y": 360,
         "wires": []
     }
 ]
