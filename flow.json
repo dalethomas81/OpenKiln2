@@ -1249,7 +1249,7 @@
         "topicType": "msg",
         "splitLayout": "",
         "x": 490,
-        "y": 240,
+        "y": 320,
         "wires": [
             [
                 "f5070cef209d87e2"
@@ -1268,7 +1268,7 @@
         "finalize": "",
         "libs": [],
         "x": 655,
-        "y": 240,
+        "y": 320,
         "wires": [
             [
                 "6b534a21adf47fbc"
@@ -1288,7 +1288,7 @@
         "finalize": "",
         "libs": [],
         "x": 530,
-        "y": 420,
+        "y": 500,
         "wires": [
             [
                 "3fda2bd34a7c89b2"
@@ -1316,7 +1316,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 75,
-        "y": 120,
+        "y": 200,
         "wires": [
             [
                 "26aedf9d4f3e92fc"
@@ -1351,7 +1351,7 @@
         "to": "",
         "reg": false,
         "x": 135,
-        "y": 120,
+        "y": 200,
         "wires": [
             []
         ],
@@ -1729,7 +1729,7 @@
         "repair": false,
         "outputs": 3,
         "x": 315,
-        "y": 400,
+        "y": 480,
         "wires": [
             [],
             [
@@ -2011,7 +2011,7 @@
         "templateScope": "local",
         "className": "",
         "x": 500,
-        "y": 320,
+        "y": 400,
         "wires": [
             []
         ]
@@ -2037,7 +2037,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 520,
-        "y": 280,
+        "y": 360,
         "wires": [
             [
                 "d815b4776bb0f1aa"
@@ -2056,7 +2056,7 @@
         "finalize": "",
         "libs": [],
         "x": 655,
-        "y": 280,
+        "y": 360,
         "wires": [
             [
                 "6b534a21adf47fbc"
@@ -2073,7 +2073,7 @@
             "3fda2bd34a7c89b2"
         ],
         "x": 395,
-        "y": 240,
+        "y": 320,
         "wires": [
             [
                 "018ef11ba74cb510"
@@ -2089,7 +2089,7 @@
             "338980eff32a3206"
         ],
         "x": 395,
-        "y": 320,
+        "y": 400,
         "wires": [
             [
                 "89090e12b153c6a4"
@@ -2106,7 +2106,7 @@
             "e0f89df2c8e81cd9"
         ],
         "x": 655,
-        "y": 400,
+        "y": 480,
         "wires": []
     },
     {
@@ -2150,7 +2150,7 @@
             "006321a7d5098eed"
         ],
         "x": 735,
-        "y": 240,
+        "y": 320,
         "wires": []
     },
     {
@@ -2164,7 +2164,7 @@
             "223bca47aa31a4da"
         ],
         "x": 735,
-        "y": 160,
+        "y": 240,
         "wires": []
     },
     {
@@ -2769,7 +2769,7 @@
         "name": "Schedule Dashboard",
         "info": "",
         "x": 120,
-        "y": 80,
+        "y": 160,
         "wires": []
     },
     {
@@ -3130,7 +3130,7 @@
             "223bca47aa31a4da"
         ],
         "x": 395,
-        "y": 380,
+        "y": 460,
         "wires": []
     },
     {
@@ -3142,7 +3142,7 @@
             "c43fe6a6eabba842"
         ],
         "x": 315,
-        "y": 160,
+        "y": 240,
         "wires": [
             [
                 "fc2609866ba68e99",
@@ -3167,7 +3167,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 520,
-        "y": 120,
+        "y": 200,
         "wires": [
             [
                 "7d3f232e7739f144"
@@ -3186,7 +3186,7 @@
         "finalize": "",
         "libs": [],
         "x": 655,
-        "y": 120,
+        "y": 200,
         "wires": [
             [
                 "7ada905b810b30c6"
@@ -3205,7 +3205,7 @@
             "beee976f9bb8a5fd"
         ],
         "x": 315,
-        "y": 120,
+        "y": 200,
         "wires": [
             [
                 "7560c351d622b7c2"
@@ -3224,7 +3224,7 @@
         "finalize": "",
         "libs": [],
         "x": 395,
-        "y": 120,
+        "y": 200,
         "wires": [
             [
                 "023f6eeca8781228"
@@ -3243,7 +3243,7 @@
             "85642d7408d49cd8"
         ],
         "x": 735,
-        "y": 120,
+        "y": 200,
         "wires": []
     },
     {
@@ -3313,7 +3313,7 @@
         "step": 1,
         "className": "",
         "x": 520,
-        "y": 160,
+        "y": 240,
         "wires": [
             [
                 "fee462e7f0afe7fe"
@@ -3341,7 +3341,7 @@
         "step": 1,
         "className": "",
         "x": 520,
-        "y": 200,
+        "y": 280,
         "wires": [
             [
                 "982ec52ff0e6cfbf"
@@ -3360,7 +3360,7 @@
         "finalize": "",
         "libs": [],
         "x": 395,
-        "y": 160,
+        "y": 240,
         "wires": [
             [
                 "9ac0734e2471a4ae"
@@ -3380,7 +3380,7 @@
         "finalize": "",
         "libs": [],
         "x": 395,
-        "y": 200,
+        "y": 280,
         "wires": [
             [
                 "6de15819559dade9"
@@ -3400,7 +3400,7 @@
         "finalize": "",
         "libs": [],
         "x": 655,
-        "y": 160,
+        "y": 240,
         "wires": [
             [
                 "bbb665c4fceb800d",
@@ -3421,7 +3421,7 @@
         "finalize": "",
         "libs": [],
         "x": 655,
-        "y": 200,
+        "y": 280,
         "wires": [
             [
                 "bbb665c4fceb800d"
@@ -4546,7 +4546,7 @@
         "repair": false,
         "outputs": 1,
         "x": 255,
-        "y": 400,
+        "y": 480,
         "wires": [
             [
                 "52e7c1f8dff102dc"
@@ -4694,8 +4694,8 @@
         "z": "592b686edd11b813",
         "name": "dashboard events",
         "events": "all",
-        "x": 435,
-        "y": 20,
+        "x": 375,
+        "y": 60,
         "wires": [
             [
                 "159ccdef6dc1d967"
@@ -4708,14 +4708,14 @@
         "type": "function",
         "z": "592b686edd11b813",
         "name": "dashboard client count",
-        "func": "var dashboard_client_count = global.get('dashboard_client_count')\nvar client_count = dashboard_client_count\nif (msg.payload == 'connect'){\n    client_count = dashboard_client_count + 1\n} else if (msg.payload == 'lost') {\n    if (dashboard_client_count > 0) client_count = dashboard_client_count - 1\n}\nglobal.set('dashboard_client_count', client_count);\nmsg.client_count = client_count;\nreturn msg;",
+        "func": "var dashboard_client_count = global.get('dashboard_client_count')\nvar client_count = dashboard_client_count\n\nif (msg.payload == 'connect'){\n    client_count = dashboard_client_count + 1\n} else if (msg.payload == 'lost') {\n    if (dashboard_client_count > 0) client_count = dashboard_client_count - 1\n}\n\nglobal.set('dashboard_client_count', client_count);\nmsg.client_count = client_count;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 590,
-        "y": 20,
+        "x": 530,
+        "y": 60,
         "wires": [
             [
                 "0d7362ca2edd72c6"
@@ -4736,8 +4736,8 @@
             "ae639127ca4d386d",
             "c0707caf85c10e83"
         ],
-        "x": 735,
-        "y": 20,
+        "x": 675,
+        "y": 60,
         "wires": []
     },
     {
@@ -4749,7 +4749,7 @@
             "0d7362ca2edd72c6"
         ],
         "x": 130,
-        "y": 400,
+        "y": 480,
         "wires": [
             [
                 "34d747ac4d0ff66f"
@@ -4833,6 +4833,109 @@
             ]
         ],
         "l": false
+    },
+    {
+        "id": "9234cc41d8a3f409",
+        "type": "function",
+        "z": "592b686edd11b813",
+        "name": "dashboard client count",
+        "func": "var dashboard_client_count = global.get('dashboard_client_count')\nvar client_count = dashboard_client_count\nif (msg.payload == 'connect'){\n    client_count = dashboard_client_count + 1\n} else if (msg.payload == 'lost') {\n    if (dashboard_client_count > 0) client_count = dashboard_client_count - 1\n}\nglobal.set('dashboard_client_count', client_count);\nmsg.client_count = client_count;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e73e25274ed75339",
+        "type": "inject",
+        "z": "592b686edd11b813",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.1",
+        "topic": "",
+        "x": 410,
+        "y": 20,
+        "wires": [
+            [
+                "e13ff97e2e36c78f"
+            ]
+        ]
+    },
+    {
+        "id": "e13ff97e2e36c78f",
+        "type": "change",
+        "z": "592b686edd11b813",
+        "name": "initialize",
+        "rules": [
+            {
+                "t": "set",
+                "p": "dashboard_client_count.total",
+                "pt": "global",
+                "to": "0",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "dashboard_client_count.tab0",
+                "pt": "global",
+                "to": "0",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "dashboard_client_count.tab1",
+                "pt": "global",
+                "to": "0",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "dashboard_client_count.tab2",
+                "pt": "global",
+                "to": "0",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "dashboard_client_count.tab3",
+                "pt": "global",
+                "to": "0",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "dashboard_client_count.tab4",
+                "pt": "global",
+                "to": "0",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "dashboard_client_count.tab5",
+                "pt": "global",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 20,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "0f56f86bd83c9233",
@@ -10430,13 +10533,6 @@
                 "pt": "flow",
                 "to": "false",
                 "tot": "bool"
-            },
-            {
-                "t": "set",
-                "p": "dashboard_client_count",
-                "pt": "global",
-                "to": "0",
-                "tot": "num"
             }
         ],
         "action": "",
