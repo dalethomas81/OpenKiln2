@@ -1868,7 +1868,7 @@
         "height": 5,
         "label": "",
         "chartType": "line",
-        "legend": "true",
+        "legend": "false",
         "xformat": "HH:mm:ss",
         "interpolate": "bezier",
         "nodata": "Refresh to see data",
