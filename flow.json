@@ -12555,8 +12555,8 @@
         "type": "switch",
         "z": "3154c44d1a91de38",
         "name": "client count 0",
-        "property": "dashboard_client_count",
-        "propertyType": "global",
+        "property": "client_count",
+        "propertyType": "msg",
         "rules": [
             {
                 "t": "lte",
