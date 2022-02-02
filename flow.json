@@ -2236,16 +2236,6 @@
         ]
     },
     {
-        "id": "f03679a3e4397812",
-        "type": "comment",
-        "z": "592b686edd11b813",
-        "name": "https://klarsys.github.io/angular-material-icons/",
-        "info": "",
-        "x": 300,
-        "y": 700,
-        "wires": []
-    },
-    {
         "id": "2b7d853b4ddd2588",
         "type": "ui_text",
         "z": "592b686edd11b813",
@@ -4366,7 +4356,7 @@
                 "29c5bb56f28f82ea"
             ],
             [
-                "4bc6a2d8f60ff88a"
+                "c3c6a25a8238c2c5"
             ]
         ],
         "l": false
@@ -4399,9 +4389,7 @@
             [
                 "77d007e0776a393c"
             ],
-            [
-                "4bc6a2d8f60ff88a"
-            ]
+            []
         ],
         "l": false
     },
@@ -4777,8 +4765,8 @@
         "links": [
             "0d7362ca2edd72c6"
         ],
-        "x": 110,
-        "y": 560,
+        "x": 150,
+        "y": 700,
         "wires": [
             [
                 "e22edcc46fd64490"
@@ -4794,8 +4782,8 @@
         "links": [
             "0d7362ca2edd72c6"
         ],
-        "x": 570,
-        "y": 740,
+        "x": 550,
+        "y": 720,
         "wires": [
             [
                 "f62427195cb0ab96"
@@ -4811,14 +4799,40 @@
         "links": [
             "0d7362ca2edd72c6"
         ],
-        "x": 310,
-        "y": 1380,
+        "x": 150,
+        "y": 1320,
         "wires": [
             [
                 "4ba3b5ace9fff3d0"
             ]
         ],
         "l": true
+    },
+    {
+        "id": "c3c6a25a8238c2c5",
+        "type": "switch",
+        "z": "592b686edd11b813",
+        "name": "client count 0",
+        "property": "client_count",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lte",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 355,
+        "y": 1340,
+        "wires": [
+            [
+                "4bc6a2d8f60ff88a"
+            ]
+        ],
+        "l": false
     },
     {
         "id": "0f56f86bd83c9233",
@@ -9686,8 +9700,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 475,
-        "y": 400,
+        "x": 455,
+        "y": 440,
         "wires": [
             [
                 "b6c91fa96dfbfdb5"
@@ -9743,7 +9757,7 @@
         "links": [
             "0d7362ca2edd72c6"
         ],
-        "x": 410,
+        "x": 430,
         "y": 540,
         "wires": [
             [
