@@ -1564,7 +1564,8 @@
         "name": "",
         "label": "Segment State",
         "format": "<font color='green'>{{msg.payload}}</font>",
-        "layout": "row-spread",
+        "layout": "row-center",
+        "className": "",
         "x": 320,
         "y": 1100,
         "wires": []
@@ -1596,7 +1597,8 @@
         "name": "",
         "label": "Schedule State",
         "format": "<font color='green'>{{msg.payload}}</font>",
-        "layout": "row-spread",
+        "layout": "row-center",
+        "className": "",
         "x": 320,
         "y": 1060,
         "wires": []
@@ -1628,7 +1630,8 @@
         "name": "",
         "label": "Setpoint",
         "format": "<font color='green'>{{msg.payload}} °F</font>",
-        "layout": "row-spread",
+        "layout": "row-center",
+        "className": "",
         "x": 300,
         "y": 1220,
         "wires": []
@@ -1812,7 +1815,8 @@
         "name": "",
         "label": "Current Segment",
         "format": "<font color='green'>{{msg.payload}}</font>",
-        "layout": "row-spread",
+        "layout": "row-center",
+        "className": "",
         "x": 330,
         "y": 1140,
         "wires": []
@@ -1844,7 +1848,7 @@
         "name": "",
         "label": "Soak Remaining",
         "format": "<font color='green'>{{msg.payload}} min</font>",
-        "layout": "row-spread",
+        "layout": "row-center",
         "className": "",
         "x": 320,
         "y": 1180,
@@ -2194,7 +2198,8 @@
         "name": "",
         "label": "Ramp Rate",
         "format": "<font color='green'>{{msg.payload}} deg/h</font>",
-        "layout": "row-spread",
+        "layout": "row-center",
+        "className": "",
         "x": 770,
         "y": 1060,
         "wires": []
