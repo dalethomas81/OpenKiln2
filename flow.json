@@ -12514,7 +12514,7 @@
         "type": "debug",
         "z": "3154c44d1a91de38",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -12524,6 +12524,41 @@
         "statusType": "auto",
         "x": 360,
         "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "64e27cbcea4e9683",
+        "type": "status",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "scope": [
+            "9903f30f73a98f3f",
+            "f3ea6a45cf59bb1d",
+            "e48385765bb694d3"
+        ],
+        "x": 210,
+        "y": 1400,
+        "wires": [
+            [
+                "1bc5a3cc5df0cc4b"
+            ]
+        ]
+    },
+    {
+        "id": "1bc5a3cc5df0cc4b",
+        "type": "debug",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 420,
+        "y": 1420,
         "wires": []
     },
     {
