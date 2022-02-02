@@ -11648,7 +11648,7 @@
                 "877974758133d165"
             ],
             [
-                "06678430389b644d"
+                "f6ef36916a7aab3d"
             ]
         ],
         "l": false
@@ -12284,7 +12284,7 @@
         "name": "detect when connect to dashboard tab",
         "info": "",
         "x": 390,
-        "y": 1040,
+        "y": 1020,
         "wires": []
     },
     {
@@ -12549,6 +12549,32 @@
             ]
         ],
         "l": true
+    },
+    {
+        "id": "f6ef36916a7aab3d",
+        "type": "switch",
+        "z": "3154c44d1a91de38",
+        "name": "client count 0",
+        "property": "dashboard_client_count",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "lte",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 335,
+        "y": 1100,
+        "wires": [
+            [
+                "06678430389b644d"
+            ]
+        ],
+        "l": false
     },
     {
         "id": "1c9e79b136a623e2",
