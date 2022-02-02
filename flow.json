@@ -4900,7 +4900,7 @@
         "height": 1,
         "name": "upper",
         "label": "",
-        "format": "<font color=\"red\" size=\"+1\">{{msg.payload}}</font>",
+        "format": "<font color=\"green\" size=\"+3\">{{msg.payload}}</font>",
         "layout": "col-center",
         "className": "",
         "x": 850,
