@@ -12336,7 +12336,7 @@
         "name": "dashboard events",
         "events": "all",
         "x": 95,
-        "y": 1120,
+        "y": 1160,
         "wires": [
             [
                 "6934e6c8ca5ac2db"
@@ -12362,11 +12362,10 @@
         "repair": false,
         "outputs": 1,
         "x": 155,
-        "y": 1120,
+        "y": 1160,
         "wires": [
             [
-                "22af8d6fdc6cd5a3",
-                "9aae1f611f3c2f05"
+                "22af8d6fdc6cd5a3"
             ]
         ],
         "l": false
@@ -12399,18 +12398,14 @@
         "repair": false,
         "outputs": 3,
         "x": 215,
-        "y": 1120,
+        "y": 1160,
         "wires": [
+            [],
             [
-                "57fabf8420eb8b51"
+                "59e10ec9698b12e7"
             ],
             [
-                "59e10ec9698b12e7",
-                "57fabf8420eb8b51"
-            ],
-            [
-                "59e10ec9698b12e7",
-                "57fabf8420eb8b51"
+                "59e10ec9698b12e7"
             ]
         ],
         "l": false
@@ -12499,21 +12494,19 @@
         "l": false
     },
     {
-        "id": "9aae1f611f3c2f05",
-        "type": "debug",
+        "id": "e48385765bb694d3",
+        "type": "ui_ui_control",
         "z": "3154c44d1a91de38",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 320,
-        "y": 1320,
-        "wires": []
+        "name": "dashboard events",
+        "events": "all",
+        "x": 215,
+        "y": 1080,
+        "wires": [
+            [
+                "57fabf8420eb8b51"
+            ]
+        ],
+        "l": false
     },
     {
         "id": "1c9e79b136a623e2",
