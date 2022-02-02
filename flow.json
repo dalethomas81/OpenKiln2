@@ -6289,7 +6289,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "payload.data.segment_settings.ramp_rate",
+                "to": "data.segment_settings.ramp_rate",
                 "tot": "msg"
             }
         ],
