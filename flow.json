@@ -8028,7 +8028,7 @@
         "chartType": "line",
         "legend": "true",
         "xformat": "HH:mm:ss",
-        "interpolate": "linear",
+        "interpolate": "bezier",
         "nodata": "",
         "dot": false,
         "ymin": "",
