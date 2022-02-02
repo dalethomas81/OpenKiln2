@@ -4708,7 +4708,7 @@
         "type": "function",
         "z": "592b686edd11b813",
         "name": "dashboard client count",
-        "func": "var dashboard_client_count = global.get('dashboard_client_count')\nvar client_count = dashboard_client_count\n\nif (msg.payload == 'connect'){\n    client_count = dashboard_client_count + 1\n} else if (msg.payload == 'lost') {\n    if (dashboard_client_count > 0) client_count = dashboard_client_count - 1\n}\n\nglobal.set('dashboard_client_count', client_count);\nmsg.client_count = client_count;\nreturn msg;",
+        "func": "var dashboard_client_count = global.get('dashboard_client_count')\nvar client_count = dashboard_client_count\n\nif (msg.payload == 'connect'){\n\n    client_count = dashboard_client_count + 1\n} else if (msg.payload == 'lost') {\n    if (dashboard_client_count > 0) client_count = dashboard_client_count - 1\n}\n\nglobal.set('dashboard_client_count', client_count);\nmsg.client_count = client_count;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
