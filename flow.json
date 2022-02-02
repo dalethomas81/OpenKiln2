@@ -10354,6 +10354,13 @@
                 "pt": "flow",
                 "to": "false",
                 "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "dashboard_client_count",
+                "pt": "global",
+                "to": "0",
+                "tot": "num"
             }
         ],
         "action": "",
