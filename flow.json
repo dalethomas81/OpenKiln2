@@ -4900,7 +4900,7 @@
         "height": 1,
         "name": "upper",
         "label": "",
-        "format": "<p \"color=green;font-size=100px;\">{{msg.payload}} °F</p>",
+        "format": "<p style=\"color=green;font-size=100px;\">{{msg.payload}} °F</p>",
         "layout": "col-center",
         "className": "",
         "x": 850,
