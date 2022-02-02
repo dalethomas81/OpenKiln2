@@ -1919,8 +1919,8 @@
         "useOneColor": false,
         "useUTC": false,
         "colors": [
-            "#1f77b4",
-            "#aec7e8",
+            "#ff7f0e",
+            "#d62728",
             "#ff7f0e",
             "#2ca02c",
             "#98df8a",
@@ -1931,6 +1931,7 @@
         ],
         "outputs": 1,
         "useDifferentColor": false,
+        "className": "",
         "x": 750,
         "y": 1300,
         "wires": [
