@@ -4866,7 +4866,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "2500.1",
+        "payload": "2500",
         "payloadType": "num",
         "x": 560,
         "y": 1200,
