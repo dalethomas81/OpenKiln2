@@ -4889,7 +4889,7 @@
         "height": 0,
         "name": "",
         "label": "Upper Temp",
-        "format": "<p style=\"color:green;font-size:300px;\">{{msg.payload}}</p>",
+        "format": "<font color='green'>{{msg.payload}} °F</font>",
         "layout": "col-center",
         "className": "",
         "x": 720,
