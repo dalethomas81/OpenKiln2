@@ -4900,7 +4900,7 @@
         "height": 1,
         "name": "upper",
         "label": "",
-        "format": "<p style=\"color: red; font-size: 50px;\"> text here </p>",
+        "format": "<font color=\"red\" size=\"+1\">{{msg.payload}}</font>",
         "layout": "col-center",
         "className": "",
         "x": 850,
