@@ -7491,7 +7491,7 @@
         "type": "ui_ui_control",
         "z": "b83fb43068cdf48f",
         "name": "dashboard events",
-        "events": "connect",
+        "events": "all",
         "x": 435,
         "y": 440,
         "wires": [
@@ -12334,7 +12334,7 @@
         "type": "ui_ui_control",
         "z": "3154c44d1a91de38",
         "name": "dashboard events",
-        "events": "connect",
+        "events": "all",
         "x": 95,
         "y": 1120,
         "wires": [
@@ -12418,7 +12418,7 @@
         "type": "ui_ui_control",
         "z": "3154c44d1a91de38",
         "name": "dashboard events",
-        "events": "connect",
+        "events": "all",
         "x": 95,
         "y": 940,
         "wires": [
