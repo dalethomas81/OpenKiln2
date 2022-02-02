@@ -764,9 +764,9 @@
         "height": 1
     },
     {
-        "id": "0453b704c5082dbc",
+        "id": "4e612266484f83df",
         "type": "ui_spacer",
-        "z": "b83fb43068cdf48f",
+        "z": "592b686edd11b813",
         "name": "spacer",
         "group": "a91f3f1520863187",
         "order": 2,
@@ -774,9 +774,9 @@
         "height": 1
     },
     {
-        "id": "27c9f6773ad994fe",
+        "id": "7d130c59b8685ba5",
         "type": "ui_spacer",
-        "z": "b83fb43068cdf48f",
+        "z": "592b686edd11b813",
         "name": "spacer",
         "group": "a91f3f1520863187",
         "order": 13,
@@ -784,9 +784,9 @@
         "height": 1
     },
     {
-        "id": "dc21c2eceb6b0939",
+        "id": "77d4c3bea2e30310",
         "type": "ui_spacer",
-        "z": "b83fb43068cdf48f",
+        "z": "592b686edd11b813",
         "name": "spacer",
         "group": "a91f3f1520863187",
         "order": 16,
@@ -794,9 +794,9 @@
         "height": 1
     },
     {
-        "id": "a1e68ccf885cf12e",
+        "id": "91126a27091220c0",
         "type": "ui_spacer",
-        "z": "b83fb43068cdf48f",
+        "z": "592b686edd11b813",
         "name": "spacer",
         "group": "a91f3f1520863187",
         "order": 19,
@@ -804,9 +804,9 @@
         "height": 1
     },
     {
-        "id": "306b85b94e720517",
+        "id": "d447143ff2d00456",
         "type": "ui_spacer",
-        "z": "b83fb43068cdf48f",
+        "z": "592b686edd11b813",
         "name": "spacer",
         "group": "112aa19380852c23",
         "order": 2,
@@ -814,9 +814,9 @@
         "height": 1
     },
     {
-        "id": "69970ef1507dd511",
+        "id": "d082fe7dc11b95d1",
         "type": "ui_spacer",
-        "z": "b83fb43068cdf48f",
+        "z": "592b686edd11b813",
         "name": "spacer",
         "group": "112aa19380852c23",
         "order": 4,
@@ -824,9 +824,9 @@
         "height": 1
     },
     {
-        "id": "3b567fba39f58a2e",
+        "id": "5074a4399ac8a238",
         "type": "ui_spacer",
-        "z": "b83fb43068cdf48f",
+        "z": "592b686edd11b813",
         "name": "spacer",
         "group": "112aa19380852c23",
         "order": 6,
@@ -834,19 +834,19 @@
         "height": 1
     },
     {
-        "id": "7b57b371a5877f38",
+        "id": "e2c99697bee8bda2",
         "type": "ui_spacer",
-        "z": "b83fb43068cdf48f",
+        "z": "592b686edd11b813",
         "name": "spacer",
         "group": "112aa19380852c23",
         "order": 8,
-        "width": 7,
+        "width": 1,
         "height": 1
     },
     {
-        "id": "591ef9710f8351b6",
+        "id": "b6d422f965872a07",
         "type": "ui_spacer",
-        "z": "b83fb43068cdf48f",
+        "z": "592b686edd11b813",
         "name": "spacer",
         "group": "112aa19380852c23",
         "order": 9,
@@ -854,9 +854,9 @@
         "height": 1
     },
     {
-        "id": "4358c489653da9d4",
+        "id": "1ab8f68fe80f3f9b",
         "type": "ui_spacer",
-        "z": "b83fb43068cdf48f",
+        "z": "592b686edd11b813",
         "name": "spacer",
         "group": "112aa19380852c23",
         "order": 11,
@@ -864,29 +864,29 @@
         "height": 1
     },
     {
-        "id": "a1eb65d7e8a0ecff",
+        "id": "92a8f7fa2bdea0fa",
         "type": "ui_spacer",
-        "z": "b83fb43068cdf48f",
+        "z": "592b686edd11b813",
         "name": "spacer",
         "group": "112aa19380852c23",
-        "order": 14,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "dddf706e7e439d4f",
-        "type": "ui_spacer",
-        "z": "b83fb43068cdf48f",
-        "name": "spacer",
-        "group": "112aa19380852c23",
-        "order": 16,
+        "order": 13,
         "width": 7,
         "height": 1
     },
     {
-        "id": "24c2ce13d37dbac7",
+        "id": "c3c54f749c605ea9",
         "type": "ui_spacer",
-        "z": "b83fb43068cdf48f",
+        "z": "592b686edd11b813",
+        "name": "spacer",
+        "group": "112aa19380852c23",
+        "order": 15,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "f15ccacb207127e9",
+        "type": "ui_spacer",
+        "z": "592b686edd11b813",
         "name": "spacer",
         "group": "112aa19380852c23",
         "order": 17,
@@ -894,9 +894,9 @@
         "height": 1
     },
     {
-        "id": "5ad51f2d7a9ed5dc",
+        "id": "c82f1ba5a77f3fc4",
         "type": "ui_spacer",
-        "z": "b83fb43068cdf48f",
+        "z": "592b686edd11b813",
         "name": "spacer",
         "group": "112aa19380852c23",
         "order": 19,
@@ -904,9 +904,9 @@
         "height": 1
     },
     {
-        "id": "b53b6eff0f1faf88",
+        "id": "6b5d826760e846ef",
         "type": "ui_spacer",
-        "z": "b83fb43068cdf48f",
+        "z": "592b686edd11b813",
         "name": "spacer",
         "group": "112aa19380852c23",
         "order": 21,
@@ -914,9 +914,9 @@
         "height": 1
     },
     {
-        "id": "ee45fa3be012f5a3",
+        "id": "caeb7430f2db3797",
         "type": "ui_spacer",
-        "z": "b83fb43068cdf48f",
+        "z": "592b686edd11b813",
         "name": "spacer",
         "group": "112aa19380852c23",
         "order": 22,
@@ -10624,10 +10624,10 @@
         "group": "112aa19380852c23",
         "order": 5,
         "width": 3,
-        "height": 1,
+        "height": 2,
         "name": "",
         "label": "Raw",
-        "format": "<font color='green'>{{msg.payload}}</font>",
+        "format": "<font color=\"green\" size=\"+3\">{{msg.payload}}</font>",
         "layout": "col-center",
         "className": "",
         "x": 710,
@@ -10641,10 +10641,10 @@
         "group": "112aa19380852c23",
         "order": 7,
         "width": 3,
-        "height": 1,
+        "height": 2,
         "name": "",
         "label": "Scaled",
-        "format": "<font color='green'>{{msg.payload}}</font>",
+        "format": "<font color=\"green\" size=\"+3\">{{msg.payload}}</font>",
         "layout": "col-center",
         "className": "",
         "x": 710,
@@ -10792,7 +10792,7 @@
         "label": "",
         "tooltip": "",
         "group": "112aa19380852c23",
-        "order": 13,
+        "order": 14,
         "width": 3,
         "height": 1,
         "wrap": true,
@@ -10820,7 +10820,7 @@
         "label": "",
         "tooltip": "",
         "group": "112aa19380852c23",
-        "order": 15,
+        "order": 16,
         "width": 3,
         "height": 1,
         "wrap": true,
