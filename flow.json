@@ -4947,12 +4947,12 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
+        "complete": "client_count",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 820,
-        "y": 100,
+        "x": 810,
+        "y": 60,
         "wires": []
     },
     {
