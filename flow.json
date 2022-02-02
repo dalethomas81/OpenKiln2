@@ -12503,10 +12503,28 @@
         "y": 1080,
         "wires": [
             [
-                "57fabf8420eb8b51"
+                "57fabf8420eb8b51",
+                "cb77bfa774926772"
             ]
         ],
         "l": false
+    },
+    {
+        "id": "cb77bfa774926772",
+        "type": "debug",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 360,
+        "y": 1120,
+        "wires": []
     },
     {
         "id": "1c9e79b136a623e2",
