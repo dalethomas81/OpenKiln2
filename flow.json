@@ -1870,7 +1870,7 @@
         "chartType": "line",
         "legend": "true",
         "xformat": "HH:mm:ss",
-        "interpolate": "cubic",
+        "interpolate": "monotone",
         "nodata": "Refresh to see data",
         "dot": false,
         "ymin": "",
