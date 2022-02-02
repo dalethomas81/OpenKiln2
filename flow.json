@@ -4698,31 +4698,10 @@
         "y": 60,
         "wires": [
             [
-                "159ccdef6dc1d967"
+                "9234cc41d8a3f409"
             ]
         ],
         "l": false
-    },
-    {
-        "id": "159ccdef6dc1d967",
-        "type": "function",
-        "z": "592b686edd11b813",
-        "name": "dashboard client count",
-        "func": "var dashboard_client_count = global.get('dashboard_client_count')\nvar client_count = dashboard_client_count\n\nif (msg.payload == 'connect'){\n    if (msg.tab !== undefined) {\n        client_count.tab[msg.tab] = client_count.tab[msg.tab] + 1\n    }\n} else if (msg.payload == 'lost') {\n    if (msg.tab !== undefined) {\n        if (client_count.tab[msg.tab] > 0) client_count.tab[msg.tab] = client_count.tab[msg.tab] - 1\n    }\n}\n\nfor (var i = 0; i < client_count.tab.length;i++) {\n    client_count.total = client_count.total + client_count.tab[i];\n}\n\nglobal.set('dashboard_client_count', client_count);\n\nmsg.client_count = client_count;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 530,
-        "y": 60,
-        "wires": [
-            [
-                "0d7362ca2edd72c6",
-                "282d646eea7abed1",
-                "b511fc1a4941dae5"
-            ]
-        ]
     },
     {
         "id": "0d7362ca2edd72c6",
@@ -4848,9 +4827,11 @@
         "finalize": "",
         "libs": [],
         "x": 530,
-        "y": 100,
+        "y": 60,
         "wires": [
-            []
+            [
+                "0d7362ca2edd72c6"
+            ]
         ]
     },
     {
@@ -4880,49 +4861,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "dashboard_client_count.total",
-                "pt": "global",
-                "to": "0",
-                "tot": "num"
-            },
-            {
-                "t": "set",
-                "p": "dashboard_client_count.tab[0]",
-                "pt": "global",
-                "to": "0",
-                "tot": "num"
-            },
-            {
-                "t": "set",
-                "p": "dashboard_client_count.tab[1]",
-                "pt": "global",
-                "to": "0",
-                "tot": "num"
-            },
-            {
-                "t": "set",
-                "p": "dashboard_client_count.tab[2]",
-                "pt": "global",
-                "to": "0",
-                "tot": "num"
-            },
-            {
-                "t": "set",
-                "p": "dashboard_client_count.tab[3]",
-                "pt": "global",
-                "to": "0",
-                "tot": "num"
-            },
-            {
-                "t": "set",
-                "p": "dashboard_client_count.tab[4]",
-                "pt": "global",
-                "to": "0",
-                "tot": "num"
-            },
-            {
-                "t": "set",
-                "p": "dashboard_client_count.tab[5]",
+                "p": "dashboard_client_count",
                 "pt": "global",
                 "to": "0",
                 "tot": "num"
@@ -4938,40 +4877,6 @@
         "wires": [
             []
         ]
-    },
-    {
-        "id": "282d646eea7abed1",
-        "type": "debug",
-        "z": "592b686edd11b813",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "client_count",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 810,
-        "y": 60,
-        "wires": []
-    },
-    {
-        "id": "b511fc1a4941dae5",
-        "type": "debug",
-        "z": "592b686edd11b813",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 780,
-        "y": 120,
-        "wires": []
     },
     {
         "id": "0f56f86bd83c9233",
