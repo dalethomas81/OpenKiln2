@@ -956,7 +956,7 @@
         "height": 1
     },
     {
-        "id": "0e53a8727ddc4774",
+        "id": "9754df5e9ea4b2fb",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -966,7 +966,7 @@
         "height": 1
     },
     {
-        "id": "8a1dc3f374d57324",
+        "id": "9e793cc1a58ddd28",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -976,7 +976,7 @@
         "height": 1
     },
     {
-        "id": "0f96950a12b34ca4",
+        "id": "b8f7a5b098342b1d",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -986,7 +986,7 @@
         "height": 1
     },
     {
-        "id": "8b3b449a2aa9db16",
+        "id": "7a530a74a76dec7d",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -996,7 +996,7 @@
         "height": 1
     },
     {
-        "id": "e0a964e316563539",
+        "id": "9e887ee4a78435d4",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1006,7 +1006,7 @@
         "height": 1
     },
     {
-        "id": "1cb67a0085147fa7",
+        "id": "d1bfa54dd7c87a06",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1016,7 +1016,7 @@
         "height": 1
     },
     {
-        "id": "6789eb02fa15e0da",
+        "id": "d99414cd3dce892c",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1026,7 +1026,7 @@
         "height": 1
     },
     {
-        "id": "1b84f7dd4b694d19",
+        "id": "1470918f0ef6d23d",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1036,7 +1036,7 @@
         "height": 1
     },
     {
-        "id": "1a9a88ba04d0fcac",
+        "id": "db32594a521f60e0",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1046,7 +1046,7 @@
         "height": 1
     },
     {
-        "id": "ca73f1df2210b768",
+        "id": "6724dbeee3af4a80",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1056,7 +1056,7 @@
         "height": 1
     },
     {
-        "id": "edf194dfbdd38a4b",
+        "id": "be8780bfa3119eb1",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1066,7 +1066,7 @@
         "height": 1
     },
     {
-        "id": "4af1403869dbf440",
+        "id": "05cc5c7379c07a8e",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1882,6 +1882,7 @@
         "id": "4610f0d05bf3b4b1",
         "type": "ui_gauge",
         "z": "592b686edd11b813",
+        "d": true,
         "name": "",
         "group": "2201d496820b415d",
         "order": 7,
@@ -1900,6 +1901,7 @@
         ],
         "seg1": "",
         "seg2": "",
+        "className": "",
         "x": 790,
         "y": 1100,
         "wires": []
@@ -1908,6 +1910,7 @@
         "id": "1a904f944ba81c1b",
         "type": "ui_gauge",
         "z": "592b686edd11b813",
+        "d": true,
         "name": "",
         "group": "2201d496820b415d",
         "order": 9,
@@ -1926,6 +1929,7 @@
         ],
         "seg1": "",
         "seg2": "",
+        "className": "",
         "x": 790,
         "y": 1140,
         "wires": []
@@ -1972,7 +1976,7 @@
         "group": "2201d496820b415d",
         "order": 14,
         "width": 7,
-        "height": 3,
+        "height": 6,
         "label": "",
         "chartType": "line",
         "legend": "true",
@@ -4899,7 +4903,7 @@
         "width": 3,
         "height": 1,
         "name": "upper",
-        "label": "",
+        "label": "Upper Temp",
         "format": "<font color=\"green\" size=\"+3\">{{msg.payload}} °F</font>",
         "layout": "col-center",
         "className": "",
@@ -4916,7 +4920,7 @@
         "width": 3,
         "height": 1,
         "name": "lower",
-        "label": "",
+        "label": "Lower Temp",
         "format": "<font color=\"green\" size=\"+3\">{{msg.payload}} °F</font>",
         "layout": "col-center",
         "className": "",
