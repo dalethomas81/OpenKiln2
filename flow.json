@@ -4947,10 +4947,11 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 840,
+        "x": 820,
         "y": 100,
         "wires": []
     },
