@@ -12420,7 +12420,8 @@
         "y": 940,
         "wires": [
             [
-                "c5671e6fa247bedc"
+                "c5671e6fa247bedc",
+                "32f3ca062684b2b5"
             ]
         ],
         "l": false
@@ -12525,6 +12526,23 @@
         "x": 360,
         "y": 1120,
         "wires": []
+    },
+    {
+        "id": "32f3ca062684b2b5",
+        "type": "function",
+        "z": "3154c44d1a91de38",
+        "name": "dashboard client count",
+        "func": "var dashboard_client_count = global.get('dashboard_client_count')\nif (msg.payload == 'connect'){\n    global.set('dashboard_client_count', dashboard_client_count + 1);\n} else if (msg.payload == 'lost') {\n    if (dashboard_client_count > 0) global.set('dashboard_client_count', dashboard_client_count - 1);\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 860,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "1c9e79b136a623e2",
