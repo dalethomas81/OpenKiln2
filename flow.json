@@ -10768,7 +10768,7 @@
         "passthru": false,
         "topic": "topic",
         "topicType": "msg",
-        "format": "xmin{{msg.payload}}",
+        "format": "xmin<font color=\"green\">{{msg.payload}}</font>",
         "min": 0,
         "max": "3000",
         "step": "0.01",
