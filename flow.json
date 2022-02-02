@@ -956,27 +956,17 @@
         "height": 1
     },
     {
-        "id": "747a93d6b2ce56c7",
+        "id": "f8f5fd579ac27a20",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
         "group": "2201d496820b415d",
-        "order": 7,
-        "width": 7,
-        "height": 1
-    },
-    {
-        "id": "76374af2585f89b1",
-        "type": "ui_spacer",
-        "z": "592b686edd11b813",
-        "name": "spacer",
-        "group": "2201d496820b415d",
-        "order": 9,
+        "order": 8,
         "width": 1,
         "height": 1
     },
     {
-        "id": "3889c7fd62466fc5",
+        "id": "107d0d22af06395c",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -986,7 +976,7 @@
         "height": 1
     },
     {
-        "id": "e41a826559add2a0",
+        "id": "3761185cfdbb84ec",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -996,7 +986,7 @@
         "height": 1
     },
     {
-        "id": "a4a0e5f284a25bda",
+        "id": "85afbfa641c68fd3",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1006,7 +996,7 @@
         "height": 1
     },
     {
-        "id": "a84c0a450143f126",
+        "id": "2b8006f1e9e9fbda",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1016,7 +1006,7 @@
         "height": 1
     },
     {
-        "id": "74b7fd232e56b548",
+        "id": "3d00a3f41eba71f5",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1026,7 +1016,7 @@
         "height": 1
     },
     {
-        "id": "d37b7c73cb6a1bee",
+        "id": "f47bd4ae2ae67011",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1036,7 +1026,7 @@
         "height": 1
     },
     {
-        "id": "8b375714dd696064",
+        "id": "274a017c5afb6542",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1046,7 +1036,7 @@
         "height": 1
     },
     {
-        "id": "7cb4fe8fb1eda03b",
+        "id": "f2e6b102bd93898e",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1056,7 +1046,7 @@
         "height": 1
     },
     {
-        "id": "f504fe39878cbbda",
+        "id": "ad02074663d0f731",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -1883,9 +1873,7 @@
         "x": 635,
         "y": 1100,
         "wires": [
-            [
-                "b6802fc260a8ce06"
-            ]
+            []
         ]
     },
     {
@@ -1899,9 +1887,7 @@
         "x": 635,
         "y": 1140,
         "wires": [
-            [
-                "de9267cf7d7ed872"
-            ]
+            []
         ]
     },
     {
@@ -1910,7 +1896,7 @@
         "z": "592b686edd11b813",
         "name": "",
         "group": "2201d496820b415d",
-        "order": 11,
+        "order": 10,
         "width": 7,
         "height": 4,
         "label": "",
@@ -4836,7 +4822,7 @@
         "type": "ui_text",
         "z": "592b686edd11b813",
         "group": "2201d496820b415d",
-        "order": 10,
+        "order": 9,
         "width": 3,
         "height": 1,
         "name": "upper",
@@ -4853,7 +4839,7 @@
         "type": "ui_text",
         "z": "592b686edd11b813",
         "group": "2201d496820b415d",
-        "order": 8,
+        "order": 7,
         "width": 3,
         "height": 1,
         "name": "lower",
@@ -4864,6 +4850,32 @@
         "x": 750,
         "y": 1140,
         "wires": []
+    },
+    {
+        "id": "e07275d4d836e4df",
+        "type": "inject",
+        "z": "592b686edd11b813",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "2500.0",
+        "payloadType": "num",
+        "x": 560,
+        "y": 1200,
+        "wires": [
+            [
+                "b6802fc260a8ce06",
+                "de9267cf7d7ed872"
+            ]
+        ]
     },
     {
         "id": "0f56f86bd83c9233",
