@@ -12547,5 +12547,125 @@
                 "5bb9693f827a8916"
             ]
         ]
+    },
+    {
+        "id": "b22998e6d78aeec1",
+        "type": "inject",
+        "z": "98e4246c87add39e",
+        "name": "Oneshot Timer at Startup",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 190,
+        "y": 500,
+        "wires": [
+            [
+                "7fa2d20f4131fc60"
+            ]
+        ]
+    },
+    {
+        "id": "99697af708a701c0",
+        "type": "inject",
+        "z": "98e4246c87add39e",
+        "name": "1 Second Timer",
+        "props": [],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 210,
+        "y": 540,
+        "wires": [
+            [
+                "62eccecdbb37e6f8"
+            ]
+        ]
+    },
+    {
+        "id": "88f077fb53d14a6b",
+        "type": "inject",
+        "z": "98e4246c87add39e",
+        "name": "5 Second Timer",
+        "props": [],
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 210,
+        "y": 580,
+        "wires": [
+            [
+                "024e0212ac6e8812"
+            ]
+        ]
+    },
+    {
+        "id": "7fa2d20f4131fc60",
+        "type": "link out",
+        "z": "98e4246c87add39e",
+        "name": "Oneshot Inject at Startup",
+        "mode": "link",
+        "links": [],
+        "x": 375,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "62eccecdbb37e6f8",
+        "type": "link out",
+        "z": "98e4246c87add39e",
+        "name": "Timer 1",
+        "mode": "link",
+        "links": [],
+        "x": 375,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "024e0212ac6e8812",
+        "type": "link out",
+        "z": "98e4246c87add39e",
+        "name": "Timer 2",
+        "mode": "link",
+        "links": [],
+        "x": 375,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "8e7b143f03fe4151",
+        "type": "inject",
+        "z": "98e4246c87add39e",
+        "name": "10 Second Timer",
+        "props": [],
+        "repeat": "10",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 210,
+        "y": 620,
+        "wires": [
+            [
+                "0023bda6c99b9785"
+            ]
+        ]
+    },
+    {
+        "id": "0023bda6c99b9785",
+        "type": "link out",
+        "z": "98e4246c87add39e",
+        "name": "Timer 3",
+        "mode": "link",
+        "links": [],
+        "x": 375,
+        "y": 620,
+        "wires": []
     }
 ]
