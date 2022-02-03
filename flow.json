@@ -5817,25 +5817,6 @@
         "l": false
     },
     {
-        "id": "cc0f47bb7c2fcf67",
-        "type": "inject",
-        "z": "e9cef8706a9cf7f6",
-        "name": "oneshot on startup",
-        "props": [],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 430,
-        "y": 40,
-        "wires": [
-            [
-                "6202fbcb0c1e1b73"
-            ]
-        ]
-    },
-    {
         "id": "6202fbcb0c1e1b73",
         "type": "change",
         "z": "e9cef8706a9cf7f6",
@@ -6873,6 +6854,23 @@
         "l": false
     },
     {
+        "id": "b7093a504612f6ed",
+        "type": "link in",
+        "z": "e9cef8706a9cf7f6",
+        "name": "Oneshot Inject at Startup",
+        "links": [
+            "7fa2d20f4131fc60"
+        ],
+        "x": 495,
+        "y": 40,
+        "wires": [
+            [
+                "6202fbcb0c1e1b73"
+            ]
+        ],
+        "icon": "node-red/timer.svg"
+    },
+    {
         "id": "0d21e53eb5db0544",
         "type": "catch",
         "z": "b83fb43068cdf48f",
@@ -6924,74 +6922,6 @@
             [
                 "79e8d734b498031e"
             ]
-        ],
-        "l": false
-    },
-    {
-        "id": "b33d04d72da3a5c7",
-        "type": "inject",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "props": [
-            {
-                "p": "topic",
-                "vt": "str"
-            },
-            {
-                "p": "payload"
-            },
-            {
-                "p": "setpoint",
-                "v": "pid.zone[0].parameters.setpoint",
-                "vt": "global"
-            },
-            {
-                "p": "prop_band",
-                "v": "pid.zone[0].settings.accepted.time.PB",
-                "vt": "global"
-            },
-            {
-                "p": "t_integral",
-                "v": "pid.zone[0].settings.accepted.time.Ti",
-                "vt": "global"
-            },
-            {
-                "p": "t_derivative",
-                "v": "pid.zone[0].settings.accepted.time.Td",
-                "vt": "global"
-            },
-            {
-                "p": "integral_default",
-                "v": "0.5",
-                "vt": "num"
-            },
-            {
-                "p": "max_interval",
-                "v": "600",
-                "vt": "num"
-            },
-            {
-                "p": "smooth_factor",
-                "v": "3",
-                "vt": "num"
-            },
-            {
-                "p": "disabled_op",
-                "v": "0",
-                "vt": "num"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "process",
-        "payload": "pid.zone[0].parameters.process",
-        "payloadType": "global",
-        "x": 235,
-        "y": 320,
-        "wires": [
-            []
         ],
         "l": false
     },
@@ -8164,26 +8094,6 @@
         ]
     },
     {
-        "id": "8fac31ef752b986d",
-        "type": "inject",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "props": [],
-        "repeat": "1",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 75,
-        "y": 120,
-        "wires": [
-            [
-                "82f39574ad2ae492"
-            ]
-        ],
-        "l": false
-    },
-    {
         "id": "82f39574ad2ae492",
         "type": "change",
         "z": "b83fb43068cdf48f",
@@ -8360,26 +8270,6 @@
         ]
     },
     {
-        "id": "216bb83c577ca24b",
-        "type": "inject",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "props": [],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 75,
-        "y": 600,
-        "wires": [
-            [
-                "45a06d0cb15ef15c"
-            ]
-        ],
-        "l": false
-    },
-    {
         "id": "bc663421e535970f",
         "type": "debug",
         "z": "b83fb43068cdf48f",
@@ -8475,74 +8365,6 @@
             [
                 "83caff269f9bed78"
             ]
-        ],
-        "l": false
-    },
-    {
-        "id": "68721f01ae247e2e",
-        "type": "inject",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "props": [
-            {
-                "p": "topic",
-                "vt": "str"
-            },
-            {
-                "p": "payload"
-            },
-            {
-                "p": "setpoint",
-                "v": "pid.zone[1].parameters.setpoint",
-                "vt": "global"
-            },
-            {
-                "p": "prop_band",
-                "v": "pid.zone[1].settings.accepted.time.PB",
-                "vt": "global"
-            },
-            {
-                "p": "t_integral",
-                "v": "pid.zone[1].settings.accepted.time.Ti",
-                "vt": "global"
-            },
-            {
-                "p": "t_derivative",
-                "v": "pid.zone[1].settings.accepted.time.Td",
-                "vt": "global"
-            },
-            {
-                "p": "integral_default",
-                "v": "0.5",
-                "vt": "num"
-            },
-            {
-                "p": "max_interval",
-                "v": "600",
-                "vt": "num"
-            },
-            {
-                "p": "smooth_factor",
-                "v": "3",
-                "vt": "num"
-            },
-            {
-                "p": "disabled_op",
-                "v": "0",
-                "vt": "num"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "process",
-        "payload": "pid.zone[1].parameters.process",
-        "payloadType": "global",
-        "x": 535,
-        "y": 280,
-        "wires": [
-            []
         ],
         "l": false
     },
@@ -8763,26 +8585,6 @@
         "y": 120,
         "wires": [
             []
-        ],
-        "l": false
-    },
-    {
-        "id": "0eb16bd0658e0cc5",
-        "type": "inject",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "props": [],
-        "repeat": "1",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 535,
-        "y": 120,
-        "wires": [
-            [
-                "2173af95761ba16b"
-            ]
         ],
         "l": false
     },
@@ -9355,24 +9157,92 @@
         "l": true
     },
     {
-        "id": "3012b4c657732549",
+        "id": "216bb83c577ca24b",
         "type": "inject",
         "z": "b83fb43068cdf48f",
         "name": "",
         "props": [],
-        "repeat": "1",
+        "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 120,
-        "y": 200,
+        "x": 75,
+        "y": 600,
         "wires": [
             [
-                "385287d0010ada53",
+                "45a06d0cb15ef15c"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "926b0d1549693d67",
+        "type": "link in",
+        "z": "b83fb43068cdf48f",
+        "name": "Timer 1",
+        "links": [
+            "62eccecdbb37e6f8"
+        ],
+        "x": 535,
+        "y": 260,
+        "wires": [
+            [
                 "aa541d34f410d1e9"
             ]
-        ]
+        ],
+        "icon": "node-red/timer.svg"
+    },
+    {
+        "id": "98c5268e979c7dcb",
+        "type": "link in",
+        "z": "b83fb43068cdf48f",
+        "name": "Timer 1",
+        "links": [
+            "62eccecdbb37e6f8"
+        ],
+        "x": 75,
+        "y": 260,
+        "wires": [
+            [
+                "385287d0010ada53"
+            ]
+        ],
+        "icon": "node-red/timer.svg"
+    },
+    {
+        "id": "83d1eeca2821fcac",
+        "type": "link in",
+        "z": "b83fb43068cdf48f",
+        "name": "Timer 1",
+        "links": [
+            "62eccecdbb37e6f8"
+        ],
+        "x": 535,
+        "y": 120,
+        "wires": [
+            [
+                "2173af95761ba16b"
+            ]
+        ],
+        "icon": "node-red/timer.svg"
+    },
+    {
+        "id": "c271444bdafb92be",
+        "type": "link in",
+        "z": "b83fb43068cdf48f",
+        "name": "Timer 1",
+        "links": [
+            "62eccecdbb37e6f8"
+        ],
+        "x": 75,
+        "y": 120,
+        "wires": [
+            [
+                "82f39574ad2ae492"
+            ]
+        ],
+        "icon": "node-red/timer.svg"
     },
     {
         "id": "c96f9cb61b158baf",
@@ -12586,7 +12456,9 @@
             "1fcd1d351b927c92",
             "67fd6dcf0c009872",
             "3a10314de81e4ea3",
-            "b5bc3f51e5bd08f9"
+            "b5bc3f51e5bd08f9",
+            "b7093a504612f6ed",
+            "8025efa4ec2e5944"
         ],
         "x": 375,
         "y": 500,
@@ -12598,7 +12470,12 @@
         "z": "98e4246c87add39e",
         "name": "Timer 1",
         "mode": "link",
-        "links": [],
+        "links": [
+            "926b0d1549693d67",
+            "98c5268e979c7dcb",
+            "83d1eeca2821fcac",
+            "c271444bdafb92be"
+        ],
         "x": 375,
         "y": 540,
         "wires": []
