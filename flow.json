@@ -981,6 +981,17 @@
         "height": 1
     },
     {
+        "id": "5331d4d4d2257e9c",
+        "type": "ui_group",
+        "name": "System",
+        "tab": "de5db1c89316833e",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
         "id": "d3de24e635754f29",
         "type": "influxdb in",
         "z": "592b686edd11b813",
@@ -12235,8 +12246,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 200,
-        "y": 140,
+        "x": 180,
+        "y": 160,
         "wires": [
             [
                 "f14af351da1b05c1"
@@ -12255,8 +12266,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "",
-        "x": 380,
-        "y": 140,
+        "x": 440,
+        "y": 160,
         "wires": [
             [],
             [],
@@ -12284,8 +12295,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 200,
-        "y": 180,
+        "x": 180,
+        "y": 200,
         "wires": [
             [
                 "3b38d7ad7142ae99"
@@ -12304,8 +12315,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "",
-        "x": 400,
-        "y": 180,
+        "x": 460,
+        "y": 200,
         "wires": [
             [],
             [],
@@ -12333,8 +12344,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 200,
-        "y": 220,
+        "x": 180,
+        "y": 240,
         "wires": [
             [
                 "5bb9693f827a8916"
@@ -12353,8 +12364,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "",
-        "x": 390,
-        "y": 220,
+        "x": 450,
+        "y": 240,
         "wires": [
             [],
             [],
@@ -12372,8 +12383,8 @@
         "once": true,
         "onceDelay": "1",
         "topic": "",
-        "x": 210,
-        "y": 260,
+        "x": 190,
+        "y": 280,
         "wires": [
             [
                 "5e1d74212376e4f3"
@@ -12392,8 +12403,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "",
-        "x": 360,
-        "y": 260,
+        "x": 420,
+        "y": 280,
         "wires": [
             [
                 "f619121c08077343"
@@ -12421,8 +12432,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 560,
-        "y": 260,
+        "x": 620,
+        "y": 280,
         "wires": [
             []
         ]
@@ -12436,5 +12447,89 @@
         "x": 110,
         "y": 100,
         "wires": []
+    },
+    {
+        "id": "f5033733f707ca3b",
+        "type": "ui_button",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "group": "5331d4d4d2257e9c",
+        "order": 11,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Restart Node-RED",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 150,
+        "y": 320,
+        "wires": [
+            [
+                "f14af351da1b05c1"
+            ]
+        ]
+    },
+    {
+        "id": "f623a973075e595e",
+        "type": "ui_button",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "group": "5331d4d4d2257e9c",
+        "order": 11,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Shutdown OpenKiln",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 140,
+        "y": 360,
+        "wires": [
+            [
+                "3b38d7ad7142ae99"
+            ]
+        ]
+    },
+    {
+        "id": "a642f1f2e5e98baf",
+        "type": "ui_button",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "group": "5331d4d4d2257e9c",
+        "order": 11,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Reboot OpenKiln",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 150,
+        "y": 400,
+        "wires": [
+            [
+                "5bb9693f827a8916"
+            ]
+        ]
     }
 ]
