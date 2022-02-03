@@ -12376,7 +12376,7 @@
         "z": "98e4246c87add39e",
         "name": "1 Second Timer",
         "props": [],
-        "repeat": "1",
+        "repeat": "2",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
