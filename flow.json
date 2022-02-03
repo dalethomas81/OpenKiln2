@@ -1217,6 +1217,13 @@
                 "pt": "flow",
                 "to": "0",
                 "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "dashboard_client_count",
+                "pt": "global",
+                "to": "0",
+                "tot": "num"
             }
         ],
         "action": "",
@@ -1224,8 +1231,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 195,
-        "y": 200,
+        "x": 395,
+        "y": 20,
         "wires": [
             []
         ],
@@ -4116,8 +4123,8 @@
         "z": "592b686edd11b813",
         "name": "dashboard events",
         "events": "all",
-        "x": 375,
-        "y": 60,
+        "x": 475,
+        "y": 20,
         "wires": [
             [
                 "9234cc41d8a3f409"
@@ -4139,8 +4146,8 @@
             "ae639127ca4d386d",
             "c0707caf85c10e83"
         ],
-        "x": 675,
-        "y": 60,
+        "x": 595,
+        "y": 20,
         "wires": []
     },
     {
@@ -4248,38 +4255,14 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 530,
-        "y": 60,
+        "x": 535,
+        "y": 20,
         "wires": [
             [
                 "0d7362ca2edd72c6"
             ]
-        ]
-    },
-    {
-        "id": "e13ff97e2e36c78f",
-        "type": "change",
-        "z": "592b686edd11b813",
-        "name": "initialize",
-        "rules": [
-            {
-                "t": "set",
-                "p": "dashboard_client_count",
-                "pt": "global",
-                "to": "0",
-                "tot": "num"
-            }
         ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 540,
-        "y": 20,
-        "wires": [
-            []
-        ]
+        "l": false
     },
     {
         "id": "b6802fc260a8ce06",
@@ -4485,23 +4468,6 @@
         "wires": []
     },
     {
-        "id": "1fcd1d351b927c92",
-        "type": "link in",
-        "z": "592b686edd11b813",
-        "name": "Oneshot Inject at Startup",
-        "links": [
-            "7fa2d20f4131fc60"
-        ],
-        "x": 435,
-        "y": 20,
-        "wires": [
-            [
-                "e13ff97e2e36c78f"
-            ]
-        ],
-        "icon": "node-red/timer.svg"
-    },
-    {
         "id": "67fd6dcf0c009872",
         "type": "link in",
         "z": "592b686edd11b813",
@@ -4509,8 +4475,8 @@
         "links": [
             "7fa2d20f4131fc60"
         ],
-        "x": 135,
-        "y": 200,
+        "x": 335,
+        "y": 20,
         "wires": [
             [
                 "26aedf9d4f3e92fc"
@@ -5821,11 +5787,12 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 610,
+        "x": 395,
         "y": 20,
         "wires": [
             []
-        ]
+        ],
+        "l": false
     },
     {
         "id": "93a841c73beae51f",
@@ -6847,7 +6814,7 @@
         "links": [
             "7fa2d20f4131fc60"
         ],
-        "x": 475,
+        "x": 335,
         "y": 20,
         "wires": [
             [
@@ -6935,7 +6902,7 @@
                 "1f4cc5c39e564a05"
             ],
             [
-                "68516e3a2a90088c"
+                "4f6c495a3f7424e0"
             ],
             [
                 "7e795aafec1fe140",
@@ -7221,19 +7188,6 @@
                 "425ae74daf907ee2"
             ]
         ]
-    },
-    {
-        "id": "68516e3a2a90088c",
-        "type": "link out",
-        "z": "b83fb43068cdf48f",
-        "name": "process out",
-        "mode": "link",
-        "links": [
-            "51197ff3f70a4013"
-        ],
-        "x": 275,
-        "y": 400,
-        "wires": []
     },
     {
         "id": "f105876bb8452e6f",
@@ -7539,8 +7493,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 135,
-        "y": 480,
+        "x": 415,
+        "y": 20,
         "wires": [
             []
         ],
@@ -8040,22 +7994,6 @@
         "l": false
     },
     {
-        "id": "51197ff3f70a4013",
-        "type": "link in",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "links": [
-            "68516e3a2a90088c"
-        ],
-        "x": 275,
-        "y": 480,
-        "wires": [
-            [
-                "4f6c495a3f7424e0"
-            ]
-        ]
-    },
-    {
         "id": "82f39574ad2ae492",
         "type": "change",
         "z": "b83fb43068cdf48f",
@@ -8223,11 +8161,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 210,
-        "y": 600,
+        "x": 575,
+        "y": 20,
         "wires": [
             []
-        ]
+        ],
+        "l": false
     },
     {
         "id": "4f6c495a3f7424e0",
@@ -8240,8 +8179,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 335,
-        "y": 480,
+        "x": 275,
+        "y": 400,
         "wires": [
             []
         ],
@@ -9109,8 +9048,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 75,
-        "y": 600,
+        "x": 515,
+        "y": 20,
         "wires": [
             [
                 "45a06d0cb15ef15c"
@@ -9194,8 +9133,8 @@
         "links": [
             "7fa2d20f4131fc60"
         ],
-        "x": 75,
-        "y": 480,
+        "x": 355,
+        "y": 20,
         "wires": [
             [
                 "b0cf339b6f16ca16"
