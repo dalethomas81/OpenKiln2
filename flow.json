@@ -11992,28 +11992,10 @@
         "wires": [
             [
                 "ea802ed93ceeae42",
-                "79016fc241d79289",
-                "2c2b11272cac284a"
+                "79016fc241d79289"
             ]
         ],
         "l": false
-    },
-    {
-        "id": "2c2b11272cac284a",
-        "type": "debug",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 480,
-        "y": 300,
-        "wires": []
     },
     {
         "id": "1c9e79b136a623e2",
