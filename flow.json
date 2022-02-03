@@ -1198,32 +1198,6 @@
         ]
     },
     {
-        "id": "49136d0a89f16ce8",
-        "type": "inject",
-        "z": "592b686edd11b813",
-        "name": "Initialize",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 75,
-        "y": 200,
-        "wires": [
-            [
-                "26aedf9d4f3e92fc"
-            ]
-        ],
-        "l": false
-    },
-    {
         "id": "26aedf9d4f3e92fc",
         "type": "change",
         "z": "592b686edd11b813",
@@ -1249,7 +1223,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 135,
+        "x": 195,
         "y": 200,
         "wires": [
             []
@@ -2788,32 +2762,6 @@
         "l": false
     },
     {
-        "id": "41b8c810b1294a96",
-        "type": "inject",
-        "z": "592b686edd11b813",
-        "name": "Initialize",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 575,
-        "y": 680,
-        "wires": [
-            [
-                "7dc828597fda8316"
-            ]
-        ],
-        "l": false
-    },
-    {
         "id": "9ac0734e2471a4ae",
         "type": "ui_numeric",
         "z": "592b686edd11b813",
@@ -3325,32 +3273,6 @@
         "y": 720,
         "wires": [
             []
-        ],
-        "l": false
-    },
-    {
-        "id": "b18c724cefd5d345",
-        "type": "inject",
-        "z": "592b686edd11b813",
-        "name": "Initialize",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 895,
-        "y": 720,
-        "wires": [
-            [
-                "9be32d3453fc15e7"
-            ]
         ],
         "l": false
     },
@@ -4350,25 +4272,6 @@
         ]
     },
     {
-        "id": "e73e25274ed75339",
-        "type": "inject",
-        "z": "592b686edd11b813",
-        "name": "",
-        "props": [],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "0.1",
-        "topic": "",
-        "x": 410,
-        "y": 20,
-        "wires": [
-            [
-                "e13ff97e2e36c78f"
-            ]
-        ]
-    },
-    {
         "id": "e13ff97e2e36c78f",
         "type": "change",
         "z": "592b686edd11b813",
@@ -4595,6 +4498,74 @@
         "x": 100,
         "y": 1600,
         "wires": []
+    },
+    {
+        "id": "1fcd1d351b927c92",
+        "type": "link in",
+        "z": "592b686edd11b813",
+        "name": "Oneshot Inject at Startup",
+        "links": [
+            "7fa2d20f4131fc60"
+        ],
+        "x": 435,
+        "y": 20,
+        "wires": [
+            [
+                "e13ff97e2e36c78f"
+            ]
+        ],
+        "icon": "node-red/timer.svg"
+    },
+    {
+        "id": "67fd6dcf0c009872",
+        "type": "link in",
+        "z": "592b686edd11b813",
+        "name": "Oneshot Inject at Startup",
+        "links": [
+            "7fa2d20f4131fc60"
+        ],
+        "x": 135,
+        "y": 200,
+        "wires": [
+            [
+                "26aedf9d4f3e92fc"
+            ]
+        ],
+        "icon": "node-red/timer.svg"
+    },
+    {
+        "id": "3a10314de81e4ea3",
+        "type": "link in",
+        "z": "592b686edd11b813",
+        "name": "Oneshot Inject at Startup",
+        "links": [
+            "7fa2d20f4131fc60"
+        ],
+        "x": 575,
+        "y": 680,
+        "wires": [
+            [
+                "7dc828597fda8316"
+            ]
+        ],
+        "icon": "node-red/timer.svg"
+    },
+    {
+        "id": "b5bc3f51e5bd08f9",
+        "type": "link in",
+        "z": "592b686edd11b813",
+        "name": "Oneshot Inject at Startup",
+        "links": [
+            "7fa2d20f4131fc60"
+        ],
+        "x": 895,
+        "y": 720,
+        "wires": [
+            [
+                "9be32d3453fc15e7"
+            ]
+        ],
+        "icon": "node-red/timer.svg"
     },
     {
         "id": "0f56f86bd83c9233",
@@ -12611,7 +12582,12 @@
         "z": "98e4246c87add39e",
         "name": "Oneshot Inject at Startup",
         "mode": "link",
-        "links": [],
+        "links": [
+            "1fcd1d351b927c92",
+            "67fd6dcf0c009872",
+            "3a10314de81e4ea3",
+            "b5bc3f51e5bd08f9"
+        ],
         "x": 375,
         "y": 500,
         "wires": []
