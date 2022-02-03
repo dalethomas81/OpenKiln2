@@ -133,16 +133,6 @@
         }
     },
     {
-        "id": "b96e65c991e4f663",
-        "type": "ui_group",
-        "name": "Historical Data",
-        "tab": "",
-        "order": 1,
-        "disp": true,
-        "width": "20",
-        "collapse": false
-    },
-    {
         "id": "1a7d214ba0ada216",
         "type": "influxdb",
         "hostname": "127.0.0.1",
@@ -402,8 +392,7 @@
         "order": 2,
         "disp": true,
         "width": "7",
-        "collapse": false,
-        "className": ""
+        "collapse": false
     },
     {
         "id": "2201d496820b415d",
@@ -450,8 +439,7 @@
         "order": 4,
         "disp": true,
         "width": 7,
-        "collapse": false,
-        "className": ""
+        "collapse": false
     },
     {
         "id": "f86f065176941099",
@@ -660,8 +648,7 @@
         "order": 3,
         "disp": false,
         "width": 7,
-        "collapse": false,
-        "className": ""
+        "collapse": false
     },
     {
         "id": "cff69f86b0572e70",
@@ -1466,7 +1453,6 @@
         "label": "Segment State",
         "format": "<font color='green'>{{msg.payload}}</font>",
         "layout": "row-center",
-        "className": "",
         "x": 320,
         "y": 1100,
         "wires": []
@@ -1499,7 +1485,6 @@
         "label": "Schedule State",
         "format": "<font color='green'>{{msg.payload}}</font>",
         "layout": "row-center",
-        "className": "",
         "x": 320,
         "y": 1060,
         "wires": []
@@ -1532,7 +1517,6 @@
         "label": "Setpoint",
         "format": "<font color='green'>{{msg.payload}} °F</font>",
         "layout": "row-center",
-        "className": "",
         "x": 300,
         "y": 1220,
         "wires": []
@@ -1717,7 +1701,6 @@
         "label": "Current Segment",
         "format": "<font color='green'>{{msg.payload}}</font>",
         "layout": "row-center",
-        "className": "",
         "x": 330,
         "y": 1140,
         "wires": []
@@ -1750,7 +1733,6 @@
         "label": "Soak Remaining",
         "format": "<font color='green'>{{msg.payload}} min</font>",
         "layout": "row-center",
-        "className": "",
         "x": 320,
         "y": 1180,
         "wires": []
@@ -1842,7 +1824,6 @@
         ],
         "outputs": 1,
         "useDifferentColor": false,
-        "className": "",
         "x": 750,
         "y": 1300,
         "wires": [
@@ -1863,7 +1844,6 @@
         "fwdInMessages": false,
         "resendOnRefresh": true,
         "templateScope": "local",
-        "className": "",
         "x": 500,
         "y": 400,
         "wires": [
@@ -1884,7 +1864,6 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "orange",
-        "className": "",
         "icon": "warning",
         "payload": "",
         "payloadType": "str",
@@ -2101,7 +2080,6 @@
         "label": "Ramp Rate",
         "format": "<font color='green'>{{msg.payload}} deg/h</font>",
         "layout": "row-center",
-        "className": "",
         "x": 770,
         "y": 1060,
         "wires": []
@@ -2843,7 +2821,6 @@
         "min": "1",
         "max": "16",
         "step": 1,
-        "className": "",
         "x": 520,
         "y": 240,
         "wires": [
@@ -2871,7 +2848,6 @@
         "min": "1",
         "max": "16",
         "step": 1,
-        "className": "",
         "x": 520,
         "y": 280,
         "wires": [
@@ -3177,7 +3153,6 @@
         "officon": "",
         "offcolor": "",
         "animate": false,
-        "className": "",
         "x": 850,
         "y": 760,
         "wires": [
@@ -3415,7 +3390,6 @@
         "label": "Delay time Remaining",
         "format": "<font color='green'>{{msg.payload}}</font>",
         "layout": "row-spread",
-        "className": "",
         "x": 895,
         "y": 920,
         "wires": [],
@@ -3440,7 +3414,6 @@
         "min": 0,
         "max": 10,
         "step": "0.5",
-        "className": "",
         "x": 880,
         "y": 800,
         "wires": [
@@ -3734,7 +3707,6 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "orange",
-        "className": "",
         "icon": "warning",
         "payload": "",
         "payloadType": "str",
@@ -4422,7 +4394,6 @@
         "label": "Upper Temp",
         "format": "<font color=\"orange\" size=\"+3\">{{msg.payload}}</font>",
         "layout": "col-center",
-        "className": "",
         "x": 750,
         "y": 1100,
         "wires": []
@@ -4439,7 +4410,6 @@
         "label": "Lower Temp",
         "format": "<font color=\"orange\" size=\"+3\">{{msg.payload}}</font>",
         "layout": "col-center",
-        "className": "",
         "x": 750,
         "y": 1140,
         "wires": []
@@ -7193,7 +7163,6 @@
         "label": "State:",
         "format": "<font color=\"green\">{{msg.payload}}</font>",
         "layout": "row-left",
-        "className": "",
         "x": 275,
         "y": 440,
         "wires": [],
@@ -7274,7 +7243,6 @@
         "min": "-100",
         "max": "100",
         "step": "0.01",
-        "className": "",
         "x": 755,
         "y": 360,
         "wires": [
@@ -7303,7 +7271,6 @@
         "min": "-100",
         "max": "100",
         "step": "0.01",
-        "className": "",
         "x": 755,
         "y": 380,
         "wires": [
@@ -7332,7 +7299,6 @@
         "min": "-1000",
         "max": "1000",
         "step": "0.01",
-        "className": "",
         "x": 755,
         "y": 400,
         "wires": [
@@ -7722,7 +7688,6 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "orange",
-        "className": "",
         "icon": "warning",
         "payload": "",
         "payloadType": "str",
@@ -7776,7 +7741,6 @@
         "min": "-100",
         "max": "100",
         "step": "0.01",
-        "className": "",
         "x": 755,
         "y": 420,
         "wires": [
@@ -7805,7 +7769,6 @@
         "min": "-100",
         "max": "100",
         "step": "0.01",
-        "className": "",
         "x": 755,
         "y": 440,
         "wires": [
@@ -7834,7 +7797,6 @@
         "min": "-100",
         "max": "100",
         "step": "0.01",
-        "className": "",
         "x": 755,
         "y": 460,
         "wires": [
@@ -8053,7 +8015,6 @@
         ],
         "outputs": 1,
         "useDifferentColor": false,
-        "className": "",
         "x": 795,
         "y": 640,
         "wires": [
@@ -9021,7 +8982,6 @@
         "min": 0,
         "max": "3000",
         "step": 1,
-        "className": "",
         "x": 755,
         "y": 540,
         "wires": [
@@ -10598,7 +10558,6 @@
         "label": "Raw",
         "format": "<font color=\"green\" size=\"+3\">{{msg.payload}}</font>",
         "layout": "row-center",
-        "className": "",
         "x": 710,
         "y": 1060,
         "wires": []
@@ -10615,7 +10574,6 @@
         "label": "Scaled",
         "format": "<font color=\"green\" size=\"+3\">{{msg.payload}}</font>",
         "layout": "row-center",
-        "className": "",
         "x": 710,
         "y": 1100,
         "wires": []
@@ -10688,7 +10646,6 @@
         "min": 0,
         "max": "1",
         "step": 1,
-        "className": "",
         "x": 410,
         "y": 960,
         "wires": [
@@ -10772,7 +10729,6 @@
         "min": 0,
         "max": "3000",
         "step": "0.01",
-        "className": "",
         "x": 490,
         "y": 1160,
         "wires": [
@@ -10800,7 +10756,6 @@
         "min": 0,
         "max": "3000",
         "step": "0.01",
-        "className": "",
         "x": 490,
         "y": 1180,
         "wires": [
@@ -10828,7 +10783,6 @@
         "min": 0,
         "max": "3000",
         "step": "0.01",
-        "className": "",
         "x": 490,
         "y": 1200,
         "wires": [
@@ -10856,7 +10810,6 @@
         "min": 0,
         "max": "3000",
         "step": "0.01",
-        "className": "",
         "x": 490,
         "y": 1220,
         "wires": [
@@ -10884,7 +10837,6 @@
         "min": 0,
         "max": "3000",
         "step": "0.0001",
-        "className": "",
         "x": 490,
         "y": 1240,
         "wires": [
@@ -10912,7 +10864,6 @@
         "min": 0,
         "max": "3000",
         "step": "0.0001",
-        "className": "",
         "x": 490,
         "y": 1260,
         "wires": [
@@ -11868,7 +11819,7 @@
         "z": "3154c44d1a91de38",
         "name": "monitor thermocouple failure",
         "info": "this section of nodes will start a timer when \nthe thermocouple returned data is either\n32 or NaN.\n\nafter the timer has expired the thermocouple\nwill be considered faulty.\n\nwhen the thermocouple begins transmitting \nvalues other than 32 or NaN again another\ntimer will start.\n\nonce this timer expires then the thermocouple\nwill be considered ok again.",
-        "x": 600,
+        "x": 580,
         "y": 200,
         "wires": []
     },
@@ -11956,7 +11907,6 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "orange",
-        "className": "",
         "icon": "warning",
         "payload": "",
         "payloadType": "str",
@@ -12195,12 +12145,13 @@
         "links": [
             "0d7362ca2edd72c6"
         ],
-        "x": 130,
-        "y": 1100,
+        "x": 110,
+        "y": 1060,
         "wires": [
             [
                 "6934e6c8ca5ac2db",
-                "57fabf8420eb8b51"
+                "57fabf8420eb8b51",
+                "c5671e6fa247bedc"
             ]
         ],
         "l": true
