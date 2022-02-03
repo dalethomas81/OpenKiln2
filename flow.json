@@ -133,16 +133,6 @@
         }
     },
     {
-        "id": "b96e65c991e4f663",
-        "type": "ui_group",
-        "name": "Historical Data",
-        "tab": "",
-        "order": 1,
-        "disp": true,
-        "width": "20",
-        "collapse": false
-    },
-    {
         "id": "1a7d214ba0ada216",
         "type": "influxdb",
         "hostname": "127.0.0.1",
@@ -11829,7 +11819,7 @@
         "z": "3154c44d1a91de38",
         "name": "monitor thermocouple failure",
         "info": "this section of nodes will start a timer when \nthe thermocouple returned data is either\n32 or NaN.\n\nafter the timer has expired the thermocouple\nwill be considered faulty.\n\nwhen the thermocouple begins transmitting \nvalues other than 32 or NaN again another\ntimer will start.\n\nonce this timer expires then the thermocouple\nwill be considered ok again.",
-        "x": 600,
+        "x": 580,
         "y": 200,
         "wires": []
     },
@@ -12155,12 +12145,13 @@
         "links": [
             "0d7362ca2edd72c6"
         ],
-        "x": 130,
-        "y": 1100,
+        "x": 110,
+        "y": 1060,
         "wires": [
             [
                 "6934e6c8ca5ac2db",
-                "57fabf8420eb8b51"
+                "57fabf8420eb8b51",
+                "c5671e6fa247bedc"
             ]
         ],
         "l": true
