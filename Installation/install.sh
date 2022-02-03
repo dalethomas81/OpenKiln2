@@ -121,14 +121,19 @@ will install OpenKiln2 for you.
 
     sudo nano /etc/grafana/grafana.ini
 
-    //[users]
-    //viewers_can_edit=true
-    //[auth.anonymous]
-    //enabled=true
     //[security]
-    //allow_embedding=true
+    allow_embedding=true
+
+    //[users]
+    viewers_can_edit=true
+
+    //[auth.anonymous]
+    enabled=true
+    org_name = Main Org.
+    org_role = Admin
+
     //[log]
-    //mode = console
+    mode = console
 
     control+x
 
@@ -137,6 +142,13 @@ will install OpenKiln2 for you.
     enter
 
     sudo /bin/systemctl start grafana-server
+
+    /////// add datasource
+    choose influx
+    url http://localhost:8086
+    database home
+    user admin
+    password OpenKiln@12
 
 # install pi sugar
     wget http://cdn.pisugar.com/release/pisugar-power-manager.sh
