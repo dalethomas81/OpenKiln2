@@ -7520,31 +7520,6 @@
         "l": false
     },
     {
-        "id": "facb43dbf4d57ae0",
-        "type": "inject",
-        "z": "b83fb43068cdf48f",
-        "name": "on startup",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payloadType": "date",
-        "x": 75,
-        "y": 480,
-        "wires": [
-            [
-                "b0cf339b6f16ca16"
-            ]
-        ],
-        "l": false
-    },
-    {
         "id": "b0cf339b6f16ca16",
         "type": "change",
         "z": "b83fb43068cdf48f",
@@ -9245,30 +9220,21 @@
         "icon": "node-red/timer.svg"
     },
     {
-        "id": "c96f9cb61b158baf",
-        "type": "inject",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "props": [
-            {
-                "p": "timestamp",
-                "v": "",
-                "vt": "date"
-            }
+        "id": "0f779fd67e9e72b8",
+        "type": "link in",
+        "z": "b83fb43068cdf48f",
+        "name": "Oneshot Inject at Startup",
+        "links": [
+            "7fa2d20f4131fc60"
         ],
-        "repeat": "1",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
         "x": 75,
-        "y": 360,
+        "y": 480,
         "wires": [
             [
-                "f45e246dbf521446"
+                "b0cf339b6f16ca16"
             ]
         ],
-        "l": false
+        "icon": "node-red/timer.svg"
     },
     {
         "id": "35573d9f8cb557cc",
@@ -9841,25 +9807,6 @@
             ]
         ],
         "l": false
-    },
-    {
-        "id": "ee6259aabb77fcdf",
-        "type": "inject",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "props": [],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "0.1",
-        "topic": "",
-        "x": 490,
-        "y": 40,
-        "wires": [
-            [
-                "11d1503b33735b7a"
-            ]
-        ]
     },
     {
         "id": "11d1503b33735b7a",
@@ -12051,6 +11998,40 @@
         "l": false
     },
     {
+        "id": "a7a9eeb897d0ea64",
+        "type": "link in",
+        "z": "3154c44d1a91de38",
+        "name": "Timer 1",
+        "links": [
+            "62eccecdbb37e6f8"
+        ],
+        "x": 75,
+        "y": 360,
+        "wires": [
+            [
+                "f45e246dbf521446"
+            ]
+        ],
+        "icon": "node-red/timer.svg"
+    },
+    {
+        "id": "faad1abb6ddb40e6",
+        "type": "link in",
+        "z": "3154c44d1a91de38",
+        "name": "Oneshot Inject at Startup",
+        "links": [
+            "7fa2d20f4131fc60"
+        ],
+        "x": 515,
+        "y": 40,
+        "wires": [
+            [
+                "11d1503b33735b7a"
+            ]
+        ],
+        "icon": "node-red/timer.svg"
+    },
+    {
         "id": "1c9e79b136a623e2",
         "type": "catch",
         "z": "98e4246c87add39e",
@@ -12458,7 +12439,9 @@
             "3a10314de81e4ea3",
             "b5bc3f51e5bd08f9",
             "b7093a504612f6ed",
-            "8025efa4ec2e5944"
+            "8025efa4ec2e5944",
+            "0f779fd67e9e72b8",
+            "faad1abb6ddb40e6"
         ],
         "x": 375,
         "y": 500,
@@ -12474,7 +12457,8 @@
             "926b0d1549693d67",
             "98c5268e979c7dcb",
             "83d1eeca2821fcac",
-            "c271444bdafb92be"
+            "c271444bdafb92be",
+            "a7a9eeb897d0ea64"
         ],
         "x": 375,
         "y": 540,
