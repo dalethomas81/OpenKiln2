@@ -2,14 +2,14 @@
     {
         "id": "592b686edd11b813",
         "type": "tab",
-        "label": "Dashboard",
+        "label": "dashboard",
         "disabled": false,
         "info": ""
     },
     {
         "id": "e9cef8706a9cf7f6",
         "type": "tab",
-        "label": "Logic",
+        "label": "logic",
         "disabled": false,
         "info": ""
     },
@@ -23,14 +23,14 @@
     {
         "id": "3154c44d1a91de38",
         "type": "tab",
-        "label": "I/O",
+        "label": "i/o",
         "disabled": false,
         "info": ""
     },
     {
         "id": "98e4246c87add39e",
         "type": "tab",
-        "label": "Utility",
+        "label": "utility",
         "disabled": false,
         "info": ""
     },
