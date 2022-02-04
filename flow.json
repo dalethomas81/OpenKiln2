@@ -12517,19 +12517,38 @@
         "type": "function",
         "z": "98e4246c87add39e",
         "name": "",
-        "func": "var stringlist = msg.payload.split(\":\")\nvar Battery = stringlist[1]\nBattery = parseFloat(parseFloat(Battery).toFixed(2))\nmsg.payload = {Battery}\nreturn msg;",
+        "func": "var stringlist = msg.payload.split(\":\")\nvar Battery = stringlist[1]\nBattery = parseFloat(parseFloat(Battery).toFixed(2))\nmsg.payload = {Battery}\nvar msg_influx = {measurement: 'Battery', payload: parseFloat(parseFloat(Battery).toFixed(2))}\nreturn [msg, msg_influx];",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 775,
+        "x": 755,
         "y": 320,
         "wires": [
             [
                 "5f7af738bd8ce422"
             ]
         ],
+        "l": false
+    },
+    {
+        "id": "75379ff884a7a0ec",
+        "type": "influxdb out",
+        "z": "98e4246c87add39e",
+        "influxdb": "1a7d214ba0ada216",
+        "name": "",
+        "measurement": "Pisugar_Battery",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 875,
+        "y": 320,
+        "wires": [],
         "l": false
     }
 ]
