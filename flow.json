@@ -12474,7 +12474,7 @@
         "name": "",
         "property": "payload",
         "action": "str",
-        "pretty": false,
+        "pretty": true,
         "x": 755,
         "y": 400,
         "wires": [
