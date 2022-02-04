@@ -12518,8 +12518,8 @@
         "type": "function",
         "z": "98e4246c87add39e",
         "name": "",
-        "func": "var stringlist = msg.payload.split(\":\")\nvar Battery = stringlist[1]\nBattery = parseFloat(parseFloat(Battery).toFixed(2))\nmsg.payload = {Battery}\nvar msg_influx = {measurement: 'Battery', payload: parseFloat(parseFloat(Battery).toFixed(2))}\nreturn [msg, msg_influx];",
-        "outputs": 2,
+        "func": "var stringlist = msg.payload.split(\":\")\nvar Battery = stringlist[1]\nvar msg_influx = {measurement: 'Battery', payload: parseFloat(parseFloat(Battery).toFixed(2))}\nreturn msg_influx;",
+        "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -12529,9 +12529,6 @@
         "wires": [
             [
                 "5f7af738bd8ce422"
-            ],
-            [
-                "52e90ff262172412"
             ]
         ],
         "l": false
@@ -12542,7 +12539,7 @@
         "z": "98e4246c87add39e",
         "influxdb": "1a7d214ba0ada216",
         "name": "",
-        "measurement": "Pisugar_Battery",
+        "measurement": "",
         "precision": "",
         "retentionPolicy": "",
         "database": "database",
@@ -12554,22 +12551,5 @@
         "y": 320,
         "wires": [],
         "l": false
-    },
-    {
-        "id": "52e90ff262172412",
-        "type": "debug",
-        "z": "98e4246c87add39e",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 770,
-        "y": 420,
-        "wires": []
     }
 ]
