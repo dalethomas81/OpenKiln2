@@ -12540,7 +12540,7 @@
         "format": "handlebars",
         "syntax": "mustache",
         "template": "{{{payload}}}",
-        "output": "json",
+        "output": "str",
         "x": 600,
         "y": 560,
         "wires": [
