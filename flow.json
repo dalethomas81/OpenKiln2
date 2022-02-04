@@ -12505,10 +12505,11 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 810,
+        "x": 790,
         "y": 380,
         "wires": []
     },
@@ -12563,10 +12564,11 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 790,
+        "x": 770,
         "y": 420,
         "wires": []
     }
