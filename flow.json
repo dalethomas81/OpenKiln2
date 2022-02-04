@@ -12539,7 +12539,7 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "{{{payload}}}",
+        "template": "{{{{payload}}}}",
         "output": "str",
         "x": 600,
         "y": 560,
