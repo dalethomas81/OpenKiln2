@@ -12508,8 +12508,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 770,
-        "y": 460,
+        "x": 810,
+        "y": 380,
         "wires": []
     },
     {
@@ -12518,7 +12518,7 @@
         "z": "98e4246c87add39e",
         "name": "",
         "func": "var stringlist = msg.payload.split(\":\")\nvar Battery = stringlist[1]\nBattery = parseFloat(parseFloat(Battery).toFixed(2))\nmsg.payload = {Battery}\nvar msg_influx = {measurement: 'Battery', payload: parseFloat(parseFloat(Battery).toFixed(2))}\nreturn [msg, msg_influx];",
-        "outputs": 1,
+        "outputs": 2,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -12528,6 +12528,9 @@
         "wires": [
             [
                 "5f7af738bd8ce422"
+            ],
+            [
+                "52e90ff262172412"
             ]
         ],
         "l": false
@@ -12550,5 +12553,21 @@
         "y": 320,
         "wires": [],
         "l": false
+    },
+    {
+        "id": "52e90ff262172412",
+        "type": "debug",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 790,
+        "y": 420,
+        "wires": []
     }
 ]
