@@ -12370,5 +12370,72 @@
                 "5e1d74212376e4f3"
             ]
         ]
+    },
+    {
+        "id": "10e3458f8c0caa0b",
+        "type": "inject",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 300,
+        "y": 80,
+        "wires": [
+            [
+                "af4553bb581c655e"
+            ]
+        ]
+    },
+    {
+        "id": "af4553bb581c655e",
+        "type": "exec",
+        "z": "98e4246c87add39e",
+        "command": "echo \"get battery\" | nc -q 0 127.0.0.1 8423",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 580,
+        "y": 80,
+        "wires": [
+            [
+                "a5436118ccd9b897"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "a5436118ccd9b897",
+        "type": "debug",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 80,
+        "wires": []
     }
 ]
