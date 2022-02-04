@@ -12473,7 +12473,7 @@
         "z": "98e4246c87add39e",
         "name": "",
         "property": "payload",
-        "action": "obj",
+        "action": "str",
         "pretty": false,
         "x": 755,
         "y": 400,
