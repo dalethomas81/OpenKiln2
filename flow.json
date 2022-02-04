@@ -48,7 +48,7 @@
             },
             "darkTheme": {
                 "default": "#097479",
-                "baseColor": "#ff9300",
+                "baseColor": "#00f900",
                 "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
                 "edited": true,
                 "reset": false
@@ -62,11 +62,11 @@
             "themeState": {
                 "base-color": {
                     "default": "#097479",
-                    "value": "#ff9300",
+                    "value": "#00f900",
                     "edited": true
                 },
                 "page-titlebar-backgroundColor": {
-                    "value": "#ff9300",
+                    "value": "#00f900",
                     "edited": false
                 },
                 "page-backgroundColor": {
@@ -78,7 +78,7 @@
                     "edited": false
                 },
                 "group-textColor": {
-                    "value": "#ffb34d",
+                    "value": "#46ff46",
                     "edited": false
                 },
                 "group-borderColor": {
@@ -94,7 +94,7 @@
                     "edited": false
                 },
                 "widget-backgroundColor": {
-                    "value": "#ff9300",
+                    "value": "#00f900",
                     "edited": false
                 },
                 "widget-borderColor": {
