@@ -12517,7 +12517,7 @@
         "type": "function",
         "z": "98e4246c87add39e",
         "name": "",
-        "func": "var stringlist = msg.payload.split(\":\")\nvar Battery = parseFloat(stringlist[1])\nBattery = Battery.toFixed(2)\nmsg.payload = {Battery}\nreturn msg;",
+        "func": "var stringlist = msg.payload.split(\":\")\nvar Battery = parseFloat(stringlist[1].toFixed(2))\nmsg.payload = {Battery}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
