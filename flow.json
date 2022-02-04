@@ -12387,7 +12387,8 @@
         "y": 320,
         "wires": [
             [
-                "ec1dd00872834a66"
+                "ec1dd00872834a66",
+                "61ef24e0daca9f05"
             ],
             [],
             []
@@ -12528,5 +12529,40 @@
                 "af4553bb581c655e"
             ]
         ]
+    },
+    {
+        "id": "61ef24e0daca9f05",
+        "type": "template",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{{payload}}}",
+        "output": "json",
+        "x": 600,
+        "y": 560,
+        "wires": [
+            [
+                "5f7af738bd8ce422"
+            ]
+        ]
+    },
+    {
+        "id": "5f7af738bd8ce422",
+        "type": "debug",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 790,
+        "y": 560,
+        "wires": []
     }
 ]
