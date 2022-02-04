@@ -12372,35 +12372,6 @@
         ]
     },
     {
-        "id": "10e3458f8c0caa0b",
-        "type": "inject",
-        "z": "98e4246c87add39e",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 300,
-        "y": 80,
-        "wires": [
-            [
-                "af4553bb581c655e"
-            ]
-        ]
-    },
-    {
         "id": "af4553bb581c655e",
         "type": "exec",
         "z": "98e4246c87add39e",
@@ -12412,18 +12383,109 @@
         "winHide": false,
         "oldrc": false,
         "name": "",
-        "x": 580,
-        "y": 80,
+        "x": 530,
+        "y": 320,
         "wires": [
             [
-                "a5436118ccd9b897"
+                "ec1dd00872834a66"
             ],
             [],
             []
         ]
     },
     {
-        "id": "a5436118ccd9b897",
+        "id": "d38d9c73aca28d87",
+        "type": "inject",
+        "z": "98e4246c87add39e",
+        "name": "Timer 4",
+        "props": [],
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 240,
+        "y": 660,
+        "wires": [
+            [
+                "baf5017e8f62ab32"
+            ]
+        ]
+    },
+    {
+        "id": "baf5017e8f62ab32",
+        "type": "link out",
+        "z": "98e4246c87add39e",
+        "name": "Timer 3",
+        "mode": "link",
+        "links": [
+            "70a6135b55b68537"
+        ],
+        "x": 375,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "70a6135b55b68537",
+        "type": "link in",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "links": [
+            "baf5017e8f62ab32"
+        ],
+        "x": 305,
+        "y": 320,
+        "wires": [
+            [
+                "af4553bb581c655e"
+            ]
+        ]
+    },
+    {
+        "id": "97a5bf8ae36616b8",
+        "type": "change",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 755,
+        "y": 320,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "ec1dd00872834a66",
+        "type": "json",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 755,
+        "y": 400,
+        "wires": [
+            [
+                "8b3b67afd5d3ae7e"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "8b3b67afd5d3ae7e",
         "type": "debug",
         "z": "98e4246c87add39e",
         "name": "",
@@ -12434,8 +12496,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 860,
-        "y": 80,
+        "x": 820,
+        "y": 480,
         "wires": []
     }
 ]
