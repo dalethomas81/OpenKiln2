@@ -12386,7 +12386,9 @@
         "x": 530,
         "y": 320,
         "wires": [
-            [],
+            [
+                "6f5afb9a88e70a05"
+            ],
             [],
             []
         ]
@@ -12509,5 +12511,25 @@
         "x": 770,
         "y": 460,
         "wires": []
+    },
+    {
+        "id": "6f5afb9a88e70a05",
+        "type": "function",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "func": "var stringlist = msg.payload.split(\":\")\nmsg.payload = stringlist[1]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 775,
+        "y": 320,
+        "wires": [
+            [
+                "5f7af738bd8ce422"
+            ]
+        ],
+        "l": false
     }
 ]
