@@ -12386,10 +12386,7 @@
         "x": 530,
         "y": 320,
         "wires": [
-            [
-                "ec1dd00872834a66",
-                "61ef24e0daca9f05"
-            ],
+            [],
             [],
             []
         ]
@@ -12461,45 +12458,12 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 755,
-        "y": 320,
+        "x": 775,
+        "y": 260,
         "wires": [
             []
         ],
         "l": false
-    },
-    {
-        "id": "ec1dd00872834a66",
-        "type": "json",
-        "z": "98e4246c87add39e",
-        "name": "",
-        "property": "payload",
-        "action": "obj",
-        "pretty": true,
-        "x": 755,
-        "y": 400,
-        "wires": [
-            [
-                "8b3b67afd5d3ae7e"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "8b3b67afd5d3ae7e",
-        "type": "debug",
-        "z": "98e4246c87add39e",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 820,
-        "y": 480,
-        "wires": []
     },
     {
         "id": "b2689d6a07b77976",
@@ -12531,26 +12495,6 @@
         ]
     },
     {
-        "id": "61ef24e0daca9f05",
-        "type": "template",
-        "z": "98e4246c87add39e",
-        "name": "",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "{{=[[ ]]=}}\n{[[payload]]}\n",
-        "output": "str",
-        "x": 600,
-        "y": 560,
-        "wires": [
-            [
-                "5f7af738bd8ce422",
-                "ec1dd00872834a66"
-            ]
-        ]
-    },
-    {
         "id": "5f7af738bd8ce422",
         "type": "debug",
         "z": "98e4246c87add39e",
@@ -12562,8 +12506,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 790,
-        "y": 560,
+        "x": 770,
+        "y": 460,
         "wires": []
     }
 ]
