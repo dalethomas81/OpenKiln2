@@ -12442,32 +12442,6 @@
         ]
     },
     {
-        "id": "97a5bf8ae36616b8",
-        "type": "change",
-        "z": "98e4246c87add39e",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 775,
-        "y": 260,
-        "wires": [
-            []
-        ],
-        "l": false
-    },
-    {
         "id": "b2689d6a07b77976",
         "type": "inject",
         "z": "98e4246c87add39e",
@@ -12497,23 +12471,6 @@
         ]
     },
     {
-        "id": "5f7af738bd8ce422",
-        "type": "debug",
-        "z": "98e4246c87add39e",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 790,
-        "y": 380,
-        "wires": []
-    },
-    {
         "id": "6f5afb9a88e70a05",
         "type": "function",
         "z": "98e4246c87add39e",
@@ -12528,7 +12485,7 @@
         "y": 320,
         "wires": [
             [
-                "5f7af738bd8ce422"
+                "75379ff884a7a0ec"
             ]
         ],
         "l": false
@@ -12547,7 +12504,7 @@
         "retentionPolicyV18Flux": "",
         "org": "organisation",
         "bucket": "bucket",
-        "x": 875,
+        "x": 815,
         "y": 320,
         "wires": [],
         "l": false
