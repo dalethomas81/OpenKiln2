@@ -13,12 +13,17 @@ will install OpenKiln2 for you.
 	
     bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered)
 
+# enable node-red service
+	sudo systemctl enable nodered.service
+
+	node-red-start (you can control-c and it wont stop node-red)
+
 # configure node-red
 	node-red admin init
 
     # choose to use projects (you will need a github account for this)
     
-	sudo nano home/pi/.node-red/settings.js
+	sudo nano /home/pi/.node-red/settings.js
 
     #add the below to the runtime settings section
     #contextStorage: {
@@ -36,15 +41,14 @@ will install OpenKiln2 for you.
 
     enter
 
-# enable node-red service
-	sudo systemctl enable nodered.service
-
-	node-red-start (you can control-c and it wont stop node-red)
+    node-red-restart
 
 # install thermocouple-max31855
 	sudo npm install thermocouple-max31855
 
 # install node-red nodes
+    # open a browser and navigate to node-red using the hostname you chose earlier
+    http://OpenKiln2:1880
     # install these from the pallete manager
 	#node-red-contrib-finite-statemachine
 	#node-red-contrib-influxdb
@@ -54,13 +58,23 @@ will install OpenKiln2 for you.
 	#node-red-dashboard
 
 # install influxdb
-	sudo apt update
+# https://pimylifeup.com/raspberry-pi-influxdb/
     
     sudo apt upgrade
     
     curl https://repos.influxdata.com/influxdb.key | gpg --dearmor | sudo tee /usr/share/keyrings/influxdb-archive-keyring.gpg >/dev/null
     
     echo "deb [signed-by=/usr/share/keyrings/influxdb-archive-keyring.gpg] https://repos.influxdata.com/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
+
+    sudo apt update
+
+    sudo apt install influxdb
+
+    sudo systemctl unmask influxdb
+
+    sudo systemctl enable influxdb
+
+    sudo systemctl start influxdb
 
     influx
 
@@ -93,7 +107,7 @@ will install OpenKiln2 for you.
 
     sudo service influxdb restart
 
-# install grafana
+# install grafana (grafana currently not working on raspberry pi zero gen 1 - needs investigation)
 	wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
 
     echo "deb https://packages.grafana.com/oss/deb stable main" | sudo tee /etc/apt/sources.list.d/grafana.list
@@ -105,16 +119,6 @@ will install OpenKiln2 for you.
     sudo systemctl start grafana-server
 
     sudo systemctl enable grafana-server.service
-    
-    sudo apt update
-
-    sudo apt install influxdb
-
-    sudo systemctl unmask influxdb
-
-    sudo systemctl enable influxdb
-
-    sudo systemctl start influxdb
 
 # configure grafana
 	sudo /bin/systemctl stop grafana-server
@@ -144,6 +148,8 @@ will install OpenKiln2 for you.
     sudo /bin/systemctl start grafana-server
 
     /////// add datasource
+    # navigate to grafana using hostname
+    http://OpenKiln2:3000
     choose influx
     url http://localhost:8086
     database home
@@ -161,8 +167,14 @@ will install OpenKiln2 for you.
 
     ctrl+c
 
+    #visit pi sugar
+    http://OpenKiln2:8421
+
 # clone repository
     #more on this later. for now you you search "node-red projects" and learn how to clone a git repo in Node-RED
+    #navigate back to node-red and it should be asking you to either create a project or clone one
+    #clone this repo (https://github.com/dalethomas81/OpenKiln2.git) || (git@github.com:dalethomas81/OpenKiln2.git)
+    #follow the prompts and log in using your git SSH key (create one if needed)
 
 # restart node red
 	node-red-restart
@@ -173,3 +185,6 @@ will install OpenKiln2 for you.
     chmod +x install.sh && sudo ./install.sh
 
     cd .. && rm -r log2ram
+
+# navigate to OpenKiln dashboard
+    http://OpenKiln2:1880/ui
