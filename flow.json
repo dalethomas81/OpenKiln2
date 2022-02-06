@@ -651,106 +651,6 @@
         "collapse": false
     },
     {
-        "id": "cff69f86b0572e70",
-        "type": "ui_spacer",
-        "z": "592b686edd11b813",
-        "name": "spacer",
-        "group": "2201d496820b415d",
-        "order": 8,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "7f21f0a999dd59d4",
-        "type": "ui_spacer",
-        "z": "592b686edd11b813",
-        "name": "spacer",
-        "group": "90879df8d2ee4c5d",
-        "order": 2,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "8a07f6ddaff22140",
-        "type": "ui_spacer",
-        "z": "592b686edd11b813",
-        "name": "spacer",
-        "group": "90879df8d2ee4c5d",
-        "order": 4,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "9e16e715b6c4d60b",
-        "type": "ui_spacer",
-        "z": "592b686edd11b813",
-        "name": "spacer",
-        "group": "90879df8d2ee4c5d",
-        "order": 6,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "4703cfe40ed3024e",
-        "type": "ui_spacer",
-        "z": "592b686edd11b813",
-        "name": "spacer",
-        "group": "90879df8d2ee4c5d",
-        "order": 10,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "6b93baaa95ae19bc",
-        "type": "ui_spacer",
-        "z": "592b686edd11b813",
-        "name": "spacer",
-        "group": "90879df8d2ee4c5d",
-        "order": 12,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "9e6695ba98718fd7",
-        "type": "ui_spacer",
-        "z": "592b686edd11b813",
-        "name": "spacer",
-        "group": "90879df8d2ee4c5d",
-        "order": 13,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "1b601606be94e9d2",
-        "type": "ui_spacer",
-        "z": "592b686edd11b813",
-        "name": "spacer",
-        "group": "90879df8d2ee4c5d",
-        "order": 15,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "688796d61ce42579",
-        "type": "ui_spacer",
-        "z": "592b686edd11b813",
-        "name": "spacer",
-        "group": "90879df8d2ee4c5d",
-        "order": 16,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "6c9cb97621e404c5",
-        "type": "ui_spacer",
-        "z": "592b686edd11b813",
-        "name": "spacer",
-        "group": "90879df8d2ee4c5d",
-        "order": 18,
-        "width": 1,
-        "height": 1
-    },
-    {
         "id": "5331d4d4d2257e9c",
         "type": "ui_group",
         "name": "System",
@@ -773,9 +673,109 @@
         "className": ""
     },
     {
-        "id": "7c9f46c1ba0996de",
+        "id": "f116f4f30acec1bb",
         "type": "ui_spacer",
-        "z": "98e4246c87add39e",
+        "z": "e9cef8706a9cf7f6",
+        "name": "spacer",
+        "group": "2201d496820b415d",
+        "order": 8,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "e034c2a2898dfefb",
+        "type": "ui_spacer",
+        "z": "e9cef8706a9cf7f6",
+        "name": "spacer",
+        "group": "90879df8d2ee4c5d",
+        "order": 2,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "0e584e25fb0f87c9",
+        "type": "ui_spacer",
+        "z": "e9cef8706a9cf7f6",
+        "name": "spacer",
+        "group": "90879df8d2ee4c5d",
+        "order": 4,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "2ef3b676de3325e3",
+        "type": "ui_spacer",
+        "z": "e9cef8706a9cf7f6",
+        "name": "spacer",
+        "group": "90879df8d2ee4c5d",
+        "order": 6,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "30b774a299a4923d",
+        "type": "ui_spacer",
+        "z": "e9cef8706a9cf7f6",
+        "name": "spacer",
+        "group": "90879df8d2ee4c5d",
+        "order": 10,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "7c9d9f051161376c",
+        "type": "ui_spacer",
+        "z": "e9cef8706a9cf7f6",
+        "name": "spacer",
+        "group": "90879df8d2ee4c5d",
+        "order": 12,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "939ca4115db81bf0",
+        "type": "ui_spacer",
+        "z": "e9cef8706a9cf7f6",
+        "name": "spacer",
+        "group": "90879df8d2ee4c5d",
+        "order": 13,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "b1aa70fb9f383754",
+        "type": "ui_spacer",
+        "z": "e9cef8706a9cf7f6",
+        "name": "spacer",
+        "group": "90879df8d2ee4c5d",
+        "order": 15,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "68c5ecaa66ef4756",
+        "type": "ui_spacer",
+        "z": "e9cef8706a9cf7f6",
+        "name": "spacer",
+        "group": "90879df8d2ee4c5d",
+        "order": 16,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "4ed2af14d2796808",
+        "type": "ui_spacer",
+        "z": "e9cef8706a9cf7f6",
+        "name": "spacer",
+        "group": "90879df8d2ee4c5d",
+        "order": 18,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "5cdf4639a79bcc31",
+        "type": "ui_spacer",
+        "z": "e9cef8706a9cf7f6",
         "name": "spacer",
         "group": "a91f3f1520863187",
         "order": 2,
@@ -783,9 +783,9 @@
         "height": 1
     },
     {
-        "id": "4c3fbcb308a19eae",
+        "id": "1c5285872e104c71",
         "type": "ui_spacer",
-        "z": "98e4246c87add39e",
+        "z": "e9cef8706a9cf7f6",
         "name": "spacer",
         "group": "a91f3f1520863187",
         "order": 5,
@@ -793,9 +793,9 @@
         "height": 1
     },
     {
-        "id": "ebd28d9e1b646518",
+        "id": "24e00aa381789e6f",
         "type": "ui_spacer",
-        "z": "98e4246c87add39e",
+        "z": "e9cef8706a9cf7f6",
         "name": "spacer",
         "group": "a91f3f1520863187",
         "order": 7,
@@ -803,9 +803,9 @@
         "height": 1
     },
     {
-        "id": "0bcc0065f5ac554e",
+        "id": "c6d1656e77f5853c",
         "type": "ui_spacer",
-        "z": "98e4246c87add39e",
+        "z": "e9cef8706a9cf7f6",
         "name": "spacer",
         "group": "a91f3f1520863187",
         "order": 9,
@@ -813,9 +813,9 @@
         "height": 1
     },
     {
-        "id": "c02685ba411820ca",
+        "id": "3c41535a22b5be11",
         "type": "ui_spacer",
-        "z": "98e4246c87add39e",
+        "z": "e9cef8706a9cf7f6",
         "name": "spacer",
         "group": "a91f3f1520863187",
         "order": 13,
@@ -823,9 +823,9 @@
         "height": 1
     },
     {
-        "id": "bf51749d2e393c0f",
+        "id": "060869ee0129b3b5",
         "type": "ui_spacer",
-        "z": "98e4246c87add39e",
+        "z": "e9cef8706a9cf7f6",
         "name": "spacer",
         "group": "a91f3f1520863187",
         "order": 16,
@@ -833,9 +833,9 @@
         "height": 1
     },
     {
-        "id": "cd67a19ca6538529",
+        "id": "3b470121c8e7ef68",
         "type": "ui_spacer",
-        "z": "98e4246c87add39e",
+        "z": "e9cef8706a9cf7f6",
         "name": "spacer",
         "group": "a91f3f1520863187",
         "order": 19,
@@ -843,9 +843,9 @@
         "height": 1
     },
     {
-        "id": "2091062220ef7d2d",
+        "id": "b5394b59ade282c4",
         "type": "ui_spacer",
-        "z": "98e4246c87add39e",
+        "z": "e9cef8706a9cf7f6",
         "name": "spacer",
         "group": "112aa19380852c23",
         "order": 2,
@@ -853,9 +853,9 @@
         "height": 1
     },
     {
-        "id": "138300d4a8dc3531",
+        "id": "435f48453e9eb9b8",
         "type": "ui_spacer",
-        "z": "98e4246c87add39e",
+        "z": "e9cef8706a9cf7f6",
         "name": "spacer",
         "group": "112aa19380852c23",
         "order": 4,
@@ -863,9 +863,9 @@
         "height": 1
     },
     {
-        "id": "54b6b50702a494c9",
+        "id": "2424db247ec42354",
         "type": "ui_spacer",
-        "z": "98e4246c87add39e",
+        "z": "e9cef8706a9cf7f6",
         "name": "spacer",
         "group": "112aa19380852c23",
         "order": 6,
@@ -873,9 +873,9 @@
         "height": 1
     },
     {
-        "id": "4de0bb7dbb5a278b",
+        "id": "9f47644aa05a19ec",
         "type": "ui_spacer",
-        "z": "98e4246c87add39e",
+        "z": "e9cef8706a9cf7f6",
         "name": "spacer",
         "group": "112aa19380852c23",
         "order": 7,
@@ -883,9 +883,9 @@
         "height": 1
     },
     {
-        "id": "b7957658212cca6a",
+        "id": "ce639c191e1475c0",
         "type": "ui_spacer",
-        "z": "98e4246c87add39e",
+        "z": "e9cef8706a9cf7f6",
         "name": "spacer",
         "group": "112aa19380852c23",
         "order": 8,
@@ -893,9 +893,9 @@
         "height": 1
     },
     {
-        "id": "f8fa1f41c4ccce13",
+        "id": "3ac764832412d824",
         "type": "ui_spacer",
-        "z": "98e4246c87add39e",
+        "z": "e9cef8706a9cf7f6",
         "name": "spacer",
         "group": "112aa19380852c23",
         "order": 9,
@@ -903,9 +903,9 @@
         "height": 1
     },
     {
-        "id": "7f8a1e910b99a352",
+        "id": "ee7b782a5e77ccab",
         "type": "ui_spacer",
-        "z": "98e4246c87add39e",
+        "z": "e9cef8706a9cf7f6",
         "name": "spacer",
         "group": "112aa19380852c23",
         "order": 11,
@@ -913,9 +913,9 @@
         "height": 1
     },
     {
-        "id": "7501859940b3155f",
+        "id": "74b5f8452dddec41",
         "type": "ui_spacer",
-        "z": "98e4246c87add39e",
+        "z": "e9cef8706a9cf7f6",
         "name": "spacer",
         "group": "112aa19380852c23",
         "order": 12,
@@ -923,9 +923,9 @@
         "height": 1
     },
     {
-        "id": "07e545f30ae28149",
+        "id": "e3f6f402bb21cc93",
         "type": "ui_spacer",
-        "z": "98e4246c87add39e",
+        "z": "e9cef8706a9cf7f6",
         "name": "spacer",
         "group": "112aa19380852c23",
         "order": 13,
@@ -933,9 +933,9 @@
         "height": 1
     },
     {
-        "id": "4ec801ad2c2c9172",
+        "id": "d01c848ba2c62983",
         "type": "ui_spacer",
-        "z": "98e4246c87add39e",
+        "z": "e9cef8706a9cf7f6",
         "name": "spacer",
         "group": "112aa19380852c23",
         "order": 14,
@@ -943,9 +943,9 @@
         "height": 1
     },
     {
-        "id": "3243a2f5d4688061",
+        "id": "f09f2150886ec0cc",
         "type": "ui_spacer",
-        "z": "98e4246c87add39e",
+        "z": "e9cef8706a9cf7f6",
         "name": "spacer",
         "group": "112aa19380852c23",
         "order": 16,
@@ -953,9 +953,9 @@
         "height": 1
     },
     {
-        "id": "a236aefc8905512a",
+        "id": "2a87efda0daaed1c",
         "type": "ui_spacer",
-        "z": "98e4246c87add39e",
+        "z": "e9cef8706a9cf7f6",
         "name": "spacer",
         "group": "112aa19380852c23",
         "order": 18,
@@ -963,9 +963,9 @@
         "height": 1
     },
     {
-        "id": "89647fc232f8e7f9",
+        "id": "f811ba435e80f70a",
         "type": "ui_spacer",
-        "z": "98e4246c87add39e",
+        "z": "e9cef8706a9cf7f6",
         "name": "spacer",
         "group": "112aa19380852c23",
         "order": 20,
@@ -973,9 +973,9 @@
         "height": 1
     },
     {
-        "id": "2fc7bd23a93a7ce1",
+        "id": "f988b2b67ec1e490",
         "type": "ui_spacer",
-        "z": "98e4246c87add39e",
+        "z": "e9cef8706a9cf7f6",
         "name": "spacer",
         "group": "112aa19380852c23",
         "order": 22,
@@ -983,9 +983,9 @@
         "height": 1
     },
     {
-        "id": "9609610e24cca4ed",
+        "id": "e424432986fe1374",
         "type": "ui_spacer",
-        "z": "98e4246c87add39e",
+        "z": "e9cef8706a9cf7f6",
         "name": "spacer",
         "group": "112aa19380852c23",
         "order": 24,
@@ -993,9 +993,9 @@
         "height": 1
     },
     {
-        "id": "8119b5981371d0d6",
+        "id": "69a99eb784616c20",
         "type": "ui_spacer",
-        "z": "98e4246c87add39e",
+        "z": "e9cef8706a9cf7f6",
         "name": "spacer",
         "group": "112aa19380852c23",
         "order": 26,
@@ -5090,7 +5090,7 @@
         "type": "function",
         "z": "e9cef8706a9cf7f6",
         "name": "check temps and start soak",
-        "func": "var UpperTemperature = global.get('kiln_01.UpperTemperature', 'memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature', 'memoryOnly')\nvar Setpoint = global.get('kiln_01.Setpoint', 'memoryOnly')\nvar UpperSetpoint = global.get('kiln_01.UpperSetpoint', 'memoryOnly')\nvar LowerSetpoint = global.get('kiln_01.LowerSetpoint', 'memoryOnly')\nvar RampDirection = global.get('kiln_01.RampDirection', 'memoryOnly')\nvar RampRate = msg.payload.data.segment_settings.ramp_rate // per hour\nvar DeltaTime = 1000.0 / (1000.0 * 60.0 * 60.0) // the pulse timer is set for 1000ms. how many 1000 ms in 1 hour?\nvar DeltaTemp = DeltaTime * RampRate\nvar Tolerance = 5 // degrees\nvar MaxTempDiff = 10.0\n\n// ramp the setpoints\nif (RampDirection == 'Increasing') {\n    if (UpperSetpoint < Setpoint \n        && UpperSetpoint - UpperTemperature < MaxTempDiff \n        && LowerSetpoint - LowerTemperature < MaxTempDiff) {\n        UpperSetpoint = UpperSetpoint + DeltaTemp;\n        LowerSetpoint = UpperSetpoint;\n    }\n    //if (LowerSetpoint < Setpoint && LowerSetpoint - LowerTemperature < MaxTempDiff) LowerSetpoint = LowerSetpoint + DeltaTemp;\n} else if (RampDirection == 'Decreasing') {\n    if (UpperSetpoint > Setpoint \n        && UpperTemperature - UpperSetpoint < MaxTempDiff \n        && LowerTemperature - LowerSetpoint < MaxTempDiff) {\n        UpperSetpoint = UpperSetpoint - DeltaTemp;\n        LowerSetpoint = UpperSetpoint;\n    }\n    //if (LowerSetpoint > Setpoint && LowerTemperature - LowerSetpoint < MaxTempDiff) LowerSetpoint = LowerSetpoint - DeltaTemp;\n} else {\n    // uh oh...\n}\nglobal.set('kiln_01.UpperSetpoint',UpperSetpoint, 'memoryOnly')\nglobal.set('kiln_01.LowerSetpoint',LowerSetpoint, 'memoryOnly')\n\nvar msg1 = { payload: UpperSetpoint }\nvar msg2 = { payload: LowerSetpoint }\n\n// check if temps have been reached\n// TODO: add a confidence timer here to filter out spikes in temp\nif ((RampDirection == 'Increasing' \n    && UpperTemperature >= (Setpoint - Tolerance) \n    && LowerTemperature >= (Setpoint - Tolerance)) || \n    (RampDirection == 'Decreasing' \n    && UpperTemperature <= (Setpoint + Tolerance) \n    && LowerTemperature <= (Setpoint + Tolerance))){\n        global.set('kiln_01.SetpointReached', true, 'memoryOnly')\n        msg.topic = 'soak'\n        return [msg1, msg2, msg];\n} else {\n    return [msg1, msg2, null];\n}",
+        "func": "var UpperTemperature = global.get('kiln_01.UpperTemperature', 'memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature', 'memoryOnly')\nvar Setpoint = global.get('kiln_01.Setpoint', 'memoryOnly')\nvar UpperSetpoint = global.get('kiln_01.UpperSetpoint', 'memoryOnly')\nvar LowerSetpoint = global.get('kiln_01.LowerSetpoint', 'memoryOnly')\nvar RampDirection = global.get('kiln_01.RampDirection', 'memoryOnly')\nvar RampRate = msg.payload.data.segment_settings.ramp_rate // per hour\nvar DeltaTime = 1000.0 / (1000.0 * 60.0 * 60.0) // the pulse timer is set for 1000ms. how many 1000 ms in 1 hour?\nvar DeltaTemp = DeltaTime * RampRate\nvar Tolerance = 5 // degrees\nvar MaxTempDiff = 20.0\n\n// ramp the setpoints\nif (RampDirection == 'Increasing') {\n    if (UpperSetpoint < Setpoint \n        && UpperSetpoint - UpperTemperature < MaxTempDiff \n        && LowerSetpoint - LowerTemperature < MaxTempDiff) {\n        UpperSetpoint = UpperSetpoint + DeltaTemp;\n        LowerSetpoint = UpperSetpoint;\n    }\n    //if (LowerSetpoint < Setpoint && LowerSetpoint - LowerTemperature < MaxTempDiff) LowerSetpoint = LowerSetpoint + DeltaTemp;\n} else if (RampDirection == 'Decreasing') {\n    if (UpperSetpoint > Setpoint \n        && UpperTemperature - UpperSetpoint < MaxTempDiff \n        && LowerTemperature - LowerSetpoint < MaxTempDiff) {\n        UpperSetpoint = UpperSetpoint - DeltaTemp;\n        LowerSetpoint = UpperSetpoint;\n    }\n    //if (LowerSetpoint > Setpoint && LowerTemperature - LowerSetpoint < MaxTempDiff) LowerSetpoint = LowerSetpoint - DeltaTemp;\n} else {\n    // uh oh...\n}\nglobal.set('kiln_01.UpperSetpoint',UpperSetpoint, 'memoryOnly')\nglobal.set('kiln_01.LowerSetpoint',LowerSetpoint, 'memoryOnly')\n\nvar msg1 = { payload: UpperSetpoint }\nvar msg2 = { payload: LowerSetpoint }\n\n// check if temps have been reached\n// TODO: add a confidence timer here to filter out spikes in temp\nif ((RampDirection == 'Increasing' \n    && UpperTemperature >= (Setpoint - Tolerance) \n    && LowerTemperature >= (Setpoint - Tolerance)) || \n    (RampDirection == 'Decreasing' \n    && UpperTemperature <= (Setpoint + Tolerance) \n    && LowerTemperature <= (Setpoint + Tolerance))){\n        global.set('kiln_01.SetpointReached', true, 'memoryOnly')\n        msg.topic = 'soak'\n        return [msg1, msg2, msg];\n} else {\n    return [msg1, msg2, null];\n}",
         "outputs": 3,
         "noerr": 0,
         "initialize": "",
