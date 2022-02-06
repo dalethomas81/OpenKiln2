@@ -2065,7 +2065,8 @@
         "y": 1160,
         "wires": [
             [
-                "566ce4114146f76d"
+                "566ce4114146f76d",
+                "b6b40b6814900638"
             ]
         ],
         "l": false
@@ -2080,7 +2081,7 @@
                 "t": "set",
                 "p": "query",
                 "pt": "msg",
-                "to": "select * from Kiln_01_UpperTemperature, Kiln_01_LowerTemperature WHERE time > now() - 12h LIMIT 1500",
+                "to": "select * from Kiln_01_UpperTemperature, Kiln_01_LowerTemperature WHERE time > now() - 12h",
                 "tot": "str"
             }
         ],
@@ -4030,6 +4031,23 @@
             ]
         ],
         "l": true
+    },
+    {
+        "id": "b6b40b6814900638",
+        "type": "debug",
+        "z": "592b686edd11b813",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 1220,
+        "wires": []
     },
     {
         "id": "0f56f86bd83c9233",
