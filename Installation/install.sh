@@ -108,16 +108,19 @@ will install OpenKiln2 for you.
     sudo service influxdb restart
 
 # install grafana (grafana currently not working on raspberry pi zero gen 1 - needs investigation)
+    #https://brettbeeson.com.au/grafana-and-influxdb-in-pi-zero-w/
+    #pi zero gen 1
+    sudo apt --fix-broken install
+    wget https://dl.grafana.com/oss/release/grafana-rpi_6.4.4_armhf.deb
+
+    #pi zero gen 2
 	wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
-
     echo "deb https://packages.grafana.com/oss/deb stable main" | sudo tee /etc/apt/sources.list.d/grafana.list
-
     sudo apt update && sudo apt install -y grafana
 
+    #all versions of pi
     sudo systemctl unmask grafana-server.service
-
     sudo systemctl start grafana-server
-
     sudo systemctl enable grafana-server.service
 
 # configure grafana
@@ -155,6 +158,10 @@ will install OpenKiln2 for you.
     database home
     user admin
     password OpenKiln@12
+    click save and test
+
+    click plus button to create a new dashboard
+    
 
 # install pi sugar
     wget http://cdn.pisugar.com/release/pisugar-power-manager.sh
