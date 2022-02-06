@@ -1,0 +1,3 @@
+- variables need to be initialized on first install
+- functionality for i/o checking 
+- add a place in the header for a friendly name
