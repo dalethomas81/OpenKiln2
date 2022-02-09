@@ -4914,7 +4914,9 @@
         "y": 560,
         "wires": [
             [
-                "024377df3ae20b3c"
+                "4449d819d876d690",
+                "6621e559cca764ed",
+                "585e8b1656cbef91"
             ],
             [
                 "14cf0c63e8349ec6"
@@ -5079,32 +5081,10 @@
         "finalize": "",
         "libs": [],
         "x": 1035,
-        "y": 480,
+        "y": 460,
         "wires": [
             [
                 "20db894294ad2264"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "024377df3ae20b3c",
-        "type": "function",
-        "z": "e9cef8706a9cf7f6",
-        "name": "set ramp direction",
-        "func": "var UpperTemperature = global.get('kiln_01.UpperTemperature', 'memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature', 'memoryOnly')\nvar AverageTemperature = (UpperTemperature + LowerTemperature) / 2.0\nvar Setpoint = global.get('kiln_01.Setpoint', 'memoryOnly')\n//var UpperSetpoint = global.get('kiln_01.UpperSetpoint', 'memoryOnly')\n//var LowerSetpoint = global.get('kiln_01.LowerSetpoint', 'memoryOnly')\n\n// determine ramping direction\nif (AverageTemperature > Setpoint) {\n    global.set('kiln_01.RampDirection', 'Decreasing', 'memoryOnly')\n} else {\n    global.set('kiln_01.RampDirection', 'Increasing', 'memoryOnly')\n}\n\n// seed the starting temperature\nglobal.set('kiln_01.UpperSetpoint',UpperTemperature, 'memoryOnly')\nglobal.set('kiln_01.LowerSetpoint',LowerTemperature, 'memoryOnly')\n\nglobal.set('kiln_01.SetpointReached', false, 'memoryOnly')\n\nmsg.delay = 1000 // set duration between ramp calculations\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 875,
-        "y": 540,
-        "wires": [
-            [
-                "585e8b1656cbef91",
-                "4449d819d876d690",
-                "6621e559cca764ed"
             ]
         ],
         "l": false
@@ -5806,7 +5786,7 @@
         "to": "",
         "reg": false,
         "x": 975,
-        "y": 520,
+        "y": 500,
         "wires": [
             [
                 "c5180a0a450ebd11"
@@ -5824,7 +5804,7 @@
             "899c85f172cb1839"
         ],
         "x": 1035,
-        "y": 520,
+        "y": 500,
         "wires": []
     },
     {
@@ -5990,7 +5970,7 @@
             "7b45f7ccea553769"
         ],
         "x": 1035,
-        "y": 560,
+        "y": 540,
         "wires": []
     },
     {
@@ -6017,7 +5997,7 @@
             "fdfa744fcee6a3dd"
         ],
         "x": 1085,
-        "y": 480,
+        "y": 460,
         "wires": []
     },
     {
@@ -6029,16 +6009,16 @@
         "op2": "0",
         "op1type": "pay",
         "op2type": "str",
-        "duration": "-1000",
+        "duration": "-1",
         "extend": false,
         "overrideDelay": true,
-        "units": "ms",
+        "units": "s",
         "reset": "",
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
         "x": 975,
-        "y": 480,
+        "y": 460,
         "wires": [
             [
                 "6cfcbd486aa01dca"
@@ -6381,8 +6361,8 @@
         "topic": "topic",
         "topicType": "msg",
         "format": "Kp{{msg.payload}}",
-        "min": "-100",
-        "max": "100",
+        "min": "-1000",
+        "max": "1000",
         "step": "0.01",
         "className": "",
         "x": 755,
@@ -6410,8 +6390,8 @@
         "topic": "topic",
         "topicType": "msg",
         "format": "Ki{{msg.payload}}",
-        "min": "-100",
-        "max": "100",
+        "min": "-1000",
+        "max": "1000",
         "step": "0.01",
         "className": "",
         "x": 755,
@@ -6719,8 +6699,8 @@
         "topic": "topic",
         "topicType": "msg",
         "format": "Pb{{msg.payload}}",
-        "min": "-100",
-        "max": "100",
+        "min": "-1000",
+        "max": "1000",
         "step": "0.01",
         "className": "",
         "x": 755,
@@ -6748,8 +6728,8 @@
         "topic": "topic",
         "topicType": "msg",
         "format": "Ti{{msg.payload}}",
-        "min": "-100",
-        "max": "100",
+        "min": "-1000",
+        "max": "1000",
         "step": "0.01",
         "className": "",
         "x": 755,
@@ -6777,8 +6757,8 @@
         "topic": "topic",
         "topicType": "msg",
         "format": "Td{{msg.payload}}",
-        "min": "-100",
-        "max": "100",
+        "min": "-1000",
+        "max": "1000",
         "step": "0.01",
         "className": "",
         "x": 755,
@@ -7137,14 +7117,14 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "set control if auto tune not active",
-        "func": "var zone = 0\nvar cv = 0\nif (!global.get('pid.zone['+zone+'].autotune.active')) {\n    cv = msg.payload * 100\n    global.set('pid.zone['+zone+'].parameters.control', cv)\n    var RampRate = global.get('pid.zone['+zone+'].parameters.rate')\n    msg.payload = cv * RampRate / 100\n    return msg;\n}\nnode.status({ fill: \"green\", shape: \"dot\", text: cv + ' CV' });",
+        "func": "var zone = 0\nvar cv = 0\nif (!global.get('pid.zone['+zone+'].autotune.active')) {\n    cv = msg.payload * 100\n    var RampRate = global.get('pid.zone['+zone+'].parameters.rate')\n    msg.payload = cv * RampRate / 100\n    global.set('pid.zone['+zone+'].parameters.control', msg.payload)\n    node.status({ fill: \"green\", shape: \"dot\", text: msg.payload + ' CV' });\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 255,
-        "y": 220,
+        "y": 200,
         "wires": [
             [
                 "a7d4d1f6e66847a4",
@@ -7427,14 +7407,14 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "set control if auto tune not active",
-        "func": "var zone = 1\nvar cv = 0\nif (!global.get('pid.zone['+zone+'].autotune.active')) {\n    cv = msg.payload * 100\n    global.set('pid.zone['+zone+'].parameters.control', cv)\n    var RampRate = global.get('pid.zone['+zone+'].parameters.rate')\n    msg.payload = cv * RampRate / 100\n    return msg;\n}\nnode.status({ fill: \"green\", shape: \"dot\", text: cv + ' CV' });",
+        "func": "var zone = 1\nvar cv = 0\nif (!global.get('pid.zone['+zone+'].autotune.active')) {\n    cv = msg.payload * 100\n    var RampRate = global.get('pid.zone['+zone+'].parameters.rate')\n    msg.payload = cv * RampRate / 100\n    global.set('pid.zone['+zone+'].parameters.control', msg.payload)\n    node.status({ fill: \"green\", shape: \"dot\", text: msg.payload + ' CV' });\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 715,
-        "y": 220,
+        "y": 200,
         "wires": [
             [
                 "33d46d048827346c",
@@ -7760,7 +7740,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 375,
-        "y": 220,
+        "y": 200,
         "wires": [],
         "l": false
     },
@@ -7778,7 +7758,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 835,
-        "y": 220,
+        "y": 200,
         "wires": [],
         "l": false
     },
@@ -8201,14 +8181,14 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "set control if auto tune not active",
-        "func": "if (!global.get('pid.zone[2].autotune.active')) {\n    global.set('pid.zone[2].parameters.control', msg.payload * 100)\n    return msg;\n}",
+        "func": "var zone = 2\nvar cv\nif (!global.get('pid.zone['+zone+'].autotune.active')) {\n    cv = msg.payload * 100\n    global.set('pid.zone['+zone+'].parameters.control', cv)\n    node.status({ fill: \"green\", shape: \"dot\", text: cv + ' CV' });\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 245,
-        "y": 440,
+        "y": 420,
         "wires": [
             [
                 "55eefabb9d45afba"
@@ -8274,14 +8254,14 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "set control if auto tune not active",
-        "func": "if (!global.get('pid.zone[3].autotune.active')) {\n    global.set('pid.zone[3].parameters.control', msg.payload * 100)\n    return msg;\n}",
+        "func": "var zone = 3\nvar cv\nif (!global.get('pid.zone['+zone+'].autotune.active')) {\n    cv = msg.payload * 100\n    global.set('pid.zone['+zone+'].parameters.control', cv)\n    node.status({ fill: \"green\", shape: \"dot\", text: cv + ' CV' });\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 705,
-        "y": 440,
+        "y": 420,
         "wires": [
             [
                 "da404c6570aec769"
@@ -8333,7 +8313,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 305,
-        "y": 440,
+        "y": 420,
         "wires": [],
         "l": false
     },
@@ -8351,7 +8331,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 765,
-        "y": 440,
+        "y": 420,
         "wires": [],
         "l": false
     },
@@ -9161,7 +9141,7 @@
             "94112e9a2839cf54"
         ],
         "x": 315,
-        "y": 220,
+        "y": 200,
         "wires": []
     },
     {
@@ -9174,7 +9154,7 @@
             "d10bbe6d04d1179a"
         ],
         "x": 775,
-        "y": 220,
+        "y": 200,
         "wires": []
     },
     {
@@ -9384,16 +9364,9 @@
         "rules": [
             {
                 "t": "set",
-                "p": "#:(memoryOnly)::kiln_01.UpperTemperature",
-                "pt": "global",
-                "to": "#:(memoryOnly)::kiln_01.UpperSetpoint",
-                "tot": "global"
-            },
-            {
-                "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "#:(memoryOnly)::kiln_01.UpperSetpoint",
+                "to": "pid.zone[0].parameters.control",
                 "tot": "global"
             }
         ],
@@ -9406,7 +9379,7 @@
         "y": 340,
         "wires": [
             [
-                "bbab6af088f829c2"
+                "95dfe0dda7683c18"
             ]
         ],
         "l": false
@@ -9519,16 +9492,9 @@
         "rules": [
             {
                 "t": "set",
-                "p": "#:(memoryOnly)::kiln_01.LowerTemperature",
-                "pt": "global",
-                "to": "#:(memoryOnly)::kiln_01.LowerSetpoint",
-                "tot": "global"
-            },
-            {
-                "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "#:(memoryOnly)::kiln_01.LowerSetpoint",
+                "to": "pid.zone[1].parameters.control",
                 "tot": "global"
             }
         ],
@@ -9541,7 +9507,7 @@
         "y": 380,
         "wires": [
             [
-                "acb33ff4507d9a9b"
+                "e4f78a9a9ff9d4e2"
             ]
         ],
         "l": false
@@ -9923,7 +9889,7 @@
         "type": "function",
         "z": "3154c44d1a91de38",
         "name": "",
-        "func": "// create a new message object to clean it up\nvar msg_out = { delay: msg.payload * 10 }; // should come in as 0 - 100%\nvar dutycycle = msg.payload * 1\nvar FsmStatus_Schedule = global.get('kiln_01.FsmStatus_Schedule','memoryOnly')\n//var FsmStatus_Segment = global.get('kiln_01.FsmStatus_Segment','memoryOnly')\nvar auto_tune_upper = global.get('pid.zone[0].autotune.active')\nvar auto_tune_lower = global.get('pid.zone[1].autotune.active')\nvar UpperSetpoint = global.get('kiln_01.UpperSetpoint','memoryOnly')\nvar LowerSetpoint = global.get('kiln_01.LowerSetpoint','memoryOnly')\nvar UpperTemperature = global.get('kiln_01.UpperTemperature','memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature','memoryOnly')\nvar upper_thermocouple_bad = flow.get('upper_thermocouple_bad')\nvar lower_thermocouple_bad = flow.get('lower_thermocouple_bad')\n\n//if (Math.abs(UpperSetpoint - UpperTemperature) < 100 && Math.abs(LowerSetpoint - LowerTemperature) < 100 \n//    || auto_tune_upper || auto_tune_lower) {\nif (!upper_thermocouple_bad && !lower_thermocouple_bad) {\n        // temps a setpoints are within tolerance\n        //node.status({fill:\"green\",shape:\"dot\",text:\"All good!\"});\n        // the trigger function locks up if you send it a zero\n        // similarly, we dont want to send it a value over\n        // the trigger time (1000 ms)\n        if (msg_out.delay > 0 && msg_out.delay < 1000 && (FsmStatus_Schedule != 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n            node.status({fill:\"green\",shape:\"dot\",text:dutycycle.toFixed(1) + '%'});\n            return [ msg_out, null ];\n        } else if (msg_out.delay <= 0 || (FsmStatus_Schedule == 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n            // send an \"off\" directly to the output node\n            node.status({fill:\"green\",shape:\"ring\",text:'0%'});\n            msg_out.payload = \"0\"\n            return [ null, msg_out ];\n        } else if (msg_out.delay >= 1000){\n            // send an \"on\" directly to the output node\n            node.status({fill:\"green\",shape:\"dot\",text:'100%'});\n            msg_out.payload = \"1\"\n            return [ null, msg_out ];\n        } else {\n            // send an \"off\" directly to the output node\n            node.status({fill:\"green\",shape:\"ring\",text:'0%'});\n            msg_out.payload = \"0\"\n            return [ null, msg_out ];\n        }\n} else {\n    // temp is too far away from setpoint. something is wrong.\n    // send an \"off\" directly to the output node\n    //node.warn(\"temp is too far away from setpoint. something is wrong.\")\n    node.status({fill:\"red\",shape:\"dot\",text:\"Something is wrong!\"});\n    msg_out.payload = \"0\"\n    return [ null, msg_out ];\n}",
+        "func": "// create a new message object to clean it up\nvar msg_out = { delay: msg.payload * 10 }; // should come in as 0 - 100%\nvar dutycycle = msg.payload * 1\nvar FsmStatus_Schedule = global.get('kiln_01.FsmStatus_Schedule','memoryOnly')\n//var FsmStatus_Segment = global.get('kiln_01.FsmStatus_Segment','memoryOnly')\nvar auto_tune_upper = global.get('pid.zone[0].autotune.active')\nvar auto_tune_lower = global.get('pid.zone[1].autotune.active')\nvar UpperSetpoint = global.get('kiln_01.UpperSetpoint','memoryOnly')\nvar LowerSetpoint = global.get('kiln_01.LowerSetpoint','memoryOnly')\nvar UpperTemperature = global.get('kiln_01.UpperTemperature','memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature','memoryOnly')\nvar upper_thermocouple_bad = flow.get('upper_thermocouple_bad')\nvar lower_thermocouple_bad = flow.get('lower_thermocouple_bad')\nvar simulation = global.get('kiln_01.SimulateTemperature')\n\n//if (Math.abs(UpperSetpoint - UpperTemperature) < 100 && Math.abs(LowerSetpoint - LowerTemperature) < 100 \n//    || auto_tune_upper || auto_tune_lower) {\nif (!upper_thermocouple_bad && !lower_thermocouple_bad && !simulation) {\n        // temps a setpoints are within tolerance\n        //node.status({fill:\"green\",shape:\"dot\",text:\"All good!\"});\n        // the trigger function locks up if you send it a zero\n        // similarly, we dont want to send it a value over\n        // the trigger time (1000 ms)\n        if (msg_out.delay > 0 && msg_out.delay < 1000 && (FsmStatus_Schedule != 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n            node.status({fill:\"green\",shape:\"dot\",text:dutycycle.toFixed(1) + '%'});\n            return [ msg_out, null ];\n        } else if (msg_out.delay <= 0 || (FsmStatus_Schedule == 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n            // send an \"off\" directly to the output node\n            node.status({fill:\"green\",shape:\"ring\",text:'0%'});\n            msg_out.payload = \"0\"\n            return [ null, msg_out ];\n        } else if (msg_out.delay >= 1000){\n            // send an \"on\" directly to the output node\n            node.status({fill:\"green\",shape:\"dot\",text:'100%'});\n            msg_out.payload = \"1\"\n            return [ null, msg_out ];\n        } else {\n            // send an \"off\" directly to the output node\n            node.status({fill:\"green\",shape:\"ring\",text:'0%'});\n            msg_out.payload = \"0\"\n            return [ null, msg_out ];\n        }\n} else if (simulation) {\n    // send an \"off\" directly to the output node\n    node.status({fill:\"blue\",shape:\"dot\",text:\"Simulation\"});\n    msg_out.payload = \"0\"\n    return [ null, msg_out ];\n} else {\n    // temp is too far away from setpoint. something is wrong.\n    // send an \"off\" directly to the output node\n    node.status({fill:\"red\",shape:\"dot\",text:\"Something is wrong!\"});\n    msg_out.payload = \"0\"\n    return [ null, msg_out ];\n}",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -9946,7 +9912,7 @@
         "type": "function",
         "z": "3154c44d1a91de38",
         "name": "",
-        "func": "// create a new message object to clean it up\nvar msg_out = { delay: msg.payload * 10 }; // should come in as 0 - 100%\nvar dutycycle = msg.payload * 1\nvar FsmStatus_Schedule = global.get('kiln_01.FsmStatus_Schedule', 'memoryOnly')\n//var FsmStatus_Segment = global.get('kiln_01.FsmStatus_Segment','memoryOnly')\nvar auto_tune_upper = global.get('pid.zone[0].autotune.active')\nvar auto_tune_lower = global.get('pid.zone[1].autotune.active')\nvar UpperSetpoint = global.get('kiln_01.UpperSetpoint', 'memoryOnly')\nvar LowerSetpoint = global.get('kiln_01.LowerSetpoint', 'memoryOnly')\nvar UpperTemperature = global.get('kiln_01.UpperTemperature', 'memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature', 'memoryOnly')\nvar upper_thermocouple_bad = flow.get('upper_thermocouple_bad')\nvar lower_thermocouple_bad = flow.get('lower_thermocouple_bad')\n\n//if (Math.abs(UpperSetpoint - UpperTemperature) < 100 && Math.abs(LowerSetpoint - LowerTemperature) < 100 \n//    || auto_tune_upper || auto_tune_lower) {\nif (!upper_thermocouple_bad && !lower_thermocouple_bad) {\n    // temps a setpoints are within tolerance\n    //node.status({fill:\"green\",shape:\"dot\",text:\"All good!\"});\n    // the trigger function locks up if you send it a zero\n    // similarly, we dont want to send it a value over\n    // the trigger time (1000 ms)\n    if (msg_out.delay > 0 && msg_out.delay < 1000 && (FsmStatus_Schedule != 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n        node.status({ fill: \"green\", shape: \"dot\", text: dutycycle.toFixed(1) + '%' });\n        return [msg_out, null];\n    } else if (msg_out.delay <= 0 || (FsmStatus_Schedule == 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n        // send an \"off\" directly to the output node\n        node.status({ fill: \"green\", shape: \"ring\", text: '0%' });\n        msg_out.payload = \"0\"\n        return [null, msg_out];\n    } else if (msg_out.delay >= 1000) {\n        // send an \"on\" directly to the output node\n        node.status({ fill: \"green\", shape: \"dot\", text: '100%' });\n        msg_out.payload = \"1\"\n        return [null, msg_out];\n    } else {\n        // send an \"off\" directly to the output node\n        node.status({ fill: \"green\", shape: \"ring\", text: '0%' });\n        msg_out.payload = \"0\"\n        return [null, msg_out];\n    }\n} else {\n    // temp is too far away from setpoint. something is wrong.\n    // send an \"off\" directly to the output node\n    //node.warn(\"temp is too far away from setpoint. something is wrong.\")\n    node.status({ fill: \"red\", shape: \"dot\", text: \"Something is wrong!\" });\n    msg_out.payload = \"0\"\n    return [null, msg_out];\n}",
+        "func": "// create a new message object to clean it up\nvar msg_out = { delay: msg.payload * 10 }; // should come in as 0 - 100%\nvar dutycycle = msg.payload * 1\nvar FsmStatus_Schedule = global.get('kiln_01.FsmStatus_Schedule','memoryOnly')\n//var FsmStatus_Segment = global.get('kiln_01.FsmStatus_Segment','memoryOnly')\nvar auto_tune_upper = global.get('pid.zone[0].autotune.active')\nvar auto_tune_lower = global.get('pid.zone[1].autotune.active')\nvar UpperSetpoint = global.get('kiln_01.UpperSetpoint','memoryOnly')\nvar LowerSetpoint = global.get('kiln_01.LowerSetpoint','memoryOnly')\nvar UpperTemperature = global.get('kiln_01.UpperTemperature','memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature','memoryOnly')\nvar upper_thermocouple_bad = flow.get('upper_thermocouple_bad')\nvar lower_thermocouple_bad = flow.get('lower_thermocouple_bad')\nvar simulation = global.get('kiln_01.SimulateTemperature')\n\n//if (Math.abs(UpperSetpoint - UpperTemperature) < 100 && Math.abs(LowerSetpoint - LowerTemperature) < 100 \n//    || auto_tune_upper || auto_tune_lower) {\nif (!upper_thermocouple_bad && !lower_thermocouple_bad && !simulation) {\n        // temps a setpoints are within tolerance\n        //node.status({fill:\"green\",shape:\"dot\",text:\"All good!\"});\n        // the trigger function locks up if you send it a zero\n        // similarly, we dont want to send it a value over\n        // the trigger time (1000 ms)\n        if (msg_out.delay > 0 && msg_out.delay < 1000 && (FsmStatus_Schedule != 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n            node.status({fill:\"green\",shape:\"dot\",text:dutycycle.toFixed(1) + '%'});\n            return [ msg_out, null ];\n        } else if (msg_out.delay <= 0 || (FsmStatus_Schedule == 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n            // send an \"off\" directly to the output node\n            node.status({fill:\"green\",shape:\"ring\",text:'0%'});\n            msg_out.payload = \"0\"\n            return [ null, msg_out ];\n        } else if (msg_out.delay >= 1000){\n            // send an \"on\" directly to the output node\n            node.status({fill:\"green\",shape:\"dot\",text:'100%'});\n            msg_out.payload = \"1\"\n            return [ null, msg_out ];\n        } else {\n            // send an \"off\" directly to the output node\n            node.status({fill:\"green\",shape:\"ring\",text:'0%'});\n            msg_out.payload = \"0\"\n            return [ null, msg_out ];\n        }\n} else if (simulation) {\n    // send an \"off\" directly to the output node\n    node.status({fill:\"blue\",shape:\"dot\",text:\"Simulation\"});\n    msg_out.payload = \"0\"\n    return [ null, msg_out ];\n} else {\n    // temp is too far away from setpoint. something is wrong.\n    // send an \"off\" directly to the output node\n    node.status({fill:\"red\",shape:\"dot\",text:\"Something is wrong!\"});\n    msg_out.payload = \"0\"\n    return [ null, msg_out ];\n}",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -10048,48 +10014,6 @@
         "wires": [
             [
                 "90d2df249ed5559d"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "bbab6af088f829c2",
-        "type": "function",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "func": "msg.payload = parseFloat(msg.payload.toFixed(1))\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 415,
-        "y": 340,
-        "wires": [
-            [
-                "dcbc073ea7b777ee",
-                "bd45525a6924a5c5"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "acb33ff4507d9a9b",
-        "type": "function",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "func": "msg.payload = parseFloat(msg.payload.toFixed(1))\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 415,
-        "y": 380,
-        "wires": [
-            [
-                "6c490df17d1de881",
-                "e65201e766b76bfd"
             ]
         ],
         "l": false
@@ -11597,16 +11521,6 @@
         "wires": []
     },
     {
-        "id": "9e92d7c40ff4483a",
-        "type": "comment",
-        "z": "3154c44d1a91de38",
-        "name": "handle simulate temps",
-        "info": "",
-        "x": 440,
-        "y": 360,
-        "wires": []
-    },
-    {
         "id": "cfb3bf9c5adf407a",
         "type": "comment",
         "z": "3154c44d1a91de38",
@@ -11992,6 +11906,98 @@
             [
                 "ea802ed93ceeae42",
                 "79016fc241d79289"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "95dfe0dda7683c18",
+        "type": "kettle-sim",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "diam": 35,
+        "volume": 40,
+        "temp": 20,
+        "power": 2.5,
+        "ambientTemp": 20,
+        "x": 405,
+        "y": 340,
+        "wires": [
+            [
+                "0e07f59ed1058b14"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "e4f78a9a9ff9d4e2",
+        "type": "kettle-sim",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "diam": 35,
+        "volume": 40,
+        "temp": 20,
+        "power": 2.5,
+        "ambientTemp": 20,
+        "x": 405,
+        "y": 380,
+        "wires": [
+            [
+                "4fe3e275d255b3e7"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "9e92d7c40ff4483a",
+        "type": "comment",
+        "z": "3154c44d1a91de38",
+        "name": "handle simulate temps",
+        "info": "",
+        "x": 420,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "0e07f59ed1058b14",
+        "type": "function",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "func": "msg.payload = msg.payload.toFixed(2)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 465,
+        "y": 340,
+        "wires": [
+            [
+                "aec3c2c38a63dd10",
+                "dcbc073ea7b777ee",
+                "bd45525a6924a5c5"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "4fe3e275d255b3e7",
+        "type": "function",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "func": "msg.payload = msg.payload.toFixed(2)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 465,
+        "y": 380,
+        "wires": [
+            [
+                "6c490df17d1de881",
+                "e65201e766b76bfd",
+                "6ab284ac808bee4a"
             ]
         ],
         "l": false
