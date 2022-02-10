@@ -5025,7 +5025,7 @@
         "type": "function",
         "z": "e9cef8706a9cf7f6",
         "name": "check temps and start soak",
-        "func": "var UpperTemperature = global.get('kiln_01.UpperTemperature', 'memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature', 'memoryOnly')\nvar Setpoint = global.get('kiln_01.Setpoint', 'memoryOnly')\nvar ControlAction = global.get('kiln_01.ControlAction', 'memoryOnly')\nvar Tolerance = Setpoint - Setpoint * 0.998 // 0.2%\n\n// check if temps have been reached\n// TODO: add a confidence timer here to filter out spikes in temp\nif ((ControlAction == 'Heating' \n    && UpperTemperature >= (Setpoint - Tolerance) \n    && LowerTemperature >= (Setpoint - Tolerance)) || \n    (ControlAction == 'Cooling' \n    && UpperTemperature <= (Setpoint + Tolerance) \n    && LowerTemperature <= (Setpoint + Tolerance))){\n        global.set('kiln_01.SetpointReached', true, 'memoryOnly')\n        global.set('kiln_01.ControlAction', 'Maintaining', 'memoryOnly')\n        msg.topic = 'soak'\n        return msg;\n}",
+        "func": "var UpperTemperature = global.get('kiln_01.UpperTemperature', 'memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature', 'memoryOnly')\nvar Setpoint = global.get('kiln_01.Setpoint', 'memoryOnly')\nvar ControlAction = global.get('kiln_01.ControlAction', 'memoryOnly')\nvar Tolerance = Setpoint - Setpoint * 0.998 // 0.2%\n\n// check if temps have been reached\n// TODO: add a confidence timer here to filter out spikes in temp\nif ((ControlAction == 'Heating' \n    && UpperTemperature >= (Setpoint - Tolerance) \n    && LowerTemperature >= (Setpoint - Tolerance)) || \n    (ControlAction == 'Cooling' \n    && UpperTemperature <= (Setpoint + Tolerance) \n    && LowerTemperature <= (Setpoint + Tolerance))){\n        global.set('kiln_01.SetpointReached', true, 'memoryOnly')\n        global.set('kiln_01.ControlAction', 'Maintaining', 'memoryOnly')\n        msg.topic = 'soak'\n        msg.action = 'Maintaining'\n        return [msg, msg, msg];\n}\nif ((ControlAction == 'Heating' \n    && UpperTemperature >= (Setpoint - Tolerance)) || \n    (ControlAction == 'Cooling' \n    && UpperTemperature <= (Setpoint + Tolerance))){\n        msg.action = 'Maintaining'\n        return [null, msg, null];\n}\nif ((ControlAction == 'Heating' \n    && LowerTemperature >= (Setpoint - Tolerance)) || \n    (ControlAction == 'Cooling' \n    && LowerTemperature <= (Setpoint + Tolerance))){\n        msg.action = 'Maintaining'\n        return [null, null, msg];\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6010,7 +6010,7 @@
         "type": "function",
         "z": "e9cef8706a9cf7f6",
         "name": "check temps and start soak",
-        "func": "var UpperTemperature = global.get('kiln_01.UpperTemperature', 'memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature', 'memoryOnly')\nvar AverageTemperature = (UpperTemperature + LowerTemperature) / 2.0\nvar Setpoint = msg.payload.data.segment_settings.setpoint\nvar RampRate = msg.payload.data.segment_settings.ramp_rate // per hour\nvar ControlAction\n\nif (AverageTemperature > Setpoint) {\n    ControlAction = 'Cooling'\n    RampRate = RampRate * -1 // change sign so pid controller ramps down\n} else {\n    ControlAction = 'Heating'\n}\n\nglobal.set('kiln_01.ControlAction', ControlAction, 'memoryOnly')\nglobal.set('kiln_01.SetpointReached', false, 'memoryOnly')\n\nvar msg1 = { payload: Setpoint, rate: RampRate, direction: ControlAction }\nvar msg2 = { payload: Setpoint, rate: RampRate, direction: ControlAction }\n\nreturn [msg1, msg2];",
+        "func": "var UpperTemperature = global.get('kiln_01.UpperTemperature', 'memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature', 'memoryOnly')\nvar AverageTemperature = (UpperTemperature + LowerTemperature) / 2.0\nvar Setpoint = msg.payload.data.segment_settings.setpoint\nvar RampRate = msg.payload.data.segment_settings.ramp_rate // per hour\nvar ControlAction\n\nif (AverageTemperature > Setpoint) {\n    ControlAction = 'Cooling'\n    RampRate = RampRate * -1 // change sign so pid controller ramps down\n} else {\n    ControlAction = 'Heating'\n}\n\nglobal.set('kiln_01.ControlAction', ControlAction, 'memoryOnly')\nglobal.set('kiln_01.SetpointReached', false, 'memoryOnly')\n\nvar msg1 = { payload: Setpoint, rate: RampRate, action: ControlAction }\nvar msg2 = { payload: Setpoint, rate: RampRate, action: ControlAction }\n\nreturn [msg1, msg2];",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -6075,7 +6075,7 @@
         "max_interval": 600,
         "enable": 1,
         "disabled_op": 0,
-        "x": 255,
+        "x": 245,
         "y": 220,
         "wires": [
             [
@@ -6353,7 +6353,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 375,
+        "x": 365,
         "y": 120,
         "wires": [],
         "l": false
@@ -6377,7 +6377,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 315,
+        "x": 305,
         "y": 120,
         "wires": [
             []
@@ -6558,14 +6558,14 @@
         "id": "79e8d734b498031e",
         "type": "function",
         "z": "b83fb43068cdf48f",
-        "name": "set control if auto tune not active",
-        "func": "var zone = 0\nvar cv = 0\nif (!global.get('pid.zone['+zone+'].autotune.active')) {\n    cv = msg.payload * 100\n    var RampRate = global.get('pid.zone['+zone+'].parameters.rate')\n    msg.payload = cv * RampRate / 100\n    global.set('pid.zone['+zone+'].parameters.control', cv)\n    node.status({ fill: \"green\", shape: \"dot\", text: msg.payload.toFixed(2) + ' CV' });\n    return msg;\n}",
+        "name": "set control if auto tune not active 0",
+        "func": "var zone_id = 0\nvar cv = 0\nvar zone = global.get('pid.zone[' + zone_id + ']')\nif (!zone.autotune.active) {\n    cv = msg.payload * 100\n    msg.payload = cv * zone.parameters.rate / 100\n    global.set('pid.zone['+zone_id+'].parameters.control', cv)\n    msg.action = zone.action\n    node.status({ fill: \"green\", shape: \"dot\", text: msg.payload.toFixed(2) + ' CV' });\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 315,
+        "x": 305,
         "y": 200,
         "wires": [
             [
@@ -6594,7 +6594,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 135,
+        "x": 125,
         "y": 120,
         "wires": [
             [
@@ -6688,7 +6688,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "initialize variables",
-        "func": "\n\nvar zone = []\nvar zone_count = 4\nfor (let index = 0; index < zone_count; index++) {\n    zone.push({ id: '', \n                autotune: { active: false, setpoint: 0, rate: 0}, \n                parameters: { rate: 0, setpoint: 0, control: 0, process: 0 }, \n                settings: { \n                    heating: { \n                        gain: { Kp: 0, Ki: 0, Kd: 0 }, \n                        time: { PB: 0, Ti: 0, Td: 0 } }, \n                    cooling: { \n                        gain: { Kp: 0, Ki: 0, Kd: 0 }, \n                        time: { PB: 0, Ti: 0, Td: 0 } } } })\n}\nvar pid = { selected_zone: 0, zone }\nglobal.set('pid', pid)\nmsg.payload = { pid }\nreturn msg;",
+        "func": "\n\nvar zone = []\nvar zone_count = 4\nfor (let index = 0; index < zone_count; index++) {\n    zone.push({ id: '',\n                action: 'Heating', \n                autotune: { active: false, setpoint: 0, rate: 0}, \n                parameters: { rate: 0, setpoint: 0, control: 0, process: 0 }, \n                settings: { \n                    heating: { \n                        gain: { Kp: 0, Ki: 0, Kd: 0 }, \n                        time: { PB: 0, Ti: 0, Td: 0 } }, \n                    cooling: { \n                        gain: { Kp: 0, Ki: 0, Kd: 0 }, \n                        time: { PB: 0, Ti: 0, Td: 0 } } } })\n}\nvar pid = { selected_zone: 0, zone }\nglobal.set('pid', pid)\nmsg.payload = { pid }\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6726,13 +6726,13 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "gate if auto tune active",
-        "func": "var zone_id = 0\nvar ControlAction = global.get('kiln_01.ControlAction', 'memoryOnly')\nmsg.topic = 'process'\nvar zone = global.get('pid.zone[' + zone_id + ']')\nif (zone.autotune.active) {\n    //node.status({ fill: \"red\", shape: \"ring\", text: \"blocked\" });\n    msg.enable = false\n} else {\n    //node.status({ fill: \"green\", shape: \"dot\", text: \"enabled\" });\n    msg.enable = true\n    msg.payload = zone.parameters.process || 0\n    msg.setpoint = zone.parameters.setpoint || 0\n    if (ControlAction == 'Heating' || ControlAction == 'Maintaining'){\n        msg.prop_band = zone.settings.heating.time.PB || 0\n        msg.t_integral = zone.settings.heating.time.Ti || 0\n        msg.t_derivative = zone.settings.heating.time.Td || 0\n    } else {\n        msg.prop_band = zone.settings.cooling.time.PB || 0\n        msg.t_integral = zone.settings.cooling.time.Ti || 0\n        msg.t_derivative = zone.settings.cooling.time.Td || 0\n    }\n    msg.integral_default = 0.5\n    msg.max_interval = 600\n    msg.smooth_factor = 0\n    msg.disabled_op = 0 \n}\nreturn msg;",
+        "func": "var zone_id = 0\n//var ControlAction = global.get('kiln_01.ControlAction', 'memoryOnly')\nmsg.topic = 'process'\nvar zone = global.get('pid.zone[' + zone_id + ']')\nif (zone.autotune.active) {\n    //node.status({ fill: \"red\", shape: \"ring\", text: \"blocked\" });\n    msg.enable = false\n} else {\n    //node.status({ fill: \"green\", shape: \"dot\", text: \"enabled\" });\n    msg.enable = true\n    msg.payload = zone.parameters.process || 0\n    msg.setpoint = zone.parameters.setpoint || 0\n    if (zone.action == 'Heating' || zone.action == 'Maintaining'){\n        msg.prop_band = zone.settings.heating.time.PB || 0\n        msg.t_integral = zone.settings.heating.time.Ti || 0\n        msg.t_derivative = zone.settings.heating.time.Td || 0\n    } else {\n        msg.prop_band = zone.settings.cooling.time.PB || 0\n        msg.t_integral = zone.settings.cooling.time.Ti || 0\n        msg.t_derivative = zone.settings.cooling.time.Td || 0\n    }\n    msg.integral_default = 0.5\n    msg.max_interval = 600\n    msg.smooth_factor = 0\n    msg.disabled_op = 0 \n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 195,
+        "x": 185,
         "y": 220,
         "wires": [
             [
@@ -6775,7 +6775,7 @@
         "max_interval": 600,
         "enable": 1,
         "disabled_op": 0,
-        "x": 715,
+        "x": 705,
         "y": 220,
         "wires": [
             [
@@ -6788,14 +6788,14 @@
         "id": "83caff269f9bed78",
         "type": "function",
         "z": "b83fb43068cdf48f",
-        "name": "set control if auto tune not active",
-        "func": "var zone = 1\nvar cv = 0\nif (!global.get('pid.zone['+zone+'].autotune.active')) {\n    cv = msg.payload * 100\n    var RampRate = global.get('pid.zone['+zone+'].parameters.rate')\n    msg.payload = cv * RampRate / 100\n    global.set('pid.zone['+zone+'].parameters.control', cv)\n    node.status({ fill: \"green\", shape: \"dot\", text: msg.payload.toFixed(2) + ' CV' });\n    return msg;\n}",
+        "name": "set control if auto tune not active 1",
+        "func": "var zone_id = 1\nvar cv = 0\nvar zone = global.get('pid.zone[' + zone_id + ']')\nif (!zone.autotune.active) {\n    cv = msg.payload * 100\n    msg.payload = cv * zone.parameters.rate / 100\n    global.set('pid.zone['+zone_id+'].parameters.control', cv)\n    msg.action = zone.action\n    node.status({ fill: \"green\", shape: \"dot\", text: msg.payload.toFixed(2) + ' CV' });\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 775,
+        "x": 765,
         "y": 200,
         "wires": [
             [
@@ -6810,13 +6810,13 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "gate if auto tune active",
-        "func": "var zone_id = 1\nvar ControlAction = global.get('kiln_01.ControlAction', 'memoryOnly')\nmsg.topic = 'process'\nvar zone = global.get('pid.zone[' + zone_id + ']')\nif (zone.autotune.active) {\n    //node.status({ fill: \"red\", shape: \"ring\", text: \"blocked\" });\n    msg.enable = false\n} else {\n    //node.status({ fill: \"green\", shape: \"dot\", text: \"enabled\" });\n    msg.enable = true\n    msg.payload = zone.parameters.process || 0\n    msg.setpoint = zone.parameters.setpoint || 0\n    if (ControlAction == 'Heating' || ControlAction == 'Maintaining'){\n        msg.prop_band = zone.settings.heating.time.PB || 0\n        msg.t_integral = zone.settings.heating.time.Ti || 0\n        msg.t_derivative = zone.settings.heating.time.Td || 0\n    } else {\n        msg.prop_band = zone.settings.cooling.time.PB || 0\n        msg.t_integral = zone.settings.cooling.time.Ti || 0\n        msg.t_derivative = zone.settings.cooling.time.Td || 0\n    }\n    msg.integral_default = 0.5\n    msg.max_interval = 600\n    msg.smooth_factor = 0\n    msg.disabled_op = 0 \n}\nreturn msg;",
+        "func": "var zone_id = 1\n//var ControlAction = global.get('kiln_01.ControlAction', 'memoryOnly')\nmsg.topic = 'process'\nvar zone = global.get('pid.zone[' + zone_id + ']')\nif (zone.autotune.active) {\n    //node.status({ fill: \"red\", shape: \"ring\", text: \"blocked\" });\n    msg.enable = false\n} else {\n    //node.status({ fill: \"green\", shape: \"dot\", text: \"enabled\" });\n    msg.enable = true\n    msg.payload = zone.parameters.process || 0\n    msg.setpoint = zone.parameters.setpoint || 0\n    if (zone.action == 'Heating' || zone.action == 'Maintaining'){\n        msg.prop_band = zone.settings.heating.time.PB || 0\n        msg.t_integral = zone.settings.heating.time.Ti || 0\n        msg.t_derivative = zone.settings.heating.time.Td || 0\n    } else {\n        msg.prop_band = zone.settings.cooling.time.PB || 0\n        msg.t_integral = zone.settings.cooling.time.Ti || 0\n        msg.t_derivative = zone.settings.cooling.time.Td || 0\n    }\n    msg.integral_default = 0.5\n    msg.max_interval = 600\n    msg.smooth_factor = 0\n    msg.disabled_op = 0 \n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 655,
+        "x": 645,
         "y": 220,
         "wires": [
             [
@@ -6864,7 +6864,7 @@
         "links": [
             "f603fd46b7055148"
         ],
-        "x": 255,
+        "x": 245,
         "y": 160,
         "wires": []
     },
@@ -6885,7 +6885,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 195,
+        "x": 185,
         "y": 160,
         "wires": [
             [
@@ -6905,7 +6905,7 @@
             "92ddf9e5188bd64e",
             "287e0e0ceab0f3df"
         ],
-        "x": 375,
+        "x": 365,
         "y": 160,
         "wires": []
     },
@@ -6926,7 +6926,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 315,
+        "x": 305,
         "y": 160,
         "wires": [
             [
@@ -6968,7 +6968,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 835,
+        "x": 825,
         "y": 120,
         "wires": [],
         "l": false
@@ -6992,7 +6992,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 775,
+        "x": 765,
         "y": 120,
         "wires": [
             []
@@ -7018,7 +7018,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 595,
+        "x": 585,
         "y": 120,
         "wires": [
             [
@@ -7037,7 +7037,7 @@
         "links": [
             "f603fd46b7055148"
         ],
-        "x": 715,
+        "x": 705,
         "y": 160,
         "wires": []
     },
@@ -7058,7 +7058,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 655,
+        "x": 645,
         "y": 160,
         "wires": [
             [
@@ -7078,7 +7078,7 @@
             "92ddf9e5188bd64e",
             "287e0e0ceab0f3df"
         ],
-        "x": 835,
+        "x": 825,
         "y": 160,
         "wires": []
     },
@@ -7099,7 +7099,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 775,
+        "x": 765,
         "y": 160,
         "wires": [
             [
@@ -7121,7 +7121,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 435,
+        "x": 425,
         "y": 200,
         "wires": [],
         "l": false
@@ -7139,7 +7139,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 895,
+        "x": 885,
         "y": 200,
         "wires": [],
         "l": false
@@ -7162,7 +7162,7 @@
         "links": [
             "dcbc073ea7b777ee"
         ],
-        "x": 255,
+        "x": 245,
         "y": 120,
         "wires": [
             [
@@ -7180,7 +7180,7 @@
         "links": [
             "e65201e766b76bfd"
         ],
-        "x": 715,
+        "x": 705,
         "y": 120,
         "wires": [
             [
@@ -7200,7 +7200,7 @@
             "c96334b38e278286",
             "af8f2e69ea9f27c2"
         ],
-        "x": 75,
+        "x": 65,
         "y": 160,
         "wires": [
             [
@@ -7227,6 +7227,13 @@
                 "pt": "global",
                 "to": "rate",
                 "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "pid.zone[0].action",
+                "pt": "global",
+                "to": "action",
+                "tot": "msg"
             }
         ],
         "action": "",
@@ -7234,7 +7241,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 135,
+        "x": 125,
         "y": 160,
         "wires": [
             []
@@ -7251,7 +7258,7 @@
             "c96334b38e278286",
             "af8f2e69ea9f27c2"
         ],
-        "x": 535,
+        "x": 525,
         "y": 160,
         "wires": [
             [
@@ -7278,6 +7285,13 @@
                 "pt": "global",
                 "to": "rate",
                 "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "pid.zone[1].action",
+                "pt": "global",
+                "to": "action",
+                "tot": "msg"
             }
         ],
         "action": "",
@@ -7285,7 +7299,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 595,
+        "x": 585,
         "y": 160,
         "wires": [
             []
@@ -7422,11 +7436,11 @@
         "links": [
             "62eccecdbb37e6f8"
         ],
-        "x": 535,
+        "x": 525,
         "y": 220,
         "wires": [
             [
-                "50922b7910d0bdbb"
+                "aa541d34f410d1e9"
             ]
         ],
         "icon": "node-red/timer.svg"
@@ -7439,11 +7453,11 @@
         "links": [
             "62eccecdbb37e6f8"
         ],
-        "x": 75,
+        "x": 65,
         "y": 220,
         "wires": [
             [
-                "5b12626460fb1565"
+                "385287d0010ada53"
             ]
         ],
         "icon": "node-red/timer.svg"
@@ -7456,7 +7470,7 @@
         "links": [
             "62eccecdbb37e6f8"
         ],
-        "x": 535,
+        "x": 525,
         "y": 120,
         "wires": [
             [
@@ -7473,7 +7487,7 @@
         "links": [
             "62eccecdbb37e6f8"
         ],
-        "x": 75,
+        "x": 65,
         "y": 120,
         "wires": [
             [
@@ -7526,14 +7540,14 @@
         "id": "21abba5c735f4f33",
         "type": "function",
         "z": "b83fb43068cdf48f",
-        "name": "set control if auto tune not active",
+        "name": "set control if auto tune not active 2",
         "func": "var zone = 2\nvar cv\nif (!global.get('pid.zone['+zone+'].autotune.active')) {\n    cv = msg.payload * 100\n    global.set('pid.zone['+zone+'].parameters.control', cv)\n    node.status({ fill: \"green\", shape: \"dot\", text: cv.toFixed(2) + ' CV' });\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 305,
+        "x": 315,
         "y": 420,
         "wires": [
             [
@@ -7547,7 +7561,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "gate if auto tune active",
-        "func": "var zone_id = 2\nvar ControlAction = global.get('kiln_01.ControlAction', 'memoryOnly')\nmsg.topic = 'process'\nvar zone = global.get('pid.zone[' + zone_id + ']')\nif (zone.autotune.active) {\n    //node.status({ fill: \"red\", shape: \"ring\", text: \"blocked\" });\n    msg.enable = false\n} else {\n    //node.status({ fill: \"green\", shape: \"dot\", text: \"enabled\" });\n    msg.enable = true\n    msg.payload = zone.parameters.process || 0\n    msg.setpoint = zone.parameters.setpoint || 0\n    if (ControlAction == 'Heating'){\n        msg.prop_band = zone.settings.heating.time.PB || 0\n        msg.t_integral = zone.settings.heating.time.Ti || 0\n        msg.t_derivative = zone.settings.heating.time.Td || 0\n    } else {\n        msg.prop_band = zone.settings.cooling.time.PB || 0\n        msg.t_integral = zone.settings.cooling.time.Ti || 0\n        msg.t_derivative = zone.settings.cooling.time.Td || 0\n    }\n    msg.integral_default = 0.5\n    msg.max_interval = 600\n    msg.smooth_factor = 0\n    msg.disabled_op = 0 \n}\nreturn msg;",
+        "func": "var zone_id = 2\n//var ControlAction = global.get('kiln_01.ControlAction', 'memoryOnly')\nmsg.topic = 'process'\nvar zone = global.get('pid.zone[' + zone_id + ']')\nif (zone.autotune.active) {\n    //node.status({ fill: \"red\", shape: \"ring\", text: \"blocked\" });\n    msg.enable = false\n} else {\n    //node.status({ fill: \"green\", shape: \"dot\", text: \"enabled\" });\n    msg.enable = true\n    msg.payload = zone.parameters.process || 0\n    msg.setpoint = zone.parameters.setpoint || 0\n    if (zone.action == 'Heating' || zone.action == 'Maintaining'){\n        msg.prop_band = zone.settings.heating.time.PB || 0\n        msg.t_integral = zone.settings.heating.time.Ti || 0\n        msg.t_derivative = zone.settings.heating.time.Td || 0\n    } else {\n        msg.prop_band = zone.settings.cooling.time.PB || 0\n        msg.t_integral = zone.settings.cooling.time.Ti || 0\n        msg.t_derivative = zone.settings.cooling.time.Td || 0\n    }\n    msg.integral_default = 0.5\n    msg.max_interval = 600\n    msg.smooth_factor = 0\n    msg.disabled_op = 0 \n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -7599,14 +7613,14 @@
         "id": "356e5793a9f364e9",
         "type": "function",
         "z": "b83fb43068cdf48f",
-        "name": "set control if auto tune not active",
+        "name": "set control if auto tune not active 3",
         "func": "var zone = 3\nvar cv\nif (!global.get('pid.zone['+zone+'].autotune.active')) {\n    cv = msg.payload * 100\n    global.set('pid.zone['+zone+'].parameters.control', cv)\n    node.status({ fill: \"green\", shape: \"dot\", text: cv.toFixed(2) + ' CV' });\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 765,
+        "x": 785,
         "y": 420,
         "wires": [
             [
@@ -7620,7 +7634,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "gate if auto tune active",
-        "func": "var zone_id = 3\nvar ControlAction = global.get('kiln_01.ControlAction', 'memoryOnly')\nmsg.topic = 'process'\nvar zone = global.get('pid.zone[' + zone_id + ']')\nif (zone.autotune.active) {\n    //node.status({ fill: \"red\", shape: \"ring\", text: \"blocked\" });\n    msg.enable = false\n} else {\n    //node.status({ fill: \"green\", shape: \"dot\", text: \"enabled\" });\n    msg.enable = true\n    msg.payload = zone.parameters.process || 0\n    msg.setpoint = zone.parameters.setpoint || 0\n    if (ControlAction == 'Heating'){\n        msg.prop_band = zone.settings.heating.time.PB || 0\n        msg.t_integral = zone.settings.heating.time.Ti || 0\n        msg.t_derivative = zone.settings.heating.time.Td || 0\n    } else {\n        msg.prop_band = zone.settings.cooling.time.PB || 0\n        msg.t_integral = zone.settings.cooling.time.Ti || 0\n        msg.t_derivative = zone.settings.cooling.time.Td || 0\n    }\n    msg.integral_default = 0.5\n    msg.max_interval = 600\n    msg.smooth_factor = 0\n    msg.disabled_op = 0 \n}\nreturn msg;",
+        "func": "var zone_id = 3\n//var ControlAction = global.get('kiln_01.ControlAction', 'memoryOnly')\nmsg.topic = 'process'\nvar zone = global.get('pid.zone[' + zone_id + ']')\nif (zone.autotune.active) {\n    //node.status({ fill: \"red\", shape: \"ring\", text: \"blocked\" });\n    msg.enable = false\n} else {\n    //node.status({ fill: \"green\", shape: \"dot\", text: \"enabled\" });\n    msg.enable = true\n    msg.payload = zone.parameters.process || 0\n    msg.setpoint = zone.parameters.setpoint || 0\n    if (zone.action == 'Heating' || zone.action == 'Maintaining'){\n        msg.prop_band = zone.settings.heating.time.PB || 0\n        msg.t_integral = zone.settings.heating.time.Ti || 0\n        msg.t_derivative = zone.settings.heating.time.Td || 0\n    } else {\n        msg.prop_band = zone.settings.cooling.time.PB || 0\n        msg.t_integral = zone.settings.cooling.time.Ti || 0\n        msg.t_derivative = zone.settings.cooling.time.Td || 0\n    }\n    msg.integral_default = 0.5\n    msg.max_interval = 600\n    msg.smooth_factor = 0\n    msg.disabled_op = 0 \n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -7659,7 +7673,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 365,
+        "x": 375,
         "y": 420,
         "wires": [],
         "l": false
@@ -7677,7 +7691,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 825,
+        "x": 845,
         "y": 420,
         "wires": [],
         "l": false
@@ -7694,7 +7708,7 @@
         "y": 440,
         "wires": [
             [
-                "82b24fa58d47aaed"
+                "f7044a2fd61adcf2"
             ]
         ],
         "icon": "node-red/timer.svg"
@@ -7711,7 +7725,7 @@
         "y": 440,
         "wires": [
             [
-                "054a8bc4eb036a55"
+                "70febe92271a543f"
             ]
         ],
         "icon": "node-red/timer.svg"
@@ -7727,7 +7741,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 755,
+        "x": 775,
         "y": 340,
         "wires": [
             [
@@ -7751,7 +7765,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 415,
+        "x": 425,
         "y": 340,
         "wires": [],
         "l": false
@@ -7775,7 +7789,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 355,
+        "x": 365,
         "y": 340,
         "wires": [
             []
@@ -7861,7 +7875,7 @@
             "92ddf9e5188bd64e",
             "287e0e0ceab0f3df"
         ],
-        "x": 415,
+        "x": 425,
         "y": 300,
         "wires": []
     },
@@ -7882,7 +7896,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 355,
+        "x": 365,
         "y": 300,
         "wires": [
             [
@@ -7904,7 +7918,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 875,
+        "x": 895,
         "y": 340,
         "wires": [],
         "l": false
@@ -7928,7 +7942,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 815,
+        "x": 835,
         "y": 340,
         "wires": [
             []
@@ -8014,7 +8028,7 @@
             "92ddf9e5188bd64e",
             "287e0e0ceab0f3df"
         ],
-        "x": 875,
+        "x": 895,
         "y": 300,
         "wires": []
     },
@@ -8035,7 +8049,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 815,
+        "x": 835,
         "y": 300,
         "wires": [
             [
@@ -8139,7 +8153,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 295,
+        "x": 305,
         "y": 340,
         "wires": [
             [
@@ -8161,6 +8175,13 @@
                 "p": "pid.zone[2].parameters.setpoint",
                 "pt": "global",
                 "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "pid.zone[2].action",
+                "pt": "global",
+                "to": "action",
                 "tot": "msg"
             }
         ],
@@ -8201,7 +8222,7 @@
         "links": [
             "94112e9a2839cf54"
         ],
-        "x": 375,
+        "x": 365,
         "y": 200,
         "wires": []
     },
@@ -8214,7 +8235,7 @@
         "links": [
             "d10bbe6d04d1179a"
         ],
-        "x": 835,
+        "x": 825,
         "y": 200,
         "wires": []
     },
@@ -8229,6 +8250,13 @@
                 "p": "pid.zone[3].parameters.setpoint",
                 "pt": "global",
                 "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "pid.zone[3].action",
+                "pt": "global",
+                "to": "action",
                 "tot": "msg"
             }
         ],
@@ -8259,102 +8287,6 @@
                 "c62eab5d62729aa1"
             ]
         ]
-    },
-    {
-        "id": "5b12626460fb1565",
-        "type": "switch",
-        "z": "b83fb43068cdf48f",
-        "name": "ramp controller not autotuning",
-        "property": "pid.zone[2].autotune.active",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "false"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 135,
-        "y": 220,
-        "wires": [
-            [
-                "385287d0010ada53"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "50922b7910d0bdbb",
-        "type": "switch",
-        "z": "b83fb43068cdf48f",
-        "name": "ramp controller not autotuning",
-        "property": "pid.zone[3].autotune.active",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "false"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 595,
-        "y": 220,
-        "wires": [
-            [
-                "aa541d34f410d1e9"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "054a8bc4eb036a55",
-        "type": "switch",
-        "z": "b83fb43068cdf48f",
-        "name": "temp controller not autotuning",
-        "property": "pid.zone[0].autotune.active",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "false"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 125,
-        "y": 440,
-        "wires": [
-            [
-                "3d56a3e565b065fb"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "82b24fa58d47aaed",
-        "type": "switch",
-        "z": "b83fb43068cdf48f",
-        "name": "temp controller not autotuning",
-        "property": "pid.zone[1].autotune.active",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "false"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 585,
-        "y": 440,
-        "wires": [
-            [
-                "cb1f9a0b2d53e60e"
-            ]
-        ],
-        "l": false
     },
     {
         "id": "5e6821a08b748efd",
@@ -9286,7 +9218,7 @@
         "type": "switch",
         "z": "b83fb43068cdf48f",
         "name": "",
-        "property": "#:(memoryOnly)::kiln_01.ControlAction",
+        "property": "pid.zone[2].action",
         "propertyType": "global",
         "rules": [
             {
@@ -9312,7 +9244,7 @@
         "type": "switch",
         "z": "b83fb43068cdf48f",
         "name": "",
-        "property": "#:(memoryOnly)::kiln_01.ControlAction",
+        "property": "pid.zone[0].action",
         "propertyType": "global",
         "rules": [
             {
@@ -9324,7 +9256,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 195,
+        "x": 185,
         "y": 120,
         "wires": [
             [
@@ -9338,7 +9270,7 @@
         "type": "switch",
         "z": "b83fb43068cdf48f",
         "name": "",
-        "property": "#:(memoryOnly)::kiln_01.ControlAction",
+        "property": "pid.zone[3].action",
         "propertyType": "global",
         "rules": [
             {
@@ -9364,7 +9296,7 @@
         "type": "switch",
         "z": "b83fb43068cdf48f",
         "name": "",
-        "property": "#:(memoryOnly)::kiln_01.ControlAction",
+        "property": "pid.zone[1].action",
         "propertyType": "global",
         "rules": [
             {
@@ -9376,11 +9308,63 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 655,
+        "x": 645,
         "y": 120,
         "wires": [
             [
                 "6631d9fb2726ad04"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "70febe92271a543f",
+        "type": "switch",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "property": "pid.zone[2].action",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "Maintaining",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 125,
+        "y": 440,
+        "wires": [
+            [
+                "3d56a3e565b065fb"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "f7044a2fd61adcf2",
+        "type": "switch",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "property": "pid.zone[3].action",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "Maintaining",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 585,
+        "y": 440,
+        "wires": [
+            [
+                "cb1f9a0b2d53e60e"
             ]
         ],
         "l": false
@@ -12103,7 +12087,7 @@
         "name": "",
         "diam": 35,
         "volume": 40,
-        "temp": 20,
+        "temp": "19",
         "power": "10",
         "ambientTemp": 20,
         "x": 405,
@@ -12122,7 +12106,7 @@
         "name": "",
         "diam": 35,
         "volume": 40,
-        "temp": 20,
+        "temp": "19",
         "power": "10",
         "ambientTemp": 20,
         "x": 405,
