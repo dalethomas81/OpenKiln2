@@ -7807,7 +7807,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "measure ramp rate",
-        "func": "var LastValue = context.get('LastValue') || 0\nvar LastTime = context.get('LastTime') || 0\nvar NowValue = msg.payload || 0\nvar NowTime = Date.now() || 0\ncontext.set('LastValue', msg.payload)\ncontext.set('LastTime', Date.now())\nvar milli = ((NowValue - LastValue) / (NowTime - LastTime)) // units per millisecond\nvar sec = milli * 1000.0\nvar min = sec * 60.0\nvar hour = min * 60.0\nmsg.rate = {milli, sec, min, hour}\nnode.status({ fill: \"green\", shape: \"dot\", text: hour.toFixed(2) + ' UPH' });\nmsg.payload = hour\nreturn msg;",
+        "func": "var LastValue = context.get('LastValue') || 0\nvar LastTime = context.get('LastTime') || 0\nvar NowValue = msg.payload || 0\nvar NowTime = Date.now() || 0\n//if (NowTime - LastTime > 5000) { // wait at least 5 seconds to take another measurement\n    context.set('LastValue', msg.payload)\n    context.set('LastTime', Date.now())\n    var milli = ((NowValue - LastValue) / (NowTime - LastTime)) // units per millisecond\n    var sec = milli * 1000.0\n    var min = sec * 60.0\n    var hour = min * 60.0\n    msg.rate = {milli, sec, min, hour}\n    node.status({ fill: \"green\", shape: \"dot\", text: hour.toFixed(2) + ' UPH' });\n    msg.payload = hour\n    return msg;\n//}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -8221,7 +8221,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "measure ramp rate",
-        "func": "var LastValue = context.get('LastValue') || 0\nvar LastTime = context.get('LastTime') || 0\nvar NowValue = msg.payload || 0\nvar NowTime = Date.now() || 0\ncontext.set('LastValue', msg.payload)\ncontext.set('LastTime', Date.now())\nvar milli = ((NowValue - LastValue) / (NowTime - LastTime)) // units per millisecond\nvar sec = milli * 1000.0\nvar min = sec * 60.0\nvar hour = min * 60.0\nmsg.rate = {milli, sec, min, hour}\nnode.status({ fill: \"green\", shape: \"dot\", text: hour.toFixed(2) + ' UPH' });\nmsg.payload = hour\nreturn msg;",
+        "func": "var LastValue = context.get('LastValue') || 0\nvar LastTime = context.get('LastTime') || 0\nvar NowValue = msg.payload || 0\nvar NowTime = Date.now() || 0\n//if (NowTime - LastTime > 5000) { // wait at least 5 seconds to take another measurement\n    context.set('LastValue', msg.payload)\n    context.set('LastTime', Date.now())\n    var milli = ((NowValue - LastValue) / (NowTime - LastTime)) // units per millisecond\n    var sec = milli * 1000.0\n    var min = sec * 60.0\n    var hour = min * 60.0\n    msg.rate = {milli, sec, min, hour}\n    node.status({ fill: \"green\", shape: \"dot\", text: hour.toFixed(2) + ' UPH' });\n    msg.payload = hour\n    return msg;\n//}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -10573,8 +10573,8 @@
         "y": 260,
         "wires": [
             [
-                "88697b6b43b4084e",
-                "ee0291f3aba6669c"
+                "ee0291f3aba6669c",
+                "0d670f61e6fde01c"
             ]
         ],
         "l": false
@@ -10599,8 +10599,8 @@
         "y": 460,
         "wires": [
             [
-                "409049cb84c39312",
-                "b439be6284f42bd5"
+                "b439be6284f42bd5",
+                "8c970109233d3f07"
             ]
         ],
         "l": false
@@ -10650,7 +10650,7 @@
         "septopics": false,
         "property": "payload",
         "topi": "topic",
-        "x": 615,
+        "x": 595,
         "y": 380,
         "wires": [
             [
@@ -10671,7 +10671,7 @@
         "septopics": false,
         "property": "payload",
         "topi": "topic",
-        "x": 615,
+        "x": 595,
         "y": 340,
         "wires": [
             [
@@ -10691,7 +10691,7 @@
             "9b6b7f2249d013ba",
             "731f4e17a1f3392d"
         ],
-        "x": 615,
+        "x": 595,
         "y": 300,
         "wires": []
     },
@@ -10706,7 +10706,7 @@
             "9fea36d4825b738a",
             "f30c6739d0a3c556"
         ],
-        "x": 615,
+        "x": 595,
         "y": 420,
         "wires": []
     },
@@ -10734,7 +10734,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 735,
+        "x": 715,
         "y": 340,
         "wires": [
             [
@@ -10767,7 +10767,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 735,
+        "x": 715,
         "y": 380,
         "wires": [
             [
@@ -10877,7 +10877,7 @@
         "retentionPolicyV18Flux": "52w",
         "org": "organisation",
         "bucket": "bucket",
-        "x": 815,
+        "x": 795,
         "y": 360,
         "wires": [],
         "l": false
@@ -10899,7 +10899,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 675,
+        "x": 655,
         "y": 380,
         "wires": [
             [
@@ -10925,7 +10925,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 675,
+        "x": 655,
         "y": 340,
         "wires": [
             [
@@ -11145,17 +11145,15 @@
         "name": "",
         "property": "payload",
         "action": "low",
-        "count": "10",
+        "count": "20",
         "round": "1",
         "mult": "single",
         "reduce": false,
-        "x": 495,
+        "x": 375,
         "y": 260,
         "wires": [
             [
-                "dcbc073ea7b777ee",
-                "bd45525a6924a5c5",
-                "aec3c2c38a63dd10"
+                "88697b6b43b4084e"
             ]
         ],
         "l": false
@@ -11167,17 +11165,15 @@
         "name": "",
         "property": "payload",
         "action": "low",
-        "count": "10",
+        "count": "20",
         "round": "1",
         "mult": "single",
         "reduce": false,
-        "x": 495,
+        "x": 375,
         "y": 460,
         "wires": [
             [
-                "6c490df17d1de881",
-                "e65201e766b76bfd",
-                "6ab284ac808bee4a"
+                "409049cb84c39312"
             ]
         ],
         "l": false
@@ -11337,7 +11333,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 615,
+        "x": 595,
         "y": 260,
         "wires": [
             []
@@ -11363,7 +11359,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 615,
+        "x": 595,
         "y": 460,
         "wires": [
             []
@@ -11423,17 +11419,19 @@
         "type": "function",
         "z": "3154c44d1a91de38",
         "name": "handle analog input",
-        "func": "var analoginput = global.get('analoginput')\n\ntry {\n    if (!isNaN(msg.payload)){\n        analoginput.input[msg.inputnumber].raw = msg.payload\n        analoginput.input[msg.inputnumber].scaled = msg.payload * analoginput.input[msg.inputnumber].calibration.span + analoginput.input[msg.inputnumber].calibration.offset;\n        if (analoginput.input[msg.inputnumber].scaled >= analoginput.input[msg.inputnumber].limits.HiHi) { analoginput.input[msg.inputnumber].alarms.HiHi = true } else { analoginput.input[msg.inputnumber].alarms.HiHi = false };\n        if (analoginput.input[msg.inputnumber].scaled >= analoginput.input[msg.inputnumber].limits.Hi) { analoginput.input[msg.inputnumber].alarms.Hi = true } else { analoginput.input[msg.inputnumber].alarms.Hi = false };\n        if (analoginput.input[msg.inputnumber].scaled <= analoginput.input[msg.inputnumber].limits.Lo) { analoginput.input[msg.inputnumber].alarms.Lo = true } else { analoginput.input[msg.inputnumber].alarms.Lo = false };\n        if (analoginput.input[msg.inputnumber].scaled <= analoginput.input[msg.inputnumber].limits.LoLo) { analoginput.input[msg.inputnumber].alarms.LoLo = true } else { analoginput.input[msg.inputnumber].alarms.LoLo = false };\n    }\n} catch (error) {\n    node.warn(error)\n};\n\nglobal.set('analoginput', analoginput)\n\nmsg.payload = analoginput.input[msg.inputnumber].scaled\nreturn msg;",
+        "func": "var analoginput = global.get('analoginput')\n\ntry {\n    if (!isNaN(msg.payload)){\n        analoginput.input[msg.inputnumber].raw = msg.payload\n        analoginput.input[msg.inputnumber].scaled = msg.payload * analoginput.input[msg.inputnumber].calibration.span + analoginput.input[msg.inputnumber].calibration.offset;\n        if (analoginput.input[msg.inputnumber].scaled >= analoginput.input[msg.inputnumber].limits.HiHi) { analoginput.input[msg.inputnumber].alarms.HiHi = true } else { analoginput.input[msg.inputnumber].alarms.HiHi = false };\n        if (analoginput.input[msg.inputnumber].scaled >= analoginput.input[msg.inputnumber].limits.Hi) { analoginput.input[msg.inputnumber].alarms.Hi = true } else { analoginput.input[msg.inputnumber].alarms.Hi = false };\n        if (analoginput.input[msg.inputnumber].scaled <= analoginput.input[msg.inputnumber].limits.Lo) { analoginput.input[msg.inputnumber].alarms.Lo = true } else { analoginput.input[msg.inputnumber].alarms.Lo = false };\n        if (analoginput.input[msg.inputnumber].scaled <= analoginput.input[msg.inputnumber].limits.LoLo) { analoginput.input[msg.inputnumber].alarms.LoLo = true } else { analoginput.input[msg.inputnumber].alarms.LoLo = false };\n    }\n} catch (error) {\n    node.warn(error)\n};\n\nglobal.set('analoginput', analoginput)\n\nmsg.payload = analoginput.input[msg.inputnumber].scaled\nnode.status({ fill: \"green\", shape: \"ring\", text: msg.payload + '°F' });\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 435,
+        "x": 475,
         "y": 260,
         "wires": [
             [
-                "0d670f61e6fde01c"
+                "aec3c2c38a63dd10",
+                "dcbc073ea7b777ee",
+                "bd45525a6924a5c5"
             ]
         ],
         "l": false
@@ -11457,7 +11455,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 375,
+        "x": 425,
         "y": 260,
         "wires": [
             [
@@ -11471,17 +11469,19 @@
         "type": "function",
         "z": "3154c44d1a91de38",
         "name": "handle analog input",
-        "func": "var analoginput = global.get('analoginput')\n\ntry {\n    if (!isNaN(msg.payload)){\n        analoginput.input[msg.inputnumber].raw = msg.payload\n        analoginput.input[msg.inputnumber].scaled = msg.payload * analoginput.input[msg.inputnumber].calibration.span + analoginput.input[msg.inputnumber].calibration.offset;\n        if (analoginput.input[msg.inputnumber].scaled >= analoginput.input[msg.inputnumber].limits.HiHi) { analoginput.input[msg.inputnumber].alarms.HiHi = true } else { analoginput.input[msg.inputnumber].alarms.HiHi = false };\n        if (analoginput.input[msg.inputnumber].scaled >= analoginput.input[msg.inputnumber].limits.Hi) { analoginput.input[msg.inputnumber].alarms.Hi = true } else { analoginput.input[msg.inputnumber].alarms.Hi = false };\n        if (analoginput.input[msg.inputnumber].scaled <= analoginput.input[msg.inputnumber].limits.Lo) { analoginput.input[msg.inputnumber].alarms.Lo = true } else { analoginput.input[msg.inputnumber].alarms.Lo = false };\n        if (analoginput.input[msg.inputnumber].scaled <= analoginput.input[msg.inputnumber].limits.LoLo) { analoginput.input[msg.inputnumber].alarms.LoLo = true } else { analoginput.input[msg.inputnumber].alarms.LoLo = false };\n    }\n} catch (error) {\n    node.warn(error)\n};\n\nglobal.set('analoginput', analoginput)\n\nmsg.payload = analoginput.input[msg.inputnumber].scaled\nreturn msg;",
+        "func": "var analoginput = global.get('analoginput')\n\ntry {\n    if (!isNaN(msg.payload)){\n        analoginput.input[msg.inputnumber].raw = msg.payload\n        analoginput.input[msg.inputnumber].scaled = msg.payload * analoginput.input[msg.inputnumber].calibration.span + analoginput.input[msg.inputnumber].calibration.offset;\n        if (analoginput.input[msg.inputnumber].scaled >= analoginput.input[msg.inputnumber].limits.HiHi) { analoginput.input[msg.inputnumber].alarms.HiHi = true } else { analoginput.input[msg.inputnumber].alarms.HiHi = false };\n        if (analoginput.input[msg.inputnumber].scaled >= analoginput.input[msg.inputnumber].limits.Hi) { analoginput.input[msg.inputnumber].alarms.Hi = true } else { analoginput.input[msg.inputnumber].alarms.Hi = false };\n        if (analoginput.input[msg.inputnumber].scaled <= analoginput.input[msg.inputnumber].limits.Lo) { analoginput.input[msg.inputnumber].alarms.Lo = true } else { analoginput.input[msg.inputnumber].alarms.Lo = false };\n        if (analoginput.input[msg.inputnumber].scaled <= analoginput.input[msg.inputnumber].limits.LoLo) { analoginput.input[msg.inputnumber].alarms.LoLo = true } else { analoginput.input[msg.inputnumber].alarms.LoLo = false };\n    }\n} catch (error) {\n    node.warn(error)\n};\n\nglobal.set('analoginput', analoginput)\n\nmsg.payload = analoginput.input[msg.inputnumber].scaled\nnode.status({ fill: \"green\", shape: \"ring\", text: msg.payload + '°F' });\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 435,
+        "x": 475,
         "y": 460,
         "wires": [
             [
-                "8c970109233d3f07"
+                "6c490df17d1de881",
+                "e65201e766b76bfd",
+                "6ab284ac808bee4a"
             ]
         ],
         "l": false
@@ -11505,7 +11505,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 375,
+        "x": 425,
         "y": 460,
         "wires": [
             [
@@ -12288,7 +12288,7 @@
         "topic": "topic",
         "outputs": 1,
         "x": 635,
-        "y": 180,
+        "y": 160,
         "wires": [
             [
                 "d7036bba6f2040c6"
@@ -12316,7 +12316,7 @@
         "to": "",
         "reg": false,
         "x": 515,
-        "y": 220,
+        "y": 200,
         "wires": [
             [
                 "babdd556d27c32aa"
@@ -12343,7 +12343,7 @@
         "repair": false,
         "outputs": 2,
         "x": 465,
-        "y": 200,
+        "y": 180,
         "wires": [
             [
                 "6404ddd0204a1536",
@@ -12368,7 +12368,7 @@
         "finalize": "",
         "libs": [],
         "x": 405,
-        "y": 200,
+        "y": 180,
         "wires": [
             [
                 "f484e601c7a47daa"
@@ -12396,7 +12396,7 @@
         "to": "",
         "reg": false,
         "x": 695,
-        "y": 180,
+        "y": 160,
         "wires": [
             []
         ],
@@ -12420,7 +12420,7 @@
         "topic": "topic",
         "outputs": 1,
         "x": 635,
-        "y": 220,
+        "y": 200,
         "wires": [
             [
                 "1baf34e0f140c835"
@@ -12448,7 +12448,7 @@
         "to": "",
         "reg": false,
         "x": 515,
-        "y": 180,
+        "y": 160,
         "wires": [
             [
                 "be6db2014d2266f4"
@@ -12476,7 +12476,7 @@
         "to": "",
         "reg": false,
         "x": 695,
-        "y": 220,
+        "y": 200,
         "wires": [
             []
         ],
@@ -12498,7 +12498,7 @@
         "repair": false,
         "outputs": 1,
         "x": 575,
-        "y": 180,
+        "y": 160,
         "wires": [
             [
                 "babdd556d27c32aa"
@@ -12522,7 +12522,7 @@
         "repair": false,
         "outputs": 1,
         "x": 575,
-        "y": 220,
+        "y": 200,
         "wires": [
             [
                 "be6db2014d2266f4"
@@ -12548,7 +12548,7 @@
         "topic": "topic",
         "outputs": 1,
         "x": 635,
-        "y": 500,
+        "y": 520,
         "wires": [
             [
                 "7da29b2e3863d1aa"
@@ -12576,7 +12576,7 @@
         "to": "",
         "reg": false,
         "x": 515,
-        "y": 540,
+        "y": 560,
         "wires": [
             [
                 "e4959970166cb7b8"
@@ -12603,7 +12603,7 @@
         "repair": false,
         "outputs": 2,
         "x": 465,
-        "y": 520,
+        "y": 540,
         "wires": [
             [
                 "dae562d71b9ae21c",
@@ -12628,7 +12628,7 @@
         "finalize": "",
         "libs": [],
         "x": 405,
-        "y": 520,
+        "y": 540,
         "wires": [
             [
                 "dc3a71b261563fe2"
@@ -12656,7 +12656,7 @@
         "to": "",
         "reg": false,
         "x": 695,
-        "y": 500,
+        "y": 520,
         "wires": [
             []
         ],
@@ -12680,7 +12680,7 @@
         "topic": "topic",
         "outputs": 1,
         "x": 635,
-        "y": 540,
+        "y": 560,
         "wires": [
             [
                 "4bd08057d4fc464e"
@@ -12708,7 +12708,7 @@
         "to": "",
         "reg": false,
         "x": 515,
-        "y": 500,
+        "y": 520,
         "wires": [
             [
                 "ae394a8879fd0b69"
@@ -12736,7 +12736,7 @@
         "to": "",
         "reg": false,
         "x": 695,
-        "y": 540,
+        "y": 560,
         "wires": [
             []
         ],
@@ -12758,7 +12758,7 @@
         "repair": false,
         "outputs": 1,
         "x": 575,
-        "y": 500,
+        "y": 520,
         "wires": [
             [
                 "e4959970166cb7b8"
@@ -12782,7 +12782,7 @@
         "repair": false,
         "outputs": 1,
         "x": 575,
-        "y": 540,
+        "y": 560,
         "wires": [
             [
                 "ae394a8879fd0b69"
@@ -12797,7 +12797,7 @@
         "name": "monitor thermocouple failure",
         "info": "this section of nodes will start a timer when \nthe thermocouple returned data is either\n32 or NaN.\n\nafter the timer has expired the thermocouple\nwill be considered faulty.\n\nwhen the thermocouple begins transmitting \nvalues other than 32 or NaN again another\ntimer will start.\n\nonce this timer expires then the thermocouple\nwill be considered ok again.",
         "x": 580,
-        "y": 200,
+        "y": 180,
         "wires": []
     },
     {
@@ -12806,8 +12806,8 @@
         "z": "3154c44d1a91de38",
         "name": "monitor thermocouple failure",
         "info": "this section of nodes will start a timer when \nthe thermocouple returned data is either\n32 or NaN.\n\nafter the timer has expired the thermocouple\nwill be considered faulty.\n\nwhen the thermocouple begins transmitting \nvalues other than 32 or NaN again another\ntimer will start.\n\nonce this timer expires then the thermocouple\nwill be considered ok again.",
-        "x": 600,
-        "y": 520,
+        "x": 580,
+        "y": 540,
         "wires": []
     },
     {
@@ -12816,7 +12816,7 @@
         "z": "3154c44d1a91de38",
         "name": "data collection",
         "info": "",
-        "x": 680,
+        "x": 660,
         "y": 360,
         "wires": []
     },
@@ -12824,7 +12824,7 @@
         "id": "cfb3bf9c5adf407a",
         "type": "comment",
         "z": "3154c44d1a91de38",
-        "name": "scale and smooth",
+        "name": "smooth and scale",
         "info": "",
         "x": 450,
         "y": 440,
@@ -12834,10 +12834,10 @@
         "id": "6005d5278907e1eb",
         "type": "comment",
         "z": "3154c44d1a91de38",
-        "name": "scale and smooth",
+        "name": "smooth and scale",
         "info": "",
         "x": 450,
-        "y": 280,
+        "y": 240,
         "wires": []
     },
     {
@@ -13356,6 +13356,29 @@
             [
                 "d82dade01e8d0ee6"
             ]
+        ]
+    },
+    {
+        "id": "2f9e89cdd8134e14",
+        "type": "trigger",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "op1": "1",
+        "op2": "0",
+        "op1type": "val",
+        "op2type": "val",
+        "duration": "250",
+        "extend": "false",
+        "overrideDelay": "false",
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 360,
+        "y": 580,
+        "wires": [
+            []
         ]
     },
     {
