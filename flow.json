@@ -637,7 +637,7 @@
         "tab": "de5db1c89316833e",
         "order": 1,
         "disp": true,
-        "width": "7",
+        "width": 14,
         "collapse": false,
         "className": ""
     },
@@ -774,27 +774,27 @@
         "height": 1
     },
     {
-        "id": "89e155c34aa46787",
+        "id": "100dbd73dec5b740",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
         "group": "a91f3f1520863187",
         "order": 3,
-        "width": 1,
+        "width": 2,
         "height": 1
     },
     {
-        "id": "1bcb70ee2e95b497",
+        "id": "d73354ae25949b55",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
         "group": "a91f3f1520863187",
         "order": 5,
-        "width": 1,
+        "width": 2,
         "height": 1
     },
     {
-        "id": "9d18f14c52b5cef4",
+        "id": "89b08d1f2a788d46",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -804,37 +804,77 @@
         "height": 1
     },
     {
-        "id": "7dcfe72ca1f8f95b",
+        "id": "ed5df9dc3aea5a4a",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
         "group": "a91f3f1520863187",
-        "order": 10,
+        "order": 9,
         "width": 1,
         "height": 1
     },
     {
-        "id": "0e6d40dddb1cb8fb",
+        "id": "74e5c3947325e61d",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
         "group": "a91f3f1520863187",
-        "order": 13,
+        "order": 12,
         "width": 1,
         "height": 1
     },
     {
-        "id": "4cf4bf53f8fc2cc9",
+        "id": "ef29f78ebddf34cd",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
         "group": "a91f3f1520863187",
-        "order": 16,
+        "order": 14,
         "width": 1,
         "height": 1
     },
     {
-        "id": "414db10d937f6826",
+        "id": "11a00d850ac6c2ba",
+        "type": "ui_spacer",
+        "z": "b83fb43068cdf48f",
+        "name": "spacer",
+        "group": "a91f3f1520863187",
+        "order": 17,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "62f2b10624bdc73f",
+        "type": "ui_spacer",
+        "z": "b83fb43068cdf48f",
+        "name": "spacer",
+        "group": "a91f3f1520863187",
+        "order": 19,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "5684abb1a5d42116",
+        "type": "ui_spacer",
+        "z": "b83fb43068cdf48f",
+        "name": "spacer",
+        "group": "a91f3f1520863187",
+        "order": 22,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "1d99e46627746ae0",
+        "type": "ui_spacer",
+        "z": "b83fb43068cdf48f",
+        "name": "spacer",
+        "group": "a91f3f1520863187",
+        "order": 24,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "17e32a60aa400163",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -844,7 +884,7 @@
         "height": 1
     },
     {
-        "id": "9c820e1aceaf118a",
+        "id": "62c934befcfd8e36",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -854,7 +894,7 @@
         "height": 1
     },
     {
-        "id": "615aee92f49fcf27",
+        "id": "7e2bc18b489503b3",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -864,7 +904,7 @@
         "height": 1
     },
     {
-        "id": "9565117cce4cd61c",
+        "id": "dde2dc9ca3877ba3",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -874,7 +914,7 @@
         "height": 1
     },
     {
-        "id": "b5d612a20d2eae3b",
+        "id": "e1aaa495277b487a",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -884,7 +924,7 @@
         "height": 1
     },
     {
-        "id": "1785db1a3fd4f1a7",
+        "id": "adcb5e8c76f8465d",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -894,7 +934,7 @@
         "height": 1
     },
     {
-        "id": "0b65439604ee5ee7",
+        "id": "3e7de50ba86c9159",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -904,7 +944,7 @@
         "height": 1
     },
     {
-        "id": "63b506237323476e",
+        "id": "faea29b296ad4723",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -914,7 +954,7 @@
         "height": 1
     },
     {
-        "id": "e841c20f5c8a92e3",
+        "id": "c4d8e702320580d4",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -924,7 +964,7 @@
         "height": 1
     },
     {
-        "id": "4f3e8f3035b679c6",
+        "id": "3034861ea1e4fc86",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -934,7 +974,7 @@
         "height": 1
     },
     {
-        "id": "569cb9b256f29f0d",
+        "id": "03f1a42a45b4d788",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -944,7 +984,7 @@
         "height": 1
     },
     {
-        "id": "160393c96ae0d9a1",
+        "id": "a38688b4b21ec387",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -6450,7 +6490,7 @@
         "name": "",
         "group": "a91f3f1520863187",
         "order": 2,
-        "width": 7,
+        "width": 14,
         "height": 5,
         "label": "",
         "chartType": "line",
@@ -6482,7 +6522,7 @@
         "useDifferentColor": false,
         "className": "",
         "x": 795,
-        "y": 900,
+        "y": 940,
         "wires": [
             []
         ],
@@ -6500,7 +6540,7 @@
         "finalize": "",
         "libs": [],
         "x": 695,
-        "y": 880,
+        "y": 920,
         "wires": [
             []
         ],
@@ -6518,7 +6558,7 @@
         "finalize": "",
         "libs": [],
         "x": 695,
-        "y": 900,
+        "y": 940,
         "wires": [
             [
                 "edf4d60398ebee66"
@@ -6538,7 +6578,7 @@
         "finalize": "",
         "libs": [],
         "x": 695,
-        "y": 940,
+        "y": 980,
         "wires": [
             []
         ],
@@ -6556,7 +6596,7 @@
         "finalize": "",
         "libs": [],
         "x": 695,
-        "y": 960,
+        "y": 1000,
         "wires": [
             [
                 "edf4d60398ebee66"
@@ -6576,7 +6616,7 @@
         "finalize": "",
         "libs": [],
         "x": 695,
-        "y": 1000,
+        "y": 1040,
         "wires": [
             [
                 "edf4d60398ebee66"
@@ -6605,7 +6645,7 @@
         "topic": "",
         "payloadType": "date",
         "x": 635,
-        "y": 1000,
+        "y": 1040,
         "wires": [
             [
                 "2ba532e7faaaf05f"
@@ -6679,13 +6719,16 @@
                 "2e3cae4209b2ada3",
                 "421e168f1e21c8eb",
                 "89b465e16b59498c",
+                "ac5e74fbfbc5c35b",
+                "dc54653aed0af737",
+                "ba1d8ad698619ff8",
+                "ae2d534c0af3fdbf",
+                "30268114cb16ecdb",
+                "1fc9834e133d4dd7",
                 "ad72ca96abbbda04",
                 "9e758dbc39404bb8",
                 "3aa827944da4334b",
-                "264235440a742302",
-                "ac5e74fbfbc5c35b",
-                "dc54653aed0af737",
-                "ba1d8ad698619ff8"
+                "264235440a742302"
             ]
         ]
     },
@@ -6701,33 +6744,6 @@
         "x": 335,
         "y": 580,
         "wires": []
-    },
-    {
-        "id": "c825648e000f6977",
-        "type": "link in",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "links": [
-            "a2cccb12b627c0e7",
-            "ba4e7459b18e1a54"
-        ],
-        "x": 575,
-        "y": 820,
-        "wires": [
-            [
-                "2e3cae4209b2ada3",
-                "421e168f1e21c8eb",
-                "89b465e16b59498c",
-                "ad72ca96abbbda04",
-                "299b028606dbaba5",
-                "9e758dbc39404bb8",
-                "3aa827944da4334b",
-                "264235440a742302",
-                "ac5e74fbfbc5c35b",
-                "dc54653aed0af737",
-                "ba1d8ad698619ff8"
-            ]
-        ]
     },
     {
         "id": "a2cccb12b627c0e7",
@@ -6747,7 +6763,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "initialize variables",
-        "func": "\n\nvar zone = []\nvar zone_count = 4\nfor (let index = 0; index < zone_count; index++) {\n    zone.push({ id: '',\n                action: 'Off', \n                autotune: { active: false, setpoint: 0, rate: 0}, \n                parameters: { rate: 0, setpoint: 0, control: 0, process: 0 }, \n                settings: { \n                    heating: { \n                        gain: { Kp: 0, Ki: 0, Kd: 0 }, \n                        time: { PB: 1600, Ti: 10, Td: -1 } }, \n                        //time: { PB: 1, Ti: 0, Td: 0 } }, \n                    cooling: { \n                        gain: { Kp: 0, Ki: 0, Kd: 0 }, \n                        time: { PB: 1600, Ti: 10, Td: 0 } } } })\n                        //time: { PB: -1, Ti: 0, Td: 0 } } } })\n}\nvar pid = { selected_zone: 0, zone }\nglobal.set('pid', pid)\nmsg.payload = { pid }\nreturn msg;",
+        "func": "\n\nvar zone = []\nvar zone_count = 4\nfor (let index = 0; index < zone_count; index++) {\n    zone.push({ id: '',\n                action: 'Off', \n                autotune: { active: false, setpoint: 0, rate: 0}, \n                parameters: { rate: 0, setpoint: 0, control: 0, process: 0 }, \n                settings: { \n                    heating: { \n                        gain: { Kp: 0, Ki: 0, Kd: 0 }, \n                        time: { PB: 1600, Ti: 10, Td: -1 } },\n                    cooling: { \n                        gain: { Kp: 0, Ki: 0, Kd: 0 }, \n                        time: { PB: 1600, Ti: 10, Td: 0 } } ,\n                    maintaining: { \n                        gain: { Kp: 0, Ki: 0, Kd: 0 }, \n                        time: { PB: 1600, Ti: 10, Td: 0 } } } } )\n}\nvar pid = { selected_zone: 0, zone }\nglobal.set('pid', pid)\nmsg.payload = { pid }\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6785,7 +6801,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "gate if auto tune active",
-        "func": "var zone_id = 0\n//var ControlAction = global.get('kiln_01.ControlAction', 'memoryOnly')\nmsg.topic = 'process'\nvar zone = global.get('pid.zone[' + zone_id + ']')\nif (zone.action == \"Off\") {\n    node.status({ fill: \"red\", shape: \"ring\", text: zone.action });\n    msg.enable = false\n} else {\n    node.status({ fill: \"green\", shape: \"dot\", text: zone.action });\n    msg.enable = true\n    msg.payload = zone.parameters.process || 0\n    msg.setpoint = zone.parameters.setpoint || 0\n    if (zone.action == 'Heating' || zone.action == 'Maintaining'){\n        msg.prop_band = zone.settings.heating.time.PB || 0\n        msg.t_integral = zone.settings.heating.time.Ti || 0\n        msg.t_derivative = zone.settings.heating.time.Td || 0\n    } else {\n        msg.prop_band = zone.settings.cooling.time.PB || 0\n        msg.t_integral = zone.settings.cooling.time.Ti || 0\n        msg.t_derivative = zone.settings.cooling.time.Td || 0\n    }\n    msg.integral_default = 0.5\n    msg.max_interval = 600\n    msg.smooth_factor = 0\n    msg.disabled_op = 0 \n}\nreturn msg;",
+        "func": "var zone_id = 0\nmsg.topic = 'process'\nvar zone = global.get('pid.zone[' + zone_id + ']')\nif (zone.action == \"Off\") {\n    node.status({ fill: \"red\", shape: \"ring\", text: zone.action });\n    msg.enable = false\n} else {\n    node.status({ fill: \"green\", shape: \"dot\", text: zone.action });\n    msg.enable = true\n    msg.payload = zone.parameters.process || 0\n    msg.setpoint = zone.parameters.setpoint || 0\n    if (zone.action == 'Heating'){\n        msg.prop_band = zone.settings.heating.time.PB || 0\n        msg.t_integral = zone.settings.heating.time.Ti || 0\n        msg.t_derivative = zone.settings.heating.time.Td || 0\n    } else if (zone.action == 'Cooling') {\n        msg.prop_band = zone.settings.cooling.time.PB || 0\n        msg.t_integral = zone.settings.cooling.time.Ti || 0\n        msg.t_derivative = zone.settings.cooling.time.Td || 0\n    } else if (zone.action == 'Maintaining') {\n        msg.prop_band = zone.settings.maintaining.time.PB || 0\n        msg.t_integral = zone.settings.maintaining.time.Ti || 0\n        msg.t_derivative = zone.settings.maintaining.time.Td || 0\n    } else {\n        // uh oh...\n        node.status({ fill: \"red\", shape: \"ring\", text: zone.action });\n        msg.enable = false\n    }\n    msg.integral_default = 0.5\n    msg.max_interval = 600\n    msg.smooth_factor = 0\n    msg.disabled_op = 0 \n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6869,7 +6885,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "gate if auto tune active",
-        "func": "var zone_id = 1\n//var ControlAction = global.get('kiln_01.ControlAction', 'memoryOnly')\nmsg.topic = 'process'\nvar zone = global.get('pid.zone[' + zone_id + ']')\nif (zone.action == \"Off\") {\n    node.status({ fill: \"red\", shape: \"ring\", text: zone.action });\n    msg.enable = false\n} else {\n    node.status({ fill: \"green\", shape: \"dot\", text: zone.action });\n    msg.enable = true\n    msg.payload = zone.parameters.process || 0\n    msg.setpoint = zone.parameters.setpoint || 0\n    if (zone.action == 'Heating' || zone.action == 'Maintaining'){\n        msg.prop_band = zone.settings.heating.time.PB || 0\n        msg.t_integral = zone.settings.heating.time.Ti || 0\n        msg.t_derivative = zone.settings.heating.time.Td || 0\n    } else {\n        msg.prop_band = zone.settings.cooling.time.PB || 0\n        msg.t_integral = zone.settings.cooling.time.Ti || 0\n        msg.t_derivative = zone.settings.cooling.time.Td || 0\n    }\n    msg.integral_default = 0.5\n    msg.max_interval = 600\n    msg.smooth_factor = 0\n    msg.disabled_op = 0 \n}\nreturn msg;",
+        "func": "var zone_id = 1\nmsg.topic = 'process'\nvar zone = global.get('pid.zone[' + zone_id + ']')\nif (zone.action == \"Off\") {\n    node.status({ fill: \"red\", shape: \"ring\", text: zone.action });\n    msg.enable = false\n} else {\n    node.status({ fill: \"green\", shape: \"dot\", text: zone.action });\n    msg.enable = true\n    msg.payload = zone.parameters.process || 0\n    msg.setpoint = zone.parameters.setpoint || 0\n    if (zone.action == 'Heating'){\n        msg.prop_band = zone.settings.heating.time.PB || 0\n        msg.t_integral = zone.settings.heating.time.Ti || 0\n        msg.t_derivative = zone.settings.heating.time.Td || 0\n    } else if (zone.action == 'Cooling') {\n        msg.prop_band = zone.settings.cooling.time.PB || 0\n        msg.t_integral = zone.settings.cooling.time.Ti || 0\n        msg.t_derivative = zone.settings.cooling.time.Td || 0\n    } else if (zone.action == 'Maintaining') {\n        msg.prop_band = zone.settings.maintaining.time.PB || 0\n        msg.t_integral = zone.settings.maintaining.time.Ti || 0\n        msg.t_derivative = zone.settings.maintaining.time.Td || 0\n    } else {\n        // uh oh...\n        node.status({ fill: \"red\", shape: \"ring\", text: zone.action });\n        msg.enable = false\n    }\n    msg.integral_default = 0.5\n    msg.max_interval = 600\n    msg.smooth_factor = 0\n    msg.disabled_op = 0 \n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6906,7 +6922,7 @@
             "9d06d483162a50b9"
         ],
         "x": 635,
-        "y": 960,
+        "y": 1000,
         "wires": [
             [
                 "52a1b5a440697dbd",
@@ -7006,7 +7022,7 @@
             "3cd6ce4406cb6bbc"
         ],
         "x": 635,
-        "y": 900,
+        "y": 940,
         "wires": [
             [
                 "422b0453aa8d2e2b",
@@ -7368,25 +7384,6 @@
         "l": false
     },
     {
-        "id": "287e0e0ceab0f3df",
-        "type": "link in",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "links": [
-            "b533e4fa8c93b24a",
-            "bee9b0aaa92de05c",
-            "5793f419da2fa866",
-            "3cd6ce4406cb6bbc"
-        ],
-        "x": 575,
-        "y": 700,
-        "wires": [
-            [
-                "ad72ca96abbbda04"
-            ]
-        ]
-    },
-    {
         "id": "989fbf5d083c48b4",
         "type": "switch",
         "z": "b83fb43068cdf48f",
@@ -7622,7 +7619,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "gate if auto tune active",
-        "func": "var zone_id = 2\n//var ControlAction = global.get('kiln_01.ControlAction', 'memoryOnly')\nmsg.topic = 'process'\nvar zone = global.get('pid.zone[' + zone_id + ']')\nif (zone.action == \"Off\") {\n    node.status({ fill: \"red\", shape: \"ring\", text: zone.action });\n    msg.enable = false\n} else {\n    node.status({ fill: \"green\", shape: \"dot\", text: zone.action });\n    msg.enable = true\n    msg.payload = zone.parameters.process || 0\n    msg.setpoint = zone.parameters.setpoint || 0\n    if (zone.action == 'Heating' || zone.action == 'Maintaining'){\n        msg.prop_band = zone.settings.heating.time.PB || 0\n        msg.t_integral = zone.settings.heating.time.Ti || 0\n        msg.t_derivative = zone.settings.heating.time.Td || 0\n    } else {\n        msg.prop_band = zone.settings.cooling.time.PB || 0\n        msg.t_integral = zone.settings.cooling.time.Ti || 0\n        msg.t_derivative = zone.settings.cooling.time.Td || 0\n    }\n    msg.integral_default = 0.5\n    msg.max_interval = 600\n    msg.smooth_factor = 0\n    msg.disabled_op = 0 \n}\nreturn msg;",
+        "func": "var zone_id = 2\nmsg.topic = 'process'\nvar zone = global.get('pid.zone[' + zone_id + ']')\nif (zone.action == \"Off\") {\n    node.status({ fill: \"red\", shape: \"ring\", text: zone.action });\n    msg.enable = false\n} else {\n    node.status({ fill: \"green\", shape: \"dot\", text: zone.action });\n    msg.enable = true\n    msg.payload = zone.parameters.process || 0\n    msg.setpoint = zone.parameters.setpoint || 0\n    if (zone.action == 'Heating'){\n        msg.prop_band = zone.settings.heating.time.PB || 0\n        msg.t_integral = zone.settings.heating.time.Ti || 0\n        msg.t_derivative = zone.settings.heating.time.Td || 0\n    } else if (zone.action == 'Cooling') {\n        msg.prop_band = zone.settings.cooling.time.PB || 0\n        msg.t_integral = zone.settings.cooling.time.Ti || 0\n        msg.t_derivative = zone.settings.cooling.time.Td || 0\n    } else if (zone.action == 'Maintaining') {\n        msg.prop_band = zone.settings.maintaining.time.PB || 0\n        msg.t_integral = zone.settings.maintaining.time.Ti || 0\n        msg.t_derivative = zone.settings.maintaining.time.Td || 0\n    } else {\n        // uh oh...\n        node.status({ fill: \"red\", shape: \"ring\", text: zone.action });\n        msg.enable = false\n    }\n    msg.integral_default = 0.5\n    msg.max_interval = 600\n    msg.smooth_factor = 0\n    msg.disabled_op = 0 \n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -7695,7 +7692,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "gate if auto tune active",
-        "func": "var zone_id = 3\n//var ControlAction = global.get('kiln_01.ControlAction', 'memoryOnly')\nmsg.topic = 'process'\nvar zone = global.get('pid.zone[' + zone_id + ']')\nif (zone.action == \"Off\") {\n    node.status({ fill: \"red\", shape: \"ring\", text: zone.action });\n    msg.enable = false\n} else {\n    node.status({ fill: \"green\", shape: \"dot\", text: zone.action });\n    msg.enable = true\n    msg.payload = zone.parameters.process || 0\n    msg.setpoint = zone.parameters.setpoint || 0\n    if (zone.action == 'Heating' || zone.action == 'Maintaining'){\n        msg.prop_band = zone.settings.heating.time.PB || 0\n        msg.t_integral = zone.settings.heating.time.Ti || 0\n        msg.t_derivative = zone.settings.heating.time.Td || 0\n    } else {\n        msg.prop_band = zone.settings.cooling.time.PB || 0\n        msg.t_integral = zone.settings.cooling.time.Ti || 0\n        msg.t_derivative = zone.settings.cooling.time.Td || 0\n    }\n    msg.integral_default = 0.5\n    msg.max_interval = 600\n    msg.smooth_factor = 0\n    msg.disabled_op = 0 \n}\nreturn msg;",
+        "func": "var zone_id = 3\nmsg.topic = 'process'\nvar zone = global.get('pid.zone[' + zone_id + ']')\nif (zone.action == \"Off\") {\n    node.status({ fill: \"red\", shape: \"ring\", text: zone.action });\n    msg.enable = false\n} else {\n    node.status({ fill: \"green\", shape: \"dot\", text: zone.action });\n    msg.enable = true\n    msg.payload = zone.parameters.process || 0\n    msg.setpoint = zone.parameters.setpoint || 0\n    if (zone.action == 'Heating'){\n        msg.prop_band = zone.settings.heating.time.PB || 0\n        msg.t_integral = zone.settings.heating.time.Ti || 0\n        msg.t_derivative = zone.settings.heating.time.Td || 0\n    } else if (zone.action == 'Cooling') {\n        msg.prop_band = zone.settings.cooling.time.PB || 0\n        msg.t_integral = zone.settings.cooling.time.Ti || 0\n        msg.t_derivative = zone.settings.cooling.time.Td || 0\n    } else if (zone.action == 'Maintaining') {\n        msg.prop_band = zone.settings.maintaining.time.PB || 0\n        msg.t_integral = zone.settings.maintaining.time.Ti || 0\n        msg.t_derivative = zone.settings.maintaining.time.Td || 0\n    } else {\n        // uh oh...\n        node.status({ fill: \"red\", shape: \"ring\", text: zone.action });\n        msg.enable = false\n    }\n    msg.integral_default = 0.5\n    msg.max_interval = 600\n    msg.smooth_factor = 0\n    msg.disabled_op = 0 \n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -8453,7 +8450,7 @@
         "name": "",
         "group": "a91f3f1520863187",
         "order": 4,
-        "width": 5,
+        "width": 10,
         "height": 1,
         "passthru": false,
         "label": "Clear",
@@ -8467,7 +8464,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 635,
-        "y": 1000,
+        "y": 1040,
         "wires": [
             [
                 "2ba532e7faaaf05f"
@@ -8484,7 +8481,7 @@
             "362eeead535475d1"
         ],
         "x": 635,
-        "y": 1040,
+        "y": 1080,
         "wires": [
             [
                 "2ba532e7faaaf05f"
@@ -8499,8 +8496,8 @@
         "label": "Pb",
         "tooltip": "",
         "group": "a91f3f1520863187",
-        "order": 9,
-        "width": 3,
+        "order": 11,
+        "width": 4,
         "height": 1,
         "wrap": false,
         "passthru": false,
@@ -8528,8 +8525,8 @@
         "label": "Ti",
         "tooltip": "",
         "group": "a91f3f1520863187",
-        "order": 12,
-        "width": 3,
+        "order": 16,
+        "width": 4,
         "height": 1,
         "wrap": false,
         "passthru": false,
@@ -8557,8 +8554,8 @@
         "label": "Td",
         "tooltip": "",
         "group": "a91f3f1520863187",
-        "order": 15,
-        "width": 3,
+        "order": 21,
+        "width": 4,
         "height": 1,
         "wrap": false,
         "passthru": false,
@@ -8720,8 +8717,8 @@
         "label": "Pb",
         "tooltip": "",
         "group": "a91f3f1520863187",
-        "order": 11,
-        "width": 3,
+        "order": 13,
+        "width": 4,
         "height": 1,
         "wrap": false,
         "passthru": false,
@@ -8785,8 +8782,8 @@
         "label": "Ti",
         "tooltip": "",
         "group": "a91f3f1520863187",
-        "order": 14,
-        "width": 3,
+        "order": 18,
+        "width": 4,
         "height": 1,
         "wrap": false,
         "passthru": false,
@@ -8854,8 +8851,8 @@
         "label": "Td",
         "tooltip": "",
         "group": "a91f3f1520863187",
-        "order": 17,
-        "width": 3,
+        "order": 23,
+        "width": 4,
         "height": 1,
         "wrap": false,
         "passthru": false,
@@ -8894,314 +8891,12 @@
         "l": false
     },
     {
-        "id": "dc7fd3f39f82034f",
-        "type": "function",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nglobal.set('pid.zone[' + selected_zone + '].parameters.setpoint', msg.payload)\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 815,
-        "y": 700,
-        "wires": [
-            []
-        ],
-        "l": false
-    },
-    {
-        "id": "ad72ca96abbbda04",
-        "type": "function",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nmsg.payload = global.get('pid.zone[' + selected_zone + '].parameters.setpoint') || 0\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 695,
-        "y": 700,
-        "wires": [
-            []
-        ],
-        "l": false
-    },
-    {
-        "id": "299b028606dbaba5",
-        "type": "change",
-        "z": "b83fb43068cdf48f",
-        "name": "get zone",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "pid.selected_zone",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 695,
-        "y": 720,
-        "wires": [
-            [
-                "3145db745f792654"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "3145db745f792654",
-        "type": "ui_dropdown",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "label": "Zone",
-        "tooltip": "",
-        "place": "Select zone",
-        "group": "a91f3f1520863187",
-        "order": 1,
-        "width": 7,
-        "height": 1,
-        "passthru": false,
-        "multiple": false,
-        "options": [
-            {
-                "label": "Upper Temp",
-                "value": 0,
-                "type": "num"
-            },
-            {
-                "label": "Lower Temp",
-                "value": 1,
-                "type": "num"
-            },
-            {
-                "label": "Upper Rate",
-                "value": 2,
-                "type": "num"
-            },
-            {
-                "label": "Lower Rate",
-                "value": 3,
-                "type": "num"
-            }
-        ],
-        "payload": "",
-        "topic": "topic",
-        "topicType": "msg",
-        "className": "",
-        "x": 755,
-        "y": 720,
-        "wires": [
-            [
-                "f105876bb8452e6f"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "f105876bb8452e6f",
-        "type": "change",
-        "z": "b83fb43068cdf48f",
-        "name": "set zone",
-        "rules": [
-            {
-                "t": "set",
-                "p": "pid.selected_zone",
-                "pt": "global",
-                "to": "payload",
-                "tot": "msg"
-            },
-            {
-                "t": "delete",
-                "p": "payload",
-                "pt": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 815,
-        "y": 720,
-        "wires": [
-            [
-                "362eeead535475d1"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "362eeead535475d1",
-        "type": "link out",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "mode": "link",
-        "links": [
-            "9ace848fd4fa953c",
-            "5926fc467620cb66"
-        ],
-        "x": 875,
-        "y": 720,
-        "wires": []
-    },
-    {
-        "id": "6c642e204f07ada4",
-        "type": "link out",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "mode": "link",
-        "links": [
-            "598a311988e79e25",
-            "9ace848fd4fa953c"
-        ],
-        "x": 875,
-        "y": 740,
-        "wires": []
-    },
-    {
-        "id": "101e026ab1295209",
-        "type": "function",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nvar Kp = global.get('pid.zone[' + selected_zone + '].settings.tuned.gain.Kp') || 0\nvar Ki = global.get('pid.zone[' + selected_zone + '].settings.tuned.gain.Ki') || 0\nvar Kd = global.get('pid.zone[' + selected_zone + '].settings.tuned.gain.Kd') || 0\nglobal.set('pid.zone[' + selected_zone + '].settings.accepted.gain.Kp', Kp)\nglobal.set('pid.zone[' + selected_zone + '].settings.accepted.gain.Ki', Ki)\nglobal.set('pid.zone[' + selected_zone + '].settings.accepted.gain.Kd', Kd)\nglobal.set('pid.zone[' + selected_zone + '].settings.accepted.time.PB', 1/Kp)\nglobal.set('pid.zone[' + selected_zone + '].settings.accepted.time.Ti', 1/Ki)\nglobal.set('pid.zone[' + selected_zone + '].settings.accepted.time.Td', 1/Kd)\n\nreturn msg;\n\n//https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z0000019L5TSAU&l=en-US\n//https://www.controleng.com/articles/understanding-derivative-in-pid-control/\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 815,
-        "y": 740,
-        "wires": [
-            [
-                "6c642e204f07ada4"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "9e758dbc39404bb8",
-        "type": "function",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nmsg.payload = global.get('pid.zone[' + selected_zone + '].autotune.setpoint') || 0\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 695,
-        "y": 760,
-        "wires": [
-            []
-        ],
-        "l": false
-    },
-    {
-        "id": "d90c5421811f3d01",
-        "type": "function",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nglobal.set('pid.zone[' + selected_zone + '].autotune.setpoint', msg.payload)\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 815,
-        "y": 760,
-        "wires": [
-            []
-        ],
-        "l": false
-    },
-    {
-        "id": "9a9fdf8f6e8bbef2",
-        "type": "function",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nglobal.set('pid.zone[' + selected_zone + '].autotune.rate', msg.payload)\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 815,
-        "y": 780,
-        "wires": [
-            []
-        ],
-        "l": false
-    },
-    {
-        "id": "3aa827944da4334b",
-        "type": "function",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nmsg.payload = global.get('pid.zone[' + selected_zone + '].autotune.rate') || 0\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 695,
-        "y": 780,
-        "wires": [
-            []
-        ],
-        "l": false
-    },
-    {
-        "id": "264235440a742302",
-        "type": "function",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nmsg.payload = global.get('pid.zone[' + selected_zone + '].id') || 0\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 695,
-        "y": 800,
-        "wires": [
-            []
-        ],
-        "l": false
-    },
-    {
-        "id": "7a6d3d40ee58594a",
-        "type": "function",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nglobal.set('pid.zone[' + selected_zone + '].id', msg.payload)\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 815,
-        "y": 800,
-        "wires": [
-            []
-        ],
-        "l": false
-    },
-    {
         "id": "6b6bc919a4c2a64d",
         "type": "ui_text",
         "z": "b83fb43068cdf48f",
         "group": "a91f3f1520863187",
         "order": 6,
-        "width": 3,
+        "width": 4,
         "height": 1,
         "name": "heating",
         "label": "",
@@ -9218,7 +8913,7 @@
         "z": "b83fb43068cdf48f",
         "group": "a91f3f1520863187",
         "order": 8,
-        "width": 3,
+        "width": 4,
         "height": 1,
         "name": "cooling",
         "label": "",
@@ -9376,6 +9071,585 @@
             ]
         ],
         "l": false
+    },
+    {
+        "id": "ae2d534c0af3fdbf",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nmsg.payload = global.get('pid.zone[' + selected_zone + '].settings.maintaining.time.PB') || 0\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 695,
+        "y": 700,
+        "wires": [
+            [
+                "1a5f9fc8869a33e1"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "1a5f9fc8869a33e1",
+        "type": "ui_numeric",
+        "z": "b83fb43068cdf48f",
+        "name": "Maintaining Pb",
+        "label": "Pb",
+        "tooltip": "",
+        "group": "a91f3f1520863187",
+        "order": 15,
+        "width": 4,
+        "height": 1,
+        "wrap": false,
+        "passthru": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{msg.payload}}",
+        "min": "-10000",
+        "max": "10000",
+        "step": "0.01",
+        "className": "",
+        "x": 755,
+        "y": 700,
+        "wires": [
+            [
+                "09ad5366c6ae2c56"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "09ad5366c6ae2c56",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nglobal.set('pid.zone[' + selected_zone + '].settings.maintaining.time.PB', msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 815,
+        "y": 700,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "19e8ae51d5e09d57",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nglobal.set('pid.zone[' + selected_zone + '].settings.maintaining.time.Ti', msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 815,
+        "y": 720,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "2ca1fd6d80d47e4a",
+        "type": "ui_numeric",
+        "z": "b83fb43068cdf48f",
+        "name": "Maintaining Ti",
+        "label": "Ti",
+        "tooltip": "",
+        "group": "a91f3f1520863187",
+        "order": 20,
+        "width": 4,
+        "height": 1,
+        "wrap": false,
+        "passthru": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{msg.payload}}",
+        "min": "-10000",
+        "max": "10000",
+        "step": "0.01",
+        "className": "",
+        "x": 755,
+        "y": 720,
+        "wires": [
+            [
+                "19e8ae51d5e09d57"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "30268114cb16ecdb",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nmsg.payload = global.get('pid.zone[' + selected_zone + '].settings.maintaining.time.Ti') || 0\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 695,
+        "y": 720,
+        "wires": [
+            [
+                "2ca1fd6d80d47e4a"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "1fc9834e133d4dd7",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nmsg.payload = global.get('pid.zone[' + selected_zone + '].settings.maintaining.time.Td') || 0\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 695,
+        "y": 740,
+        "wires": [
+            [
+                "09a7de795265b75d"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "09a7de795265b75d",
+        "type": "ui_numeric",
+        "z": "b83fb43068cdf48f",
+        "name": "Maintaining Td",
+        "label": "Td",
+        "tooltip": "",
+        "group": "a91f3f1520863187",
+        "order": 25,
+        "width": 4,
+        "height": 1,
+        "wrap": false,
+        "passthru": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{msg.payload}}",
+        "min": "-10000",
+        "max": "10000",
+        "step": "0.01",
+        "className": "",
+        "x": 755,
+        "y": 740,
+        "wires": [
+            [
+                "7deea731c74ec31a"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "7deea731c74ec31a",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nglobal.set('pid.zone[' + selected_zone + '].settings.maintaining.time.Td', msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 815,
+        "y": 740,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "c825648e000f6977",
+        "type": "link in",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "links": [
+            "a2cccb12b627c0e7",
+            "ba4e7459b18e1a54"
+        ],
+        "x": 575,
+        "y": 860,
+        "wires": [
+            [
+                "2e3cae4209b2ada3",
+                "421e168f1e21c8eb",
+                "89b465e16b59498c",
+                "ad72ca96abbbda04",
+                "299b028606dbaba5",
+                "9e758dbc39404bb8",
+                "3aa827944da4334b",
+                "264235440a742302",
+                "ac5e74fbfbc5c35b",
+                "dc54653aed0af737",
+                "ba1d8ad698619ff8",
+                "1fc9834e133d4dd7",
+                "30268114cb16ecdb",
+                "ae2d534c0af3fdbf",
+                "ad72ca96abbbda04",
+                "299b028606dbaba5",
+                "9e758dbc39404bb8",
+                "3aa827944da4334b",
+                "264235440a742302"
+            ]
+        ]
+    },
+    {
+        "id": "287e0e0ceab0f3df",
+        "type": "link in",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "links": [
+            "b533e4fa8c93b24a",
+            "bee9b0aaa92de05c",
+            "5793f419da2fa866",
+            "3cd6ce4406cb6bbc"
+        ],
+        "x": 575,
+        "y": 760,
+        "wires": [
+            [
+                "ad72ca96abbbda04",
+                "ad72ca96abbbda04"
+            ]
+        ]
+    },
+    {
+        "id": "dc7fd3f39f82034f",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nglobal.set('pid.zone[' + selected_zone + '].parameters.setpoint', msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 815,
+        "y": 760,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "ad72ca96abbbda04",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nmsg.payload = global.get('pid.zone[' + selected_zone + '].parameters.setpoint') || 0\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 695,
+        "y": 760,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "299b028606dbaba5",
+        "type": "change",
+        "z": "b83fb43068cdf48f",
+        "name": "get zone",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "pid.selected_zone",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 695,
+        "y": 780,
+        "wires": [
+            [
+                "3145db745f792654",
+                "3145db745f792654"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "3145db745f792654",
+        "type": "ui_dropdown",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "label": "Zone",
+        "tooltip": "",
+        "place": "Select zone",
+        "group": "a91f3f1520863187",
+        "order": 1,
+        "width": 14,
+        "height": 1,
+        "passthru": false,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Upper Temp",
+                "value": 0,
+                "type": "num"
+            },
+            {
+                "label": "Lower Temp",
+                "value": 1,
+                "type": "num"
+            },
+            {
+                "label": "Upper Rate",
+                "value": 2,
+                "type": "num"
+            },
+            {
+                "label": "Lower Rate",
+                "value": 3,
+                "type": "num"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 755,
+        "y": 780,
+        "wires": [
+            [
+                "f105876bb8452e6f",
+                "f105876bb8452e6f"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "f105876bb8452e6f",
+        "type": "change",
+        "z": "b83fb43068cdf48f",
+        "name": "set zone",
+        "rules": [
+            {
+                "t": "set",
+                "p": "pid.selected_zone",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 815,
+        "y": 780,
+        "wires": [
+            [
+                "362eeead535475d1",
+                "362eeead535475d1"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "362eeead535475d1",
+        "type": "link out",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "9ace848fd4fa953c",
+            "5926fc467620cb66"
+        ],
+        "x": 875,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "6c642e204f07ada4",
+        "type": "link out",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "598a311988e79e25",
+            "9ace848fd4fa953c"
+        ],
+        "x": 875,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "101e026ab1295209",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nvar Kp = global.get('pid.zone[' + selected_zone + '].settings.tuned.gain.Kp') || 0\nvar Ki = global.get('pid.zone[' + selected_zone + '].settings.tuned.gain.Ki') || 0\nvar Kd = global.get('pid.zone[' + selected_zone + '].settings.tuned.gain.Kd') || 0\nglobal.set('pid.zone[' + selected_zone + '].settings.accepted.gain.Kp', Kp)\nglobal.set('pid.zone[' + selected_zone + '].settings.accepted.gain.Ki', Ki)\nglobal.set('pid.zone[' + selected_zone + '].settings.accepted.gain.Kd', Kd)\nglobal.set('pid.zone[' + selected_zone + '].settings.accepted.time.PB', 1/Kp)\nglobal.set('pid.zone[' + selected_zone + '].settings.accepted.time.Ti', 1/Ki)\nglobal.set('pid.zone[' + selected_zone + '].settings.accepted.time.Td', 1/Kd)\n\nreturn msg;\n\n//https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z0000019L5TSAU&l=en-US\n//https://www.controleng.com/articles/understanding-derivative-in-pid-control/\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 815,
+        "y": 800,
+        "wires": [
+            [
+                "6c642e204f07ada4",
+                "6c642e204f07ada4"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "9e758dbc39404bb8",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nmsg.payload = global.get('pid.zone[' + selected_zone + '].autotune.setpoint') || 0\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 695,
+        "y": 820,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "d90c5421811f3d01",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nglobal.set('pid.zone[' + selected_zone + '].autotune.setpoint', msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 815,
+        "y": 820,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "9a9fdf8f6e8bbef2",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nglobal.set('pid.zone[' + selected_zone + '].autotune.rate', msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 815,
+        "y": 840,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "3aa827944da4334b",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nmsg.payload = global.get('pid.zone[' + selected_zone + '].autotune.rate') || 0\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 695,
+        "y": 840,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "264235440a742302",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nmsg.payload = global.get('pid.zone[' + selected_zone + '].id') || 0\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 695,
+        "y": 860,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "7a6d3d40ee58594a",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nglobal.set('pid.zone[' + selected_zone + '].id', msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 815,
+        "y": 860,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "781cd411777349be",
+        "type": "ui_text",
+        "z": "b83fb43068cdf48f",
+        "group": "a91f3f1520863187",
+        "order": 10,
+        "width": 4,
+        "height": 1,
+        "name": "maintaining",
+        "label": "",
+        "format": "Maintaining",
+        "layout": "col-center",
+        "className": "",
+        "x": 470,
+        "y": 900,
+        "wires": []
     },
     {
         "id": "35573d9f8cb557cc",
