@@ -776,147 +776,138 @@
         "height": 1
     },
     {
-        "id": "f2fd8829ae059f56",
-        "type": "ui_spacer",
-        "z": "b83fb43068cdf48f",
-        "name": "spacer",
-        "group": "a91f3f1520863187",
-        "order": 1,
-        "width": 3,
-        "height": 1
-    },
-    {
-        "id": "d239d9023b38fb27",
-        "type": "ui_spacer",
-        "z": "b83fb43068cdf48f",
-        "name": "spacer",
-        "group": "a91f3f1520863187",
-        "order": 3,
-        "width": 3,
-        "height": 1
-    },
-    {
-        "id": "3ff40418c51d60b5",
-        "type": "ui_spacer",
-        "z": "b83fb43068cdf48f",
-        "name": "spacer",
-        "group": "a91f3f1520863187",
+        "id": "6b9044739353ec6a",
+        "type": "ui_group",
+        "name": "Auto-tune",
+        "tab": "de5db1c89316833e",
         "order": 5,
-        "width": 1,
-        "height": 1
+        "disp": true,
+        "width": "14",
+        "collapse": false,
+        "className": ""
     },
     {
-        "id": "75f1cd28d515df04",
+        "id": "dfdc51bd64bec297",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
         "group": "a91f3f1520863187",
-        "order": 7,
+        "order": 4,
         "width": 1,
         "height": 1
     },
     {
-        "id": "49f90941dc9715dd",
+        "id": "99fc5710996726a8",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
         "group": "a91f3f1520863187",
-        "order": 10,
+        "order": 6,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "154d90cee4b2de41",
+        "type": "ui_spacer",
+        "z": "b83fb43068cdf48f",
+        "name": "spacer",
+        "group": "a91f3f1520863187",
+        "order": 9,
         "width": 3,
         "height": 1
     },
     {
-        "id": "cf6c826c4d22bc36",
+        "id": "c460468adeed4e1c",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
         "group": "a91f3f1520863187",
-        "order": 12,
+        "order": 11,
         "width": 3,
         "height": 1
     },
     {
-        "id": "9048d42144c6a37d",
+        "id": "6b90effa0a9951a0",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
         "group": "a91f3f1520863187",
-        "order": 14,
+        "order": 13,
         "width": 1,
         "height": 1
     },
     {
-        "id": "b5634272ce83ce61",
+        "id": "057250753ca86ecb",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
         "group": "a91f3f1520863187",
-        "order": 16,
+        "order": 15,
         "width": 1,
         "height": 1
     },
     {
-        "id": "cb77dc70ef408f73",
+        "id": "08fa910c576b985f",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
         "group": "a91f3f1520863187",
-        "order": 19,
+        "order": 18,
         "width": 1,
         "height": 1
     },
     {
-        "id": "ac6d921e7bbb89fb",
+        "id": "8162b5f8989502ab",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
         "group": "a91f3f1520863187",
-        "order": 21,
+        "order": 20,
         "width": 1,
         "height": 1
     },
     {
-        "id": "42904cd99b5bdcc4",
+        "id": "7f1f4367b7cb2616",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
         "group": "a91f3f1520863187",
-        "order": 24,
+        "order": 23,
         "width": 1,
         "height": 1
     },
     {
-        "id": "dc6c9adaaeb51c36",
+        "id": "51419511dacdad31",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
         "group": "a91f3f1520863187",
-        "order": 26,
+        "order": 25,
         "width": 1,
         "height": 1
     },
     {
-        "id": "57db5a393bb09e11",
+        "id": "2e1c45336b18a17c",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
         "group": "a91f3f1520863187",
-        "order": 29,
+        "order": 28,
         "width": 1,
         "height": 1
     },
     {
-        "id": "de0b38cb14762d4e",
+        "id": "e412fa27fbe3630e",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
         "group": "a91f3f1520863187",
-        "order": 31,
+        "order": 30,
         "width": 1,
         "height": 1
     },
     {
-        "id": "e4cb7c2a4fe3754e",
+        "id": "75d70a3738d69504",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -926,7 +917,7 @@
         "height": 1
     },
     {
-        "id": "7fc74d5c5f58d48c",
+        "id": "9a03e0468116086f",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -936,7 +927,7 @@
         "height": 1
     },
     {
-        "id": "79a58f312ba16029",
+        "id": "d8b402c5e360b2d5",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -946,7 +937,7 @@
         "height": 1
     },
     {
-        "id": "51162fc408d70826",
+        "id": "d7fc473abdfc2651",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -956,7 +947,7 @@
         "height": 1
     },
     {
-        "id": "571a4f49d1e97d4f",
+        "id": "bfca97bbf238c97c",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -966,7 +957,7 @@
         "height": 1
     },
     {
-        "id": "b7a5457ec77e2476",
+        "id": "8ff77bcbe2e07e08",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -976,7 +967,7 @@
         "height": 1
     },
     {
-        "id": "2ef45f37e4c3d61f",
+        "id": "e35b51e38c54fedc",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -986,7 +977,7 @@
         "height": 1
     },
     {
-        "id": "72416ad64bc00139",
+        "id": "8724bba0f8abc096",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -996,7 +987,7 @@
         "height": 1
     },
     {
-        "id": "a4e29b2f9ab6a204",
+        "id": "c298172dbd075ccf",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -1006,7 +997,7 @@
         "height": 1
     },
     {
-        "id": "ba065b14c539f976",
+        "id": "eee58e76868c7a74",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -1016,7 +1007,7 @@
         "height": 1
     },
     {
-        "id": "7a174c7a0e0fa851",
+        "id": "ba3bd94a4ef42f21",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -1026,7 +1017,7 @@
         "height": 1
     },
     {
-        "id": "994ae6fce5072d28",
+        "id": "0d2e4e85563211dc",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -1036,13 +1027,93 @@
         "height": 1
     },
     {
-        "id": "f38247a9cb1ed564",
+        "id": "018592d5b6fd2855",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
         "group": "112aa19380852c23",
         "order": 23,
         "width": 7,
+        "height": 1
+    },
+    {
+        "id": "b14a5bfd6b9a1a58",
+        "type": "ui_spacer",
+        "z": "b83fb43068cdf48f",
+        "name": "spacer",
+        "group": "6b9044739353ec6a",
+        "order": 1,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "b80675c5642d3e79",
+        "type": "ui_spacer",
+        "z": "b83fb43068cdf48f",
+        "name": "spacer",
+        "group": "6b9044739353ec6a",
+        "order": 4,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "b2dc14849e17c759",
+        "type": "ui_spacer",
+        "z": "b83fb43068cdf48f",
+        "name": "spacer",
+        "group": "6b9044739353ec6a",
+        "order": 5,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "ddea88b3fbb81951",
+        "type": "ui_spacer",
+        "z": "b83fb43068cdf48f",
+        "name": "spacer",
+        "group": "6b9044739353ec6a",
+        "order": 8,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "96342192e60c131a",
+        "type": "ui_spacer",
+        "z": "b83fb43068cdf48f",
+        "name": "spacer",
+        "group": "6b9044739353ec6a",
+        "order": 10,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "1cbf932573d321f5",
+        "type": "ui_spacer",
+        "z": "b83fb43068cdf48f",
+        "name": "spacer",
+        "group": "6b9044739353ec6a",
+        "order": 12,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "aa0d7e8c34dd78c9",
+        "type": "ui_spacer",
+        "z": "b83fb43068cdf48f",
+        "name": "spacer",
+        "group": "6b9044739353ec6a",
+        "order": 14,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "0c3630307244d634",
+        "type": "ui_spacer",
+        "z": "b83fb43068cdf48f",
+        "name": "spacer",
+        "group": "6b9044739353ec6a",
+        "order": 16,
+        "width": 1,
         "height": 1
     },
     {
@@ -6263,7 +6334,8 @@
                 "5e6821a08b748efd"
             ],
             [
-                "7e795aafec1fe140"
+                "7e795aafec1fe140",
+                "e0212f99f8fa6abc"
             ]
         ],
         "l": false
@@ -6437,7 +6509,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nglobal.set('pid.zone[' + selected_zone + '].autotune.active', false)\n\nif (msg.state == 'succeeded') {\n    global.set('pid.zone[' + selected_zone + '].settings.tuned.gain.Kp', msg.payload.Kp)\n    global.set('pid.zone[' + selected_zone + '].settings.tuned.gain.Ki', msg.payload.Ki)\n    global.set('pid.zone[' + selected_zone + '].settings.tuned.gain.Kd', msg.payload.Kd)\n} \n\nvar msg_out = { enabled: true } // enable any dashboard ui\nreturn msg_out",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nvar selected_action = global.get('pid.selected_action') || 0 // 'heating', 'cooling', 'maintaining'\nglobal.set('pid.zone[' + selected_zone + '].autotune.active', false)\n\nif (msg.state == 'succeeded') {\n    global.set('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Kp', msg.payload.Kp)\n    global.set('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Ki', msg.payload.Ki)\n    global.set('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Kd', msg.payload.Kd)\n} \n\nvar msg_out = { enabled: true } // enable any dashboard ui\nreturn msg_out",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6542,7 +6614,7 @@
         "z": "b83fb43068cdf48f",
         "name": "",
         "group": "a91f3f1520863187",
-        "order": 9,
+        "order": 8,
         "width": 14,
         "height": 5,
         "label": "",
@@ -6578,69 +6650,6 @@
         "y": 1120,
         "wires": [
             []
-        ],
-        "l": false
-    },
-    {
-        "id": "422b0453aa8d2e2b",
-        "type": "function",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nmsg.payload = parseFloat(global.get('pid.zone[' + selected_zone + '].parameters.setpoint'))\nmsg.topic = 'Setpoint'\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 665,
-        "y": 980,
-        "wires": [
-            [
-                "5f3d7dbca9bda384",
-                "edf4d60398ebee66"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "4041ed0c8ac3b123",
-        "type": "function",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nmsg.payload = parseFloat(global.get('pid.zone[' + selected_zone + '].parameters.process')).toFixed(2)\nmsg.topic = 'Process'\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 665,
-        "y": 1020,
-        "wires": [
-            [
-                "edf4d60398ebee66",
-                "88b62b08d497ced5"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "52a1b5a440697dbd",
-        "type": "function",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nmsg.payload = parseFloat(global.get('pid.zone[' + selected_zone + '].parameters.control')).toFixed(2)\nmsg.topic = 'Control'\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 665,
-        "y": 1060,
-        "wires": [
-            [
-                "edf4d60398ebee66",
-                "690b214f18161f59"
-            ]
         ],
         "l": false
     },
@@ -6698,7 +6707,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "set control if auto tune not active 0",
-        "func": "var zone_id = 0\n\nvar cv = msg.payload * 100\nglobal.set('pid.zone['+zone_id+'].parameters.control', cv)\n\nvar zone = global.get('pid.zone[' + zone_id + ']')\nif (zone.action == 'Heating' || zone.action == 'Cooling' ) {\n    msg.payload = cv * zone.parameters.rate / 100\n    msg.action = zone.action\n    node.status({ fill: \"green\", shape: \"dot\", text: msg.payload.toFixed(2) + ' CV' });\n} else if (zone.action == 'Maintaining') {\n    msg.action = \"Off\"\n    node.status({ fill: \"green\", shape: \"dot\", text: cv.toFixed(2) + ' CV' });\n} else {\n    msg.action = \"Off\"\n    node.status({ fill: \"green\", shape: \"dot\", text: 0 + ' CV' });\n}\n\nreturn msg;",
+        "func": "var zone_id = 0\n\nif (!global.get('pid.zone['+zone_id+'].autotune.active')) {var cv = msg.payload * 100\nglobal.set('pid.zone['+zone_id+'].parameters.control', cv)\n    \n    var zone = global.get('pid.zone[' + zone_id + ']')\n    if (zone.action == 'Heating' || zone.action == 'Cooling' ) {\n        msg.payload = cv * zone.parameters.rate / 100\n        msg.action = zone.action\n        node.status({ fill: \"green\", shape: \"dot\", text: msg.payload.toFixed(2) + ' CV' });\n    } else if (zone.action == 'Maintaining') {\n        msg.action = \"Off\"\n        node.status({ fill: \"green\", shape: \"dot\", text: cv.toFixed(2) + ' CV' });\n    } else {\n        msg.action = \"Off\"\n        node.status({ fill: \"green\", shape: \"dot\", text: 0 + ' CV' });\n    }\n    \n    return msg;\n} else {\n    node.status({ fill: \"green\", shape: \"ring\", text: 'tuning' });\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6738,7 +6747,8 @@
         "wires": [
             [
                 "29405e958220b21d",
-                "9697d72a5f2cf931"
+                "9697d72a5f2cf931",
+                "9447b5c563442f43"
             ]
         ],
         "l": false
@@ -6768,7 +6778,11 @@
                 "ad72ca96abbbda04",
                 "9e758dbc39404bb8",
                 "3aa827944da4334b",
-                "264235440a742302"
+                "264235440a742302",
+                "3a1438a5665ec43e",
+                "27f7045e7c6618ef",
+                "d6d4fadaca2168e9",
+                "f2550ccb2c8302f1"
             ]
         ]
     },
@@ -6862,8 +6876,8 @@
         "z": "b83fb43068cdf48f",
         "name": "zone 0 temperature pid",
         "info": "",
-        "x": 120,
-        "y": 80,
+        "x": 100,
+        "y": 60,
         "wires": []
     },
     {
@@ -6904,7 +6918,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "set control if auto tune not active 1",
-        "func": "var zone_id = 1\nvar cv = msg.payload * 100\nglobal.set('pid.zone['+zone_id+'].parameters.control', cv)\n\nvar zone = global.get('pid.zone[' + zone_id + ']')\nif (zone.action == 'Heating' || zone.action == 'Cooling' ) {\n    msg.payload = cv * zone.parameters.rate / 100\n    msg.action = zone.action\n    node.status({ fill: \"green\", shape: \"dot\", text: msg.payload.toFixed(2) + ' CV' });\n} else if (zone.action == 'Maintaining') {\n    msg.action = \"Off\"\n    node.status({ fill: \"green\", shape: \"dot\", text: cv.toFixed(2) + ' CV' });\n} else {\n    msg.action = \"Off\"\n    node.status({ fill: \"green\", shape: \"dot\", text: 0 + ' CV' });\n}\n\nreturn msg;",
+        "func": "var zone_id = 1\n\nif (!global.get('pid.zone['+zone_id+'].autotune.active')) {var cv = msg.payload * 100\nglobal.set('pid.zone['+zone_id+'].parameters.control', cv)\n    \n    var zone = global.get('pid.zone[' + zone_id + ']')\n    if (zone.action == 'Heating' || zone.action == 'Cooling' ) {\n        msg.payload = cv * zone.parameters.rate / 100\n        msg.action = zone.action\n        node.status({ fill: \"green\", shape: \"dot\", text: msg.payload.toFixed(2) + ' CV' });\n    } else if (zone.action == 'Maintaining') {\n        msg.action = \"Off\"\n        node.status({ fill: \"green\", shape: \"dot\", text: cv.toFixed(2) + ' CV' });\n    } else {\n        msg.action = \"Off\"\n        node.status({ fill: \"green\", shape: \"dot\", text: 0 + ' CV' });\n    }\n    \n    return msg;\n} else {\n    node.status({ fill: \"green\", shape: \"ring\", text: 'tuning' });\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6946,26 +6960,9 @@
         "z": "b83fb43068cdf48f",
         "name": "zone 1 temperature pid",
         "info": "",
-        "x": 580,
-        "y": 80,
+        "x": 560,
+        "y": 60,
         "wires": []
-    },
-    {
-        "id": "f603fd46b7055148",
-        "type": "link in",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "links": [
-            "f7d301c81543618a",
-            "020de7ac1ec04a88",
-            "f60c15f2e633edb2",
-            "9d06d483162a50b9"
-        ],
-        "x": 715,
-        "y": 940,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "f7d301c81543618a",
@@ -7048,23 +7045,6 @@
         "l": false
     },
     {
-        "id": "aa4193468fa51352",
-        "type": "link in",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "links": [
-            "bee9b0aaa92de05c",
-            "b533e4fa8c93b24a",
-            "5793f419da2fa866",
-            "3cd6ce4406cb6bbc"
-        ],
-        "x": 665,
-        "y": 940,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "7bec29feb13d35ed",
         "type": "debug",
         "z": "b83fb43068cdf48f",
@@ -7132,7 +7112,8 @@
         "wires": [
             [
                 "27f7cbeff6ac667b",
-                "63baca868e0f50b3"
+                "63baca868e0f50b3",
+                "965105ae5529c197"
             ]
         ],
         "l": false
@@ -7633,7 +7614,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "set control if auto tune not active 2",
-        "func": "var zone = 2\nvar cv\nif (!global.get('pid.zone['+zone+'].autotune.active')) {\n    cv = msg.payload * 100\n    global.set('pid.zone['+zone+'].parameters.control', cv)\n    node.status({ fill: \"green\", shape: \"dot\", text: cv.toFixed(2) + ' CV' });\n    return msg;\n}",
+        "func": "var zone_id = 2\nvar cv\nif (!global.get('pid.zone['+zone_id+'].autotune.active')) {\n    cv = msg.payload * 100\n    global.set('pid.zone['+zone_id+'].parameters.control', cv)\n    node.status({ fill: \"green\", shape: \"dot\", text: cv.toFixed(2) + ' CV' });\n    return msg;\n} else {\n    node.status({ fill: \"green\", shape: \"ring\", text: 'tuning' });\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -7674,8 +7655,8 @@
         "z": "b83fb43068cdf48f",
         "name": "zone 2 ramp pid",
         "info": "",
-        "x": 100,
-        "y": 300,
+        "x": 80,
+        "y": 280,
         "wires": []
     },
     {
@@ -7706,7 +7687,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "set control if auto tune not active 3",
-        "func": "var zone = 3\nvar cv\nif (!global.get('pid.zone['+zone+'].autotune.active')) {\n    cv = msg.payload * 100\n    global.set('pid.zone['+zone+'].parameters.control', cv)\n    node.status({ fill: \"green\", shape: \"dot\", text: cv.toFixed(2) + ' CV' });\n    return msg;\n}",
+        "func": "var zone_id = 3\nvar cv\nif (!global.get('pid.zone['+zone_id+'].autotune.active')) {\n    cv = msg.payload * 100\n    global.set('pid.zone['+zone_id+'].parameters.control', cv)\n    node.status({ fill: \"green\", shape: \"dot\", text: cv.toFixed(2) + ' CV' });\n    return msg;\n} else {\n    node.status({ fill: \"green\", shape: \"ring\", text: 'tuning' });\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -7747,8 +7728,8 @@
         "z": "b83fb43068cdf48f",
         "name": "zone 3 ramp pid",
         "info": "",
-        "x": 560,
-        "y": 300,
+        "x": 540,
+        "y": 280,
         "wires": []
     },
     {
@@ -7911,7 +7892,8 @@
         "wires": [
             [
                 "ceedf33a9c9ba963",
-                "7c57cd1b6579e857"
+                "7c57cd1b6579e857",
+                "b00a6a203e25320a"
             ]
         ],
         "l": false
@@ -8064,7 +8046,8 @@
         "wires": [
             [
                 "75b69e9c63988ae1",
-                "88dc5e16a84e5d48"
+                "88dc5e16a84e5d48",
+                "e86655c13e49e5ca"
             ]
         ],
         "l": false
@@ -8483,7 +8466,7 @@
         "z": "b83fb43068cdf48f",
         "name": "",
         "group": "a91f3f1520863187",
-        "order": 11,
+        "order": 10,
         "width": 8,
         "height": 1,
         "passthru": false,
@@ -8530,7 +8513,7 @@
         "label": "Pb",
         "tooltip": "",
         "group": "a91f3f1520863187",
-        "order": 18,
+        "order": 17,
         "width": 4,
         "height": 1,
         "wrap": false,
@@ -8559,7 +8542,7 @@
         "label": "Ti",
         "tooltip": "",
         "group": "a91f3f1520863187",
-        "order": 23,
+        "order": 22,
         "width": 4,
         "height": 1,
         "wrap": false,
@@ -8588,7 +8571,7 @@
         "label": "Td",
         "tooltip": "",
         "group": "a91f3f1520863187",
-        "order": 28,
+        "order": 27,
         "width": 4,
         "height": 1,
         "wrap": false,
@@ -8751,7 +8734,7 @@
         "label": "Pb",
         "tooltip": "",
         "group": "a91f3f1520863187",
-        "order": 20,
+        "order": 19,
         "width": 4,
         "height": 1,
         "wrap": false,
@@ -8816,7 +8799,7 @@
         "label": "Ti",
         "tooltip": "",
         "group": "a91f3f1520863187",
-        "order": 25,
+        "order": 24,
         "width": 4,
         "height": 1,
         "wrap": false,
@@ -8885,7 +8868,7 @@
         "label": "Td",
         "tooltip": "",
         "group": "a91f3f1520863187",
-        "order": 30,
+        "order": 29,
         "width": 4,
         "height": 1,
         "wrap": false,
@@ -8929,7 +8912,7 @@
         "type": "ui_text",
         "z": "b83fb43068cdf48f",
         "group": "a91f3f1520863187",
-        "order": 13,
+        "order": 12,
         "width": 4,
         "height": 1,
         "name": "heating",
@@ -8937,8 +8920,8 @@
         "format": "Heating",
         "layout": "col-center",
         "className": "",
-        "x": 460,
-        "y": 860,
+        "x": 420,
+        "y": 880,
         "wires": []
     },
     {
@@ -8946,7 +8929,7 @@
         "type": "ui_text",
         "z": "b83fb43068cdf48f",
         "group": "a91f3f1520863187",
-        "order": 15,
+        "order": 14,
         "width": 4,
         "height": 1,
         "name": "cooling",
@@ -8954,8 +8937,8 @@
         "format": "Cooling",
         "layout": "col-center",
         "className": "",
-        "x": 460,
-        "y": 880,
+        "x": 420,
+        "y": 900,
         "wires": []
     },
     {
@@ -8968,8 +8951,8 @@
             "0cfeb2a7be515599",
             "174a695dc7533b2c"
         ],
-        "x": 285,
-        "y": 280,
+        "x": 315,
+        "y": 300,
         "wires": []
     },
     {
@@ -8982,8 +8965,8 @@
             "f2bc62537768881d",
             "36c3f72d59bfed4f"
         ],
-        "x": 745,
-        "y": 280,
+        "x": 775,
+        "y": 300,
         "wires": []
     },
     {
@@ -9009,7 +8992,7 @@
         "repair": false,
         "outputs": 2,
         "x": 185,
-        "y": 340,
+        "y": 320,
         "wires": [
             [
                 "9e015528e0fb2d1b"
@@ -9038,10 +9021,10 @@
         "repair": false,
         "outputs": 1,
         "x": 185,
-        "y": 120,
+        "y": 80,
         "wires": [
             [
-                "9e015528e0fb2d1b"
+                "b7e5087d46e58c68"
             ]
         ],
         "l": false
@@ -9069,7 +9052,7 @@
         "repair": false,
         "outputs": 2,
         "x": 645,
-        "y": 340,
+        "y": 320,
         "wires": [
             [
                 "6631d9fb2726ad04"
@@ -9098,10 +9081,10 @@
         "repair": false,
         "outputs": 1,
         "x": 645,
-        "y": 120,
+        "y": 80,
         "wires": [
             [
-                "6631d9fb2726ad04"
+                "c25d091e1fa28879"
             ]
         ],
         "l": false
@@ -9134,7 +9117,7 @@
         "label": "Pb",
         "tooltip": "",
         "group": "a91f3f1520863187",
-        "order": 22,
+        "order": 21,
         "width": 4,
         "height": 1,
         "wrap": false,
@@ -9199,7 +9182,7 @@
         "label": "Ti",
         "tooltip": "",
         "group": "a91f3f1520863187",
-        "order": 27,
+        "order": 26,
         "width": 4,
         "height": 1,
         "wrap": false,
@@ -9268,7 +9251,7 @@
         "label": "Td",
         "tooltip": "",
         "group": "a91f3f1520863187",
-        "order": 32,
+        "order": 31,
         "width": 4,
         "height": 1,
         "wrap": false,
@@ -9317,17 +9300,12 @@
             "ba4e7459b18e1a54"
         ],
         "x": 575,
-        "y": 860,
+        "y": 940,
         "wires": [
             [
                 "2e3cae4209b2ada3",
                 "421e168f1e21c8eb",
                 "89b465e16b59498c",
-                "ad72ca96abbbda04",
-                "299b028606dbaba5",
-                "9e758dbc39404bb8",
-                "3aa827944da4334b",
-                "264235440a742302",
                 "ac5e74fbfbc5c35b",
                 "dc54653aed0af737",
                 "ba1d8ad698619ff8",
@@ -9335,130 +9313,54 @@
                 "30268114cb16ecdb",
                 "ae2d534c0af3fdbf",
                 "ad72ca96abbbda04",
+                "ad72ca96abbbda04",
+                "299b028606dbaba5",
                 "299b028606dbaba5",
                 "9e758dbc39404bb8",
+                "9e758dbc39404bb8",
                 "3aa827944da4334b",
-                "264235440a742302"
+                "3aa827944da4334b",
+                "264235440a742302",
+                "264235440a742302",
+                "3a1438a5665ec43e",
+                "27f7045e7c6618ef",
+                "d6d4fadaca2168e9",
+                "f2550ccb2c8302f1"
             ]
         ]
-    },
-    {
-        "id": "287e0e0ceab0f3df",
-        "type": "link in",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "links": [
-            "b533e4fa8c93b24a",
-            "bee9b0aaa92de05c",
-            "5793f419da2fa866",
-            "3cd6ce4406cb6bbc"
-        ],
-        "x": 575,
-        "y": 760,
-        "wires": [
-            [
-                "ad72ca96abbbda04",
-                "ad72ca96abbbda04"
-            ]
-        ]
-    },
-    {
-        "id": "dc7fd3f39f82034f",
-        "type": "function",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nglobal.set('pid.zone[' + selected_zone + '].parameters.setpoint', msg.payload)\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 815,
-        "y": 760,
-        "wires": [
-            []
-        ],
-        "l": false
-    },
-    {
-        "id": "ad72ca96abbbda04",
-        "type": "function",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nmsg.payload = global.get('pid.zone[' + selected_zone + '].parameters.setpoint') || 0\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 695,
-        "y": 760,
-        "wires": [
-            []
-        ],
-        "l": false
-    },
-    {
-        "id": "299b028606dbaba5",
-        "type": "change",
-        "z": "b83fb43068cdf48f",
-        "name": "get zone",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "pid.selected_zone",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 695,
-        "y": 780,
-        "wires": [
-            [
-                "3145db745f792654",
-                "3145db745f792654"
-            ]
-        ],
-        "l": false
     },
     {
         "id": "3145db745f792654",
         "type": "ui_dropdown",
         "z": "b83fb43068cdf48f",
         "name": "",
-        "label": "Zone",
+        "label": "Controller",
         "tooltip": "",
-        "place": "Select zone",
+        "place": "Select controller",
         "group": "a91f3f1520863187",
-        "order": 2,
+        "order": 1,
         "width": 8,
         "height": 1,
         "passthru": false,
         "multiple": false,
         "options": [
             {
-                "label": "Upper Temp",
+                "label": "Upper Temp (Outer Loop)",
                 "value": 0,
                 "type": "num"
             },
             {
-                "label": "Lower Temp",
+                "label": "Lower Temp (Outer Loop)",
                 "value": 1,
                 "type": "num"
             },
             {
-                "label": "Upper Rate",
+                "label": "Upper Rate (Inner Loop)",
                 "value": 2,
                 "type": "num"
             },
             {
-                "label": "Lower Rate",
+                "label": "Lower Rate (Inner Loop)",
                 "value": 3,
                 "type": "num"
             }
@@ -9478,202 +9380,11 @@
         "l": false
     },
     {
-        "id": "f105876bb8452e6f",
-        "type": "change",
-        "z": "b83fb43068cdf48f",
-        "name": "set zone",
-        "rules": [
-            {
-                "t": "set",
-                "p": "pid.selected_zone",
-                "pt": "global",
-                "to": "payload",
-                "tot": "msg"
-            },
-            {
-                "t": "delete",
-                "p": "payload",
-                "pt": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 815,
-        "y": 780,
-        "wires": [
-            [
-                "362eeead535475d1",
-                "362eeead535475d1"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "362eeead535475d1",
-        "type": "link out",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "mode": "link",
-        "links": [
-            "9ace848fd4fa953c",
-            "5926fc467620cb66"
-        ],
-        "x": 875,
-        "y": 780,
-        "wires": []
-    },
-    {
-        "id": "6c642e204f07ada4",
-        "type": "link out",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "mode": "link",
-        "links": [
-            "598a311988e79e25",
-            "9ace848fd4fa953c"
-        ],
-        "x": 875,
-        "y": 800,
-        "wires": []
-    },
-    {
-        "id": "101e026ab1295209",
-        "type": "function",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nvar Kp = global.get('pid.zone[' + selected_zone + '].settings.tuned.gain.Kp') || 0\nvar Ki = global.get('pid.zone[' + selected_zone + '].settings.tuned.gain.Ki') || 0\nvar Kd = global.get('pid.zone[' + selected_zone + '].settings.tuned.gain.Kd') || 0\nglobal.set('pid.zone[' + selected_zone + '].settings.accepted.gain.Kp', Kp)\nglobal.set('pid.zone[' + selected_zone + '].settings.accepted.gain.Ki', Ki)\nglobal.set('pid.zone[' + selected_zone + '].settings.accepted.gain.Kd', Kd)\nglobal.set('pid.zone[' + selected_zone + '].settings.accepted.time.PB', 1/Kp)\nglobal.set('pid.zone[' + selected_zone + '].settings.accepted.time.Ti', 1/Ki)\nglobal.set('pid.zone[' + selected_zone + '].settings.accepted.time.Td', 1/Kd)\n\nreturn msg;\n\n//https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z0000019L5TSAU&l=en-US\n//https://www.controleng.com/articles/understanding-derivative-in-pid-control/\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 815,
-        "y": 800,
-        "wires": [
-            [
-                "6c642e204f07ada4",
-                "6c642e204f07ada4"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "9e758dbc39404bb8",
-        "type": "function",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nmsg.payload = global.get('pid.zone[' + selected_zone + '].autotune.setpoint') || 0\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 695,
-        "y": 820,
-        "wires": [
-            []
-        ],
-        "l": false
-    },
-    {
-        "id": "d90c5421811f3d01",
-        "type": "function",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nglobal.set('pid.zone[' + selected_zone + '].autotune.setpoint', msg.payload)\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 815,
-        "y": 820,
-        "wires": [
-            []
-        ],
-        "l": false
-    },
-    {
-        "id": "9a9fdf8f6e8bbef2",
-        "type": "function",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nglobal.set('pid.zone[' + selected_zone + '].autotune.rate', msg.payload)\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 815,
-        "y": 840,
-        "wires": [
-            []
-        ],
-        "l": false
-    },
-    {
-        "id": "3aa827944da4334b",
-        "type": "function",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nmsg.payload = global.get('pid.zone[' + selected_zone + '].autotune.rate') || 0\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 695,
-        "y": 840,
-        "wires": [
-            []
-        ],
-        "l": false
-    },
-    {
-        "id": "264235440a742302",
-        "type": "function",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nmsg.payload = global.get('pid.zone[' + selected_zone + '].id') || 0\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 695,
-        "y": 860,
-        "wires": [
-            []
-        ],
-        "l": false
-    },
-    {
-        "id": "7a6d3d40ee58594a",
-        "type": "function",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nglobal.set('pid.zone[' + selected_zone + '].id', msg.payload)\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 815,
-        "y": 860,
-        "wires": [
-            []
-        ],
-        "l": false
-    },
-    {
         "id": "781cd411777349be",
         "type": "ui_text",
         "z": "b83fb43068cdf48f",
         "group": "a91f3f1520863187",
-        "order": 17,
+        "order": 16,
         "width": 4,
         "height": 1,
         "name": "maintaining",
@@ -9681,78 +9392,9 @@
         "format": "Maintaining",
         "layout": "col-center",
         "className": "",
-        "x": 470,
-        "y": 900,
+        "x": 430,
+        "y": 920,
         "wires": []
-    },
-    {
-        "id": "88b62b08d497ced5",
-        "type": "ui_text",
-        "z": "b83fb43068cdf48f",
-        "group": "a91f3f1520863187",
-        "order": 6,
-        "width": 4,
-        "height": 1,
-        "name": "",
-        "label": "Process",
-        "format": "<font color=\"orange\" size=\"+2\">{{msg.payload}}</font>",
-        "layout": "row-spread",
-        "className": "",
-        "x": 785,
-        "y": 1020,
-        "wires": [],
-        "l": false
-    },
-    {
-        "id": "690b214f18161f59",
-        "type": "ui_text",
-        "z": "b83fb43068cdf48f",
-        "group": "a91f3f1520863187",
-        "order": 8,
-        "width": 4,
-        "height": 1,
-        "name": "",
-        "label": "Control",
-        "format": "<font color=\"red\" size=\"+2\">{{msg.payload}}</font>",
-        "layout": "row-spread",
-        "className": "",
-        "x": 785,
-        "y": 1060,
-        "wires": [],
-        "l": false
-    },
-    {
-        "id": "5f3d7dbca9bda384",
-        "type": "ui_text",
-        "z": "b83fb43068cdf48f",
-        "group": "a91f3f1520863187",
-        "order": 4,
-        "width": 4,
-        "height": 1,
-        "name": "",
-        "label": "Setpoint",
-        "format": "<font color=\"green\" size=\"+2\">{{msg.payload}}</font>",
-        "layout": "row-spread",
-        "className": "",
-        "x": 785,
-        "y": 980,
-        "wires": [],
-        "l": false
-    },
-    {
-        "id": "3043fcde283df23d",
-        "type": "link in",
-        "z": "b83fb43068cdf48f",
-        "name": "Timer 1",
-        "links": [
-            "62eccecdbb37e6f8"
-        ],
-        "x": 625,
-        "y": 940,
-        "wires": [
-            []
-        ],
-        "icon": "node-red/timer.svg"
     },
     {
         "id": "c16e42bed75f431a",
@@ -9775,6 +9417,7 @@
         "y": 1060,
         "wires": [
             [
+                "bcb0ebd2c23db8e3",
                 "422b0453aa8d2e2b",
                 "4041ed0c8ac3b123",
                 "52a1b5a440697dbd"
@@ -9925,6 +9568,1107 @@
         "wires": [
             [
                 "727afe8d60cec42e"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "bcb0ebd2c23db8e3",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nmsg.payload = global.get('pid.zone[' + selected_zone + '].action')\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 665,
+        "y": 1000,
+        "wires": [
+            [
+                "a321eae632374aff",
+                "a321eae632374aff"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "a321eae632374aff",
+        "type": "ui_text",
+        "z": "b83fb43068cdf48f",
+        "group": "a91f3f1520863187",
+        "order": 2,
+        "width": 6,
+        "height": 1,
+        "name": "action",
+        "label": "Action",
+        "format": "<font color=\"green\" size=\"+2\">{{msg.payload}}</font>",
+        "layout": "row-center",
+        "className": "",
+        "x": 785,
+        "y": 1000,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "422b0453aa8d2e2b",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nmsg.payload = parseFloat(global.get('pid.zone[' + selected_zone + '].parameters.setpoint'))\nmsg.topic = 'Setpoint'\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 665,
+        "y": 1020,
+        "wires": [
+            [
+                "5f3d7dbca9bda384",
+                "edf4d60398ebee66",
+                "5f3d7dbca9bda384",
+                "5f3d7dbca9bda384"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "5f3d7dbca9bda384",
+        "type": "ui_text",
+        "z": "b83fb43068cdf48f",
+        "group": "a91f3f1520863187",
+        "order": 3,
+        "width": 4,
+        "height": 1,
+        "name": "setpoint",
+        "label": "Setpoint",
+        "format": "<font color=\"green\" size=\"+2\">{{msg.payload}}</font>",
+        "layout": "row-spread",
+        "className": "",
+        "x": 785,
+        "y": 1020,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "4041ed0c8ac3b123",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nmsg.payload = parseFloat(global.get('pid.zone[' + selected_zone + '].parameters.process')).toFixed(2)\nmsg.topic = 'Process'\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 665,
+        "y": 1040,
+        "wires": [
+            [
+                "edf4d60398ebee66",
+                "88b62b08d497ced5",
+                "88b62b08d497ced5",
+                "88b62b08d497ced5"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "88b62b08d497ced5",
+        "type": "ui_text",
+        "z": "b83fb43068cdf48f",
+        "group": "a91f3f1520863187",
+        "order": 7,
+        "width": 4,
+        "height": 1,
+        "name": "process",
+        "label": "Process",
+        "format": "<font color=\"orange\" size=\"+2\">{{msg.payload}}</font>",
+        "layout": "row-spread",
+        "className": "",
+        "x": 785,
+        "y": 1040,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "52a1b5a440697dbd",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nmsg.payload = parseFloat(global.get('pid.zone[' + selected_zone + '].parameters.control')).toFixed(2)\nmsg.topic = 'Control'\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 665,
+        "y": 1060,
+        "wires": [
+            [
+                "edf4d60398ebee66",
+                "690b214f18161f59",
+                "690b214f18161f59",
+                "690b214f18161f59"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "690b214f18161f59",
+        "type": "ui_text",
+        "z": "b83fb43068cdf48f",
+        "group": "a91f3f1520863187",
+        "order": 5,
+        "width": 4,
+        "height": 1,
+        "name": "control",
+        "label": "Control",
+        "format": "<font color=\"red\" size=\"+2\">{{msg.payload}}</font>",
+        "layout": "row-spread",
+        "className": "",
+        "x": 785,
+        "y": 1060,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "dc7fd3f39f82034f",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nglobal.set('pid.zone[' + selected_zone + '].parameters.setpoint', msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 815,
+        "y": 760,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "ad72ca96abbbda04",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nmsg.payload = global.get('pid.zone[' + selected_zone + '].parameters.setpoint') || 0\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 695,
+        "y": 760,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "287e0e0ceab0f3df",
+        "type": "link in",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "links": [
+            "b533e4fa8c93b24a",
+            "bee9b0aaa92de05c",
+            "5793f419da2fa866",
+            "3cd6ce4406cb6bbc"
+        ],
+        "x": 575,
+        "y": 760,
+        "wires": [
+            [
+                "ad72ca96abbbda04",
+                "ad72ca96abbbda04"
+            ]
+        ]
+    },
+    {
+        "id": "f105876bb8452e6f",
+        "type": "change",
+        "z": "b83fb43068cdf48f",
+        "name": "set zone",
+        "rules": [
+            {
+                "t": "set",
+                "p": "pid.selected_zone",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 815,
+        "y": 780,
+        "wires": [
+            [
+                "362eeead535475d1",
+                "362eeead535475d1"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "101e026ab1295209",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nvar selected_action = global.get('pid.selected_action') || 0 // 'heating', 'cooling', 'maintaining'\nvar Kp = global.get('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Kp') || 0\nvar Ki = global.get('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Ki') || 0\nvar Kd = global.get('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Kd') || 0\nglobal.set('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Kp', Kp)\nglobal.set('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Ki', Ki)\nglobal.set('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Kd', Kd)\nglobal.set('pid.zone[' + selected_zone + '].settings.' + selected_action + '.time.PB', 1/Kp)\nglobal.set('pid.zone[' + selected_zone + '].settings.' + selected_action + '.time.Ti', 1/Ki)\nglobal.set('pid.zone[' + selected_zone + '].settings.' + selected_action + '.time.Td', 1/Kd)\n\nreturn msg;\n\n//https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z0000019L5TSAU&l=en-US\n//https://www.controleng.com/articles/understanding-derivative-in-pid-control/\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 815,
+        "y": 800,
+        "wires": [
+            [
+                "6c642e204f07ada4",
+                "6c642e204f07ada4"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "d90c5421811f3d01",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nglobal.set('pid.zone[' + selected_zone + '].autotune.setpoint', msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 815,
+        "y": 820,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "9a9fdf8f6e8bbef2",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nglobal.set('pid.zone[' + selected_zone + '].autotune.rate', msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 815,
+        "y": 840,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "7a6d3d40ee58594a",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nglobal.set('pid.zone[' + selected_zone + '].id', msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 815,
+        "y": 860,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "299b028606dbaba5",
+        "type": "change",
+        "z": "b83fb43068cdf48f",
+        "name": "get zone",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "pid.selected_zone",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 695,
+        "y": 780,
+        "wires": [
+            [
+                "3145db745f792654",
+                "3145db745f792654"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "9e758dbc39404bb8",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nmsg.payload = global.get('pid.zone[' + selected_zone + '].autotune.setpoint') || 0\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 695,
+        "y": 820,
+        "wires": [
+            [
+                "3e412e382c7935ac"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "3aa827944da4334b",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nmsg.payload = global.get('pid.zone[' + selected_zone + '].autotune.rate') || 0\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 695,
+        "y": 840,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "264235440a742302",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nmsg.payload = global.get('pid.zone[' + selected_zone + '].id') || 0\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 695,
+        "y": 860,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "362eeead535475d1",
+        "type": "link out",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "9ace848fd4fa953c",
+            "5926fc467620cb66"
+        ],
+        "x": 875,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "6c642e204f07ada4",
+        "type": "link out",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "598a311988e79e25",
+            "9ace848fd4fa953c"
+        ],
+        "x": 875,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "c50964ed6fac2ae1",
+        "type": "ui_button",
+        "z": "b83fb43068cdf48f",
+        "name": "start",
+        "group": "6b9044739353ec6a",
+        "order": 2,
+        "width": 5,
+        "height": 1,
+        "passthru": false,
+        "label": "Start",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 75,
+        "y": 580,
+        "wires": [
+            [
+                "27787572425fc29d"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "123ca3b054938124",
+        "type": "ui_button",
+        "z": "b83fb43068cdf48f",
+        "name": "stop",
+        "group": "6b9044739353ec6a",
+        "order": 6,
+        "width": 5,
+        "height": 1,
+        "passthru": false,
+        "label": "Stop",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 75,
+        "y": 620,
+        "wires": [
+            [
+                "c3273409af651b10"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "e0212f99f8fa6abc",
+        "type": "ui_text",
+        "z": "b83fb43068cdf48f",
+        "group": "6b9044739353ec6a",
+        "order": 9,
+        "width": 14,
+        "height": 1,
+        "name": "status",
+        "label": "Status",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 275,
+        "y": 660,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "d4de0420135c8286",
+        "type": "ui_button",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "group": "6b9044739353ec6a",
+        "order": 11,
+        "width": 6,
+        "height": 1,
+        "passthru": false,
+        "label": "Accept",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "accept",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 755,
+        "y": 800,
+        "wires": [
+            [
+                "101e026ab1295209"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "3e412e382c7935ac",
+        "type": "ui_numeric",
+        "z": "b83fb43068cdf48f",
+        "name": "auto-tune sp",
+        "label": "Setpoint",
+        "tooltip": "",
+        "group": "6b9044739353ec6a",
+        "order": 7,
+        "width": 7,
+        "height": 1,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{msg.payload}}",
+        "min": "-10000",
+        "max": "10000",
+        "step": "10",
+        "className": "",
+        "x": 755,
+        "y": 820,
+        "wires": [
+            [
+                "d90c5421811f3d01"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "3b13c26c7cd91f4b",
+        "type": "ui_numeric",
+        "z": "b83fb43068cdf48f",
+        "name": "tuned Kp",
+        "label": "Kp",
+        "tooltip": "",
+        "group": "6b9044739353ec6a",
+        "order": 13,
+        "width": 4,
+        "height": 1,
+        "wrap": false,
+        "passthru": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{msg.payload}}",
+        "min": "-10000",
+        "max": "10000",
+        "step": "0.01",
+        "className": "",
+        "x": 755,
+        "y": 880,
+        "wires": [
+            [
+                "97c7b99a0a39a4a1"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "4b422ecd2ab572b7",
+        "type": "ui_numeric",
+        "z": "b83fb43068cdf48f",
+        "name": "tuned Ki",
+        "label": "Ki",
+        "tooltip": "",
+        "group": "6b9044739353ec6a",
+        "order": 15,
+        "width": 4,
+        "height": 1,
+        "wrap": false,
+        "passthru": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{msg.payload}}",
+        "min": "-10000",
+        "max": "10000",
+        "step": "0.01",
+        "className": "",
+        "x": 755,
+        "y": 900,
+        "wires": [
+            [
+                "c9b0629ff03b905a"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "f346a6914e5b0d0a",
+        "type": "ui_numeric",
+        "z": "b83fb43068cdf48f",
+        "name": "tuned Kd",
+        "label": "Kd",
+        "tooltip": "",
+        "group": "6b9044739353ec6a",
+        "order": 17,
+        "width": 4,
+        "height": 1,
+        "wrap": false,
+        "passthru": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{msg.payload}}",
+        "min": "-10000",
+        "max": "10000",
+        "step": "0.01",
+        "className": "",
+        "x": 755,
+        "y": 920,
+        "wires": [
+            [
+                "8012c7b1159fd050"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "3a1438a5665ec43e",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nvar selected_action = global.get('pid.selected_action') || 0 // 'heating', 'cooling', 'maintaining'\nmsg.payload = global.get('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Kp') || 0\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 695,
+        "y": 880,
+        "wires": [
+            [
+                "3b13c26c7cd91f4b"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "27f7045e7c6618ef",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nvar selected_action = global.get('pid.selected_action') || 0 // 'heating', 'cooling', 'maintaining'\nmsg.payload = global.get('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Ki') || 0\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 695,
+        "y": 900,
+        "wires": [
+            [
+                "4b422ecd2ab572b7"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "d6d4fadaca2168e9",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nvar selected_action = global.get('pid.selected_action') || 0 // 'heating', 'cooling', 'maintaining'\nmsg.payload = global.get('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Kd') || 0\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 695,
+        "y": 920,
+        "wires": [
+            [
+                "f346a6914e5b0d0a"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "97c7b99a0a39a4a1",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nvar selected_action = global.get('pid.selected_action') || 0 // 'heating', 'cooling', 'maintaining'\nglobal.set('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Kp', msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 815,
+        "y": 880,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "c9b0629ff03b905a",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nvar selected_action = global.get('pid.selected_action') || 0 // 'heating', 'cooling', 'maintaining'\nglobal.set('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Ki', msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 815,
+        "y": 900,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "8012c7b1159fd050",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nvar selected_action = global.get('pid.selected_action') || 0 // 'heating', 'cooling', 'maintaining'\nglobal.set('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Kd', msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 815,
+        "y": 920,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "78195abb9bec9ca7",
+        "type": "ui_dropdown",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "label": "Action",
+        "tooltip": "",
+        "place": "Select action",
+        "group": "6b9044739353ec6a",
+        "order": 3,
+        "width": 7,
+        "height": 1,
+        "passthru": false,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Heating",
+                "value": "heating",
+                "type": "str"
+            },
+            {
+                "label": "Cooling",
+                "value": "cooling",
+                "type": "str"
+            },
+            {
+                "label": "Maintaining",
+                "value": "maintaining",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 755,
+        "y": 940,
+        "wires": [
+            [
+                "e46c54fd714b3355"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "f2550ccb2c8302f1",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "msg.payload = global.get('pid.selected_action') || 0 // 'heating', 'cooling', 'maintaining'\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 695,
+        "y": 940,
+        "wires": [
+            [
+                "78195abb9bec9ca7"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "e46c54fd714b3355",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "global.set('pid.selected_action', msg.payload) \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 815,
+        "y": 940,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "b00a6a203e25320a",
+        "type": "switch",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "property": "pid.zone[2].action",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Maintaining",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 185,
+        "y": 300,
+        "wires": [
+            [
+                "07cdd33a021030f4"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "e86655c13e49e5ca",
+        "type": "switch",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "property": "pid.zone[3].action",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Maintaining",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 645,
+        "y": 300,
+        "wires": [
+            [
+                "c51f5f99a3b50c74"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "9447b5c563442f43",
+        "type": "switch",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "property": "pid.zone[0].action",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Heating",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Cooling",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 185,
+        "y": 100,
+        "wires": [
+            [
+                "873dcd28375613e6"
+            ],
+            [
+                "873dcd28375613e6"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "965105ae5529c197",
+        "type": "switch",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "property": "pid.zone[1].action",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Heating",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Cooling",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 645,
+        "y": 100,
+        "wires": [
+            [
+                "5f6ec8ded3eb3230"
+            ],
+            [
+                "5f6ec8ded3eb3230"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "c25d091e1fa28879",
+        "type": "link out",
+        "z": "b83fb43068cdf48f",
+        "name": "output - zone 1 - out to process (CV 0-100%)",
+        "mode": "link",
+        "links": [
+            "f2bc62537768881d",
+            "36c3f72d59bfed4f"
+        ],
+        "x": 775,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "b7e5087d46e58c68",
+        "type": "link out",
+        "z": "b83fb43068cdf48f",
+        "name": "output - zone 0 - out to process (CV 0-100%)",
+        "mode": "link",
+        "links": [
+            "0cfeb2a7be515599",
+            "174a695dc7533b2c"
+        ],
+        "x": 315,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "873dcd28375613e6",
+        "type": "switch",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "property": "pid.zone[0].autotune.active",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 245,
+        "y": 100,
+        "wires": [
+            [
+                "b7e5087d46e58c68"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "07cdd33a021030f4",
+        "type": "switch",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "property": "pid.zone[2].autotune.active",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 245,
+        "y": 300,
+        "wires": [
+            [
+                "9e015528e0fb2d1b"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "5f6ec8ded3eb3230",
+        "type": "switch",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "property": "pid.zone[1].autotune.active",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 705,
+        "y": 100,
+        "wires": [
+            [
+                "c25d091e1fa28879"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "c51f5f99a3b50c74",
+        "type": "switch",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "property": "pid.zone[3].autotune.active",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 705,
+        "y": 300,
+        "wires": [
+            [
+                "6631d9fb2726ad04"
             ]
         ],
         "l": false
@@ -10610,7 +11354,8 @@
         "z": "3154c44d1a91de38",
         "name": "input - upper heater",
         "links": [
-            "9e015528e0fb2d1b"
+            "9e015528e0fb2d1b",
+            "b7e5087d46e58c68"
         ],
         "x": 135,
         "y": 680,
@@ -10626,7 +11371,8 @@
         "z": "3154c44d1a91de38",
         "name": "input - lower heater",
         "links": [
-            "6631d9fb2726ad04"
+            "6631d9fb2726ad04",
+            "c25d091e1fa28879"
         ],
         "x": 135,
         "y": 760,
@@ -12704,7 +13450,8 @@
         "z": "3154c44d1a91de38",
         "name": "",
         "links": [
-            "6631d9fb2726ad04"
+            "6631d9fb2726ad04",
+            "c25d091e1fa28879"
         ],
         "x": 285,
         "y": 380,
@@ -12720,7 +13467,8 @@
         "z": "3154c44d1a91de38",
         "name": "",
         "links": [
-            "9e015528e0fb2d1b"
+            "9e015528e0fb2d1b",
+            "b7e5087d46e58c68"
         ],
         "x": 285,
         "y": 340,
