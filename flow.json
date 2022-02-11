@@ -2351,7 +2351,7 @@
         "type": "function",
         "z": "592b686edd11b813",
         "name": "get schedule names",
-        "func": "var schedules = global.get('kiln_01.schedules')\nvar schedule_names = []\nfor (let index = 0; index < schedules.length; index++) {\n    var name = {}\n    if (schedules[index] !== undefined){\n        name[schedules[index].name] = index.toString()\n    } else {\n        name[\"schedule \"+index] = index.toString()\n    }\n    schedule_names.push(name)\n}\nmsg.options = schedule_names\nreturn msg;\n\n/*\n[\n    {\n        \"schedule 1\": \"0\"\n    },\n    {\n        \"schedule 2\": \"1\"\n    }\n\n]\n[\n    {\n        \"Cone 04 Bisque\":\"0\"\n    },\n    {\n        \"Cone 6 Glaze\":\"1\"\n    }\n]\n*/",
+        "func": "var schedules = global.get('kiln_01.schedules')\nvar schedule_names = []\nfor (let index = 0; index < schedules.length; index++) {\n    var name = {}\n    if (schedules[index] !== undefined && schedules[index] !== null){\n        name[schedules[index].name] = index.toString()\n    } else {\n        name[\"schedule \"+index] = index.toString()\n    }\n    schedule_names.push(name)\n}\nmsg.options = schedule_names\nreturn msg;\n\n/*\n[\n    {\n        \"schedule 1\": \"0\"\n    },\n    {\n        \"schedule 2\": \"1\"\n    }\n\n]\n[\n    {\n        \"Cone 04 Bisque\":\"0\"\n    },\n    {\n        \"Cone 6 Glaze\":\"1\"\n    }\n]\n*/",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4989,7 +4989,7 @@
         "type": "function",
         "z": "e9cef8706a9cf7f6",
         "name": "stop schedule or advance",
-        "func": "var UpperTemperature = global.get('kiln_01.UpperTemperature', 'memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature', 'memoryOnly')\nvar Setpoint = global.get('kiln_01.Setpoint', 'memoryOnly')\nvar UpperSetpoint = global.get('kiln_01.UpperSetpoint', 'memoryOnly')\nvar LowerSetpoint = global.get('kiln_01.LowerSetpoint', 'memoryOnly')\nvar ControlAction = global.get('kiln_01.ControlAction', 'memoryOnly')\nvar active_schedule = global.get('kiln_01.active_schedule')\nvar segment_count = active_schedule.segments.length\nvar active_segment_index = global.get('kiln_01.active_segment_index')\nvar topic\nvar payload\nvar rate\nvar action\nvar segment_settings\nvar data\nvar msg_out\nvar temps_at_setpoint = global.get('kiln_01.SetpointReached', 'memoryOnly')\n//var tolerance = 20 // degrees\n//var temps_at_setpoint =  (ControlAction == 'Heating' && UpperTemperature >= (Setpoint - tolerance) && LowerTemperature >= (Setpoint - tolerance)) \n//                        ||(ControlAction == 'Cooling' && UpperTemperature <= (Setpoint + tolerance) && LowerTemperature <= (Setpoint + tolerance))\n\n// check if temps have been reached or advance is commanded\nif ((temps_at_setpoint && msg.payload == 'Release') ||\n    msg.payload == 'Advance'){\n\n    if (segment_count - 1 > active_segment_index) {\n        // advance to next segment\n        active_segment_index = active_segment_index + 1\n        global.set('kiln_01.active_segment_index', active_segment_index)\n        segment_settings = active_schedule.segments[active_segment_index]\n        data = {segment_settings}\n        topic = \"init\"\n        msg_out = {topic,data}\n        return [null,msg_out]\n    } else {\n        // end the schedule\n        topic = \"stop\"\n        payload = 0 // this will go to PID setpoints\n        rate = 0\n        action = \"Off\"\n        msg_out = {topic, payload, rate, action}\n        return [msg_out,null]\n    }\n    \n} else { // continue and try to reach temps\n    topic = \"ramp\"\n    msg_out = {topic}\n    return [null,msg_out]\n}",
+        "func": "var UpperTemperature = global.get('kiln_01.UpperTemperature', 'memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature', 'memoryOnly')\nvar Setpoint = global.get('kiln_01.Setpoint', 'memoryOnly')\nvar UpperSetpoint = global.get('kiln_01.UpperSetpoint', 'memoryOnly')\nvar LowerSetpoint = global.get('kiln_01.LowerSetpoint', 'memoryOnly')\nvar ControlAction = global.get('kiln_01.ControlAction', 'memoryOnly')\nvar active_schedule = global.get('kiln_01.active_schedule')\nvar segment_count = active_schedule.segments.length\nvar active_segment_index = global.get('kiln_01.active_segment_index')\nvar topic\nvar payload\nvar rate\nvar action\nvar segment_settings\nvar data\nvar msg_out\nvar temps_at_setpoint = global.get('kiln_01.SetpointReached', 'memoryOnly')\n//var tolerance = 20 // degrees\n//var temps_at_setpoint =  (ControlAction == 'heating' && UpperTemperature >= (Setpoint - tolerance) && LowerTemperature >= (Setpoint - tolerance)) \n//                        ||(ControlAction == 'cooling' && UpperTemperature <= (Setpoint + tolerance) && LowerTemperature <= (Setpoint + tolerance))\n\n// check if temps have been reached or advance is commanded\nif ((temps_at_setpoint && msg.payload == 'Release') ||\n    msg.payload == 'Advance'){\n\n    if (segment_count - 1 > active_segment_index) {\n        // advance to next segment\n        active_segment_index = active_segment_index + 1\n        global.set('kiln_01.active_segment_index', active_segment_index)\n        segment_settings = active_schedule.segments[active_segment_index]\n        data = {segment_settings}\n        topic = \"init\"\n        msg_out = {topic,data}\n        return [null,msg_out]\n    } else {\n        // end the schedule\n        topic = \"stop\"\n        payload = 0 // this will go to PID setpoints\n        rate = 0\n        action = \"Off\"\n        msg_out = {topic, payload, rate, action}\n        return [msg_out,null]\n    }\n    \n} else { // continue and try to reach temps\n    topic = \"ramp\"\n    msg_out = {topic}\n    return [null,msg_out]\n}",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -5196,7 +5196,7 @@
         "type": "function",
         "z": "e9cef8706a9cf7f6",
         "name": "check temps and start soak",
-        "func": "var UpperTemperature = global.get('kiln_01.UpperTemperature', 'memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature', 'memoryOnly')\n//var Setpoint = global.get('kiln_01.Setpoint', 'memoryOnly')\nvar ControlAction = global.get('kiln_01.ControlAction', 'memoryOnly')\nvar Setpoint = msg.payload.data.segment_settings.setpoint\nvar RampRate = msg.payload.data.segment_settings.ramp_rate // per hour\nvar Tolerance = Setpoint - Setpoint * 0.998 // 0.2%\n\n// check if temps have been reached\n// TODO: add a confidence timer here to filter out spikes in temp\nif ((ControlAction == 'Heating' \n    && UpperTemperature >= (Setpoint - Tolerance) \n    && LowerTemperature >= (Setpoint - Tolerance)) || \n    (ControlAction == 'Cooling' \n    && UpperTemperature <= (Setpoint + Tolerance) \n    && LowerTemperature <= (Setpoint + Tolerance))){\n        global.set('kiln_01.SetpointReached', true, 'memoryOnly')\n        global.set('kiln_01.ControlAction', 'Maintaining', 'memoryOnly')\n        msg.topic = 'soak'\n        msg.payload = Setpoint\n        msg.rate = RampRate\n        msg.action = 'Maintaining'\n        return [msg, msg, msg];\n}\nif ((ControlAction == 'Heating' \n    && UpperTemperature >= (Setpoint - Tolerance)) || \n    (ControlAction == 'Cooling' \n    && UpperTemperature <= (Setpoint + Tolerance))){\n        msg.payload = Setpoint\n        msg.rate = RampRate\n        msg.action = 'Maintaining'\n        return [null, msg, null];\n}\nif ((ControlAction == 'Heating' \n    && LowerTemperature >= (Setpoint - Tolerance)) || \n    (ControlAction == 'Cooling' \n    && LowerTemperature <= (Setpoint + Tolerance))){\n        msg.payload = Setpoint\n        msg.rate = RampRate\n        msg.action = 'Maintaining'\n        return [null, null, msg];\n}",
+        "func": "var UpperTemperature = global.get('kiln_01.UpperTemperature', 'memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature', 'memoryOnly')\n//var Setpoint = global.get('kiln_01.Setpoint', 'memoryOnly')\nvar ControlAction = global.get('kiln_01.ControlAction', 'memoryOnly')\nvar Setpoint = msg.payload.data.segment_settings.setpoint\nvar RampRate = msg.payload.data.segment_settings.ramp_rate // per hour\nvar Tolerance = Setpoint - Setpoint * 0.998 // 0.2%\n\n// check if temps have been reached\n// TODO: add a confidence timer here to filter out spikes in temp\nif ((ControlAction == 'heating' \n    && UpperTemperature >= (Setpoint - Tolerance) \n    && LowerTemperature >= (Setpoint - Tolerance)) || \n    (ControlAction == 'cooling' \n    && UpperTemperature <= (Setpoint + Tolerance) \n    && LowerTemperature <= (Setpoint + Tolerance))){\n        global.set('kiln_01.SetpointReached', true, 'memoryOnly')\n        global.set('kiln_01.ControlAction', 'maintaining', 'memoryOnly')\n        msg.topic = 'soak'\n        msg.payload = Setpoint\n        msg.rate = RampRate\n        msg.action = 'maintaining'\n        return [msg, msg, msg];\n}\nif ((ControlAction == 'heating' \n    && UpperTemperature >= (Setpoint - Tolerance)) || \n    (ControlAction == 'cooling' \n    && UpperTemperature <= (Setpoint + Tolerance))){\n        msg.payload = Setpoint\n        msg.rate = RampRate\n        msg.action = 'maintaining'\n        return [null, msg, null];\n}\nif ((ControlAction == 'heating' \n    && LowerTemperature >= (Setpoint - Tolerance)) || \n    (ControlAction == 'cooling' \n    && LowerTemperature <= (Setpoint + Tolerance))){\n        msg.payload = Setpoint\n        msg.rate = RampRate\n        msg.action = 'maintaining'\n        return [null, null, msg];\n}",
         "outputs": 3,
         "noerr": 0,
         "initialize": "",
@@ -6188,7 +6188,7 @@
         "type": "function",
         "z": "e9cef8706a9cf7f6",
         "name": "check temps and start soak",
-        "func": "var UpperTemperature = global.get('kiln_01.UpperTemperature', 'memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature', 'memoryOnly')\nvar AverageTemperature = (UpperTemperature + LowerTemperature) / 2.0\nvar Setpoint = msg.payload.data.segment_settings.setpoint\nvar RampRate = msg.payload.data.segment_settings.ramp_rate // per hour\nvar ControlAction\n\nif (AverageTemperature > Setpoint) {\n    ControlAction = 'Cooling'\n    RampRate = RampRate * -1 // change sign so pid controller ramps down\n} else {\n    ControlAction = 'Heating'\n}\n\nglobal.set('kiln_01.ControlAction', ControlAction, 'memoryOnly')\nglobal.set('kiln_01.SetpointReached', false, 'memoryOnly')\n\nvar msg1 = { payload: Setpoint, rate: RampRate, action: ControlAction }\nvar msg2 = { payload: Setpoint, rate: RampRate, action: ControlAction }\n\nreturn [msg1, msg2];",
+        "func": "var UpperTemperature = global.get('kiln_01.UpperTemperature', 'memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature', 'memoryOnly')\nvar AverageTemperature = (UpperTemperature + LowerTemperature) / 2.0\nvar Setpoint = msg.payload.data.segment_settings.setpoint\nvar RampRate = msg.payload.data.segment_settings.ramp_rate // per hour\nvar ControlAction\n\nif (AverageTemperature > Setpoint) {\n    ControlAction = 'cooling'\n    RampRate = RampRate * -1 // change sign so pid controller ramps down\n} else {\n    ControlAction = 'heating'\n}\n\nglobal.set('kiln_01.ControlAction', ControlAction, 'memoryOnly')\nglobal.set('kiln_01.SetpointReached', false, 'memoryOnly')\n\nvar msg1 = { payload: Setpoint, rate: RampRate, action: ControlAction }\nvar msg2 = { payload: Setpoint, rate: RampRate, action: ControlAction }\n\nreturn [msg1, msg2];",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -6707,7 +6707,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "set control if auto tune not active 0",
-        "func": "var zone_id = 0\n\nif (!global.get('pid.zone['+zone_id+'].autotune.active')) {var cv = msg.payload * 100\nglobal.set('pid.zone['+zone_id+'].parameters.control', cv)\n    \n    var zone = global.get('pid.zone[' + zone_id + ']')\n    if (zone.action == 'Heating' || zone.action == 'Cooling' ) {\n        msg.payload = cv * zone.parameters.rate / 100\n        msg.action = zone.action\n        node.status({ fill: \"green\", shape: \"dot\", text: msg.payload.toFixed(2) + ' CV' });\n    } else if (zone.action == 'Maintaining') {\n        msg.action = \"Off\"\n        node.status({ fill: \"green\", shape: \"dot\", text: cv.toFixed(2) + ' CV' });\n    } else {\n        msg.action = \"Off\"\n        node.status({ fill: \"green\", shape: \"dot\", text: 0 + ' CV' });\n    }\n    \n    return msg;\n} else {\n    node.status({ fill: \"green\", shape: \"ring\", text: 'tuning' });\n}",
+        "func": "var zone_id = 0\n\nif (!global.get('pid.zone['+zone_id+'].autotune.active')) {var cv = msg.payload * 100\nglobal.set('pid.zone['+zone_id+'].parameters.control', cv)\n    \n    var zone = global.get('pid.zone[' + zone_id + ']')\n    if (zone.action == 'heating' || zone.action == 'cooling' ) {\n        msg.payload = cv * zone.parameters.rate / 100\n        msg.action = zone.action\n        node.status({ fill: \"green\", shape: \"dot\", text: msg.payload.toFixed(2) + ' CV' });\n    } else if (zone.action == 'maintaining') {\n        msg.action = \"Off\"\n        node.status({ fill: \"green\", shape: \"dot\", text: cv.toFixed(2) + ' CV' });\n    } else {\n        msg.action = \"Off\"\n        node.status({ fill: \"green\", shape: \"dot\", text: 0 + ' CV' });\n    }\n    \n    return msg;\n} else {\n    node.status({ fill: \"green\", shape: \"ring\", text: 'tuning' });\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6748,7 +6748,7 @@
             [
                 "29405e958220b21d",
                 "9697d72a5f2cf931",
-                "9447b5c563442f43"
+                "873dcd28375613e6"
             ]
         ],
         "l": false
@@ -6855,7 +6855,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "gate if auto tune active",
-        "func": "var zone_id = 0\nmsg.topic = 'process'\nvar zone = global.get('pid.zone[' + zone_id + ']')\nif (zone.action == \"Off\") {\n    node.status({ fill: \"red\", shape: \"ring\", text: zone.action });\n    msg.enable = false\n} else {\n    node.status({ fill: \"green\", shape: \"dot\", text: zone.action });\n    msg.enable = true\n    msg.payload = zone.parameters.process || 0\n    msg.setpoint = zone.parameters.setpoint || 0\n    if (zone.action == 'Heating'){\n        msg.prop_band = zone.settings.heating.time.PB || 0\n        msg.t_integral = zone.settings.heating.time.Ti || 0\n        msg.t_derivative = zone.settings.heating.time.Td || 0\n    } else if (zone.action == 'Cooling') {\n        msg.prop_band = zone.settings.cooling.time.PB || 0\n        msg.t_integral = zone.settings.cooling.time.Ti || 0\n        msg.t_derivative = zone.settings.cooling.time.Td || 0\n    } else if (zone.action == 'Maintaining') {\n        msg.prop_band = zone.settings.maintaining.time.PB || 0\n        msg.t_integral = zone.settings.maintaining.time.Ti || 0\n        msg.t_derivative = zone.settings.maintaining.time.Td || 0\n    } else {\n        // uh oh...\n        node.status({ fill: \"red\", shape: \"ring\", text: zone.action });\n        msg.enable = false\n    }\n    msg.integral_default = 0.5\n    msg.max_interval = 600\n    msg.smooth_factor = 0\n    msg.disabled_op = 0 \n}\nreturn msg;",
+        "func": "var zone_id = 0\nmsg.topic = 'process'\nvar zone = global.get('pid.zone[' + zone_id + ']')\nif (zone.action == \"Off\") {\n    node.status({ fill: \"red\", shape: \"ring\", text: zone.action });\n    msg.enable = false\n} else {\n    node.status({ fill: \"green\", shape: \"dot\", text: zone.action });\n    msg.enable = true\n    msg.payload = zone.parameters.process || 0\n    msg.setpoint = zone.parameters.setpoint || 0\n    if (zone.action == 'heating'){\n        msg.prop_band = zone.settings.heating.time.PB || 0\n        msg.t_integral = zone.settings.heating.time.Ti || 0\n        msg.t_derivative = zone.settings.heating.time.Td || 0\n    } else if (zone.action == 'cooling') {\n        msg.prop_band = zone.settings.cooling.time.PB || 0\n        msg.t_integral = zone.settings.cooling.time.Ti || 0\n        msg.t_derivative = zone.settings.cooling.time.Td || 0\n    } else if (zone.action == 'maintaining') {\n        msg.prop_band = zone.settings.maintaining.time.PB || 0\n        msg.t_integral = zone.settings.maintaining.time.Ti || 0\n        msg.t_derivative = zone.settings.maintaining.time.Td || 0\n    } else {\n        // uh oh...\n        node.status({ fill: \"red\", shape: \"ring\", text: zone.action });\n        msg.enable = false\n    }\n    msg.integral_default = 0.5\n    msg.max_interval = 600\n    msg.smooth_factor = 0\n    msg.disabled_op = 0 \n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6918,7 +6918,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "set control if auto tune not active 1",
-        "func": "var zone_id = 1\n\nif (!global.get('pid.zone['+zone_id+'].autotune.active')) {var cv = msg.payload * 100\nglobal.set('pid.zone['+zone_id+'].parameters.control', cv)\n    \n    var zone = global.get('pid.zone[' + zone_id + ']')\n    if (zone.action == 'Heating' || zone.action == 'Cooling' ) {\n        msg.payload = cv * zone.parameters.rate / 100\n        msg.action = zone.action\n        node.status({ fill: \"green\", shape: \"dot\", text: msg.payload.toFixed(2) + ' CV' });\n    } else if (zone.action == 'Maintaining') {\n        msg.action = \"Off\"\n        node.status({ fill: \"green\", shape: \"dot\", text: cv.toFixed(2) + ' CV' });\n    } else {\n        msg.action = \"Off\"\n        node.status({ fill: \"green\", shape: \"dot\", text: 0 + ' CV' });\n    }\n    \n    return msg;\n} else {\n    node.status({ fill: \"green\", shape: \"ring\", text: 'tuning' });\n}",
+        "func": "var zone_id = 1\n\nif (!global.get('pid.zone['+zone_id+'].autotune.active')) {var cv = msg.payload * 100\nglobal.set('pid.zone['+zone_id+'].parameters.control', cv)\n    \n    var zone = global.get('pid.zone[' + zone_id + ']')\n    if (zone.action == 'heating' || zone.action == 'cooling' ) {\n        msg.payload = cv * zone.parameters.rate / 100\n        msg.action = zone.action\n        node.status({ fill: \"green\", shape: \"dot\", text: msg.payload.toFixed(2) + ' CV' });\n    } else if (zone.action == 'maintaining') {\n        msg.action = \"Off\"\n        node.status({ fill: \"green\", shape: \"dot\", text: cv.toFixed(2) + ' CV' });\n    } else {\n        msg.action = \"Off\"\n        node.status({ fill: \"green\", shape: \"dot\", text: 0 + ' CV' });\n    }\n    \n    return msg;\n} else {\n    node.status({ fill: \"green\", shape: \"ring\", text: 'tuning' });\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6939,7 +6939,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "gate if auto tune active",
-        "func": "var zone_id = 1\nmsg.topic = 'process'\nvar zone = global.get('pid.zone[' + zone_id + ']')\nif (zone.action == \"Off\") {\n    node.status({ fill: \"red\", shape: \"ring\", text: zone.action });\n    msg.enable = false\n} else {\n    node.status({ fill: \"green\", shape: \"dot\", text: zone.action });\n    msg.enable = true\n    msg.payload = zone.parameters.process || 0\n    msg.setpoint = zone.parameters.setpoint || 0\n    if (zone.action == 'Heating'){\n        msg.prop_band = zone.settings.heating.time.PB || 0\n        msg.t_integral = zone.settings.heating.time.Ti || 0\n        msg.t_derivative = zone.settings.heating.time.Td || 0\n    } else if (zone.action == 'Cooling') {\n        msg.prop_band = zone.settings.cooling.time.PB || 0\n        msg.t_integral = zone.settings.cooling.time.Ti || 0\n        msg.t_derivative = zone.settings.cooling.time.Td || 0\n    } else if (zone.action == 'Maintaining') {\n        msg.prop_band = zone.settings.maintaining.time.PB || 0\n        msg.t_integral = zone.settings.maintaining.time.Ti || 0\n        msg.t_derivative = zone.settings.maintaining.time.Td || 0\n    } else {\n        // uh oh...\n        node.status({ fill: \"red\", shape: \"ring\", text: zone.action });\n        msg.enable = false\n    }\n    msg.integral_default = 0.5\n    msg.max_interval = 600\n    msg.smooth_factor = 0\n    msg.disabled_op = 0 \n}\nreturn msg;",
+        "func": "var zone_id = 1\nmsg.topic = 'process'\nvar zone = global.get('pid.zone[' + zone_id + ']')\nif (zone.action == \"Off\") {\n    node.status({ fill: \"red\", shape: \"ring\", text: zone.action });\n    msg.enable = false\n} else {\n    node.status({ fill: \"green\", shape: \"dot\", text: zone.action });\n    msg.enable = true\n    msg.payload = zone.parameters.process || 0\n    msg.setpoint = zone.parameters.setpoint || 0\n    if (zone.action == 'heating'){\n        msg.prop_band = zone.settings.heating.time.PB || 0\n        msg.t_integral = zone.settings.heating.time.Ti || 0\n        msg.t_derivative = zone.settings.heating.time.Td || 0\n    } else if (zone.action == 'cooling') {\n        msg.prop_band = zone.settings.cooling.time.PB || 0\n        msg.t_integral = zone.settings.cooling.time.Ti || 0\n        msg.t_derivative = zone.settings.cooling.time.Td || 0\n    } else if (zone.action == 'maintaining') {\n        msg.prop_band = zone.settings.maintaining.time.PB || 0\n        msg.t_integral = zone.settings.maintaining.time.Ti || 0\n        msg.t_derivative = zone.settings.maintaining.time.Td || 0\n    } else {\n        // uh oh...\n        node.status({ fill: \"red\", shape: \"ring\", text: zone.action });\n        msg.enable = false\n    }\n    msg.integral_default = 0.5\n    msg.max_interval = 600\n    msg.smooth_factor = 0\n    msg.disabled_op = 0 \n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -7113,7 +7113,7 @@
             [
                 "27f7cbeff6ac667b",
                 "63baca868e0f50b3",
-                "965105ae5529c197"
+                "5f6ec8ded3eb3230"
             ]
         ],
         "l": false
@@ -7634,7 +7634,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "gate if auto tune active",
-        "func": "var zone_id = 2\nmsg.topic = 'process'\nvar zone = global.get('pid.zone[' + zone_id + ']')\nif (zone.action == \"Off\") {\n    node.status({ fill: \"red\", shape: \"ring\", text: zone.action });\n    msg.enable = false\n} else {\n    node.status({ fill: \"green\", shape: \"dot\", text: zone.action });\n    msg.enable = true\n    msg.payload = zone.parameters.process || 0\n    msg.setpoint = zone.parameters.setpoint || 0\n    if (zone.action == 'Heating'){\n        msg.prop_band = zone.settings.heating.time.PB || 0\n        msg.t_integral = zone.settings.heating.time.Ti || 0\n        msg.t_derivative = zone.settings.heating.time.Td || 0\n    } else if (zone.action == 'Cooling') {\n        msg.prop_band = zone.settings.cooling.time.PB || 0\n        msg.t_integral = zone.settings.cooling.time.Ti || 0\n        msg.t_derivative = zone.settings.cooling.time.Td || 0\n    } else if (zone.action == 'Maintaining') {\n        msg.prop_band = zone.settings.maintaining.time.PB || 0\n        msg.t_integral = zone.settings.maintaining.time.Ti || 0\n        msg.t_derivative = zone.settings.maintaining.time.Td || 0\n    } else {\n        // uh oh...\n        node.status({ fill: \"red\", shape: \"ring\", text: zone.action });\n        msg.enable = false\n    }\n    msg.integral_default = 0.5\n    msg.max_interval = 600\n    msg.smooth_factor = 0\n    msg.disabled_op = 0 \n}\nreturn msg;",
+        "func": "var zone_id = 2\nmsg.topic = 'process'\nvar zone = global.get('pid.zone[' + zone_id + ']')\nif (zone.action == \"Off\") {\n    node.status({ fill: \"red\", shape: \"ring\", text: zone.action });\n    msg.enable = false\n} else {\n    node.status({ fill: \"green\", shape: \"dot\", text: zone.action });\n    msg.enable = true\n    msg.payload = zone.parameters.process || 0\n    msg.setpoint = zone.parameters.setpoint || 0\n    if (zone.action == 'heating'){\n        msg.prop_band = zone.settings.heating.time.PB || 0\n        msg.t_integral = zone.settings.heating.time.Ti || 0\n        msg.t_derivative = zone.settings.heating.time.Td || 0\n    } else if (zone.action == 'cooling') {\n        msg.prop_band = zone.settings.cooling.time.PB || 0\n        msg.t_integral = zone.settings.cooling.time.Ti || 0\n        msg.t_derivative = zone.settings.cooling.time.Td || 0\n    } else if (zone.action == 'maintaining') {\n        msg.prop_band = zone.settings.maintaining.time.PB || 0\n        msg.t_integral = zone.settings.maintaining.time.Ti || 0\n        msg.t_derivative = zone.settings.maintaining.time.Td || 0\n    } else {\n        // uh oh...\n        node.status({ fill: \"red\", shape: \"ring\", text: zone.action });\n        msg.enable = false\n    }\n    msg.integral_default = 0.5\n    msg.max_interval = 600\n    msg.smooth_factor = 0\n    msg.disabled_op = 0 \n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -7707,7 +7707,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "gate if auto tune active",
-        "func": "var zone_id = 3\nmsg.topic = 'process'\nvar zone = global.get('pid.zone[' + zone_id + ']')\nif (zone.action == \"Off\") {\n    node.status({ fill: \"red\", shape: \"ring\", text: zone.action });\n    msg.enable = false\n} else {\n    node.status({ fill: \"green\", shape: \"dot\", text: zone.action });\n    msg.enable = true\n    msg.payload = zone.parameters.process || 0\n    msg.setpoint = zone.parameters.setpoint || 0\n    if (zone.action == 'Heating'){\n        msg.prop_band = zone.settings.heating.time.PB || 0\n        msg.t_integral = zone.settings.heating.time.Ti || 0\n        msg.t_derivative = zone.settings.heating.time.Td || 0\n    } else if (zone.action == 'Cooling') {\n        msg.prop_band = zone.settings.cooling.time.PB || 0\n        msg.t_integral = zone.settings.cooling.time.Ti || 0\n        msg.t_derivative = zone.settings.cooling.time.Td || 0\n    } else if (zone.action == 'Maintaining') {\n        msg.prop_band = zone.settings.maintaining.time.PB || 0\n        msg.t_integral = zone.settings.maintaining.time.Ti || 0\n        msg.t_derivative = zone.settings.maintaining.time.Td || 0\n    } else {\n        // uh oh...\n        node.status({ fill: \"red\", shape: \"ring\", text: zone.action });\n        msg.enable = false\n    }\n    msg.integral_default = 0.5\n    msg.max_interval = 600\n    msg.smooth_factor = 0\n    msg.disabled_op = 0 \n}\nreturn msg;",
+        "func": "var zone_id = 3\nmsg.topic = 'process'\nvar zone = global.get('pid.zone[' + zone_id + ']')\nif (zone.action == \"Off\") {\n    node.status({ fill: \"red\", shape: \"ring\", text: zone.action });\n    msg.enable = false\n} else {\n    node.status({ fill: \"green\", shape: \"dot\", text: zone.action });\n    msg.enable = true\n    msg.payload = zone.parameters.process || 0\n    msg.setpoint = zone.parameters.setpoint || 0\n    if (zone.action == 'heating'){\n        msg.prop_band = zone.settings.heating.time.PB || 0\n        msg.t_integral = zone.settings.heating.time.Ti || 0\n        msg.t_derivative = zone.settings.heating.time.Td || 0\n    } else if (zone.action == 'cooling') {\n        msg.prop_band = zone.settings.cooling.time.PB || 0\n        msg.t_integral = zone.settings.cooling.time.Ti || 0\n        msg.t_derivative = zone.settings.cooling.time.Td || 0\n    } else if (zone.action == 'maintaining') {\n        msg.prop_band = zone.settings.maintaining.time.PB || 0\n        msg.t_integral = zone.settings.maintaining.time.Ti || 0\n        msg.t_derivative = zone.settings.maintaining.time.Td || 0\n    } else {\n        // uh oh...\n        node.status({ fill: \"red\", shape: \"ring\", text: zone.action });\n        msg.enable = false\n    }\n    msg.integral_default = 0.5\n    msg.max_interval = 600\n    msg.smooth_factor = 0\n    msg.disabled_op = 0 \n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -7893,7 +7893,7 @@
             [
                 "ceedf33a9c9ba963",
                 "7c57cd1b6579e857",
-                "b00a6a203e25320a"
+                "07cdd33a021030f4"
             ]
         ],
         "l": false
@@ -8047,7 +8047,7 @@
             [
                 "75b69e9c63988ae1",
                 "88dc5e16a84e5d48",
-                "e86655c13e49e5ca"
+                "c51f5f99a3b50c74"
             ]
         ],
         "l": false
@@ -8367,7 +8367,7 @@
         "type": "debug",
         "z": "b83fb43068cdf48f",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -8509,7 +8509,7 @@
         "id": "c83a8da294ebc889",
         "type": "ui_numeric",
         "z": "b83fb43068cdf48f",
-        "name": "Heating Pb",
+        "name": "heating Pb",
         "label": "Pb",
         "tooltip": "",
         "group": "a91f3f1520863187",
@@ -8538,7 +8538,7 @@
         "id": "eaafcfd82fd76c68",
         "type": "ui_numeric",
         "z": "b83fb43068cdf48f",
-        "name": "Heating Ti",
+        "name": "heating Ti",
         "label": "Ti",
         "tooltip": "",
         "group": "a91f3f1520863187",
@@ -8567,7 +8567,7 @@
         "id": "72a202982dfa9713",
         "type": "ui_numeric",
         "z": "b83fb43068cdf48f",
-        "name": "Heating Td",
+        "name": "heating Td",
         "label": "Td",
         "tooltip": "",
         "group": "a91f3f1520863187",
@@ -8730,7 +8730,7 @@
         "id": "6f0a2b0420a217c6",
         "type": "ui_numeric",
         "z": "b83fb43068cdf48f",
-        "name": "Cooling Pb",
+        "name": "cooling Pb",
         "label": "Pb",
         "tooltip": "",
         "group": "a91f3f1520863187",
@@ -8795,7 +8795,7 @@
         "id": "2e2d8b482044aceb",
         "type": "ui_numeric",
         "z": "b83fb43068cdf48f",
-        "name": "Cooling Ti",
+        "name": "cooling Ti",
         "label": "Ti",
         "tooltip": "",
         "group": "a91f3f1520863187",
@@ -8864,7 +8864,7 @@
         "id": "59104e20fbde50f9",
         "type": "ui_numeric",
         "z": "b83fb43068cdf48f",
-        "name": "Cooling Td",
+        "name": "cooling Td",
         "label": "Td",
         "tooltip": "",
         "group": "a91f3f1520863187",
@@ -8917,7 +8917,7 @@
         "height": 1,
         "name": "heating",
         "label": "",
-        "format": "Heating",
+        "format": "heating",
         "layout": "col-center",
         "className": "",
         "x": 420,
@@ -8934,7 +8934,7 @@
         "height": 1,
         "name": "cooling",
         "label": "",
-        "format": "Cooling",
+        "format": "cooling",
         "layout": "col-center",
         "className": "",
         "x": 420,
@@ -8979,12 +8979,12 @@
         "rules": [
             {
                 "t": "eq",
-                "v": "Heating",
+                "v": "heating",
                 "vt": "str"
             },
             {
                 "t": "eq",
-                "v": "Cooling",
+                "v": "cooling",
                 "vt": "str"
             }
         ],
@@ -9013,7 +9013,7 @@
         "rules": [
             {
                 "t": "eq",
-                "v": "Maintaining",
+                "v": "maintaining",
                 "vt": "str"
             }
         ],
@@ -9039,12 +9039,12 @@
         "rules": [
             {
                 "t": "eq",
-                "v": "Heating",
+                "v": "heating",
                 "vt": "str"
             },
             {
                 "t": "eq",
-                "v": "Cooling",
+                "v": "cooling",
                 "vt": "str"
             }
         ],
@@ -9073,7 +9073,7 @@
         "rules": [
             {
                 "t": "eq",
-                "v": "Maintaining",
+                "v": "maintaining",
                 "vt": "str"
             }
         ],
@@ -9113,7 +9113,7 @@
         "id": "1a5f9fc8869a33e1",
         "type": "ui_numeric",
         "z": "b83fb43068cdf48f",
-        "name": "Maintaining Pb",
+        "name": "maintaining Pb",
         "label": "Pb",
         "tooltip": "",
         "group": "a91f3f1520863187",
@@ -9178,7 +9178,7 @@
         "id": "2ca1fd6d80d47e4a",
         "type": "ui_numeric",
         "z": "b83fb43068cdf48f",
-        "name": "Maintaining Ti",
+        "name": "maintaining Ti",
         "label": "Ti",
         "tooltip": "",
         "group": "a91f3f1520863187",
@@ -9247,7 +9247,7 @@
         "id": "09a7de795265b75d",
         "type": "ui_numeric",
         "z": "b83fb43068cdf48f",
-        "name": "Maintaining Td",
+        "name": "maintaining Td",
         "label": "Td",
         "tooltip": "",
         "group": "a91f3f1520863187",
@@ -9389,7 +9389,7 @@
         "height": 1,
         "name": "maintaining",
         "label": "",
-        "format": "Maintaining",
+        "format": "maintaining",
         "layout": "col-center",
         "className": "",
         "x": 430,
@@ -10238,7 +10238,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nvar selected_action = global.get('pid.selected_action') || 0 // 'heating', 'cooling', 'maintaining'\nmsg.payload = global.get('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Kp') || 0\nreturn msg;",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nvar selected_action = global.get('pid.zone['+selected_zone+'].action') || 0 // 'heating', 'cooling', 'maintaining'\nmsg.payload = global.get('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Kp') || 0\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -10258,7 +10258,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nvar selected_action = global.get('pid.selected_action') || 0 // 'heating', 'cooling', 'maintaining'\nmsg.payload = global.get('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Ki') || 0\nreturn msg;",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nvar selected_action = global.get('pid.zone['+selected_zone+'].action') // 'heating', 'cooling', 'maintaining'\nmsg.payload = global.get('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Ki') || 0\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -10278,7 +10278,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nvar selected_action = global.get('pid.selected_action') || 0 // 'heating', 'cooling', 'maintaining'\nmsg.payload = global.get('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Kd') || 0\nreturn msg;",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nvar selected_action = global.get('pid.zone['+selected_zone+'].action') || 0 // 'heating', 'cooling', 'maintaining'\nmsg.payload = global.get('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Kd') || 0\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -10298,7 +10298,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nvar selected_action = global.get('pid.selected_action') || 0 // 'heating', 'cooling', 'maintaining'\nglobal.set('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Kp', msg.payload)\nreturn msg;",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nvar selected_action = global.get('pid.zone['+selected_zone+'].action') || 0 // 'heating', 'cooling', 'maintaining'\nglobal.set('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Kp', msg.payload)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -10316,7 +10316,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nvar selected_action = global.get('pid.selected_action') || 0 // 'heating', 'cooling', 'maintaining'\nglobal.set('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Ki', msg.payload)\nreturn msg;",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nvar selected_action = global.get('pid.zone['+selected_zone+'].action') || 0 // 'heating', 'cooling', 'maintaining'\nglobal.set('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Ki', msg.payload)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -10334,7 +10334,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nvar selected_action = global.get('pid.selected_action') || 0 // 'heating', 'cooling', 'maintaining'\nglobal.set('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Kd', msg.payload)\nreturn msg;",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nvar selected_action = global.get('pid.zone['+selected_zone+'].action') || 0 // 'heating', 'cooling', 'maintaining'\nglobal.set('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Kd', msg.payload)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -10363,17 +10363,17 @@
         "multiple": false,
         "options": [
             {
-                "label": "Heating",
+                "label": "heating",
                 "value": "heating",
                 "type": "str"
             },
             {
-                "label": "Cooling",
+                "label": "cooling",
                 "value": "cooling",
                 "type": "str"
             },
             {
-                "label": "Maintaining",
+                "label": "maintaining",
                 "value": "maintaining",
                 "type": "str"
             }
@@ -10396,7 +10396,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "",
-        "func": "msg.payload = global.get('pid.selected_action') || 0 // 'heating', 'cooling', 'maintaining'\nreturn msg;",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nmsg.payload = global.get('pid.zone['+selected_zone+'].action') || 0 // 'heating', 'cooling', 'maintaining'\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -10416,7 +10416,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "",
-        "func": "global.set('pid.selected_action', msg.payload) \nreturn msg;",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nglobal.set('pid.zone['+selected_zone+'].action', msg.payload) \nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -10426,126 +10426,6 @@
         "y": 940,
         "wires": [
             []
-        ],
-        "l": false
-    },
-    {
-        "id": "b00a6a203e25320a",
-        "type": "switch",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "property": "pid.zone[2].action",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "Maintaining",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 185,
-        "y": 300,
-        "wires": [
-            [
-                "07cdd33a021030f4"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "e86655c13e49e5ca",
-        "type": "switch",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "property": "pid.zone[3].action",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "Maintaining",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 645,
-        "y": 300,
-        "wires": [
-            [
-                "c51f5f99a3b50c74"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "9447b5c563442f43",
-        "type": "switch",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "property": "pid.zone[0].action",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "Heating",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "Cooling",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 185,
-        "y": 100,
-        "wires": [
-            [
-                "873dcd28375613e6"
-            ],
-            [
-                "873dcd28375613e6"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "965105ae5529c197",
-        "type": "switch",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "property": "pid.zone[1].action",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "Heating",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "Cooling",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 645,
-        "y": 100,
-        "wires": [
-            [
-                "5f6ec8ded3eb3230"
-            ],
-            [
-                "5f6ec8ded3eb3230"
-            ]
         ],
         "l": false
     },
@@ -10592,7 +10472,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 245,
+        "x": 185,
         "y": 100,
         "wires": [
             [
@@ -10616,7 +10496,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 245,
+        "x": 185,
         "y": 300,
         "wires": [
             [
@@ -10640,7 +10520,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 705,
+        "x": 645,
         "y": 100,
         "wires": [
             [
@@ -10664,7 +10544,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 705,
+        "x": 645,
         "y": 300,
         "wires": [
             [
