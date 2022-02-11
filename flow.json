@@ -5032,7 +5032,7 @@
         "type": "function",
         "z": "e9cef8706a9cf7f6",
         "name": "check temps and start soak",
-        "func": "var UpperTemperature = global.get('kiln_01.UpperTemperature', 'memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature', 'memoryOnly')\nvar Setpoint = global.get('kiln_01.Setpoint', 'memoryOnly')\nvar ControlAction = global.get('kiln_01.ControlAction', 'memoryOnly')\nvar Tolerance = Setpoint - Setpoint * 0.998 // 0.2%\n\n// check if temps have been reached\n// TODO: add a confidence timer here to filter out spikes in temp\nif ((ControlAction == 'Heating' \n    && UpperTemperature >= (Setpoint - Tolerance) \n    && LowerTemperature >= (Setpoint - Tolerance)) || \n    (ControlAction == 'Cooling' \n    && UpperTemperature <= (Setpoint + Tolerance) \n    && LowerTemperature <= (Setpoint + Tolerance))){\n        global.set('kiln_01.SetpointReached', true, 'memoryOnly')\n        global.set('kiln_01.ControlAction', 'Maintaining', 'memoryOnly')\n        msg.topic = 'soak'\n        msg.action = 'Maintaining'\n        return [msg, msg, msg];\n}\nif ((ControlAction == 'Heating' \n    && UpperTemperature >= (Setpoint - Tolerance)) || \n    (ControlAction == 'Cooling' \n    && UpperTemperature <= (Setpoint + Tolerance))){\n        msg.action = 'Maintaining'\n        return [null, msg, null];\n}\nif ((ControlAction == 'Heating' \n    && LowerTemperature >= (Setpoint - Tolerance)) || \n    (ControlAction == 'Cooling' \n    && LowerTemperature <= (Setpoint + Tolerance))){\n        msg.action = 'Maintaining'\n        return [null, null, msg];\n}",
+        "func": "var UpperTemperature = global.get('kiln_01.UpperTemperature', 'memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature', 'memoryOnly')\n//var Setpoint = global.get('kiln_01.Setpoint', 'memoryOnly')\nvar ControlAction = global.get('kiln_01.ControlAction', 'memoryOnly')\nvar Setpoint = msg.payload.data.segment_settings.setpoint\nvar RampRate = msg.payload.data.segment_settings.ramp_rate // per hour\nvar Tolerance = Setpoint - Setpoint * 0.998 // 0.2%\n\n// check if temps have been reached\n// TODO: add a confidence timer here to filter out spikes in temp\nif ((ControlAction == 'Heating' \n    && UpperTemperature >= (Setpoint - Tolerance) \n    && LowerTemperature >= (Setpoint - Tolerance)) || \n    (ControlAction == 'Cooling' \n    && UpperTemperature <= (Setpoint + Tolerance) \n    && LowerTemperature <= (Setpoint + Tolerance))){\n        global.set('kiln_01.SetpointReached', true, 'memoryOnly')\n        global.set('kiln_01.ControlAction', 'Maintaining', 'memoryOnly')\n        msg.topic = 'soak'\n        msg.payload = Setpoint\n        msg.rate = RampRate\n        msg.action = 'Maintaining'\n        return [msg, msg, msg];\n}\nif ((ControlAction == 'Heating' \n    && UpperTemperature >= (Setpoint - Tolerance)) || \n    (ControlAction == 'Cooling' \n    && UpperTemperature <= (Setpoint + Tolerance))){\n        msg.payload = Setpoint\n        msg.rate = RampRate\n        msg.action = 'Maintaining'\n        return [null, msg, null];\n}\nif ((ControlAction == 'Heating' \n    && LowerTemperature >= (Setpoint - Tolerance)) || \n    (ControlAction == 'Cooling' \n    && LowerTemperature <= (Setpoint + Tolerance))){\n        msg.payload = Setpoint\n        msg.rate = RampRate\n        msg.action = 'Maintaining'\n        return [null, null, msg];\n}",
         "outputs": 3,
         "noerr": 0,
         "initialize": "",
@@ -5985,7 +5985,8 @@
         "y": 460,
         "wires": [
             [
-                "6cfcbd486aa01dca"
+                "6cfcbd486aa01dca",
+                "226505f50e89b6e7"
             ]
         ],
         "l": false
@@ -6070,6 +6071,23 @@
         "wires": []
     },
     {
+        "id": "226505f50e89b6e7",
+        "type": "debug",
+        "z": "e9cef8706a9cf7f6",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1130,
+        "y": 340,
+        "wires": []
+    },
+    {
         "id": "0d21e53eb5db0544",
         "type": "catch",
         "z": "b83fb43068cdf48f",
@@ -6116,7 +6134,7 @@
         "max_interval": 600,
         "enable": 1,
         "disabled_op": 0,
-        "x": 245,
+        "x": 205,
         "y": 220,
         "wires": [
             [
@@ -6394,7 +6412,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 365,
+        "x": 375,
         "y": 120,
         "wires": [],
         "l": false
@@ -6418,7 +6436,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 305,
+        "x": 315,
         "y": 120,
         "wires": [
             []
@@ -6606,7 +6624,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 305,
+        "x": 275,
         "y": 200,
         "wires": [
             [
@@ -6729,7 +6747,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "initialize variables",
-        "func": "\n\nvar zone = []\nvar zone_count = 4\nfor (let index = 0; index < zone_count; index++) {\n    zone.push({ id: '',\n                action: 'Maintaining', \n                autotune: { active: false, setpoint: 0, rate: 0}, \n                parameters: { rate: 0, setpoint: 0, control: 0, process: 0 }, \n                settings: { \n                    heating: { \n                        gain: { Kp: 0, Ki: 0, Kd: 0 }, \n                        time: { PB: 0, Ti: 0, Td: 0 } }, \n                    cooling: { \n                        gain: { Kp: 0, Ki: 0, Kd: 0 }, \n                        time: { PB: 0, Ti: 0, Td: 0 } } } })\n}\nvar pid = { selected_zone: 0, zone }\nglobal.set('pid', pid)\nmsg.payload = { pid }\nreturn msg;",
+        "func": "\n\nvar zone = []\nvar zone_count = 4\nfor (let index = 0; index < zone_count; index++) {\n    zone.push({ id: '',\n                action: 'Off', \n                autotune: { active: false, setpoint: 0, rate: 0}, \n                parameters: { rate: 0, setpoint: 0, control: 0, process: 0 }, \n                settings: { \n                    heating: { \n                        gain: { Kp: 0, Ki: 0, Kd: 0 }, \n                        time: { PB: 1600, Ti: 10, Td: -1 } }, \n                        //time: { PB: 1, Ti: 0, Td: 0 } }, \n                    cooling: { \n                        gain: { Kp: 0, Ki: 0, Kd: 0 }, \n                        time: { PB: 1600, Ti: 10, Td: 0 } } } })\n                        //time: { PB: -1, Ti: 0, Td: 0 } } } })\n}\nvar pid = { selected_zone: 0, zone }\nglobal.set('pid', pid)\nmsg.payload = { pid }\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6773,7 +6791,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 185,
+        "x": 125,
         "y": 220,
         "wires": [
             [
@@ -6816,7 +6834,7 @@
         "max_interval": 600,
         "enable": 1,
         "disabled_op": 0,
-        "x": 705,
+        "x": 665,
         "y": 220,
         "wires": [
             [
@@ -6836,7 +6854,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 765,
+        "x": 735,
         "y": 200,
         "wires": [
             [
@@ -6857,7 +6875,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 645,
+        "x": 585,
         "y": 220,
         "wires": [
             [
@@ -6946,7 +6964,7 @@
             "92ddf9e5188bd64e",
             "287e0e0ceab0f3df"
         ],
-        "x": 365,
+        "x": 375,
         "y": 160,
         "wires": []
     },
@@ -6967,7 +6985,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 305,
+        "x": 315,
         "y": 160,
         "wires": [
             [
@@ -7009,7 +7027,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 825,
+        "x": 835,
         "y": 120,
         "wires": [],
         "l": false
@@ -7033,7 +7051,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 765,
+        "x": 775,
         "y": 120,
         "wires": [
             []
@@ -7119,7 +7137,7 @@
             "92ddf9e5188bd64e",
             "287e0e0ceab0f3df"
         ],
-        "x": 825,
+        "x": 835,
         "y": 160,
         "wires": []
     },
@@ -7140,7 +7158,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 765,
+        "x": 775,
         "y": 160,
         "wires": [
             [
@@ -7162,7 +7180,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 425,
+        "x": 375,
         "y": 200,
         "wires": [],
         "l": false
@@ -7180,7 +7198,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 885,
+        "x": 835,
         "y": 200,
         "wires": [],
         "l": false
@@ -7570,7 +7588,7 @@
         "max_interval": 600,
         "enable": 1,
         "disabled_op": 0,
-        "x": 245,
+        "x": 205,
         "y": 440,
         "wires": [
             [
@@ -7590,7 +7608,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 315,
+        "x": 285,
         "y": 420,
         "wires": [
             [
@@ -7610,7 +7628,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 185,
+        "x": 125,
         "y": 440,
         "wires": [
             [
@@ -7643,7 +7661,7 @@
         "max_interval": 600,
         "enable": 1,
         "disabled_op": 0,
-        "x": 705,
+        "x": 665,
         "y": 440,
         "wires": [
             [
@@ -7663,7 +7681,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 785,
+        "x": 755,
         "y": 420,
         "wires": [
             [
@@ -7683,12 +7701,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 645,
+        "x": 585,
         "y": 440,
         "wires": [
             [
-                "16af16873f4883b4",
-                "30a40714ecd06abf"
+                "16af16873f4883b4"
             ]
         ],
         "l": false
@@ -7716,7 +7733,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 375,
+        "x": 345,
         "y": 420,
         "wires": [],
         "l": false
@@ -7734,7 +7751,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 845,
+        "x": 815,
         "y": 420,
         "wires": [],
         "l": false
@@ -7808,7 +7825,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 425,
+        "x": 435,
         "y": 340,
         "wires": [],
         "l": false
@@ -7832,7 +7849,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 365,
+        "x": 375,
         "y": 340,
         "wires": [
             []
@@ -7918,7 +7935,7 @@
             "92ddf9e5188bd64e",
             "287e0e0ceab0f3df"
         ],
-        "x": 425,
+        "x": 435,
         "y": 300,
         "wires": []
     },
@@ -7939,7 +7956,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 365,
+        "x": 375,
         "y": 300,
         "wires": [
             [
@@ -8196,7 +8213,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 305,
+        "x": 315,
         "y": 340,
         "wires": [
             [
@@ -8265,7 +8282,7 @@
         "links": [
             "94112e9a2839cf54"
         ],
-        "x": 365,
+        "x": 325,
         "y": 200,
         "wires": []
     },
@@ -8278,7 +8295,7 @@
         "links": [
             "d10bbe6d04d1179a"
         ],
-        "x": 825,
+        "x": 785,
         "y": 200,
         "wires": []
     },
@@ -9213,33 +9230,16 @@
         "wires": []
     },
     {
-        "id": "30a40714ecd06abf",
-        "type": "debug",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 715,
-        "y": 500,
-        "wires": [],
-        "l": false
-    },
-    {
         "id": "9e015528e0fb2d1b",
         "type": "link out",
         "z": "b83fb43068cdf48f",
         "name": "output - zone 0 - out to process (CV 0-100%)",
         "mode": "link",
         "links": [
-            "0cfeb2a7be515599"
+            "0cfeb2a7be515599",
+            "174a695dc7533b2c"
         ],
-        "x": 245,
+        "x": 285,
         "y": 280,
         "wires": []
     },
@@ -9250,9 +9250,10 @@
         "name": "output - zone 1 - out to process (CV 0-100%)",
         "mode": "link",
         "links": [
-            "f2bc62537768881d"
+            "f2bc62537768881d",
+            "36c3f72d59bfed4f"
         ],
-        "x": 705,
+        "x": 745,
         "y": 280,
         "wires": []
     },
@@ -9534,34 +9535,6 @@
         "wires": []
     },
     {
-        "id": "ea802ed93ceeae42",
-        "type": "change",
-        "z": "3154c44d1a91de38",
-        "name": "sim temps",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "pid.zone[2].parameters.control",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 355,
-        "y": 340,
-        "wires": [
-            [
-                "95dfe0dda7683c18"
-            ]
-        ],
-        "l": false
-    },
-    {
         "id": "1235c1dcd4711779",
         "type": "change",
         "z": "3154c44d1a91de38",
@@ -9660,34 +9633,6 @@
                 "d76c7ce673b280af"
             ]
         ]
-    },
-    {
-        "id": "79016fc241d79289",
-        "type": "change",
-        "z": "3154c44d1a91de38",
-        "name": "sim temps",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "pid.zone[3].parameters.control",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 355,
-        "y": 380,
-        "wires": [
-            [
-                "e4f78a9a9ff9d4e2"
-            ]
-        ],
-        "l": false
     },
     {
         "id": "d76c7ce673b280af",
@@ -12039,8 +11984,7 @@
         "y": 360,
         "wires": [
             [
-                "f45e246dbf521446",
-                "d82dade01e8d0ee6"
+                "f45e246dbf521446"
             ]
         ],
         "icon": "node-red/timer.svg"
@@ -12077,12 +12021,11 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 275,
-        "y": 360,
+        "x": 345,
+        "y": 340,
         "wires": [
             [
-                "ea802ed93ceeae42",
-                "79016fc241d79289"
+                "95dfe0dda7683c18"
             ]
         ],
         "l": false
@@ -12094,7 +12037,7 @@
         "name": "",
         "diam": 35,
         "volume": 40,
-        "temp": "19",
+        "temp": "20",
         "power": "10",
         "ambientTemp": 20,
         "x": 405,
@@ -12113,7 +12056,7 @@
         "name": "",
         "diam": 35,
         "volume": 40,
-        "temp": "19",
+        "temp": "20",
         "power": "10",
         "ambientTemp": 20,
         "x": 405,
@@ -12124,16 +12067,6 @@
             ]
         ],
         "l": false
-    },
-    {
-        "id": "9e92d7c40ff4483a",
-        "type": "comment",
-        "z": "3154c44d1a91de38",
-        "name": "handle simulate temps",
-        "info": "",
-        "x": 420,
-        "y": 360,
-        "wires": []
     },
     {
         "id": "0e07f59ed1058b14",
@@ -12178,6 +12111,72 @@
             ]
         ],
         "l": false
+    },
+    {
+        "id": "bb7dea3f1a0bf84c",
+        "type": "switch",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "property": "kiln_01.SimulateTemperature",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 345,
+        "y": 380,
+        "wires": [
+            [
+                "e4f78a9a9ff9d4e2"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "9e92d7c40ff4483a",
+        "type": "comment",
+        "z": "3154c44d1a91de38",
+        "name": "handle simulate temps",
+        "info": "",
+        "x": 420,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "36c3f72d59bfed4f",
+        "type": "link in",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "links": [
+            "6631d9fb2726ad04"
+        ],
+        "x": 285,
+        "y": 380,
+        "wires": [
+            [
+                "bb7dea3f1a0bf84c"
+            ]
+        ]
+    },
+    {
+        "id": "174a695dc7533b2c",
+        "type": "link in",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "links": [
+            "9e015528e0fb2d1b"
+        ],
+        "x": 285,
+        "y": 340,
+        "wires": [
+            [
+                "d82dade01e8d0ee6"
+            ]
+        ]
     },
     {
         "id": "1c9e79b136a623e2",
