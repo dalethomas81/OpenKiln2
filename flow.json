@@ -6548,7 +6548,7 @@
         "type": "debug",
         "z": "b83fb43068cdf48f",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -6602,35 +6602,6 @@
         "l": false
     },
     {
-        "id": "425ae74daf907ee2",
-        "type": "change",
-        "z": "b83fb43068cdf48f",
-        "name": "add topic",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "temp-BK",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 205,
-        "y": 680,
-        "wires": [
-            [
-                "70c0bc1ae3c6d12d",
-                "73dc68879c84838d"
-            ]
-        ],
-        "l": false
-    },
-    {
         "id": "92ddf9e5188bd64e",
         "type": "link in",
         "z": "b83fb43068cdf48f",
@@ -6665,7 +6636,8 @@
         "y": 580,
         "wires": [
             [
-                "70c0bc1ae3c6d12d"
+                "70c0bc1ae3c6d12d",
+                "94caaeb1c8b9263b"
             ]
         ],
         "l": false
@@ -8559,7 +8531,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 335,
+        "x": 325,
         "y": 620,
         "wires": [],
         "l": false
@@ -8593,7 +8565,7 @@
                 "906802117f136580"
             ],
             [
-                "425ae74daf907ee2"
+                "d36e49a591261d50"
             ]
         ],
         "l": false
@@ -8621,7 +8593,7 @@
         "y": 660,
         "wires": [
             [
-                "425ae74daf907ee2"
+                "d36e49a591261d50"
             ]
         ],
         "l": false
@@ -10348,7 +10320,7 @@
         "format": "{{msg.payload}}",
         "min": "-10000",
         "max": "10000",
-        "step": "0.01",
+        "step": "0.00001",
         "className": "",
         "x": 755,
         "y": 880,
@@ -10377,7 +10349,7 @@
         "format": "{{msg.payload}}",
         "min": "-10000",
         "max": "10000",
-        "step": "0.01",
+        "step": "0.00001",
         "className": "",
         "x": 755,
         "y": 900,
@@ -10406,7 +10378,7 @@
         "format": "{{msg.payload}}",
         "min": "-10000",
         "max": "10000",
-        "step": "0.01",
+        "step": "0.00001",
         "className": "",
         "x": 755,
         "y": 920,
@@ -10422,7 +10394,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nvar selected_action = global.get('pid.zone['+selected_zone+'].action') || 0 // 'heating', 'cooling', 'maintaining'\nmsg.payload = global.get('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Kp') || 0\nreturn msg;",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nvar selected_action = global.get('pid.selected_action') || 0 // 'heating', 'cooling', 'maintaining'\nmsg.payload = global.get('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Kp') || 0\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -10442,7 +10414,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nvar selected_action = global.get('pid.zone['+selected_zone+'].action') // 'heating', 'cooling', 'maintaining'\nmsg.payload = global.get('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Ki') || 0\nreturn msg;",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nvar selected_action = global.get('pid.selected_action') // 'heating', 'cooling', 'maintaining'\nmsg.payload = global.get('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Ki') || 0\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -10462,7 +10434,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nvar selected_action = global.get('pid.zone['+selected_zone+'].action') || 0 // 'heating', 'cooling', 'maintaining'\nmsg.payload = global.get('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Kd') || 0\nreturn msg;",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nvar selected_action = global.get('pid.selected_action') || 0 // 'heating', 'cooling', 'maintaining'\nmsg.payload = global.get('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Kd') || 0\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -10482,7 +10454,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nvar selected_action = global.get('pid.zone['+selected_zone+'].action') || 0 // 'heating', 'cooling', 'maintaining'\nglobal.set('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Kp', msg.payload)\nreturn msg;",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nvar selected_action = global.get('pid.selected_action') || 0 // 'heating', 'cooling', 'maintaining'\nglobal.set('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Kp', msg.payload)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -10500,7 +10472,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nvar selected_action = global.get('pid.zone['+selected_zone+'].action') || 0 // 'heating', 'cooling', 'maintaining'\nglobal.set('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Ki', msg.payload)\nreturn msg;",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nvar selected_action = global.get('pid.selected_action') || 0 // 'heating', 'cooling', 'maintaining'\nglobal.set('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Ki', msg.payload)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -10518,7 +10490,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nvar selected_action = global.get('pid.zone['+selected_zone+'].action') || 0 // 'heating', 'cooling', 'maintaining'\nglobal.set('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Kd', msg.payload)\nreturn msg;",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nvar selected_action = global.get('pid.selected_action') || 0 // 'heating', 'cooling', 'maintaining'\nglobal.set('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Kd', msg.payload)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -10580,7 +10552,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nmsg.payload = global.get('pid.zone['+selected_zone+'].action') || 0 // 'heating', 'cooling', 'maintaining'\nreturn msg;",
+        "func": "msg.payload = global.get('pid.selected_action') || 0 // 'heating', 'cooling', 'maintaining'\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -10600,7 +10572,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nglobal.set('pid.zone['+selected_zone+'].action', msg.payload) \nreturn msg;",
+        "func": "global.set('pid.selected_action', msg.payload)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -10743,8 +10715,8 @@
         "z": "b83fb43068cdf48f",
         "name": "",
         "property": "payload",
-        "action": "mean",
-        "count": "10",
+        "action": "low",
+        "count": "20",
         "round": "",
         "mult": "single",
         "reduce": false,
@@ -10764,8 +10736,8 @@
         "z": "b83fb43068cdf48f",
         "name": "",
         "property": "payload",
-        "action": "mean",
-        "count": "10",
+        "action": "low",
+        "count": "20",
         "round": "",
         "mult": "single",
         "reduce": false,
@@ -11113,6 +11085,45 @@
                 "521b312bd5cbf03e"
             ]
         ],
+        "l": false
+    },
+    {
+        "id": "d36e49a591261d50",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "//var selected_zone = global.get('pid.selected_zone') || 0\n//msg.setpoint = global.get('pid.zone[' + selected_zone + '].autotune.setpoint') || 0\nmsg.topic = 'temp-BK'\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 205,
+        "y": 680,
+        "wires": [
+            [
+                "70c0bc1ae3c6d12d",
+                "73dc68879c84838d"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "94caaeb1c8b9263b",
+        "type": "debug",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 215,
+        "y": 540,
+        "wires": [],
         "l": false
     },
     {
@@ -11708,7 +11719,7 @@
         "property": "payload",
         "action": "low",
         "count": "100",
-        "round": "6",
+        "round": "",
         "mult": "single",
         "reduce": false,
         "x": 375,
@@ -11728,7 +11739,7 @@
         "property": "payload",
         "action": "low",
         "count": "100",
-        "round": "6",
+        "round": "",
         "mult": "single",
         "reduce": false,
         "x": 375,
@@ -12132,36 +12143,8 @@
         "y": 1060,
         "wires": [
             [
-                "09c327324c82be14",
-                "ba082e8df156fb74"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "09c327324c82be14",
-        "type": "change",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "input.raw",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 615,
-        "y": 1060,
-        "wires": [
-            [
-                "dd5fa1a2a7edec40"
+                "ba082e8df156fb74",
+                "01fee8c005244e85"
             ]
         ],
         "l": false
@@ -13525,7 +13508,7 @@
         "type": "function",
         "z": "3154c44d1a91de38",
         "name": "",
-        "func": "//msg.payload = parseFloat(msg.input.scaled.toFixed(2))\nmsg.payload = msg.input.scaled\nreturn msg;",
+        "func": "//msg.payload = parseFloat(msg.input.scaled.toFixed(2))\nmsg.payload = msg.input.scaled.toFixed(4)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -13982,6 +13965,26 @@
         "x": 195,
         "y": 740,
         "wires": [],
+        "l": false
+    },
+    {
+        "id": "01fee8c005244e85",
+        "type": "function",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "func": "//msg.payload = parseFloat(msg.input.scaled.toFixed(2))\nmsg.payload = msg.input.raw.toFixed(4)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 615,
+        "y": 1060,
+        "wires": [
+            [
+                "dd5fa1a2a7edec40"
+            ]
+        ],
         "l": false
     },
     {
