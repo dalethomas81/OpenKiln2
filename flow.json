@@ -1705,7 +1705,7 @@
         "y": 1020,
         "wires": [
             [
-                "b6802fc260a8ce06"
+                "0572ddcc3ec31a19"
             ]
         ]
     },
@@ -1721,7 +1721,7 @@
         "y": 1040,
         "wires": [
             [
-                "de9267cf7d7ed872"
+                "6b5cdf6cc5944a09"
             ]
         ]
     },
@@ -2061,8 +2061,7 @@
         "y": 1160,
         "wires": [
             [
-                "566ce4114146f76d",
-                "b6b40b6814900638"
+                "566ce4114146f76d"
             ]
         ],
         "l": false
@@ -3713,7 +3712,7 @@
         "format": "<font color=\"orange\" size=\"+3\">{{msg.payload}}</font>",
         "layout": "col-center",
         "className": "",
-        "x": 590,
+        "x": 650,
         "y": 1020,
         "wires": []
     },
@@ -3730,7 +3729,7 @@
         "format": "<font color=\"orange\" size=\"+3\">{{msg.payload}}</font>",
         "layout": "col-center",
         "className": "",
-        "x": 590,
+        "x": 650,
         "y": 1040,
         "wires": []
     },
@@ -4040,23 +4039,6 @@
         "l": true
     },
     {
-        "id": "b6b40b6814900638",
-        "type": "debug",
-        "z": "592b686edd11b813",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 750,
-        "y": 1220,
-        "wires": []
-    },
-    {
         "id": "219b6df02966d0e3",
         "type": "ui_text",
         "z": "592b686edd11b813",
@@ -4282,6 +4264,46 @@
         "y": 80,
         "wires": [
             []
+        ],
+        "l": false
+    },
+    {
+        "id": "6b5cdf6cc5944a09",
+        "type": "function",
+        "z": "592b686edd11b813",
+        "name": "",
+        "func": "msg.payload = msg.payload.toFixed(2)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 555,
+        "y": 1040,
+        "wires": [
+            [
+                "de9267cf7d7ed872"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "0572ddcc3ec31a19",
+        "type": "function",
+        "z": "592b686edd11b813",
+        "name": "",
+        "func": "msg.payload = msg.payload.toFixed(2)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 555,
+        "y": 1020,
+        "wires": [
+            [
+                "b6802fc260a8ce06"
+            ]
         ],
         "l": false
     },
@@ -6602,7 +6624,8 @@
         "y": 680,
         "wires": [
             [
-                "70c0bc1ae3c6d12d"
+                "70c0bc1ae3c6d12d",
+                "73dc68879c84838d"
             ]
         ],
         "l": false
@@ -7976,13 +7999,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 775,
+        "x": 735,
         "y": 340,
         "wires": [
             [
-                "7abb781e2be6035b",
-                "546fc99e5e691238",
-                "8b514b70a1c22fca"
+                "8b514b70a1c22fca",
+                "82008bc92cbf7d6d"
             ]
         ],
         "l": false
@@ -8000,7 +8022,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 435,
+        "x": 355,
         "y": 340,
         "wires": [],
         "l": false
@@ -8024,8 +8046,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 375,
-        "y": 340,
+        "x": 435,
+        "y": 380,
         "wires": [
             []
         ],
@@ -8154,7 +8176,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 895,
+        "x": 835,
         "y": 340,
         "wires": [],
         "l": false
@@ -8178,8 +8200,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 835,
-        "y": 340,
+        "x": 905,
+        "y": 380,
         "wires": [
             []
         ],
@@ -8303,7 +8325,7 @@
         "links": [
             "dcbc073ea7b777ee"
         ],
-        "x": 245,
+        "x": 225,
         "y": 340,
         "wires": [
             [
@@ -8319,7 +8341,7 @@
         "links": [
             "e65201e766b76bfd"
         ],
-        "x": 705,
+        "x": 685,
         "y": 340,
         "wires": [
             [
@@ -8390,13 +8412,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 315,
+        "x": 275,
         "y": 340,
         "wires": [
             [
-                "acaf9302560db8b4",
                 "c94953d0aadb25d7",
-                "f473728b7ae37ca2"
+                "a5c6380a3f3c2b32"
             ]
         ],
         "l": false
@@ -10717,6 +10738,384 @@
         "l": false
     },
     {
+        "id": "a5c6380a3f3c2b32",
+        "type": "smooth",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "property": "payload",
+        "action": "mean",
+        "count": "10",
+        "round": "",
+        "mult": "single",
+        "reduce": false,
+        "x": 385,
+        "y": 380,
+        "wires": [
+            [
+                "acaf9302560db8b4",
+                "f473728b7ae37ca2"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "82008bc92cbf7d6d",
+        "type": "smooth",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "property": "payload",
+        "action": "mean",
+        "count": "10",
+        "round": "",
+        "mult": "single",
+        "reduce": false,
+        "x": 855,
+        "y": 380,
+        "wires": [
+            [
+                "546fc99e5e691238",
+                "7abb781e2be6035b"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "73dc68879c84838d",
+        "type": "debug",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 255,
+        "y": 720,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "32e3becf505d02e8",
+        "type": "link out",
+        "z": "b83fb43068cdf48f",
+        "name": "output - zone 0 - out to process (CV 0-100%)",
+        "mode": "link",
+        "links": [
+            "0cfeb2a7be515599",
+            "174a695dc7533b2c"
+        ],
+        "x": 375,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "5d841c9bdcfb313f",
+        "type": "link in",
+        "z": "b83fb43068cdf48f",
+        "name": "Timer 1",
+        "links": [
+            "62eccecdbb37e6f8"
+        ],
+        "x": 65,
+        "y": 500,
+        "wires": [
+            [
+                "7467d8f11fdf0a1f"
+            ]
+        ],
+        "icon": "node-red/timer.svg"
+    },
+    {
+        "id": "7467d8f11fdf0a1f",
+        "type": "switch",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "property": "pid.zone[0].action",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Off",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 125,
+        "y": 500,
+        "wires": [
+            [
+                "35b2e24de228e321"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "35b2e24de228e321",
+        "type": "switch",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "property": "pid.zone[2].action",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Off",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 175,
+        "y": 500,
+        "wires": [
+            [
+                "13502ca4d1d5fc7a"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "a84605821808c573",
+        "type": "link in",
+        "z": "b83fb43068cdf48f",
+        "name": "Timer 1",
+        "links": [
+            "62eccecdbb37e6f8"
+        ],
+        "x": 525,
+        "y": 500,
+        "wires": [
+            [
+                "ce6a05f6f1367071"
+            ]
+        ],
+        "icon": "node-red/timer.svg"
+    },
+    {
+        "id": "ce6a05f6f1367071",
+        "type": "switch",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "property": "pid.zone[1].action",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Off",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 585,
+        "y": 500,
+        "wires": [
+            [
+                "45ee808c665eb763"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "45ee808c665eb763",
+        "type": "switch",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "property": "pid.zone[3].action",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Off",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 635,
+        "y": 500,
+        "wires": [
+            [
+                "d2b334154c268904"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "521b312bd5cbf03e",
+        "type": "link out",
+        "z": "b83fb43068cdf48f",
+        "name": "output - zone 1 - out to process (CV 0-100%)",
+        "mode": "link",
+        "links": [
+            "f2bc62537768881d",
+            "36c3f72d59bfed4f"
+        ],
+        "x": 835,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "b11c2e829c43530c",
+        "type": "switch",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "property": "pid.zone[3].autotune.active",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 735,
+        "y": 500,
+        "wires": [
+            [
+                "7c68a6f29d1035ef"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "d2b334154c268904",
+        "type": "switch",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "property": "pid.zone[1].autotune.active",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 685,
+        "y": 500,
+        "wires": [
+            [
+                "b11c2e829c43530c"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "36fd52d4d18edb04",
+        "type": "switch",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "property": "pid.zone[2].autotune.active",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 275,
+        "y": 500,
+        "wires": [
+            [
+                "54787dfadc1d60e8"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "13502ca4d1d5fc7a",
+        "type": "switch",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "property": "pid.zone[0].autotune.active",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 225,
+        "y": 500,
+        "wires": [
+            [
+                "36fd52d4d18edb04"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "54787dfadc1d60e8",
+        "type": "change",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 325,
+        "y": 500,
+        "wires": [
+            [
+                "32e3becf505d02e8"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "7c68a6f29d1035ef",
+        "type": "change",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 785,
+        "y": 500,
+        "wires": [
+            [
+                "521b312bd5cbf03e"
+            ]
+        ],
+        "l": false
+    },
+    {
         "id": "35573d9f8cb557cc",
         "type": "function",
         "z": "3154c44d1a91de38",
@@ -11308,8 +11707,8 @@
         "name": "",
         "property": "payload",
         "action": "low",
-        "count": "20",
-        "round": "1",
+        "count": "100",
+        "round": "6",
         "mult": "single",
         "reduce": false,
         "x": 375,
@@ -11328,8 +11727,8 @@
         "name": "",
         "property": "payload",
         "action": "low",
-        "count": "20",
-        "round": "1",
+        "count": "100",
+        "round": "6",
         "mult": "single",
         "reduce": false,
         "x": 375,
@@ -11346,7 +11745,7 @@
         "type": "function",
         "z": "3154c44d1a91de38",
         "name": "",
-        "func": "// create a new message object to clean it up\nvar msg_out = { delay: msg.payload * 10 }; // should come in as 0 - 100%\nvar dutycycle = msg.payload * 1\nvar FsmStatus_Schedule = global.get('kiln_01.FsmStatus_Schedule','memoryOnly')\n//var FsmStatus_Segment = global.get('kiln_01.FsmStatus_Segment','memoryOnly')\nvar auto_tune_upper = global.get('pid.zone[0].autotune.active')\nvar auto_tune_lower = global.get('pid.zone[1].autotune.active')\nvar UpperSetpoint = global.get('kiln_01.UpperSetpoint','memoryOnly')\nvar LowerSetpoint = global.get('kiln_01.LowerSetpoint','memoryOnly')\nvar UpperTemperature = global.get('kiln_01.UpperTemperature','memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature','memoryOnly')\nvar upper_thermocouple_bad = flow.get('upper_thermocouple_bad')\nvar lower_thermocouple_bad = flow.get('lower_thermocouple_bad')\nvar simulation = global.get('kiln_01.SimulateTemperature')\n\n//if (Math.abs(UpperSetpoint - UpperTemperature) < 100 && Math.abs(LowerSetpoint - LowerTemperature) < 100 \n//    || auto_tune_upper || auto_tune_lower) {\nif (!upper_thermocouple_bad && !lower_thermocouple_bad && !simulation) {\n        // temps a setpoints are within tolerance\n        //node.status({fill:\"green\",shape:\"dot\",text:\"All good!\"});\n        // the trigger function locks up if you send it a zero\n        // similarly, we dont want to send it a value over\n        // the trigger time (1000 ms)\n        if (msg_out.delay > 0 && msg_out.delay < 1000 && (FsmStatus_Schedule != 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n            node.status({fill:\"green\",shape:\"dot\",text:dutycycle.toFixed(1) + '%'});\n            return [ msg_out, null ];\n        } else if (msg_out.delay <= 0 || (FsmStatus_Schedule == 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n            // send an \"off\" directly to the output node\n            node.status({fill:\"green\",shape:\"ring\",text:'0%'});\n            msg_out.payload = \"0\"\n            return [ null, msg_out ];\n        } else if (msg_out.delay >= 1000){\n            // send an \"on\" directly to the output node\n            node.status({fill:\"green\",shape:\"dot\",text:'100%'});\n            msg_out.payload = \"1\"\n            return [ null, msg_out ];\n        } else {\n            // send an \"off\" directly to the output node\n            node.status({fill:\"green\",shape:\"ring\",text:'0%'});\n            msg_out.payload = \"0\"\n            return [ null, msg_out ];\n        }\n} else if (simulation) {\n    // send an \"off\" directly to the output node\n    node.status({fill:\"blue\",shape:\"dot\",text:\"Simulation\"});\n    msg_out.payload = \"0\"\n    return [ null, msg_out ];\n} else {\n    // temp is too far away from setpoint. something is wrong.\n    // send an \"off\" directly to the output node\n    node.status({fill:\"red\",shape:\"dot\",text:\"Something is wrong!\"});\n    msg_out.payload = \"0\"\n    return [ null, msg_out ];\n}",
+        "func": "// create a new message object to clean it up\nvar msg_out = { delay: msg.payload * 10 }; // should come in as 0 - 100%\nvar dutycycle = msg.payload * 1\nvar FsmStatus_Schedule = global.get('kiln_01.FsmStatus_Schedule','memoryOnly')\n//var FsmStatus_Segment = global.get('kiln_01.FsmStatus_Segment','memoryOnly')\nvar auto_tune_upper = global.get('pid.zone[0].autotune.active') || global.get('pid.zone[2].autotune.active')\nvar auto_tune_lower = global.get('pid.zone[1].autotune.active') || global.get('pid.zone[3].autotune.active')\nvar UpperSetpoint = global.get('kiln_01.UpperSetpoint','memoryOnly')\nvar LowerSetpoint = global.get('kiln_01.LowerSetpoint','memoryOnly')\nvar UpperTemperature = global.get('kiln_01.UpperTemperature','memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature','memoryOnly')\nvar upper_thermocouple_bad = flow.get('upper_thermocouple_bad')\nvar lower_thermocouple_bad = flow.get('lower_thermocouple_bad')\nvar simulation = global.get('kiln_01.SimulateTemperature')\n\n//if (Math.abs(UpperSetpoint - UpperTemperature) < 100 && Math.abs(LowerSetpoint - LowerTemperature) < 100 \n//    || auto_tune_upper || auto_tune_lower) {\nif (!upper_thermocouple_bad && !lower_thermocouple_bad && !simulation) {\n        // temps a setpoints are within tolerance\n        //node.status({fill:\"green\",shape:\"dot\",text:\"All good!\"});\n        // the trigger function locks up if you send it a zero\n        // similarly, we dont want to send it a value over\n        // the trigger time (1000 ms)\n        if (msg_out.delay > 0 && msg_out.delay < 1000 && (FsmStatus_Schedule != 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n            node.status({fill:\"green\",shape:\"dot\",text:dutycycle.toFixed(1) + '%'});\n            return [ msg_out, null ];\n        } else if (msg_out.delay <= 0 || (FsmStatus_Schedule == 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n            // send an \"off\" directly to the output node\n            node.status({fill:\"green\",shape:\"ring\",text:'0%'});\n            msg_out.payload = \"0\"\n            return [ null, msg_out ];\n        } else if (msg_out.delay >= 1000){\n            // send an \"on\" directly to the output node\n            node.status({fill:\"green\",shape:\"dot\",text:'100%'});\n            msg_out.payload = \"1\"\n            return [ null, msg_out ];\n        } else {\n            // send an \"off\" directly to the output node\n            node.status({fill:\"green\",shape:\"ring\",text:'0%'});\n            msg_out.payload = \"0\"\n            return [ null, msg_out ];\n        }\n} else if (simulation) {\n    // send an \"off\" directly to the output node\n    node.status({fill:\"blue\",shape:\"dot\",text:\"Simulation\"});\n    msg_out.payload = \"0\"\n    return [ null, msg_out ];\n} else {\n    // temp is too far away from setpoint. something is wrong.\n    // send an \"off\" directly to the output node\n    node.status({fill:\"red\",shape:\"dot\",text:\"Something is wrong!\"});\n    msg_out.payload = \"0\"\n    return [ null, msg_out ];\n}",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -11369,7 +11768,7 @@
         "type": "function",
         "z": "3154c44d1a91de38",
         "name": "",
-        "func": "// create a new message object to clean it up\nvar msg_out = { delay: msg.payload * 10 }; // should come in as 0 - 100%\nvar dutycycle = msg.payload * 1\nvar FsmStatus_Schedule = global.get('kiln_01.FsmStatus_Schedule','memoryOnly')\n//var FsmStatus_Segment = global.get('kiln_01.FsmStatus_Segment','memoryOnly')\nvar auto_tune_upper = global.get('pid.zone[0].autotune.active')\nvar auto_tune_lower = global.get('pid.zone[1].autotune.active')\nvar UpperSetpoint = global.get('kiln_01.UpperSetpoint','memoryOnly')\nvar LowerSetpoint = global.get('kiln_01.LowerSetpoint','memoryOnly')\nvar UpperTemperature = global.get('kiln_01.UpperTemperature','memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature','memoryOnly')\nvar upper_thermocouple_bad = flow.get('upper_thermocouple_bad')\nvar lower_thermocouple_bad = flow.get('lower_thermocouple_bad')\nvar simulation = global.get('kiln_01.SimulateTemperature')\n\n//if (Math.abs(UpperSetpoint - UpperTemperature) < 100 && Math.abs(LowerSetpoint - LowerTemperature) < 100 \n//    || auto_tune_upper || auto_tune_lower) {\nif (!upper_thermocouple_bad && !lower_thermocouple_bad && !simulation) {\n        // temps a setpoints are within tolerance\n        //node.status({fill:\"green\",shape:\"dot\",text:\"All good!\"});\n        // the trigger function locks up if you send it a zero\n        // similarly, we dont want to send it a value over\n        // the trigger time (1000 ms)\n        if (msg_out.delay > 0 && msg_out.delay < 1000 && (FsmStatus_Schedule != 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n            node.status({fill:\"green\",shape:\"dot\",text:dutycycle.toFixed(1) + '%'});\n            return [ msg_out, null ];\n        } else if (msg_out.delay <= 0 || (FsmStatus_Schedule == 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n            // send an \"off\" directly to the output node\n            node.status({fill:\"green\",shape:\"ring\",text:'0%'});\n            msg_out.payload = \"0\"\n            return [ null, msg_out ];\n        } else if (msg_out.delay >= 1000){\n            // send an \"on\" directly to the output node\n            node.status({fill:\"green\",shape:\"dot\",text:'100%'});\n            msg_out.payload = \"1\"\n            return [ null, msg_out ];\n        } else {\n            // send an \"off\" directly to the output node\n            node.status({fill:\"green\",shape:\"ring\",text:'0%'});\n            msg_out.payload = \"0\"\n            return [ null, msg_out ];\n        }\n} else if (simulation) {\n    // send an \"off\" directly to the output node\n    node.status({fill:\"blue\",shape:\"dot\",text:\"Simulation\"});\n    msg_out.payload = \"0\"\n    return [ null, msg_out ];\n} else {\n    // temp is too far away from setpoint. something is wrong.\n    // send an \"off\" directly to the output node\n    node.status({fill:\"red\",shape:\"dot\",text:\"Something is wrong!\"});\n    msg_out.payload = \"0\"\n    return [ null, msg_out ];\n}",
+        "func": "// create a new message object to clean it up\nvar msg_out = { delay: msg.payload * 10 }; // should come in as 0 - 100%\nvar dutycycle = msg.payload * 1\nvar FsmStatus_Schedule = global.get('kiln_01.FsmStatus_Schedule','memoryOnly')\n//var FsmStatus_Segment = global.get('kiln_01.FsmStatus_Segment','memoryOnly')\nvar auto_tune_upper = global.get('pid.zone[0].autotune.active') || global.get('pid.zone[2].autotune.active')\nvar auto_tune_lower = global.get('pid.zone[1].autotune.active') || global.get('pid.zone[3].autotune.active')\nvar UpperSetpoint = global.get('kiln_01.UpperSetpoint','memoryOnly')\nvar LowerSetpoint = global.get('kiln_01.LowerSetpoint','memoryOnly')\nvar UpperTemperature = global.get('kiln_01.UpperTemperature','memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature','memoryOnly')\nvar upper_thermocouple_bad = flow.get('upper_thermocouple_bad')\nvar lower_thermocouple_bad = flow.get('lower_thermocouple_bad')\nvar simulation = global.get('kiln_01.SimulateTemperature')\n\n//if (Math.abs(UpperSetpoint - UpperTemperature) < 100 && Math.abs(LowerSetpoint - LowerTemperature) < 100 \n//    || auto_tune_upper || auto_tune_lower) {\nif (!upper_thermocouple_bad && !lower_thermocouple_bad && !simulation) {\n        // temps a setpoints are within tolerance\n        //node.status({fill:\"green\",shape:\"dot\",text:\"All good!\"});\n        // the trigger function locks up if you send it a zero\n        // similarly, we dont want to send it a value over\n        // the trigger time (1000 ms)\n        if (msg_out.delay > 0 && msg_out.delay < 1000 && (FsmStatus_Schedule != 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n            node.status({fill:\"green\",shape:\"dot\",text:dutycycle.toFixed(1) + '%'});\n            return [ msg_out, null ];\n        } else if (msg_out.delay <= 0 || (FsmStatus_Schedule == 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n            // send an \"off\" directly to the output node\n            node.status({fill:\"green\",shape:\"ring\",text:'0%'});\n            msg_out.payload = \"0\"\n            return [ null, msg_out ];\n        } else if (msg_out.delay >= 1000){\n            // send an \"on\" directly to the output node\n            node.status({fill:\"green\",shape:\"dot\",text:'100%'});\n            msg_out.payload = \"1\"\n            return [ null, msg_out ];\n        } else {\n            // send an \"off\" directly to the output node\n            node.status({fill:\"green\",shape:\"ring\",text:'0%'});\n            msg_out.payload = \"0\"\n            return [ null, msg_out ];\n        }\n} else if (simulation) {\n    // send an \"off\" directly to the output node\n    node.status({fill:\"blue\",shape:\"dot\",text:\"Simulation\"});\n    msg_out.payload = \"0\"\n    return [ null, msg_out ];\n} else {\n    // temp is too far away from setpoint. something is wrong.\n    // send an \"off\" directly to the output node\n    node.status({fill:\"red\",shape:\"dot\",text:\"Something is wrong!\"});\n    msg_out.payload = \"0\"\n    return [ null, msg_out ];\n}",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -11394,13 +11793,16 @@
         "name": "input - upper heater",
         "links": [
             "9e015528e0fb2d1b",
-            "b7e5087d46e58c68"
+            "b7e5087d46e58c68",
+            "2f886e4da63e4cde",
+            "32e3becf505d02e8"
         ],
         "x": 135,
         "y": 680,
         "wires": [
             [
-                "d4cb1a52a4fe0d75"
+                "d4cb1a52a4fe0d75",
+                "19c89045bda88732"
             ]
         ]
     },
@@ -11411,13 +11813,15 @@
         "name": "input - lower heater",
         "links": [
             "6631d9fb2726ad04",
-            "c25d091e1fa28879"
+            "c25d091e1fa28879",
+            "521b312bd5cbf03e"
         ],
         "x": 135,
         "y": 760,
         "wires": [
             [
-                "5bb8a83cadcb2ba3"
+                "5bb8a83cadcb2ba3",
+                "bc8323ef9436386d"
             ]
         ]
     },
@@ -13121,7 +13525,7 @@
         "type": "function",
         "z": "3154c44d1a91de38",
         "name": "",
-        "func": "msg.payload = parseFloat(msg.input.scaled.toFixed(2))\nreturn msg;",
+        "func": "//msg.payload = parseFloat(msg.input.scaled.toFixed(2))\nmsg.payload = msg.input.scaled\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -13496,7 +13900,8 @@
         "name": "",
         "links": [
             "6631d9fb2726ad04",
-            "c25d091e1fa28879"
+            "c25d091e1fa28879",
+            "521b312bd5cbf03e"
         ],
         "x": 285,
         "y": 380,
@@ -13513,7 +13918,9 @@
         "name": "",
         "links": [
             "9e015528e0fb2d1b",
-            "b7e5087d46e58c68"
+            "b7e5087d46e58c68",
+            "2f886e4da63e4cde",
+            "32e3becf505d02e8"
         ],
         "x": 285,
         "y": 340,
@@ -13521,29 +13928,6 @@
             [
                 "d82dade01e8d0ee6"
             ]
-        ]
-    },
-    {
-        "id": "2f9e89cdd8134e14",
-        "type": "trigger",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "op1": "1",
-        "op2": "0",
-        "op1type": "val",
-        "op2type": "val",
-        "duration": "250",
-        "extend": "false",
-        "overrideDelay": "false",
-        "units": "ms",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 360,
-        "y": 580,
-        "wires": [
-            []
         ]
     },
     {
@@ -13561,6 +13945,42 @@
         "statusType": "auto",
         "x": 595,
         "y": 20,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "19c89045bda88732",
+        "type": "debug",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 195,
+        "y": 660,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "bc8323ef9436386d",
+        "type": "debug",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 195,
+        "y": 740,
         "wires": [],
         "l": false
     },
@@ -13887,7 +14307,7 @@
         "z": "98e4246c87add39e",
         "name": "Timer 1",
         "props": [],
-        "repeat": "2",
+        "repeat": "1",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
@@ -13954,7 +14374,9 @@
             "a7a9eeb897d0ea64",
             "c47ff922f0cbee22",
             "3a7f735dd215d856",
-            "3043fcde283df23d"
+            "3043fcde283df23d",
+            "5d841c9bdcfb313f",
+            "a84605821808c573"
         ],
         "x": 375,
         "y": 520,
@@ -13967,10 +14389,8 @@
         "name": "Timer 2",
         "mode": "link",
         "links": [
-            "b88c29b93586b994",
             "5cb7a543f0243acf",
-            "7e2fa6ed953dcc19",
-            "44672db9b0431917"
+            "7e2fa6ed953dcc19"
         ],
         "x": 375,
         "y": 540,
