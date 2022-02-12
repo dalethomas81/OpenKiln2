@@ -1231,7 +1231,7 @@
         "type": "function",
         "z": "592b686edd11b813",
         "name": "",
-        "func": "//global.set('kiln_01.selected_schedule', temp);\nvar schedule_index = flow.get('schedule_index', 'memoryOnly');\nvar segment_index = flow.get('segment_index', 'memoryOnly');\nvar segment = 'kiln_01.schedules['+ schedule_index.toString() + '].segments[' + segment_index.toString() + ']'\nglobal.set(segment, msg.payload);\nmsg.payload = segment\nreturn msg;",
+        "func": "//global.set('kiln_01.selected_schedule', temp);\nvar schedule_index = flow.get('schedule_index', 'memoryOnly');\nvar segment_index = flow.get('segment_index', 'memoryOnly');\nvar segment = 'kiln_01.schedules['+ schedule_index.toString() + '].segments[' + segment_index.toString() + ']'\n//node.warn(segment)\nglobal.set(segment, msg.payload);\nmsg.payload = segment\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1386,7 +1386,7 @@
         "type": "function",
         "z": "592b686edd11b813",
         "name": "set schedule index",
-        "func": "\n//var selected_schedule = global.get('kiln_01.schedules['+ msg.payload + ']')\n//global.set('kiln_01.active_schedule', selected_schedule);\nglobal.set('kiln_01.active_schedule_index', msg.payload);\n\nreturn msg;",
+        "func": "\n//var selected_schedule = global.get('kiln_01.schedules['+ msg.payload + ']')\n//global.set('kiln_01.active_schedule', selected_schedule);\nglobal.set('kiln_01.active_schedule_index', parseFloat(msg.payload));\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3555,7 +3555,7 @@
         "z": "592b686edd11b813",
         "name": "dashboard events",
         "events": "all",
-        "x": 475,
+        "x": 675,
         "y": 20,
         "wires": [
             [
@@ -3582,7 +3582,7 @@
             "47cdbbef8944aef2",
             "c8c2253243612480"
         ],
-        "x": 595,
+        "x": 795,
         "y": 20,
         "wires": []
     },
@@ -3691,7 +3691,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 535,
+        "x": 735,
         "y": 20,
         "wires": [
             [
@@ -4189,6 +4189,101 @@
                 "2e9532e03f213fb4"
             ]
         ]
+    },
+    {
+        "id": "f43ac460b7c2ee29",
+        "type": "function",
+        "z": "592b686edd11b813",
+        "name": "initialize variables",
+        "func": "var schedules = []\nvar schedulecount = 15\nfor (let index = 0; index < schedulecount; index++) {\n    var segments = []\n    var segmentcount = 1\n    for (let index1 = 0; index1 < segmentcount; index1++) {\n        var seg_obj = {name:'seg'+(index1+1),enabled:false,hold:false,setpoint:0,ramp_rate:0,soak_time:0}\n        var segment = Object.create(seg_obj)\n        segment.name='seg'+(index1+1)\n        segment.enabled=false\n        segment.hold=false\n        segment.setpoint=0\n        segment.ramp_rate=0\n        segment.soak_time=0\n        segments.push(segment)\n    }\n    schedules.push({name:'schedule'+(index+1),segments})\n}\nmsg.payload = schedules\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 535,
+        "y": 20,
+        "wires": [
+            [
+                "383fee56e61021c9",
+                "299ae31393a123b3"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "e8334987f9343248",
+        "type": "inject",
+        "z": "592b686edd11b813",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 475,
+        "y": 20,
+        "wires": [
+            [
+                "f43ac460b7c2ee29"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "383fee56e61021c9",
+        "type": "debug",
+        "z": "592b686edd11b813",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 595,
+        "y": 20,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "299ae31393a123b3",
+        "type": "change",
+        "z": "592b686edd11b813",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "kiln_01.schedules",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 595,
+        "y": 80,
+        "wires": [
+            []
+        ],
+        "l": false
     },
     {
         "id": "0f56f86bd83c9233",
@@ -6250,6 +6345,74 @@
         "x": 1130,
         "y": 340,
         "wires": []
+    },
+    {
+        "id": "2f19129886721298",
+        "type": "function",
+        "z": "e9cef8706a9cf7f6",
+        "name": "initialize variables",
+        "func": "/*var input = []\nvar inputcount = 2\nfor (let index = 0; index < inputcount; index++) {\n    var x = { min: 0.0, max: 0.0 };\n    var y = { min: 0.0, max: 0.0 };\n    var calibration = { x, y, span: 0.0, offset: 0.0 }\n    calibration.x.min = 0.0; calibration.x.max = 0.0; calibration.y.min = 0.0; calibration.y.max = 0.0;\n    calibration.span = 0.0; calibration.offset = 0.0;\n    var obj2 = { HiHi: 0.0, Hi: 0.0, Lo: 0.0, LoLo: 0.0 }\n    var limits = Object.create(obj2)\n    limits.HiHi = 0.0; limits.Hi = 0.0; limits.Lo = 0.0; limits.LoLo = 0.0;\n    var obj3 = { HiHi: false, Hi: false, Lo: false, LoLo: false }\n    var alarms = Object.create(obj3)\n    alarms.HiHi = false; alarms.Hi = false; alarms.Lo = false; alarms.LoLo = false;\n    input.push({ id: '', raw: 0.0, scaled: 0.0, calibration, limits, alarms })\n}\nvar analoginput = { selected_input: 0, input }\n//global.set('analoginput', analoginput, 'memoryOnly')\nglobal.set('analoginput', analoginput)\nmsg.payload = { analoginput }\nreturn msg;*/",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 535,
+        "y": 20,
+        "wires": [
+            [
+                "dfa00176a8aa4236"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "aecfb76003773780",
+        "type": "inject",
+        "z": "e9cef8706a9cf7f6",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 475,
+        "y": 20,
+        "wires": [
+            [
+                "2f19129886721298"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "dfa00176a8aa4236",
+        "type": "debug",
+        "z": "e9cef8706a9cf7f6",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 595,
+        "y": 20,
+        "wires": [],
+        "l": false
     },
     {
         "id": "0d21e53eb5db0544",
@@ -11380,7 +11543,9 @@
         "x": 535,
         "y": 20,
         "wires": [
-            []
+            [
+                "0174d9742bec95c7"
+            ]
         ],
         "l": false
     },
@@ -13382,6 +13547,24 @@
         ]
     },
     {
+        "id": "0174d9742bec95c7",
+        "type": "debug",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 595,
+        "y": 20,
+        "wires": [],
+        "l": false
+    },
+    {
         "id": "1c9e79b136a623e2",
         "type": "catch",
         "z": "98e4246c87add39e",
@@ -13769,12 +13952,8 @@
             "83d1eeca2821fcac",
             "c271444bdafb92be",
             "a7a9eeb897d0ea64",
-            "7e2fa6ed953dcc19",
-            "5cb7a543f0243acf",
             "c47ff922f0cbee22",
             "3a7f735dd215d856",
-            "44672db9b0431917",
-            "b88c29b93586b994",
             "3043fcde283df23d"
         ],
         "x": 375,
@@ -13787,7 +13966,12 @@
         "z": "98e4246c87add39e",
         "name": "Timer 2",
         "mode": "link",
-        "links": [],
+        "links": [
+            "b88c29b93586b994",
+            "5cb7a543f0243acf",
+            "7e2fa6ed953dcc19",
+            "44672db9b0431917"
+        ],
         "x": 375,
         "y": 540,
         "wires": []
