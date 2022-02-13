@@ -10659,7 +10659,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "digitaloutput[0].duty_cycle",
+                "p": "digitaloutput[0].output.duty_cycle",
                 "pt": "global",
                 "to": "payload",
                 "tot": "msg"
@@ -10687,7 +10687,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "digitaloutput[0].duty_cycle",
+                "p": "digitaloutput[0].output.duty_cycle",
                 "pt": "global",
                 "to": "payload",
                 "tot": "msg"
@@ -10751,7 +10751,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "digitaloutput[1].duty_cycle",
+                "p": "digitaloutput[1].output.duty_cycle",
                 "pt": "global",
                 "to": "payload",
                 "tot": "msg"
@@ -10797,7 +10797,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "digitaloutput[1].duty_cycle",
+                "p": "digitaloutput[1].output.duty_cycle",
                 "pt": "global",
                 "to": "payload",
                 "tot": "msg"
