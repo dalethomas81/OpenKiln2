@@ -6484,7 +6484,7 @@
         "enable": 1,
         "disabled_op": 0,
         "x": 205,
-        "y": 220,
+        "y": 240,
         "wires": [
             [
                 "79e8d734b498031e"
@@ -6735,8 +6735,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 375,
-        "y": 120,
+        "x": 315,
+        "y": 180,
         "wires": [],
         "l": false
     },
@@ -6760,7 +6760,7 @@
         "to": "",
         "reg": false,
         "x": 315,
-        "y": 120,
+        "y": 140,
         "wires": [
             []
         ],
@@ -6865,14 +6865,14 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "set control if auto tune not active 0",
-        "func": "var zone_id = 0\n\nif (!global.get('pid.zone['+zone_id+'].autotune.active')) {var cv = msg.payload * 100\nglobal.set('pid.zone['+zone_id+'].parameters.control', cv)\n    \n    var zone = global.get('pid.zone[' + zone_id + ']')\n    if (zone.action == 'heating' || zone.action == 'cooling' ) {\n        msg.payload = cv * zone.parameters.rate / 100\n        msg.action = zone.action\n        node.status({ fill: \"green\", shape: \"dot\", text: msg.payload.toFixed(2) + ' CV' });\n    } else if (zone.action == 'maintaining') {\n        msg.action = \"Off\"\n        node.status({ fill: \"green\", shape: \"dot\", text: cv.toFixed(2) + ' CV' });\n    } else {\n        msg.action = \"Off\"\n        node.status({ fill: \"green\", shape: \"dot\", text: 0 + ' CV' });\n    }\n    \n    return msg;\n} else {\n    node.status({ fill: \"green\", shape: \"ring\", text: 'tuning' });\n}",
+        "func": "var zone_id = 0\nvar zone = global.get('pid.zone[' + zone_id + ']')\nif (!zone.autotune.active) {\n    var cv = msg.payload * 100\n    global.set('pid.zone['+zone_id+'].parameters.control', cv)\n    \n    if (zone.action == 'heating' || zone.action == 'cooling' ) {\n        msg.payload = cv * zone.parameters.rate / 100\n        msg.action = zone.action\n        node.status({ fill: \"green\", shape: \"dot\", text: msg.payload.toFixed(2) + ' CV' });\n    } else if (zone.action == 'maintaining') {\n        msg.action = \"Off\"\n        node.status({ fill: \"green\", shape: \"dot\", text: cv.toFixed(2) + ' CV' });\n    } else {\n        msg.action = \"Off\"\n        node.status({ fill: \"green\", shape: \"dot\", text: 0 + ' CV' });\n    }\n    \n    return msg;\n} else {\n    node.status({ fill: \"green\", shape: \"ring\", text: 'tuning' });\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 275,
-        "y": 200,
+        "x": 285,
+        "y": 240,
         "wires": [
             [
                 "a7d4d1f6e66847a4",
@@ -6901,12 +6901,11 @@
         "to": "",
         "reg": false,
         "x": 125,
-        "y": 120,
+        "y": 140,
         "wires": [
             [
-                "29405e958220b21d",
                 "9697d72a5f2cf931",
-                "873dcd28375613e6"
+                "ea31253a46d4b358"
             ]
         ],
         "l": false
@@ -7020,7 +7019,7 @@
         "finalize": "",
         "libs": [],
         "x": 125,
-        "y": 220,
+        "y": 240,
         "wires": [
             [
                 "9f8f243cf0171822"
@@ -7032,10 +7031,10 @@
         "id": "0354f9fa940fc412",
         "type": "comment",
         "z": "b83fb43068cdf48f",
-        "name": "zone 0 temperature pid",
+        "name": "zone 0 temp pid",
         "info": "",
         "x": 100,
-        "y": 60,
+        "y": 80,
         "wires": []
     },
     {
@@ -7063,7 +7062,7 @@
         "enable": 1,
         "disabled_op": 0,
         "x": 665,
-        "y": 220,
+        "y": 240,
         "wires": [
             [
                 "83caff269f9bed78"
@@ -7076,14 +7075,14 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "set control if auto tune not active 1",
-        "func": "var zone_id = 1\n\nif (!global.get('pid.zone['+zone_id+'].autotune.active')) {var cv = msg.payload * 100\nglobal.set('pid.zone['+zone_id+'].parameters.control', cv)\n    \n    var zone = global.get('pid.zone[' + zone_id + ']')\n    if (zone.action == 'heating' || zone.action == 'cooling' ) {\n        msg.payload = cv * zone.parameters.rate / 100\n        msg.action = zone.action\n        node.status({ fill: \"green\", shape: \"dot\", text: msg.payload.toFixed(2) + ' CV' });\n    } else if (zone.action == 'maintaining') {\n        msg.action = \"Off\"\n        node.status({ fill: \"green\", shape: \"dot\", text: cv.toFixed(2) + ' CV' });\n    } else {\n        msg.action = \"Off\"\n        node.status({ fill: \"green\", shape: \"dot\", text: 0 + ' CV' });\n    }\n    \n    return msg;\n} else {\n    node.status({ fill: \"green\", shape: \"ring\", text: 'tuning' });\n}",
+        "func": "var zone_id = 1\nvar zone = global.get('pid.zone[' + zone_id + ']')\nif (!zone.autotune.active) {\n    var cv = msg.payload * 100\n    global.set('pid.zone['+zone_id+'].parameters.control', cv)\n    \n    if (zone.action == 'heating' || zone.action == 'cooling' ) {\n        msg.payload = cv * zone.parameters.rate / 100\n        msg.action = zone.action\n        node.status({ fill: \"green\", shape: \"dot\", text: msg.payload.toFixed(2) + ' CV' });\n    } else if (zone.action == 'maintaining') {\n        msg.action = \"Off\"\n        node.status({ fill: \"green\", shape: \"dot\", text: cv.toFixed(2) + ' CV' });\n    } else {\n        msg.action = \"Off\"\n        node.status({ fill: \"green\", shape: \"dot\", text: 0 + ' CV' });\n    }\n    \n    return msg;\n} else {\n    node.status({ fill: \"green\", shape: \"ring\", text: 'tuning' });\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 735,
-        "y": 200,
+        "x": 745,
+        "y": 240,
         "wires": [
             [
                 "33d46d048827346c",
@@ -7104,7 +7103,7 @@
         "finalize": "",
         "libs": [],
         "x": 585,
-        "y": 220,
+        "y": 240,
         "wires": [
             [
                 "f44bbf38f57e5c57"
@@ -7116,50 +7115,11 @@
         "id": "905f3657bdd0e94b",
         "type": "comment",
         "z": "b83fb43068cdf48f",
-        "name": "zone 1 temperature pid",
+        "name": "zone 1 temp pid",
         "info": "",
         "x": 560,
-        "y": 60,
+        "y": 80,
         "wires": []
-    },
-    {
-        "id": "f7d301c81543618a",
-        "type": "link out",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "mode": "link",
-        "links": [
-            "f603fd46b7055148"
-        ],
-        "x": 245,
-        "y": 160,
-        "wires": []
-    },
-    {
-        "id": "29405e958220b21d",
-        "type": "switch",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "property": "pid.selected_zone",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "0",
-                "vt": "num"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 185,
-        "y": 160,
-        "wires": [
-            [
-                "f7d301c81543618a"
-            ]
-        ],
-        "l": false
     },
     {
         "id": "bee9b0aaa92de05c",
@@ -7173,7 +7133,7 @@
             "287e0e0ceab0f3df"
         ],
         "x": 375,
-        "y": 160,
+        "y": 180,
         "wires": []
     },
     {
@@ -7194,7 +7154,7 @@
         "repair": false,
         "outputs": 1,
         "x": 315,
-        "y": 160,
+        "y": 180,
         "wires": [
             [
                 "bee9b0aaa92de05c"
@@ -7215,8 +7175,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 835,
-        "y": 120,
+        "x": 775,
+        "y": 180,
         "wires": [],
         "l": false
     },
@@ -7240,7 +7200,7 @@
         "to": "",
         "reg": false,
         "x": 775,
-        "y": 120,
+        "y": 140,
         "wires": [
             []
         ],
@@ -7266,51 +7226,11 @@
         "to": "",
         "reg": false,
         "x": 585,
-        "y": 120,
+        "y": 140,
         "wires": [
             [
-                "27f7cbeff6ac667b",
                 "63baca868e0f50b3",
-                "5f6ec8ded3eb3230"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "020de7ac1ec04a88",
-        "type": "link out",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "mode": "link",
-        "links": [
-            "f603fd46b7055148"
-        ],
-        "x": 705,
-        "y": 160,
-        "wires": []
-    },
-    {
-        "id": "27f7cbeff6ac667b",
-        "type": "switch",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "property": "pid.selected_zone",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "1",
-                "vt": "num"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 645,
-        "y": 160,
-        "wires": [
-            [
-                "020de7ac1ec04a88"
+                "81f7f54ee10d9601"
             ]
         ],
         "l": false
@@ -7327,7 +7247,7 @@
             "287e0e0ceab0f3df"
         ],
         "x": 835,
-        "y": 160,
+        "y": 180,
         "wires": []
     },
     {
@@ -7348,7 +7268,7 @@
         "repair": false,
         "outputs": 1,
         "x": 775,
-        "y": 160,
+        "y": 180,
         "wires": [
             [
                 "b533e4fa8c93b24a"
@@ -7369,8 +7289,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 375,
-        "y": 200,
+        "x": 335,
+        "y": 240,
         "wires": [],
         "l": false
     },
@@ -7387,8 +7307,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 835,
-        "y": 200,
+        "x": 795,
+        "y": 240,
         "wires": [],
         "l": false
     },
@@ -7410,8 +7330,8 @@
         "links": [
             "dcbc073ea7b777ee"
         ],
-        "x": 245,
-        "y": 120,
+        "x": 255,
+        "y": 180,
         "wires": [
             [
                 "1f1e287e7011feb5",
@@ -7428,8 +7348,8 @@
         "links": [
             "e65201e766b76bfd"
         ],
-        "x": 705,
-        "y": 120,
+        "x": 715,
+        "y": 180,
         "wires": [
             [
                 "7bec29feb13d35ed",
@@ -7450,7 +7370,7 @@
             "91b7c42203f31df4"
         ],
         "x": 65,
-        "y": 160,
+        "y": 180,
         "wires": [
             [
                 "15a8037dcc3b6a5a"
@@ -7491,7 +7411,7 @@
         "to": "",
         "reg": false,
         "x": 125,
-        "y": 160,
+        "y": 180,
         "wires": [
             []
         ],
@@ -7509,7 +7429,7 @@
             "2529ef781a84b687"
         ],
         "x": 525,
-        "y": 160,
+        "y": 180,
         "wires": [
             [
                 "9fa5332fb445e60b"
@@ -7550,7 +7470,7 @@
         "to": "",
         "reg": false,
         "x": 585,
-        "y": 160,
+        "y": 180,
         "wires": [
             []
         ],
@@ -7668,7 +7588,7 @@
             "62eccecdbb37e6f8"
         ],
         "x": 525,
-        "y": 220,
+        "y": 240,
         "wires": [
             [
                 "aa541d34f410d1e9"
@@ -7685,7 +7605,7 @@
             "62eccecdbb37e6f8"
         ],
         "x": 65,
-        "y": 220,
+        "y": 240,
         "wires": [
             [
                 "385287d0010ada53"
@@ -7702,7 +7622,7 @@
             "62eccecdbb37e6f8"
         ],
         "x": 525,
-        "y": 120,
+        "y": 140,
         "wires": [
             [
                 "2173af95761ba16b"
@@ -7719,7 +7639,7 @@
             "62eccecdbb37e6f8"
         ],
         "x": 65,
-        "y": 120,
+        "y": 140,
         "wires": [
             [
                 "82f39574ad2ae492"
@@ -7759,7 +7679,7 @@
         "enable": 1,
         "disabled_op": 0,
         "x": 205,
-        "y": 440,
+        "y": 480,
         "wires": [
             [
                 "21abba5c735f4f33"
@@ -7779,7 +7699,7 @@
         "finalize": "",
         "libs": [],
         "x": 285,
-        "y": 420,
+        "y": 480,
         "wires": [
             [
                 "55eefabb9d45afba"
@@ -7799,7 +7719,7 @@
         "finalize": "",
         "libs": [],
         "x": 125,
-        "y": 440,
+        "y": 480,
         "wires": [
             [
                 "8dd6c26b1fcddca6"
@@ -7813,8 +7733,8 @@
         "z": "b83fb43068cdf48f",
         "name": "zone 2 ramp pid",
         "info": "",
-        "x": 80,
-        "y": 280,
+        "x": 100,
+        "y": 320,
         "wires": []
     },
     {
@@ -7832,7 +7752,7 @@
         "enable": 1,
         "disabled_op": 0,
         "x": 665,
-        "y": 440,
+        "y": 480,
         "wires": [
             [
                 "356e5793a9f364e9"
@@ -7851,8 +7771,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 755,
-        "y": 420,
+        "x": 745,
+        "y": 480,
         "wires": [
             [
                 "da404c6570aec769"
@@ -7872,7 +7792,7 @@
         "finalize": "",
         "libs": [],
         "x": 585,
-        "y": 440,
+        "y": 480,
         "wires": [
             [
                 "16af16873f4883b4"
@@ -7886,8 +7806,8 @@
         "z": "b83fb43068cdf48f",
         "name": "zone 3 ramp pid",
         "info": "",
-        "x": 540,
-        "y": 280,
+        "x": 560,
+        "y": 320,
         "wires": []
     },
     {
@@ -7903,8 +7823,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 345,
-        "y": 420,
+        "x": 335,
+        "y": 480,
         "wires": [],
         "l": false
     },
@@ -7921,8 +7841,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 815,
-        "y": 420,
+        "x": 805,
+        "y": 480,
         "wires": [],
         "l": false
     },
@@ -7935,7 +7855,7 @@
             "62eccecdbb37e6f8"
         ],
         "x": 525,
-        "y": 440,
+        "y": 480,
         "wires": [
             [
                 "cb1f9a0b2d53e60e"
@@ -7952,7 +7872,7 @@
             "62eccecdbb37e6f8"
         ],
         "x": 65,
-        "y": 440,
+        "y": 480,
         "wires": [
             [
                 "3d56a3e565b065fb"
@@ -7971,8 +7891,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 735,
-        "y": 340,
+        "x": 695,
+        "y": 420,
         "wires": [
             [
                 "8b514b70a1c22fca",
@@ -7994,8 +7914,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 355,
-        "y": 340,
+        "x": 285,
+        "y": 380,
         "wires": [],
         "l": false
     },
@@ -8018,8 +7938,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 435,
-        "y": 380,
+        "x": 365,
+        "y": 440,
         "wires": [
             []
         ],
@@ -8045,51 +7965,11 @@
         "to": "",
         "reg": false,
         "x": 125,
-        "y": 340,
+        "y": 380,
         "wires": [
             [
-                "ceedf33a9c9ba963",
                 "7c57cd1b6579e857",
                 "07cdd33a021030f4"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "f60c15f2e633edb2",
-        "type": "link out",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "mode": "link",
-        "links": [
-            "f603fd46b7055148"
-        ],
-        "x": 245,
-        "y": 380,
-        "wires": []
-    },
-    {
-        "id": "ceedf33a9c9ba963",
-        "type": "switch",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "property": "pid.selected_zone",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "2",
-                "vt": "num"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 185,
-        "y": 380,
-        "wires": [
-            [
-                "f60c15f2e633edb2"
             ]
         ],
         "l": false
@@ -8105,8 +7985,8 @@
             "92ddf9e5188bd64e",
             "287e0e0ceab0f3df"
         ],
-        "x": 435,
-        "y": 300,
+        "x": 415,
+        "y": 400,
         "wires": []
     },
     {
@@ -8126,8 +8006,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 375,
-        "y": 300,
+        "x": 365,
+        "y": 400,
         "wires": [
             [
                 "5793f419da2fa866"
@@ -8148,8 +8028,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 835,
-        "y": 340,
+        "x": 745,
+        "y": 380,
         "wires": [],
         "l": false
     },
@@ -8172,8 +8052,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 905,
-        "y": 380,
+        "x": 825,
+        "y": 440,
         "wires": [
             []
         ],
@@ -8199,51 +8079,11 @@
         "to": "",
         "reg": false,
         "x": 585,
-        "y": 340,
+        "y": 380,
         "wires": [
             [
-                "75b69e9c63988ae1",
                 "88dc5e16a84e5d48",
                 "c51f5f99a3b50c74"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "9d06d483162a50b9",
-        "type": "link out",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "mode": "link",
-        "links": [
-            "f603fd46b7055148"
-        ],
-        "x": 705,
-        "y": 380,
-        "wires": []
-    },
-    {
-        "id": "75b69e9c63988ae1",
-        "type": "switch",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "property": "pid.selected_zone",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "3",
-                "vt": "num"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 645,
-        "y": 380,
-        "wires": [
-            [
-                "9d06d483162a50b9"
             ]
         ],
         "l": false
@@ -8259,8 +8099,8 @@
             "92ddf9e5188bd64e",
             "287e0e0ceab0f3df"
         ],
-        "x": 895,
-        "y": 300,
+        "x": 875,
+        "y": 400,
         "wires": []
     },
     {
@@ -8280,8 +8120,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 835,
-        "y": 300,
+        "x": 825,
+        "y": 400,
         "wires": [
             [
                 "3cd6ce4406cb6bbc"
@@ -8297,8 +8137,8 @@
         "links": [
             "dcbc073ea7b777ee"
         ],
-        "x": 225,
-        "y": 340,
+        "x": 185,
+        "y": 420,
         "wires": [
             [
                 "e95daadd472e3c3b"
@@ -8313,8 +8153,8 @@
         "links": [
             "e65201e766b76bfd"
         ],
-        "x": 685,
-        "y": 340,
+        "x": 645,
+        "y": 420,
         "wires": [
             [
                 "39a42bcb9118d6a7"
@@ -8330,7 +8170,7 @@
             "62eccecdbb37e6f8"
         ],
         "x": 525,
-        "y": 340,
+        "y": 380,
         "wires": [
             [
                 "5d3e4473b07e8b43"
@@ -8347,7 +8187,7 @@
             "62eccecdbb37e6f8"
         ],
         "x": 65,
-        "y": 340,
+        "y": 380,
         "wires": [
             [
                 "c22c195193993549"
@@ -8384,8 +8224,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 275,
-        "y": 340,
+        "x": 235,
+        "y": 420,
         "wires": [
             [
                 "c94953d0aadb25d7",
@@ -8421,7 +8261,7 @@
         "to": "",
         "reg": false,
         "x": 125,
-        "y": 380,
+        "y": 420,
         "wires": [
             []
         ],
@@ -8433,10 +8273,11 @@
         "z": "b83fb43068cdf48f",
         "name": "",
         "links": [
-            "26f55fb29541fdb1"
+            "26f55fb29541fdb1",
+            "1396628d0ea3f917"
         ],
         "x": 65,
-        "y": 380,
+        "y": 420,
         "wires": [
             [
                 "b9a5324498572017"
@@ -8452,8 +8293,8 @@
         "links": [
             "94112e9a2839cf54"
         ],
-        "x": 325,
-        "y": 200,
+        "x": 335,
+        "y": 240,
         "wires": []
     },
     {
@@ -8465,8 +8306,8 @@
         "links": [
             "d10bbe6d04d1179a"
         ],
-        "x": 785,
-        "y": 200,
+        "x": 795,
+        "y": 240,
         "wires": []
     },
     {
@@ -8496,7 +8337,7 @@
         "to": "",
         "reg": false,
         "x": 585,
-        "y": 380,
+        "y": 420,
         "wires": [
             []
         ],
@@ -8508,10 +8349,11 @@
         "z": "b83fb43068cdf48f",
         "name": "",
         "links": [
-            "48c743e763d05137"
+            "48c743e763d05137",
+            "ac657527b6dfaca0"
         ],
         "x": 525,
-        "y": 380,
+        "y": 420,
         "wires": [
             [
                 "c62eab5d62729aa1"
@@ -9098,34 +8940,6 @@
         "wires": []
     },
     {
-        "id": "9e015528e0fb2d1b",
-        "type": "link out",
-        "z": "b83fb43068cdf48f",
-        "name": "output - zone 0 - out to process (CV 0-100%)",
-        "mode": "link",
-        "links": [
-            "0cfeb2a7be515599",
-            "174a695dc7533b2c"
-        ],
-        "x": 315,
-        "y": 300,
-        "wires": []
-    },
-    {
-        "id": "6631d9fb2726ad04",
-        "type": "link out",
-        "z": "b83fb43068cdf48f",
-        "name": "output - zone 1 - out to process (CV 0-100%)",
-        "mode": "link",
-        "links": [
-            "f2bc62537768881d",
-            "36c3f72d59bfed4f"
-        ],
-        "x": 775,
-        "y": 300,
-        "wires": []
-    },
-    {
         "id": "7c57cd1b6579e857",
         "type": "switch",
         "z": "b83fb43068cdf48f",
@@ -9148,13 +8962,13 @@
         "repair": false,
         "outputs": 2,
         "x": 185,
-        "y": 320,
+        "y": 380,
         "wires": [
             [
-                "9e015528e0fb2d1b"
+                "1cc3f245a847a3d0"
             ],
             [
-                "9e015528e0fb2d1b"
+                "1cc3f245a847a3d0"
             ]
         ],
         "l": false
@@ -9177,10 +8991,10 @@
         "repair": false,
         "outputs": 1,
         "x": 185,
-        "y": 80,
+        "y": 100,
         "wires": [
             [
-                "b7e5087d46e58c68"
+                "7ef113d46af94fa7"
             ]
         ],
         "l": false
@@ -9208,13 +9022,13 @@
         "repair": false,
         "outputs": 2,
         "x": 645,
-        "y": 320,
+        "y": 380,
         "wires": [
             [
-                "6631d9fb2726ad04"
+                "ccbdd10cb54a906c"
             ],
             [
-                "6631d9fb2726ad04"
+                "ccbdd10cb54a906c"
             ]
         ],
         "l": false
@@ -9237,10 +9051,10 @@
         "repair": false,
         "outputs": 1,
         "x": 645,
-        "y": 80,
+        "y": 100,
         "wires": [
             [
-                "c25d091e1fa28879"
+                "3ead42b5645fe82a"
             ]
         ],
         "l": false
@@ -9985,7 +9799,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nvar selected_action = global.get('pid.selected_action') || 0 // 'heating', 'cooling', 'maintaining'\nvar Kp = global.get('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Kp') || 0\nvar Ki = global.get('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Ki') || 0\nvar Kd = global.get('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Kd') || 0\n//global.set('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Kp', Kp)\n//global.set('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Ki', Ki)\n//global.set('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Kd', Kd)\nglobal.set('pid.zone[' + selected_zone + '].settings.' + selected_action + '.time.PB', 1/(Kp/100))\nglobal.set('pid.zone[' + selected_zone + '].settings.' + selected_action + '.time.Ti', Kp/Ki)\nglobal.set('pid.zone[' + selected_zone + '].settings.' + selected_action + '.time.Td', Kd/Kp)\n\nreturn msg;\n\n//https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z0000019L5TSAU&l=en-US\n//https://www.controleng.com/articles/understanding-derivative-in-pid-control/\n//https://en.wikipedia.org/wiki/PID_controller",
+        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nvar selected_action = global.get('pid.selected_action') || 0 // 'heating', 'cooling', 'maintaining'\nvar Kp = global.get('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Kp') || 0\nvar Ki = global.get('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Ki') || 0\nvar Kd = global.get('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Kd') || 0\n//global.set('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Kp', Kp)\n//global.set('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Ki', Ki)\n//global.set('pid.zone[' + selected_zone + '].settings.' + selected_action + '.gain.Kd', Kd)\nglobal.set('pid.zone[' + selected_zone + '].settings.' + selected_action + '.time.PB', 100/Kp)\nglobal.set('pid.zone[' + selected_zone + '].settings.' + selected_action + '.time.Ti', Kp/Ki)\nglobal.set('pid.zone[' + selected_zone + '].settings.' + selected_action + '.time.Td', Kd/Kp)\n\nreturn msg;\n\n//https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z0000019L5TSAU&l=en-US\n//https://www.controleng.com/articles/understanding-derivative-in-pid-control/\n//https://en.wikipedia.org/wiki/PID_controller",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -10581,58 +10395,8 @@
         "x": 815,
         "y": 940,
         "wires": [
-            []
-        ],
-        "l": false
-    },
-    {
-        "id": "c25d091e1fa28879",
-        "type": "link out",
-        "z": "b83fb43068cdf48f",
-        "name": "output - zone 1 - out to process (CV 0-100%)",
-        "mode": "link",
-        "links": [
-            "f2bc62537768881d",
-            "36c3f72d59bfed4f"
-        ],
-        "x": 775,
-        "y": 80,
-        "wires": []
-    },
-    {
-        "id": "b7e5087d46e58c68",
-        "type": "link out",
-        "z": "b83fb43068cdf48f",
-        "name": "output - zone 0 - out to process (CV 0-100%)",
-        "mode": "link",
-        "links": [
-            "0cfeb2a7be515599",
-            "174a695dc7533b2c"
-        ],
-        "x": 315,
-        "y": 80,
-        "wires": []
-    },
-    {
-        "id": "873dcd28375613e6",
-        "type": "switch",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "property": "pid.zone[0].autotune.active",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "true"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 185,
-        "y": 100,
-        "wires": [
             [
-                "b7e5087d46e58c68"
+                "7ba72c04c9ad9266"
             ]
         ],
         "l": false
@@ -10653,34 +10417,10 @@
         "repair": false,
         "outputs": 1,
         "x": 185,
-        "y": 300,
+        "y": 360,
         "wires": [
             [
-                "9e015528e0fb2d1b"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "5f6ec8ded3eb3230",
-        "type": "switch",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "property": "pid.zone[1].autotune.active",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "true"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 645,
-        "y": 100,
-        "wires": [
-            [
-                "c25d091e1fa28879"
+                "1cc3f245a847a3d0"
             ]
         ],
         "l": false
@@ -10701,10 +10441,10 @@
         "repair": false,
         "outputs": 1,
         "x": 645,
-        "y": 300,
+        "y": 360,
         "wires": [
             [
-                "6631d9fb2726ad04"
+                "ccbdd10cb54a906c"
             ]
         ],
         "l": false
@@ -10720,8 +10460,8 @@
         "round": "",
         "mult": "single",
         "reduce": false,
-        "x": 385,
-        "y": 380,
+        "x": 285,
+        "y": 420,
         "wires": [
             [
                 "acaf9302560db8b4",
@@ -10741,8 +10481,8 @@
         "round": "",
         "mult": "single",
         "reduce": false,
-        "x": 855,
-        "y": 380,
+        "x": 745,
+        "y": 420,
         "wires": [
             [
                 "546fc99e5e691238",
@@ -10767,324 +10507,6 @@
         "x": 255,
         "y": 720,
         "wires": [],
-        "l": false
-    },
-    {
-        "id": "32e3becf505d02e8",
-        "type": "link out",
-        "z": "b83fb43068cdf48f",
-        "name": "output - zone 0 - out to process (CV 0-100%)",
-        "mode": "link",
-        "links": [
-            "0cfeb2a7be515599",
-            "174a695dc7533b2c"
-        ],
-        "x": 375,
-        "y": 500,
-        "wires": []
-    },
-    {
-        "id": "5d841c9bdcfb313f",
-        "type": "link in",
-        "z": "b83fb43068cdf48f",
-        "name": "Timer 1",
-        "links": [
-            "62eccecdbb37e6f8"
-        ],
-        "x": 65,
-        "y": 500,
-        "wires": [
-            [
-                "7467d8f11fdf0a1f"
-            ]
-        ],
-        "icon": "node-red/timer.svg"
-    },
-    {
-        "id": "7467d8f11fdf0a1f",
-        "type": "switch",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "property": "pid.zone[0].action",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "Off",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 125,
-        "y": 500,
-        "wires": [
-            [
-                "35b2e24de228e321"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "35b2e24de228e321",
-        "type": "switch",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "property": "pid.zone[2].action",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "Off",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 175,
-        "y": 500,
-        "wires": [
-            [
-                "13502ca4d1d5fc7a"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "a84605821808c573",
-        "type": "link in",
-        "z": "b83fb43068cdf48f",
-        "name": "Timer 1",
-        "links": [
-            "62eccecdbb37e6f8"
-        ],
-        "x": 525,
-        "y": 500,
-        "wires": [
-            [
-                "ce6a05f6f1367071"
-            ]
-        ],
-        "icon": "node-red/timer.svg"
-    },
-    {
-        "id": "ce6a05f6f1367071",
-        "type": "switch",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "property": "pid.zone[1].action",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "Off",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 585,
-        "y": 500,
-        "wires": [
-            [
-                "45ee808c665eb763"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "45ee808c665eb763",
-        "type": "switch",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "property": "pid.zone[3].action",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "Off",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 635,
-        "y": 500,
-        "wires": [
-            [
-                "d2b334154c268904"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "521b312bd5cbf03e",
-        "type": "link out",
-        "z": "b83fb43068cdf48f",
-        "name": "output - zone 1 - out to process (CV 0-100%)",
-        "mode": "link",
-        "links": [
-            "f2bc62537768881d",
-            "36c3f72d59bfed4f"
-        ],
-        "x": 835,
-        "y": 500,
-        "wires": []
-    },
-    {
-        "id": "b11c2e829c43530c",
-        "type": "switch",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "property": "pid.zone[3].autotune.active",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "false"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 735,
-        "y": 500,
-        "wires": [
-            [
-                "7c68a6f29d1035ef"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "d2b334154c268904",
-        "type": "switch",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "property": "pid.zone[1].autotune.active",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "false"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 685,
-        "y": 500,
-        "wires": [
-            [
-                "b11c2e829c43530c"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "36fd52d4d18edb04",
-        "type": "switch",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "property": "pid.zone[2].autotune.active",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "false"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 275,
-        "y": 500,
-        "wires": [
-            [
-                "54787dfadc1d60e8"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "13502ca4d1d5fc7a",
-        "type": "switch",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "property": "pid.zone[0].autotune.active",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "false"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 225,
-        "y": 500,
-        "wires": [
-            [
-                "36fd52d4d18edb04"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "54787dfadc1d60e8",
-        "type": "change",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "0",
-                "tot": "num"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 325,
-        "y": 500,
-        "wires": [
-            [
-                "32e3becf505d02e8"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "7c68a6f29d1035ef",
-        "type": "change",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "0",
-                "tot": "num"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 785,
-        "y": 500,
-        "wires": [
-            [
-                "521b312bd5cbf03e"
-            ]
-        ],
         "l": false
     },
     {
@@ -11122,7 +10544,294 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 215,
-        "y": 540,
+        "y": 580,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "1396628d0ea3f917",
+        "type": "link out",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "94112e9a2839cf54"
+        ],
+        "x": 255,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "ac657527b6dfaca0",
+        "type": "link out",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "d10bbe6d04d1179a"
+        ],
+        "x": 715,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "81f7f54ee10d9601",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var temp_zone_id = 1\nvar ramp_zone_id = 3\nvar auto_tune = global.get('pid.zone['+temp_zone_id+'].autotune.active')\nif (auto_tune) {\n    var action = global.get('pid.selected_action')\n    if (action == 'heating' || action == 'cooling') {\n        var cv = global.get('pid.zone['+temp_zone_id+'].parameters.control')\n        var setpoint = global.get('pid.zone['+ramp_zone_id+'].autotune.setpoint')\n        if (cv > 0 ) {\n            msg.payload = setpoint/cv * 100\n            msg.action = global.get('pid.selected_action')\n        } else {\n            msg.payload = 0\n            msg.action = 'Off'\n        }\n        return [null, msg];\n    } else if (action == 'maintaining'){\n        msg.payload = global.get('pid.zone['+temp_zone_id+'].parameters.control')\n        return [msg, null];\n    }\n}",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 645,
+        "y": 140,
+        "wires": [
+            [
+                "3ead42b5645fe82a"
+            ],
+            [
+                "ac657527b6dfaca0"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "ea31253a46d4b358",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var temp_zone_id = 0\nvar ramp_zone_id = 2\nvar auto_tune = global.get('pid.zone['+temp_zone_id+'].autotune.active')\nif (auto_tune) {\n    var action = global.get('pid.selected_action')\n    if (action == 'heating' || action == 'cooling') {\n        var cv = global.get('pid.zone['+temp_zone_id+'].parameters.control')\n        var setpoint = global.get('pid.zone['+ramp_zone_id+'].autotune.setpoint')\n        if (cv > 0 ) {\n            msg.payload = setpoint/cv * 100\n            msg.action = global.get('pid.selected_action')\n        } else {\n            msg.payload = 0\n            msg.action = 'Off'\n        }\n        return [null, msg];\n    } else if (action == 'maintaining'){\n        msg.payload = global.get('pid.zone['+temp_zone_id+'].parameters.control')\n        return [msg, null];\n    }\n}",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 185,
+        "y": 140,
+        "wires": [
+            [
+                "7ef113d46af94fa7"
+            ],
+            [
+                "1396628d0ea3f917"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "7d41f5125ed5ccf8",
+        "type": "link in",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "links": [
+            "7ba72c04c9ad9266"
+        ],
+        "x": 545,
+        "y": 880,
+        "wires": [
+            [
+                "3a1438a5665ec43e",
+                "27f7045e7c6618ef",
+                "d6d4fadaca2168e9"
+            ]
+        ]
+    },
+    {
+        "id": "7ba72c04c9ad9266",
+        "type": "link out",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "7d41f5125ed5ccf8"
+        ],
+        "x": 875,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "7ef113d46af94fa7",
+        "type": "change",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "digitaloutput[0].duty_cycle",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 255,
+        "y": 100,
+        "wires": [
+            [
+                "0cd87642d8d48f72"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "1cc3f245a847a3d0",
+        "type": "change",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "digitaloutput[0].duty_cycle",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 285,
+        "y": 340,
+        "wires": [
+            [
+                "647356533bb8d48c"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "0cd87642d8d48f72",
+        "type": "debug",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 315,
+        "y": 100,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "647356533bb8d48c",
+        "type": "debug",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 345,
+        "y": 340,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "ccbdd10cb54a906c",
+        "type": "change",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "digitaloutput[1].duty_cycle",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 745,
+        "y": 340,
+        "wires": [
+            [
+                "2c2e53cd950c2273"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "2c2e53cd950c2273",
+        "type": "debug",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 805,
+        "y": 340,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "3ead42b5645fe82a",
+        "type": "change",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "digitaloutput[1].duty_cycle",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 715,
+        "y": 100,
+        "wires": [
+            [
+                "165d4145e067fa57"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "165d4145e067fa57",
+        "type": "debug",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 775,
+        "y": 100,
         "wires": [],
         "l": false
     },
@@ -11552,7 +11261,7 @@
         "id": "16e8124d59e7fb62",
         "type": "rpi-gpio out",
         "z": "3154c44d1a91de38",
-        "name": "Upper_Heater",
+        "name": "Upper Heater",
         "pin": "26",
         "set": true,
         "level": "0",
@@ -11560,7 +11269,7 @@
         "out": "out",
         "bcm": true,
         "x": 440,
-        "y": 700,
+        "y": 680,
         "wires": []
     },
     {
@@ -11654,7 +11363,7 @@
         "id": "12681729a71ef662",
         "type": "rpi-gpio out",
         "z": "3154c44d1a91de38",
-        "name": "Lower_Heater",
+        "name": "Lower Heater",
         "pin": "19",
         "set": true,
         "level": "0",
@@ -11683,7 +11392,7 @@
         "topic": "topic",
         "outputs": 1,
         "x": 295,
-        "y": 740,
+        "y": 760,
         "wires": [
             [
                 "12681729a71ef662"
@@ -11756,7 +11465,7 @@
         "type": "function",
         "z": "3154c44d1a91de38",
         "name": "",
-        "func": "// create a new message object to clean it up\nvar msg_out = { delay: msg.payload * 10 }; // should come in as 0 - 100%\nvar dutycycle = msg.payload * 1\nvar FsmStatus_Schedule = global.get('kiln_01.FsmStatus_Schedule','memoryOnly')\n//var FsmStatus_Segment = global.get('kiln_01.FsmStatus_Segment','memoryOnly')\nvar auto_tune_upper = global.get('pid.zone[0].autotune.active') || global.get('pid.zone[2].autotune.active')\nvar auto_tune_lower = global.get('pid.zone[1].autotune.active') || global.get('pid.zone[3].autotune.active')\nvar UpperSetpoint = global.get('kiln_01.UpperSetpoint','memoryOnly')\nvar LowerSetpoint = global.get('kiln_01.LowerSetpoint','memoryOnly')\nvar UpperTemperature = global.get('kiln_01.UpperTemperature','memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature','memoryOnly')\nvar upper_thermocouple_bad = flow.get('upper_thermocouple_bad')\nvar lower_thermocouple_bad = flow.get('lower_thermocouple_bad')\nvar simulation = global.get('kiln_01.SimulateTemperature')\n\n//if (Math.abs(UpperSetpoint - UpperTemperature) < 100 && Math.abs(LowerSetpoint - LowerTemperature) < 100 \n//    || auto_tune_upper || auto_tune_lower) {\nif (!upper_thermocouple_bad && !lower_thermocouple_bad && !simulation) {\n        // temps a setpoints are within tolerance\n        //node.status({fill:\"green\",shape:\"dot\",text:\"All good!\"});\n        // the trigger function locks up if you send it a zero\n        // similarly, we dont want to send it a value over\n        // the trigger time (1000 ms)\n        if (msg_out.delay > 0 && msg_out.delay < 1000 && (FsmStatus_Schedule != 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n            node.status({fill:\"green\",shape:\"dot\",text:dutycycle.toFixed(1) + '%'});\n            return [ msg_out, null ];\n        } else if (msg_out.delay <= 0 || (FsmStatus_Schedule == 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n            // send an \"off\" directly to the output node\n            node.status({fill:\"green\",shape:\"ring\",text:'0%'});\n            msg_out.payload = \"0\"\n            return [ null, msg_out ];\n        } else if (msg_out.delay >= 1000){\n            // send an \"on\" directly to the output node\n            node.status({fill:\"green\",shape:\"dot\",text:'100%'});\n            msg_out.payload = \"1\"\n            return [ null, msg_out ];\n        } else {\n            // send an \"off\" directly to the output node\n            node.status({fill:\"green\",shape:\"ring\",text:'0%'});\n            msg_out.payload = \"0\"\n            return [ null, msg_out ];\n        }\n} else if (simulation) {\n    // send an \"off\" directly to the output node\n    node.status({fill:\"blue\",shape:\"dot\",text:\"Simulation\"});\n    msg_out.payload = \"0\"\n    return [ null, msg_out ];\n} else {\n    // temp is too far away from setpoint. something is wrong.\n    // send an \"off\" directly to the output node\n    node.status({fill:\"red\",shape:\"dot\",text:\"Something is wrong!\"});\n    msg_out.payload = \"0\"\n    return [ null, msg_out ];\n}",
+        "func": "var output_id = 0\nvar duty_cycle = global.get('digitaloutput['+output_id+'].duty_cycle')\nvar msg_out = { delay: duty_cycle * 10 }; // should come in as 0 - 100%\nvar dutycycle = msg.payload * 1\n//var FsmStatus_Schedule = global.get('kiln_01.FsmStatus_Schedule','memoryOnly')\n//var FsmStatus_Segment = global.get('kiln_01.FsmStatus_Segment','memoryOnly')\n//var auto_tune_upper = global.get('pid.zone[0].autotune.active') || global.get('pid.zone[2].autotune.active')\n//var auto_tune_lower = global.get('pid.zone[1].autotune.active') || global.get('pid.zone[3].autotune.active')\n//var UpperSetpoint = global.get('kiln_01.UpperSetpoint','memoryOnly')\n//var LowerSetpoint = global.get('kiln_01.LowerSetpoint','memoryOnly')\n//var UpperTemperature = global.get('kiln_01.UpperTemperature','memoryOnly')\n//var LowerTemperature = global.get('kiln_01.LowerTemperature','memoryOnly')\nvar upper_thermocouple_bad = flow.get('upper_thermocouple_bad')\nvar lower_thermocouple_bad = flow.get('lower_thermocouple_bad')\nvar simulation = global.get('kiln_01.SimulateTemperature')\n\n//if (Math.abs(UpperSetpoint - UpperTemperature) < 100 && Math.abs(LowerSetpoint - LowerTemperature) < 100 \n//    || auto_tune_upper || auto_tune_lower) {\nif (!upper_thermocouple_bad && !lower_thermocouple_bad && !simulation) {\n        // temps a setpoints are within tolerance\n        //node.status({fill:\"green\",shape:\"dot\",text:\"All good!\"});\n        // the trigger function locks up if you send it a zero\n        // similarly, we dont want to send it a value over\n        // the trigger time (1000 ms)\n        if (msg_out.delay > 0 && msg_out.delay < 1000) {\n            node.status({fill:\"green\",shape:\"dot\",text:dutycycle.toFixed(1) + '%'});\n            return [ msg_out, null ];\n        } else if (msg_out.delay <= 0) {\n            // send an \"off\" directly to the output node\n            node.status({fill:\"green\",shape:\"ring\",text:'0%'});\n            msg_out.payload = \"0\"\n            return [ null, msg_out ];\n        } else if (msg_out.delay >= 1000){\n            // send an \"on\" directly to the output node\n            node.status({fill:\"green\",shape:\"dot\",text:'100%'});\n            msg_out.payload = \"1\"\n            return [ null, msg_out ];\n        } else {\n            // send an \"off\" directly to the output node\n            node.status({fill:\"green\",shape:\"ring\",text:'0%'});\n            msg_out.payload = \"0\"\n            return [ null, msg_out ];\n        }\n} else if (simulation) {\n    // send an \"off\" directly to the output node\n    node.status({fill:\"blue\",shape:\"dot\",text:\"Simulation\"});\n    msg_out.payload = \"0\"\n    return [ null, msg_out ];\n} else {\n    // temp is too far away from setpoint. something is wrong.\n    // send an \"off\" directly to the output node\n    node.status({fill:\"red\",shape:\"dot\",text:\"Something is wrong!\"});\n    msg_out.payload = \"0\"\n    return [ null, msg_out ];\n}",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -11766,7 +11475,8 @@
         "y": 680,
         "wires": [
             [
-                "708a944b9506b9a4"
+                "708a944b9506b9a4",
+                "19c89045bda88732"
             ],
             [
                 "16e8124d59e7fb62"
@@ -11779,62 +11489,24 @@
         "type": "function",
         "z": "3154c44d1a91de38",
         "name": "",
-        "func": "// create a new message object to clean it up\nvar msg_out = { delay: msg.payload * 10 }; // should come in as 0 - 100%\nvar dutycycle = msg.payload * 1\nvar FsmStatus_Schedule = global.get('kiln_01.FsmStatus_Schedule','memoryOnly')\n//var FsmStatus_Segment = global.get('kiln_01.FsmStatus_Segment','memoryOnly')\nvar auto_tune_upper = global.get('pid.zone[0].autotune.active') || global.get('pid.zone[2].autotune.active')\nvar auto_tune_lower = global.get('pid.zone[1].autotune.active') || global.get('pid.zone[3].autotune.active')\nvar UpperSetpoint = global.get('kiln_01.UpperSetpoint','memoryOnly')\nvar LowerSetpoint = global.get('kiln_01.LowerSetpoint','memoryOnly')\nvar UpperTemperature = global.get('kiln_01.UpperTemperature','memoryOnly')\nvar LowerTemperature = global.get('kiln_01.LowerTemperature','memoryOnly')\nvar upper_thermocouple_bad = flow.get('upper_thermocouple_bad')\nvar lower_thermocouple_bad = flow.get('lower_thermocouple_bad')\nvar simulation = global.get('kiln_01.SimulateTemperature')\n\n//if (Math.abs(UpperSetpoint - UpperTemperature) < 100 && Math.abs(LowerSetpoint - LowerTemperature) < 100 \n//    || auto_tune_upper || auto_tune_lower) {\nif (!upper_thermocouple_bad && !lower_thermocouple_bad && !simulation) {\n        // temps a setpoints are within tolerance\n        //node.status({fill:\"green\",shape:\"dot\",text:\"All good!\"});\n        // the trigger function locks up if you send it a zero\n        // similarly, we dont want to send it a value over\n        // the trigger time (1000 ms)\n        if (msg_out.delay > 0 && msg_out.delay < 1000 && (FsmStatus_Schedule != 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n            node.status({fill:\"green\",shape:\"dot\",text:dutycycle.toFixed(1) + '%'});\n            return [ msg_out, null ];\n        } else if (msg_out.delay <= 0 || (FsmStatus_Schedule == 'IDLE' && !auto_tune_upper && !auto_tune_lower)) {\n            // send an \"off\" directly to the output node\n            node.status({fill:\"green\",shape:\"ring\",text:'0%'});\n            msg_out.payload = \"0\"\n            return [ null, msg_out ];\n        } else if (msg_out.delay >= 1000){\n            // send an \"on\" directly to the output node\n            node.status({fill:\"green\",shape:\"dot\",text:'100%'});\n            msg_out.payload = \"1\"\n            return [ null, msg_out ];\n        } else {\n            // send an \"off\" directly to the output node\n            node.status({fill:\"green\",shape:\"ring\",text:'0%'});\n            msg_out.payload = \"0\"\n            return [ null, msg_out ];\n        }\n} else if (simulation) {\n    // send an \"off\" directly to the output node\n    node.status({fill:\"blue\",shape:\"dot\",text:\"Simulation\"});\n    msg_out.payload = \"0\"\n    return [ null, msg_out ];\n} else {\n    // temp is too far away from setpoint. something is wrong.\n    // send an \"off\" directly to the output node\n    node.status({fill:\"red\",shape:\"dot\",text:\"Something is wrong!\"});\n    msg_out.payload = \"0\"\n    return [ null, msg_out ];\n}",
+        "func": "var output_id = 1\nvar duty_cycle = global.get('digitaloutput['+output_id+'].duty_cycle')\nvar msg_out = { delay: duty_cycle * 10 }; // should come in as 0 - 100%\nvar dutycycle = msg.payload * 1\n//var FsmStatus_Schedule = global.get('kiln_01.FsmStatus_Schedule','memoryOnly')\n//var FsmStatus_Segment = global.get('kiln_01.FsmStatus_Segment','memoryOnly')\n//var auto_tune_upper = global.get('pid.zone[0].autotune.active') || global.get('pid.zone[2].autotune.active')\n//var auto_tune_lower = global.get('pid.zone[1].autotune.active') || global.get('pid.zone[3].autotune.active')\n//var UpperSetpoint = global.get('kiln_01.UpperSetpoint','memoryOnly')\n//var LowerSetpoint = global.get('kiln_01.LowerSetpoint','memoryOnly')\n//var UpperTemperature = global.get('kiln_01.UpperTemperature','memoryOnly')\n//var LowerTemperature = global.get('kiln_01.LowerTemperature','memoryOnly')\nvar upper_thermocouple_bad = flow.get('upper_thermocouple_bad')\nvar lower_thermocouple_bad = flow.get('lower_thermocouple_bad')\nvar simulation = global.get('kiln_01.SimulateTemperature')\n\n//if (Math.abs(UpperSetpoint - UpperTemperature) < 100 && Math.abs(LowerSetpoint - LowerTemperature) < 100 \n//    || auto_tune_upper || auto_tune_lower) {\nif (!upper_thermocouple_bad && !lower_thermocouple_bad && !simulation) {\n        // temps a setpoints are within tolerance\n        //node.status({fill:\"green\",shape:\"dot\",text:\"All good!\"});\n        // the trigger function locks up if you send it a zero\n        // similarly, we dont want to send it a value over\n        // the trigger time (1000 ms)\n        if (msg_out.delay > 0 && msg_out.delay < 1000) {\n            node.status({fill:\"green\",shape:\"dot\",text:dutycycle.toFixed(1) + '%'});\n            return [ msg_out, null ];\n        } else if (msg_out.delay <= 0) {\n            // send an \"off\" directly to the output node\n            node.status({fill:\"green\",shape:\"ring\",text:'0%'});\n            msg_out.payload = \"0\"\n            return [ null, msg_out ];\n        } else if (msg_out.delay >= 1000){\n            // send an \"on\" directly to the output node\n            node.status({fill:\"green\",shape:\"dot\",text:'100%'});\n            msg_out.payload = \"1\"\n            return [ null, msg_out ];\n        } else {\n            // send an \"off\" directly to the output node\n            node.status({fill:\"green\",shape:\"ring\",text:'0%'});\n            msg_out.payload = \"0\"\n            return [ null, msg_out ];\n        }\n} else if (simulation) {\n    // send an \"off\" directly to the output node\n    node.status({fill:\"blue\",shape:\"dot\",text:\"Simulation\"});\n    msg_out.payload = \"0\"\n    return [ null, msg_out ];\n} else {\n    // temp is too far away from setpoint. something is wrong.\n    // send an \"off\" directly to the output node\n    node.status({fill:\"red\",shape:\"dot\",text:\"Something is wrong!\"});\n    msg_out.payload = \"0\"\n    return [ null, msg_out ];\n}",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 195,
-        "y": 760,
+        "y": 780,
         "wires": [
             [
-                "26dcb58ffb63fae4"
+                "26dcb58ffb63fae4",
+                "bc8323ef9436386d"
             ],
             [
                 "12681729a71ef662"
             ]
         ],
         "l": false
-    },
-    {
-        "id": "0cfeb2a7be515599",
-        "type": "link in",
-        "z": "3154c44d1a91de38",
-        "name": "input - upper heater",
-        "links": [
-            "9e015528e0fb2d1b",
-            "b7e5087d46e58c68",
-            "2f886e4da63e4cde",
-            "32e3becf505d02e8"
-        ],
-        "x": 135,
-        "y": 680,
-        "wires": [
-            [
-                "d4cb1a52a4fe0d75",
-                "19c89045bda88732"
-            ]
-        ]
-    },
-    {
-        "id": "f2bc62537768881d",
-        "type": "link in",
-        "z": "3154c44d1a91de38",
-        "name": "input - lower heater",
-        "links": [
-            "6631d9fb2726ad04",
-            "c25d091e1fa28879",
-            "521b312bd5cbf03e"
-        ],
-        "x": 135,
-        "y": 760,
-        "wires": [
-            [
-                "5bb8a83cadcb2ba3",
-                "bc8323ef9436386d"
-            ]
-        ]
     },
     {
         "id": "159e09add5a1e1ed",
@@ -11949,7 +11621,7 @@
         "type": "function",
         "z": "3154c44d1a91de38",
         "name": "initialize variables",
-        "func": "\nvar input = []\nvar inputcount = 2\nfor (let index = 0; index < inputcount; index++) {\n    var x = { min: 0.0, max: 0.0 };\n    var y = { min: 0.0, max: 0.0 };\n    var calibration = { x, y, span: 0.0, offset: 0.0 }\n    calibration.x.min = 0.0; calibration.x.max = 0.0; calibration.y.min = 0.0; calibration.y.max = 0.0;\n    calibration.span = 0.0; calibration.offset = 0.0;\n    var obj2 = { HiHi: 0.0, Hi: 0.0, Lo: 0.0, LoLo: 0.0 }\n    var limits = Object.create(obj2)\n    limits.HiHi = 0.0; limits.Hi = 0.0; limits.Lo = 0.0; limits.LoLo = 0.0;\n    var obj3 = { HiHi: false, Hi: false, Lo: false, LoLo: false }\n    var alarms = Object.create(obj3)\n    alarms.HiHi = false; alarms.Hi = false; alarms.Lo = false; alarms.LoLo = false;\n    input.push({ id: '', raw: 0.0, scaled: 0.0, calibration, limits, alarms })\n}\nvar analoginput = { selected_input: 0, input }\n//global.set('analoginput', analoginput, 'memoryOnly')\nglobal.set('analoginput', analoginput)\nmsg.payload = { analoginput }\nreturn msg;",
+        "func": "var input = []\nvar inputcount = 2\nfor (let index = 0; index < inputcount; index++) {\n    var x = { min: 0.0, max: 0.0 };\n    var y = { min: 0.0, max: 0.0 };\n    var calibration = { x, y, span: 0.0, offset: 0.0 }\n    calibration.x.min = 0.0; calibration.x.max = 0.0; calibration.y.min = 0.0; calibration.y.max = 0.0;\n    calibration.span = 0.0; calibration.offset = 0.0;\n    var obj2 = { HiHi: 0.0, Hi: 0.0, Lo: 0.0, LoLo: 0.0 }\n    var limits = Object.create(obj2)\n    limits.HiHi = 0.0; limits.Hi = 0.0; limits.Lo = 0.0; limits.LoLo = 0.0;\n    var obj3 = { HiHi: false, Hi: false, Lo: false, LoLo: false }\n    var alarms = Object.create(obj3)\n    alarms.HiHi = false; alarms.Hi = false; alarms.Lo = false; alarms.LoLo = false;\n    input.push({ id: '', raw: 0.0, scaled: 0.0, calibration, limits, alarms })\n}\nvar analoginput = { selected_input: 0, input }\n//global.set('analoginput', analoginput, 'memoryOnly')\nglobal.set('analoginput', analoginput)\nmsg.payload = { analoginput }\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -13940,8 +13612,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 195,
-        "y": 660,
+        "x": 295,
+        "y": 640,
         "wires": [],
         "l": false
     },
@@ -13958,7 +13630,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 195,
+        "x": 295,
         "y": 740,
         "wires": [],
         "l": false
@@ -14026,6 +13698,90 @@
             ]
         ],
         "l": false
+    },
+    {
+        "id": "3e2dce38cedf347d",
+        "type": "function",
+        "z": "3154c44d1a91de38",
+        "name": "initialize variables",
+        "func": "var output = []\nvar outputcount = 2\nfor (let index = 0; index < outputcount; index++) {\n    output.push({ id: '', duty_cycle: 0 })\n}\nvar digitaloutput = { selected_output: 0, output }\nglobal.set('digitaloutput', digitaloutput)\nmsg.payload = { digitaloutput }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 535,
+        "y": 40,
+        "wires": [
+            [
+                "0174d9742bec95c7"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "8bf694674abe662a",
+        "type": "inject",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 475,
+        "y": 40,
+        "wires": [
+            [
+                "3e2dce38cedf347d"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "82caf18907cb8198",
+        "type": "link in",
+        "z": "3154c44d1a91de38",
+        "name": "Timer 1",
+        "links": [
+            "62eccecdbb37e6f8"
+        ],
+        "x": 135,
+        "y": 680,
+        "wires": [
+            [
+                "d4cb1a52a4fe0d75"
+            ]
+        ],
+        "icon": "node-red/timer.svg"
+    },
+    {
+        "id": "01f8509ce68a75b8",
+        "type": "link in",
+        "z": "3154c44d1a91de38",
+        "name": "Timer 1",
+        "links": [
+            "62eccecdbb37e6f8"
+        ],
+        "x": 135,
+        "y": 780,
+        "wires": [
+            [
+                "5bb8a83cadcb2ba3"
+            ]
+        ],
+        "icon": "node-red/timer.svg"
     },
     {
         "id": "1c9e79b136a623e2",
@@ -14419,7 +14175,9 @@
             "3a7f735dd215d856",
             "3043fcde283df23d",
             "5d841c9bdcfb313f",
-            "a84605821808c573"
+            "a84605821808c573",
+            "82caf18907cb8198",
+            "01f8509ce68a75b8"
         ],
         "x": 375,
         "y": 520,
