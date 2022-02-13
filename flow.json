@@ -7511,7 +7511,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "set control if auto tune not active",
-        "func": "if (!global.get('pid.zone[1].autotune.active')) {\n    global.set('pid.zone[1].parameters.control', msg.payload * 100)\n    return msg;\n}",
+        "func": "var zone_id = 1\nif (!global.get('pid.zone['+zone_id+'].autotune.active')) {\n    var cv = msg.payload * 100\n    global.set('pid.zone['+zone_id+'].parameters.control', cv)\n    node.status({ fill: \"green\", shape: \"dot\", text: cv.toFixed(2) + '°F' });\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
