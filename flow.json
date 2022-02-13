@@ -2153,7 +2153,7 @@
                 "t": "set",
                 "p": "query",
                 "pt": "msg",
-                "to": "select * from Kiln_01_UpperTemperature, Kiln_01_LowerTemperature WHERE time > now() - 12h",
+                "to": "select * from Kiln_01_UpperTemperature, Kiln_01_LowerTemperature WHERE time > now() - 3h",
                 "tot": "str"
             }
         ],
