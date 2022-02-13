@@ -7186,7 +7186,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "clear chart",
-        "func": "var blank = []\nmsg_out.payload = blank\n\nreturn msg_out;",
+        "func": "msg.payload = []\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
