@@ -8369,8 +8369,8 @@
         "y": 260,
         "wires": [
             [
-                "88697b6b43b4084e",
-                "ee0291f3aba6669c"
+                "ee0291f3aba6669c",
+                "9d81b4469ecf17ea"
             ]
         ],
         "l": false
@@ -8395,8 +8395,8 @@
         "y": 460,
         "wires": [
             [
-                "409049cb84c39312",
-                "b439be6284f42bd5"
+                "b439be6284f42bd5",
+                "b512718ada88364f"
             ]
         ],
         "l": false
@@ -9009,10 +9009,10 @@
         "property": "payload",
         "action": "low",
         "count": "10",
-        "round": "1",
+        "round": "",
         "mult": "single",
         "reduce": false,
-        "x": 495,
+        "x": 545,
         "y": 260,
         "wires": [
             [
@@ -9031,10 +9031,10 @@
         "property": "payload",
         "action": "low",
         "count": "10",
-        "round": "1",
+        "round": "",
         "mult": "single",
         "reduce": false,
-        "x": 495,
+        "x": 545,
         "y": 460,
         "wires": [
             [
@@ -9326,13 +9326,13 @@
         "type": "function",
         "z": "3154c44d1a91de38",
         "name": "handle analog input",
-        "func": "var analoginput = global.get('analoginput')\n\ntry {\n    if (!isNaN(msg.payload)){\n        analoginput.input[msg.inputnumber].raw = msg.payload\n        analoginput.input[msg.inputnumber].scaled = msg.payload * analoginput.input[msg.inputnumber].calibration.span + analoginput.input[msg.inputnumber].calibration.offset;\n        if (analoginput.input[msg.inputnumber].scaled >= analoginput.input[msg.inputnumber].limits.HiHi) { analoginput.input[msg.inputnumber].alarms.HiHi = true } else { analoginput.input[msg.inputnumber].alarms.HiHi = false };\n        if (analoginput.input[msg.inputnumber].scaled >= analoginput.input[msg.inputnumber].limits.Hi) { analoginput.input[msg.inputnumber].alarms.Hi = true } else { analoginput.input[msg.inputnumber].alarms.Hi = false };\n        if (analoginput.input[msg.inputnumber].scaled <= analoginput.input[msg.inputnumber].limits.Lo) { analoginput.input[msg.inputnumber].alarms.Lo = true } else { analoginput.input[msg.inputnumber].alarms.Lo = false };\n        if (analoginput.input[msg.inputnumber].scaled <= analoginput.input[msg.inputnumber].limits.LoLo) { analoginput.input[msg.inputnumber].alarms.LoLo = true } else { analoginput.input[msg.inputnumber].alarms.LoLo = false };\n    }\n} catch (error) {\n    node.warn(error)\n};\n\nglobal.set('analoginput', analoginput)\n\nmsg.payload = analoginput.input[msg.inputnumber].scaled\nreturn msg;",
+        "func": "var analoginput = global.get('analoginput')\n\ntry {\n    if (!isNaN(msg.payload)){\n        analoginput.input[msg.inputnumber].raw = msg.payload\n        analoginput.input[msg.inputnumber].scaled = msg.payload * analoginput.input[msg.inputnumber].calibration.span + analoginput.input[msg.inputnumber].calibration.offset;\n        if (analoginput.input[msg.inputnumber].scaled >= analoginput.input[msg.inputnumber].limits.HiHi) { analoginput.input[msg.inputnumber].alarms.HiHi = true } else { analoginput.input[msg.inputnumber].alarms.HiHi = false };\n        if (analoginput.input[msg.inputnumber].scaled >= analoginput.input[msg.inputnumber].limits.Hi) { analoginput.input[msg.inputnumber].alarms.Hi = true } else { analoginput.input[msg.inputnumber].alarms.Hi = false };\n        if (analoginput.input[msg.inputnumber].scaled <= analoginput.input[msg.inputnumber].limits.Lo) { analoginput.input[msg.inputnumber].alarms.Lo = true } else { analoginput.input[msg.inputnumber].alarms.Lo = false };\n        if (analoginput.input[msg.inputnumber].scaled <= analoginput.input[msg.inputnumber].limits.LoLo) { analoginput.input[msg.inputnumber].alarms.LoLo = true } else { analoginput.input[msg.inputnumber].alarms.LoLo = false };\n    }\n} catch (error) {\n    node.warn(error)\n};\n\nglobal.set('analoginput', analoginput)\n\nmsg.payload = analoginput.input[msg.inputnumber].scaled\nnode.status({ fill: \"green\", shape: \"dot\", text: msg.payload.toFixed(2) + '°F' });\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 435,
+        "x": 485,
         "y": 260,
         "wires": [
             [
@@ -9360,7 +9360,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 375,
+        "x": 425,
         "y": 260,
         "wires": [
             [
@@ -9374,13 +9374,13 @@
         "type": "function",
         "z": "3154c44d1a91de38",
         "name": "handle analog input",
-        "func": "var analoginput = global.get('analoginput')\n\ntry {\n    if (!isNaN(msg.payload)){\n        analoginput.input[msg.inputnumber].raw = msg.payload\n        analoginput.input[msg.inputnumber].scaled = msg.payload * analoginput.input[msg.inputnumber].calibration.span + analoginput.input[msg.inputnumber].calibration.offset;\n        if (analoginput.input[msg.inputnumber].scaled >= analoginput.input[msg.inputnumber].limits.HiHi) { analoginput.input[msg.inputnumber].alarms.HiHi = true } else { analoginput.input[msg.inputnumber].alarms.HiHi = false };\n        if (analoginput.input[msg.inputnumber].scaled >= analoginput.input[msg.inputnumber].limits.Hi) { analoginput.input[msg.inputnumber].alarms.Hi = true } else { analoginput.input[msg.inputnumber].alarms.Hi = false };\n        if (analoginput.input[msg.inputnumber].scaled <= analoginput.input[msg.inputnumber].limits.Lo) { analoginput.input[msg.inputnumber].alarms.Lo = true } else { analoginput.input[msg.inputnumber].alarms.Lo = false };\n        if (analoginput.input[msg.inputnumber].scaled <= analoginput.input[msg.inputnumber].limits.LoLo) { analoginput.input[msg.inputnumber].alarms.LoLo = true } else { analoginput.input[msg.inputnumber].alarms.LoLo = false };\n    }\n} catch (error) {\n    node.warn(error)\n};\n\nglobal.set('analoginput', analoginput)\n\nmsg.payload = analoginput.input[msg.inputnumber].scaled\nreturn msg;",
+        "func": "var analoginput = global.get('analoginput')\n\ntry {\n    if (!isNaN(msg.payload)){\n        analoginput.input[msg.inputnumber].raw = msg.payload\n        analoginput.input[msg.inputnumber].scaled = msg.payload * analoginput.input[msg.inputnumber].calibration.span + analoginput.input[msg.inputnumber].calibration.offset;\n        if (analoginput.input[msg.inputnumber].scaled >= analoginput.input[msg.inputnumber].limits.HiHi) { analoginput.input[msg.inputnumber].alarms.HiHi = true } else { analoginput.input[msg.inputnumber].alarms.HiHi = false };\n        if (analoginput.input[msg.inputnumber].scaled >= analoginput.input[msg.inputnumber].limits.Hi) { analoginput.input[msg.inputnumber].alarms.Hi = true } else { analoginput.input[msg.inputnumber].alarms.Hi = false };\n        if (analoginput.input[msg.inputnumber].scaled <= analoginput.input[msg.inputnumber].limits.Lo) { analoginput.input[msg.inputnumber].alarms.Lo = true } else { analoginput.input[msg.inputnumber].alarms.Lo = false };\n        if (analoginput.input[msg.inputnumber].scaled <= analoginput.input[msg.inputnumber].limits.LoLo) { analoginput.input[msg.inputnumber].alarms.LoLo = true } else { analoginput.input[msg.inputnumber].alarms.LoLo = false };\n    }\n} catch (error) {\n    node.warn(error)\n};\n\nglobal.set('analoginput', analoginput)\n\nmsg.payload = analoginput.input[msg.inputnumber].scaled\nnode.status({ fill: \"green\", shape: \"dot\", text: msg.payload.toFixed(2) + '°F' });\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 435,
+        "x": 485,
         "y": 460,
         "wires": [
             [
@@ -9408,7 +9408,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 375,
+        "x": 425,
         "y": 460,
         "wires": [
             [
@@ -10732,8 +10732,8 @@
         "z": "3154c44d1a91de38",
         "name": "scale and smooth",
         "info": "",
-        "x": 450,
-        "y": 440,
+        "x": 130,
+        "y": 420,
         "wires": []
     },
     {
@@ -10742,8 +10742,8 @@
         "z": "3154c44d1a91de38",
         "name": "scale and smooth",
         "info": "",
-        "x": 450,
-        "y": 280,
+        "x": 130,
+        "y": 220,
         "wires": []
     },
     {
@@ -11111,6 +11111,64 @@
             [
                 "ea802ed93ceeae42",
                 "79016fc241d79289"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "4c14af025a25e74d",
+        "type": "smooth",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "property": "payload",
+        "action": "low",
+        "count": "10",
+        "round": "1",
+        "mult": "single",
+        "reduce": false,
+        "x": 325,
+        "y": 140,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "9d81b4469ecf17ea",
+        "type": "smooth",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "property": "payload",
+        "action": "low",
+        "count": "30",
+        "round": "",
+        "mult": "single",
+        "reduce": false,
+        "x": 365,
+        "y": 260,
+        "wires": [
+            [
+                "88697b6b43b4084e"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "b512718ada88364f",
+        "type": "smooth",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "property": "payload",
+        "action": "low",
+        "count": "30",
+        "round": "",
+        "mult": "single",
+        "reduce": false,
+        "x": 365,
+        "y": 460,
+        "wires": [
+            [
+                "409049cb84c39312"
             ]
         ],
         "l": false
