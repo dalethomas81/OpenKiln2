@@ -637,7 +637,7 @@
         "tab": "de5db1c89316833e",
         "order": 1,
         "disp": true,
-        "width": "14",
+        "width": 16,
         "collapse": false,
         "className": ""
     },
@@ -776,147 +776,67 @@
         "height": 1
     },
     {
-        "id": "22b41e1766523d6c",
+        "id": "498ab9774f40a58f",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
         "group": "a91f3f1520863187",
         "order": 2,
-        "width": 3,
+        "width": 2,
         "height": 1
     },
     {
-        "id": "6056dababa4805c8",
+        "id": "ad660c881b929aec",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
         "group": "a91f3f1520863187",
-        "order": 7,
-        "width": 3,
+        "order": 4,
+        "width": 2,
         "height": 1
     },
     {
-        "id": "c7327a3fb1457006",
+        "id": "ef9a7a5ed17089e4",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
         "group": "a91f3f1520863187",
-        "order": 11,
-        "width": 14,
+        "order": 6,
+        "width": 2,
         "height": 1
     },
     {
-        "id": "94598c07143afe9d",
+        "id": "ab084fa30e092cb7",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
         "group": "a91f3f1520863187",
         "order": 12,
-        "width": 5,
+        "width": 2,
         "height": 1
     },
     {
-        "id": "6852a48d1f4d2468",
+        "id": "0ed09c1a6b0b65c0",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
         "group": "a91f3f1520863187",
         "order": 14,
-        "width": 5,
-        "height": 1
-    },
-    {
-        "id": "044338132ad30216",
-        "type": "ui_spacer",
-        "z": "b83fb43068cdf48f",
-        "name": "spacer",
-        "group": "a91f3f1520863187",
-        "order": 15,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "e99adb93a5ad8dd2",
-        "type": "ui_spacer",
-        "z": "b83fb43068cdf48f",
-        "name": "spacer",
-        "group": "a91f3f1520863187",
-        "order": 17,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "2a7b635f2d89382e",
-        "type": "ui_spacer",
-        "z": "b83fb43068cdf48f",
-        "name": "spacer",
-        "group": "a91f3f1520863187",
-        "order": 19,
         "width": 2,
         "height": 1
     },
     {
-        "id": "98eeab0e8d8916dd",
+        "id": "e09f61dea29b31e8",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
         "group": "a91f3f1520863187",
-        "order": 20,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "2e9476979c4c6c4e",
-        "type": "ui_spacer",
-        "z": "b83fb43068cdf48f",
-        "name": "spacer",
-        "group": "a91f3f1520863187",
-        "order": 22,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "44917cc111dfbb91",
-        "type": "ui_spacer",
-        "z": "b83fb43068cdf48f",
-        "name": "spacer",
-        "group": "a91f3f1520863187",
-        "order": 24,
+        "order": 16,
         "width": 2,
         "height": 1
     },
     {
-        "id": "b58ba672660e6bed",
-        "type": "ui_spacer",
-        "z": "b83fb43068cdf48f",
-        "name": "spacer",
-        "group": "a91f3f1520863187",
-        "order": 25,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "aab080fe36a1daec",
-        "type": "ui_spacer",
-        "z": "b83fb43068cdf48f",
-        "name": "spacer",
-        "group": "a91f3f1520863187",
-        "order": 27,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "9c9c98fb4d431319",
-        "type": "ui_spacer",
-        "z": "b83fb43068cdf48f",
-        "name": "spacer",
-        "group": "a91f3f1520863187",
-        "order": 29,
-        "width": 2,
-        "height": 1
-    },
-    {
-        "id": "a46563220c7c5060",
+        "id": "77d14a7b615b9435",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -926,7 +846,7 @@
         "height": 1
     },
     {
-        "id": "ad910fd592fb7fbe",
+        "id": "1968ac6f87e75648",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -936,7 +856,7 @@
         "height": 1
     },
     {
-        "id": "046e690e63d33001",
+        "id": "9a67f131ee025369",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -946,7 +866,7 @@
         "height": 1
     },
     {
-        "id": "9fbde06699d74c6d",
+        "id": "b1f73641e27c9f22",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -956,7 +876,7 @@
         "height": 1
     },
     {
-        "id": "c78514be426d7a69",
+        "id": "f908cabda2cf16e2",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -966,7 +886,7 @@
         "height": 1
     },
     {
-        "id": "a98f679054033330",
+        "id": "25d3d275e369ace0",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -976,7 +896,7 @@
         "height": 1
     },
     {
-        "id": "e21882128f804806",
+        "id": "ef2680289d1f69cf",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -986,7 +906,7 @@
         "height": 1
     },
     {
-        "id": "1025dc55f1372634",
+        "id": "28f4ac0cabc23a50",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -996,7 +916,7 @@
         "height": 1
     },
     {
-        "id": "eaf2b8f92f4a1406",
+        "id": "4fa6a99a864b6059",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -1006,7 +926,7 @@
         "height": 1
     },
     {
-        "id": "d4fb0688725db47c",
+        "id": "553431027a2eee02",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -1016,7 +936,7 @@
         "height": 1
     },
     {
-        "id": "5eb5cd2a388904b8",
+        "id": "02587406fb765246",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -1026,7 +946,7 @@
         "height": 1
     },
     {
-        "id": "a1b1c18f3a829314",
+        "id": "e76c3f20f8b80c96",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -1036,7 +956,7 @@
         "height": 1
     },
     {
-        "id": "aea2e3939477ec49",
+        "id": "d364d26441f57fc1",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -1046,7 +966,7 @@
         "height": 1
     },
     {
-        "id": "8e465f43acb6b1ab",
+        "id": "0f4abf1520ac218d",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -1056,7 +976,7 @@
         "height": 1
     },
     {
-        "id": "7354781011c2a7ce",
+        "id": "71a0e82fb13beec2",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -1066,7 +986,7 @@
         "height": 1
     },
     {
-        "id": "7d3f61b30b02fd18",
+        "id": "8a8f6e90edc33054",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -6267,516 +6187,6 @@
         "l": false
     },
     {
-        "id": "70c0bc1ae3c6d12d",
-        "type": "pid-autotune",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "outstep": 100,
-        "maxout": 100,
-        "lookback": 30,
-        "setpoint": "setpoint",
-        "setpointType": "msg",
-        "tempVariable": "payload",
-        "tempVariableType": "msg",
-        "tempVariableMsgTopic": "temp-BK",
-        "autoStart": "false",
-        "triggeredStartValue": "start",
-        "x": 215,
-        "y": 400,
-        "wires": [
-            [
-                "7fa4d2bb4f6f7d6d",
-                "1f4cc5c39e564a05"
-            ],
-            [
-                "4f6c495a3f7424e0"
-            ],
-            [
-                "7e795aafec1fe140"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "7fa4d2bb4f6f7d6d",
-        "type": "debug",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 275,
-        "y": 360,
-        "wires": [],
-        "l": false
-    },
-    {
-        "id": "7e795aafec1fe140",
-        "type": "debug",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 275,
-        "y": 440,
-        "wires": [],
-        "l": false
-    },
-    {
-        "id": "fcf34e6662f8df35",
-        "type": "inject",
-        "z": "b83fb43068cdf48f",
-        "name": "start",
-        "props": [],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 75,
-        "y": 360,
-        "wires": [
-            [
-                "27787572425fc29d"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "4e3a914816059153",
-        "type": "inject",
-        "z": "b83fb43068cdf48f",
-        "name": "stop",
-        "props": [],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 75,
-        "y": 400,
-        "wires": [
-            [
-                "c3273409af651b10"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "425ae74daf907ee2",
-        "type": "change",
-        "z": "b83fb43068cdf48f",
-        "name": "add topic",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "temp-BK",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 135,
-        "y": 440,
-        "wires": [
-            [
-                "70c0bc1ae3c6d12d"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "2f8672009c6d6836",
-        "type": "ui_numeric",
-        "z": "b83fb43068cdf48f",
-        "name": "Kp",
-        "label": "",
-        "tooltip": "",
-        "group": "a91f3f1520863187",
-        "order": 16,
-        "width": 5,
-        "height": 1,
-        "wrap": false,
-        "passthru": false,
-        "topic": "topic",
-        "topicType": "msg",
-        "format": "Kp{{msg.payload}}",
-        "min": "-1000",
-        "max": "1000",
-        "step": "0.01",
-        "className": "",
-        "x": 755,
-        "y": 360,
-        "wires": [
-            [
-                "e1f8a85890d565e8"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "f0e9726a7e9db3cb",
-        "type": "ui_numeric",
-        "z": "b83fb43068cdf48f",
-        "name": "Ki",
-        "label": "",
-        "tooltip": "",
-        "group": "a91f3f1520863187",
-        "order": 21,
-        "width": 5,
-        "height": 1,
-        "wrap": false,
-        "passthru": false,
-        "topic": "topic",
-        "topicType": "msg",
-        "format": "Ki{{msg.payload}}",
-        "min": "-1000",
-        "max": "1000",
-        "step": "0.01",
-        "className": "",
-        "x": 755,
-        "y": 380,
-        "wires": [
-            [
-                "05e45c99b2ce990a"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "562413ea1577bce5",
-        "type": "ui_numeric",
-        "z": "b83fb43068cdf48f",
-        "name": "Kd",
-        "label": "",
-        "tooltip": "",
-        "group": "a91f3f1520863187",
-        "order": 26,
-        "width": 5,
-        "height": 1,
-        "wrap": false,
-        "passthru": false,
-        "topic": "topic",
-        "topicType": "msg",
-        "format": "Kd{{msg.payload}}",
-        "min": "-1000",
-        "max": "1000",
-        "step": "0.01",
-        "className": "",
-        "x": 755,
-        "y": 400,
-        "wires": [
-            [
-                "96d9ca4a298d0a70"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "92ddf9e5188bd64e",
-        "type": "link in",
-        "z": "b83fb43068cdf48f",
-        "name": "process in",
-        "links": [
-            "bee9b0aaa92de05c",
-            "b533e4fa8c93b24a"
-        ],
-        "x": 75,
-        "y": 440,
-        "wires": [
-            [
-                "425ae74daf907ee2"
-            ]
-        ]
-    },
-    {
-        "id": "f105876bb8452e6f",
-        "type": "change",
-        "z": "b83fb43068cdf48f",
-        "name": "set zone",
-        "rules": [
-            {
-                "t": "set",
-                "p": "pid.selected_zone",
-                "pt": "global",
-                "to": "payload",
-                "tot": "msg"
-            },
-            {
-                "t": "delete",
-                "p": "payload",
-                "pt": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 815,
-        "y": 500,
-        "wires": [
-            [
-                "362eeead535475d1"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "299b028606dbaba5",
-        "type": "change",
-        "z": "b83fb43068cdf48f",
-        "name": "get zone",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "pid.selected_zone",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 695,
-        "y": 500,
-        "wires": [
-            [
-                "3145db745f792654"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "463811f49227d71d",
-        "type": "function",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nmsg.payload = global.get('pid.zone[' + selected_zone + '].settings.tuned.gain.Kp') || 0\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 695,
-        "y": 360,
-        "wires": [
-            [
-                "2f8672009c6d6836"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "72a2a0f74ba06894",
-        "type": "function",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nmsg.payload = global.get('pid.zone[' + selected_zone + '].settings.tuned.gain.Ki') || 0\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 695,
-        "y": 380,
-        "wires": [
-            [
-                "f0e9726a7e9db3cb"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "4901de71268c6dc2",
-        "type": "function",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nmsg.payload = global.get('pid.zone[' + selected_zone + '].settings.tuned.gain.Kd') || 0\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 695,
-        "y": 400,
-        "wires": [
-            [
-                "562413ea1577bce5"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "ad72ca96abbbda04",
-        "type": "function",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nmsg.payload = global.get('pid.zone[' + selected_zone + '].parameters.setpoint') || 0\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 695,
-        "y": 480,
-        "wires": [
-            []
-        ],
-        "l": false
-    },
-    {
-        "id": "e1f8a85890d565e8",
-        "type": "function",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nglobal.set('pid.zone[' + selected_zone + '].settings.tuned.gain.Kp', msg.payload)\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 815,
-        "y": 360,
-        "wires": [
-            []
-        ],
-        "l": false
-    },
-    {
-        "id": "05e45c99b2ce990a",
-        "type": "function",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nglobal.set('pid.zone[' + selected_zone + '].settings.tuned.gain.Ki', msg.payload)\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 815,
-        "y": 380,
-        "wires": [
-            []
-        ],
-        "l": false
-    },
-    {
-        "id": "96d9ca4a298d0a70",
-        "type": "function",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nglobal.set('pid.zone[' + selected_zone + '].settings.tuned.gain.Kd', msg.payload)\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 815,
-        "y": 400,
-        "wires": [
-            []
-        ],
-        "l": false
-    },
-    {
-        "id": "dc7fd3f39f82034f",
-        "type": "function",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nglobal.set('pid.zone[' + selected_zone + '].parameters.setpoint', msg.payload)\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 815,
-        "y": 480,
-        "wires": [
-            []
-        ],
-        "l": false
-    },
-    {
-        "id": "27787572425fc29d",
-        "type": "function",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nglobal.set('pid.zone[' + selected_zone + '].autotune.active', true)\nmsg.setpoint = global.get('pid.zone[' + selected_zone + '].autotune.setpoint') || 0\nmsg.topic = 'temp-BK'\nmsg.cmd = 'start'\nmsg.payload = 0\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 135,
-        "y": 360,
-        "wires": [
-            [
-                "70c0bc1ae3c6d12d"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "c3273409af651b10",
-        "type": "function",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nglobal.set('pid.zone[' + selected_zone + '].autotune.active', false)\nmsg.cmd = 'stop'\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 135,
-        "y": 400,
-        "wires": [
-            [
-                "70c0bc1ae3c6d12d"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "1f4cc5c39e564a05",
-        "type": "function",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nglobal.set('pid.zone[' + selected_zone + '].autotune.active', false)\n\nif (msg.state == 'succeeded') {\n    global.set('pid.zone[' + selected_zone + '].settings.tuned.gain.Kp', msg.payload.Kp)\n    global.set('pid.zone[' + selected_zone + '].settings.tuned.gain.Ki', msg.payload.Ki)\n    global.set('pid.zone[' + selected_zone + '].settings.tuned.gain.Kd', msg.payload.Kd)\n} \n\nvar msg_out = { enabled: true } // enable any dashboard ui\nreturn msg_out",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 275,
-        "y": 360,
-        "wires": [
-            [
-                "ba4e7459b18e1a54"
-            ]
-        ],
-        "l": false
-    },
-    {
         "id": "b0cf339b6f16ca16",
         "type": "change",
         "z": "b83fb43068cdf48f",
@@ -6817,47 +6227,27 @@
         "l": false
     },
     {
-        "id": "101e026ab1295209",
-        "type": "function",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nvar Kp = global.get('pid.zone[' + selected_zone + '].settings.tuned.gain.Kp') || 0\nvar Ki = global.get('pid.zone[' + selected_zone + '].settings.tuned.gain.Ki') || 0\nvar Kd = global.get('pid.zone[' + selected_zone + '].settings.tuned.gain.Kd') || 0\n//global.set('pid.zone[' + selected_zone + '].settings.accepted.gain.Kp', Kp)\n//global.set('pid.zone[' + selected_zone + '].settings.accepted.gain.Ki', Ki)\n//global.set('pid.zone[' + selected_zone + '].settings.accepted.gain.Kd', Kd)\nglobal.set('pid.zone[' + selected_zone + '].settings.accepted.time.PB', 100/Kp)\nglobal.set('pid.zone[' + selected_zone + '].settings.accepted.time.Ti', Kp/Ki)\nglobal.set('pid.zone[' + selected_zone + '].settings.accepted.time.Td', Kd/Kp)\n\nreturn msg;\n\n//https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z0000019L5TSAU&l=en-US\n//https://www.controleng.com/articles/understanding-derivative-in-pid-control/\n//https://en.wikipedia.org/wiki/PID_controller",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 815,
-        "y": 520,
-        "wires": [
-            [
-                "6c642e204f07ada4"
-            ]
-        ],
-        "l": false
-    },
-    {
         "id": "6f0a2b0420a217c6",
         "type": "ui_numeric",
         "z": "b83fb43068cdf48f",
-        "name": "Pb",
-        "label": "",
+        "name": "Pb0",
+        "label": "Pb",
         "tooltip": "",
         "group": "a91f3f1520863187",
-        "order": 18,
+        "order": 8,
         "width": 5,
         "height": 1,
         "wrap": false,
         "passthru": false,
         "topic": "topic",
         "topicType": "msg",
-        "format": "Pb{{msg.payload}}",
+        "format": "{{msg.payload}}",
         "min": "-1000",
         "max": "1000",
         "step": "0.01",
         "className": "",
-        "x": 755,
-        "y": 420,
+        "x": 245,
+        "y": 660,
         "wires": [
             [
                 "16d2b807c8911037"
@@ -6869,24 +6259,24 @@
         "id": "2e2d8b482044aceb",
         "type": "ui_numeric",
         "z": "b83fb43068cdf48f",
-        "name": "Ti",
-        "label": "",
+        "name": "Ti0",
+        "label": "Ti",
         "tooltip": "",
         "group": "a91f3f1520863187",
-        "order": 23,
+        "order": 9,
         "width": 5,
         "height": 1,
         "wrap": false,
         "passthru": false,
         "topic": "topic",
         "topicType": "msg",
-        "format": "Ti{{msg.payload}}",
+        "format": "{{msg.payload}}",
         "min": "-1000",
         "max": "1000",
         "step": "0.01",
         "className": "",
-        "x": 755,
-        "y": 440,
+        "x": 245,
+        "y": 680,
         "wires": [
             [
                 "b3278848da3d3187"
@@ -6898,24 +6288,24 @@
         "id": "59104e20fbde50f9",
         "type": "ui_numeric",
         "z": "b83fb43068cdf48f",
-        "name": "Td",
+        "name": "Td0",
         "label": "",
-        "tooltip": "",
+        "tooltip": "Td",
         "group": "a91f3f1520863187",
-        "order": 28,
+        "order": 10,
         "width": 5,
         "height": 1,
         "wrap": false,
         "passthru": false,
         "topic": "topic",
         "topicType": "msg",
-        "format": "Td{{msg.payload}}",
+        "format": "{{msg.payload}}",
         "min": "-1000",
         "max": "1000",
         "step": "0.01",
         "className": "",
-        "x": 755,
-        "y": 460,
+        "x": 245,
+        "y": 700,
         "wires": [
             [
                 "72e5604feb0fec41"
@@ -6928,14 +6318,14 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nmsg.payload = global.get('pid.zone[' + selected_zone + '].settings.accepted.time.PB') || 0\nreturn msg;",
+        "func": "var selected_zone = 0//global.get('pid.selected_zone') || 0\nmsg.payload = global.get('pid.zone[' + selected_zone + '].settings.accepted.time.PB') || 0\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 695,
-        "y": 420,
+        "x": 185,
+        "y": 660,
         "wires": [
             [
                 "6f0a2b0420a217c6"
@@ -6948,14 +6338,14 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nmsg.payload = global.get('pid.zone[' + selected_zone + '].settings.accepted.time.Ti') || 0\nreturn msg;",
+        "func": "var selected_zone = 0//global.get('pid.selected_zone') || 0\nmsg.payload = global.get('pid.zone[' + selected_zone + '].settings.accepted.time.Ti') || 0\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 695,
-        "y": 440,
+        "x": 185,
+        "y": 680,
         "wires": [
             [
                 "2e2d8b482044aceb"
@@ -6968,14 +6358,14 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nmsg.payload = global.get('pid.zone[' + selected_zone + '].settings.accepted.time.Td') || 0\nreturn msg;",
+        "func": "var selected_zone = 0//global.get('pid.selected_zone') || 0\nmsg.payload = global.get('pid.zone[' + selected_zone + '].settings.accepted.time.Td') || 0\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 695,
-        "y": 460,
+        "x": 185,
+        "y": 700,
         "wires": [
             [
                 "59104e20fbde50f9"
@@ -6988,14 +6378,14 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nglobal.set('pid.zone[' + selected_zone + '].settings.accepted.time.PB', msg.payload)\nreturn msg;",
+        "func": "var selected_zone = 0//global.get('pid.selected_zone') || 0\nglobal.set('pid.zone[' + selected_zone + '].settings.accepted.time.PB', msg.payload)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 815,
-        "y": 420,
+        "x": 305,
+        "y": 660,
         "wires": [
             []
         ],
@@ -7006,14 +6396,14 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nglobal.set('pid.zone[' + selected_zone + '].settings.accepted.time.Ti', msg.payload)\nreturn msg;",
+        "func": "var selected_zone = 0//global.get('pid.selected_zone') || 0\nglobal.set('pid.zone[' + selected_zone + '].settings.accepted.time.Ti', msg.payload)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 815,
-        "y": 440,
+        "x": 305,
+        "y": 680,
         "wires": [
             []
         ],
@@ -7024,32 +6414,18 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nglobal.set('pid.zone[' + selected_zone + '].settings.accepted.time.Td', msg.payload)\nreturn msg;",
+        "func": "var selected_zone = 0//global.get('pid.selected_zone') || 0\nglobal.set('pid.zone[' + selected_zone + '].settings.accepted.time.Td', msg.payload)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 815,
-        "y": 460,
+        "x": 305,
+        "y": 700,
         "wires": [
             []
         ],
         "l": false
-    },
-    {
-        "id": "6c642e204f07ada4",
-        "type": "link out",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "mode": "link",
-        "links": [
-            "598a311988e79e25",
-            "9ace848fd4fa953c"
-        ],
-        "x": 875,
-        "y": 520,
-        "wires": []
     },
     {
         "id": "fc98fd801ee9ea69",
@@ -7103,7 +6479,7 @@
         "group": "a91f3f1520863187",
         "order": 1,
         "width": 11,
-        "height": 4,
+        "height": 6,
         "label": "Upper",
         "chartType": "line",
         "legend": "true",
@@ -7133,8 +6509,8 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 795,
-        "y": 620,
+        "x": 325,
+        "y": 380,
         "wires": [
             []
         ],
@@ -7151,8 +6527,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 695,
-        "y": 660,
+        "x": 225,
+        "y": 420,
         "wires": [
             [
                 "edf4d60398ebee66",
@@ -7172,8 +6548,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 695,
-        "y": 680,
+        "x": 225,
+        "y": 440,
         "wires": [
             [
                 "edf4d60398ebee66",
@@ -7193,8 +6569,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 695,
-        "y": 700,
+        "x": 225,
+        "y": 460,
         "wires": [
             [
                 "edf4d60398ebee66",
@@ -7214,8 +6590,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 695,
-        "y": 740,
+        "x": 225,
+        "y": 500,
         "wires": [
             [
                 "edf4d60398ebee66"
@@ -7243,8 +6619,8 @@
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "date",
-        "x": 635,
-        "y": 740,
+        "x": 165,
+        "y": 500,
         "wires": [
             [
                 "2ba532e7faaaf05f"
@@ -7302,132 +6678,17 @@
         "l": false
     },
     {
-        "id": "3145db745f792654",
-        "type": "ui_dropdown",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "label": "Zone",
-        "tooltip": "",
-        "place": "Select zone",
-        "group": "a91f3f1520863187",
-        "order": 13,
-        "width": 4,
-        "height": 1,
-        "passthru": false,
-        "multiple": false,
-        "options": [
-            {
-                "label": "Upper",
-                "value": 0,
-                "type": "num"
-            },
-            {
-                "label": "Lower",
-                "value": 1,
-                "type": "num"
-            }
-        ],
-        "payload": "",
-        "topic": "topic",
-        "topicType": "msg",
-        "className": "",
-        "x": 755,
-        "y": 500,
-        "wires": [
-            [
-                "f105876bb8452e6f"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "9ace848fd4fa953c",
-        "type": "link in",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "links": [
-            "362eeead535475d1",
-            "6c642e204f07ada4"
-        ],
-        "x": 575,
-        "y": 360,
-        "wires": [
-            [
-                "463811f49227d71d",
-                "72a2a0f74ba06894",
-                "4901de71268c6dc2",
-                "ad72ca96abbbda04",
-                "89b465e16b59498c",
-                "421e168f1e21c8eb",
-                "2e3cae4209b2ada3",
-                "9e758dbc39404bb8",
-                "264235440a742302"
-            ]
-        ]
-    },
-    {
-        "id": "362eeead535475d1",
-        "type": "link out",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "mode": "link",
-        "links": [
-            "9ace848fd4fa953c"
-        ],
-        "x": 875,
-        "y": 500,
-        "wires": []
-    },
-    {
-        "id": "ba4e7459b18e1a54",
-        "type": "link out",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "mode": "link",
-        "links": [
-            "c825648e000f6977"
-        ],
-        "x": 335,
-        "y": 360,
-        "wires": []
-    },
-    {
-        "id": "c825648e000f6977",
-        "type": "link in",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "links": [
-            "a2cccb12b627c0e7",
-            "ba4e7459b18e1a54"
-        ],
-        "x": 575,
-        "y": 560,
-        "wires": [
-            [
-                "463811f49227d71d",
-                "72a2a0f74ba06894",
-                "4901de71268c6dc2",
-                "2e3cae4209b2ada3",
-                "421e168f1e21c8eb",
-                "89b465e16b59498c",
-                "ad72ca96abbbda04",
-                "299b028606dbaba5",
-                "9e758dbc39404bb8",
-                "264235440a742302"
-            ]
-        ]
-    },
-    {
         "id": "a2cccb12b627c0e7",
         "type": "link out",
         "z": "b83fb43068cdf48f",
         "name": "",
         "mode": "link",
         "links": [
-            "c825648e000f6977"
+            "3bdb187897a23e15",
+            "03c0ca76b29b0190"
         ],
-        "x": 575,
-        "y": 440,
+        "x": 595,
+        "y": 600,
         "wires": []
     },
     {
@@ -7443,24 +6704,6 @@
         "libs": [],
         "x": 535,
         "y": 20,
-        "wires": [
-            []
-        ],
-        "l": false
-    },
-    {
-        "id": "4f6c495a3f7424e0",
-        "type": "function",
-        "z": "b83fb43068cdf48f",
-        "name": "set control if auto tune active",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nif (global.get('pid.zone[' + selected_zone + '].autotune.active')) {\n    global.set('pid.zone[' + selected_zone + '].parameters.control', msg.payload)\n    return msg;\n}",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 275,
-        "y": 400,
         "wires": [
             []
         ],
@@ -7494,16 +6737,6 @@
         "info": "",
         "x": 80,
         "y": 220,
-        "wires": []
-    },
-    {
-        "id": "f7bef6a806c015d4",
-        "type": "comment",
-        "z": "b83fb43068cdf48f",
-        "name": "auto tune",
-        "info": "",
-        "x": 80,
-        "y": 320,
         "wires": []
     },
     {
@@ -7874,95 +7107,13 @@
         "z": "b83fb43068cdf48f",
         "name": "",
         "links": [],
-        "x": 635,
-        "y": 740,
+        "x": 165,
+        "y": 500,
         "wires": [
             [
                 "2ba532e7faaaf05f"
             ]
         ]
-    },
-    {
-        "id": "9e758dbc39404bb8",
-        "type": "function",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nmsg.payload = global.get('pid.zone[' + selected_zone + '].autotune.setpoint') || 0\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 695,
-        "y": 540,
-        "wires": [
-            []
-        ],
-        "l": false
-    },
-    {
-        "id": "d90c5421811f3d01",
-        "type": "function",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nglobal.set('pid.zone[' + selected_zone + '].autotune.setpoint', msg.payload)\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 815,
-        "y": 540,
-        "wires": [
-            []
-        ],
-        "l": false
-    },
-    {
-        "id": "53f27879023bc849",
-        "type": "comment",
-        "z": "b83fb43068cdf48f",
-        "name": "dashboard",
-        "info": "",
-        "x": 540,
-        "y": 320,
-        "wires": []
-    },
-    {
-        "id": "264235440a742302",
-        "type": "function",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nmsg.payload = global.get('pid.zone[' + selected_zone + '].id') || 0\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 695,
-        "y": 560,
-        "wires": [
-            []
-        ],
-        "l": false
-    },
-    {
-        "id": "7a6d3d40ee58594a",
-        "type": "function",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "func": "var selected_zone = global.get('pid.selected_zone') || 0\nglobal.set('pid.zone[' + selected_zone + '].id', msg.payload)\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 815,
-        "y": 560,
-        "wires": [
-            []
-        ],
-        "l": false
     },
     {
         "id": "26cb94d0aa740af8",
@@ -8115,23 +7266,6 @@
         "l": false
     },
     {
-        "id": "287e0e0ceab0f3df",
-        "type": "link in",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "links": [
-            "b533e4fa8c93b24a",
-            "bee9b0aaa92de05c"
-        ],
-        "x": 575,
-        "y": 480,
-        "wires": [
-            [
-                "ad72ca96abbbda04"
-            ]
-        ]
-    },
-    {
         "id": "989fbf5d083c48b4",
         "type": "switch",
         "z": "b83fb43068cdf48f",
@@ -8148,8 +7282,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 455,
-        "y": 440,
+        "x": 475,
+        "y": 600,
         "wires": [
             [
                 "b6c91fa96dfbfdb5"
@@ -8184,8 +7318,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 3,
-        "x": 515,
-        "y": 440,
+        "x": 535,
+        "y": 600,
         "wires": [
             [],
             [
@@ -8205,8 +7339,8 @@
         "links": [
             "0d7362ca2edd72c6"
         ],
-        "x": 430,
-        "y": 540,
+        "x": 350,
+        "y": 600,
         "wires": [
             [
                 "989fbf5d083c48b4"
@@ -8332,8 +7466,8 @@
         "format": "<font color=\"orange\" size=\"+1\">{{msg.payload}}</font>",
         "layout": "row-spread",
         "className": "",
-        "x": 845,
-        "y": 660,
+        "x": 375,
+        "y": 420,
         "wires": [],
         "l": false
     },
@@ -8348,8 +7482,8 @@
         "round": "2",
         "mult": "single",
         "reduce": false,
-        "x": 795,
-        "y": 660,
+        "x": 325,
+        "y": 420,
         "wires": [
             [
                 "f5b7bf9f52b6d5d5"
@@ -8368,8 +7502,8 @@
         "round": "2",
         "mult": "single",
         "reduce": false,
-        "x": 795,
-        "y": 680,
+        "x": 325,
+        "y": 440,
         "wires": [
             [
                 "5c8d96a584897098"
@@ -8388,8 +7522,8 @@
         "round": "2",
         "mult": "single",
         "reduce": false,
-        "x": 795,
-        "y": 700,
+        "x": 325,
+        "y": 460,
         "wires": [
             [
                 "8db3ca485d930835"
@@ -8402,7 +7536,7 @@
         "type": "ui_text",
         "z": "b83fb43068cdf48f",
         "group": "a91f3f1520863187",
-        "order": 4,
+        "order": 5,
         "width": 3,
         "height": 1,
         "name": "process0",
@@ -8410,8 +7544,8 @@
         "format": "<font color=\"red\" size=\"+1\">{{msg.payload}}</font>",
         "layout": "row-spread",
         "className": "",
-        "x": 845,
-        "y": 680,
+        "x": 375,
+        "y": 440,
         "wires": [],
         "l": false
     },
@@ -8420,7 +7554,7 @@
         "type": "ui_text",
         "z": "b83fb43068cdf48f",
         "group": "a91f3f1520863187",
-        "order": 5,
+        "order": 7,
         "width": 3,
         "height": 1,
         "name": "control0",
@@ -8428,71 +7562,10 @@
         "format": "<font color=\"green\" size=\"+1\">{{msg.payload}}</font>",
         "layout": "row-spread",
         "className": "",
-        "x": 845,
-        "y": 700,
+        "x": 375,
+        "y": 460,
         "wires": [],
         "l": false
-    },
-    {
-        "id": "b2de9d3951969786",
-        "type": "inject",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 160,
-        "y": 640,
-        "wires": [
-            [
-                "91f6f616ee3d5a11"
-            ]
-        ]
-    },
-    {
-        "id": "91f6f616ee3d5a11",
-        "type": "change",
-        "z": "b83fb43068cdf48f",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "pid.zone[0].parameters.setpoint",
-                "pt": "global",
-                "to": "400",
-                "tot": "num"
-            },
-            {
-                "t": "set",
-                "p": "pid.zone[1].parameters.setpoint",
-                "pt": "global",
-                "to": "400",
-                "tot": "num"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 340,
-        "y": 640,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "df154adfaea23440",
@@ -8502,8 +7575,8 @@
         "links": [
             "62eccecdbb37e6f8"
         ],
-        "x": 545,
-        "y": 660,
+        "x": 75,
+        "y": 420,
         "wires": [
             [
                 "378ee9c8dcb596d6"
@@ -8528,8 +7601,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 605,
-        "y": 660,
+        "x": 135,
+        "y": 420,
         "wires": [
             [
                 "422b0453aa8d2e2b",
@@ -8545,9 +7618,9 @@
         "z": "b83fb43068cdf48f",
         "name": "lower",
         "group": "a91f3f1520863187",
-        "order": 6,
+        "order": 11,
         "width": 11,
-        "height": 4,
+        "height": 6,
         "label": "Lower",
         "chartType": "line",
         "legend": "true",
@@ -8577,8 +7650,8 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 795,
-        "y": 800,
+        "x": 785,
+        "y": 380,
         "wires": [
             []
         ],
@@ -8595,8 +7668,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 695,
-        "y": 840,
+        "x": 685,
+        "y": 420,
         "wires": [
             [
                 "01c82c3fcd673a88",
@@ -8616,8 +7689,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 695,
-        "y": 860,
+        "x": 685,
+        "y": 440,
         "wires": [
             [
                 "01c82c3fcd673a88",
@@ -8637,8 +7710,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 695,
-        "y": 880,
+        "x": 685,
+        "y": 460,
         "wires": [
             [
                 "01c82c3fcd673a88",
@@ -8658,8 +7731,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 695,
-        "y": 920,
+        "x": 685,
+        "y": 500,
         "wires": [
             [
                 "01c82c3fcd673a88"
@@ -8687,8 +7760,8 @@
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "date",
-        "x": 635,
-        "y": 920,
+        "x": 625,
+        "y": 500,
         "wires": [
             [
                 "383dba893f4ab1c6"
@@ -8702,8 +7775,8 @@
         "z": "b83fb43068cdf48f",
         "name": "",
         "links": [],
-        "x": 635,
-        "y": 920,
+        "x": 625,
+        "y": 500,
         "wires": [
             [
                 "383dba893f4ab1c6"
@@ -8715,7 +7788,7 @@
         "type": "ui_text",
         "z": "b83fb43068cdf48f",
         "group": "a91f3f1520863187",
-        "order": 8,
+        "order": 13,
         "width": 3,
         "height": 1,
         "name": "setpoint1",
@@ -8723,8 +7796,8 @@
         "format": "<font color=\"orange\" size=\"+1\">{{msg.payload}}</font>",
         "layout": "row-spread",
         "className": "",
-        "x": 845,
-        "y": 840,
+        "x": 835,
+        "y": 420,
         "wires": [],
         "l": false
     },
@@ -8739,8 +7812,8 @@
         "round": "2",
         "mult": "single",
         "reduce": false,
-        "x": 795,
-        "y": 840,
+        "x": 785,
+        "y": 420,
         "wires": [
             [
                 "96cfa23c2e558653"
@@ -8759,8 +7832,8 @@
         "round": "2",
         "mult": "single",
         "reduce": false,
-        "x": 795,
-        "y": 860,
+        "x": 785,
+        "y": 440,
         "wires": [
             [
                 "6867f9c79e7bd220"
@@ -8779,8 +7852,8 @@
         "round": "2",
         "mult": "single",
         "reduce": false,
-        "x": 795,
-        "y": 880,
+        "x": 785,
+        "y": 460,
         "wires": [
             [
                 "01a94eb11931f84d"
@@ -8793,7 +7866,7 @@
         "type": "ui_text",
         "z": "b83fb43068cdf48f",
         "group": "a91f3f1520863187",
-        "order": 9,
+        "order": 15,
         "width": 3,
         "height": 1,
         "name": "process1",
@@ -8801,8 +7874,8 @@
         "format": "<font color=\"red\" size=\"+1\">{{msg.payload}}</font>",
         "layout": "row-spread",
         "className": "",
-        "x": 845,
-        "y": 860,
+        "x": 835,
+        "y": 440,
         "wires": [],
         "l": false
     },
@@ -8811,7 +7884,7 @@
         "type": "ui_text",
         "z": "b83fb43068cdf48f",
         "group": "a91f3f1520863187",
-        "order": 10,
+        "order": 17,
         "width": 3,
         "height": 1,
         "name": "control1",
@@ -8819,8 +7892,8 @@
         "format": "<font color=\"green\" size=\"+1\">{{msg.payload}}</font>",
         "layout": "row-spread",
         "className": "",
-        "x": 845,
-        "y": 880,
+        "x": 835,
+        "y": 460,
         "wires": [],
         "l": false
     },
@@ -8832,8 +7905,8 @@
         "links": [
             "62eccecdbb37e6f8"
         ],
-        "x": 545,
-        "y": 840,
+        "x": 535,
+        "y": 420,
         "wires": [
             [
                 "4405ff08301466a2"
@@ -8858,8 +7931,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 605,
-        "y": 840,
+        "x": 595,
+        "y": 420,
         "wires": [
             [
                 "3434d83dd8b79b77",
@@ -8868,6 +7941,243 @@
             ]
         ],
         "l": false
+    },
+    {
+        "id": "0e802ab70e4794eb",
+        "type": "ui_numeric",
+        "z": "b83fb43068cdf48f",
+        "name": "Pb1",
+        "label": "Pb",
+        "tooltip": "",
+        "group": "a91f3f1520863187",
+        "order": 18,
+        "width": 5,
+        "height": 1,
+        "wrap": false,
+        "passthru": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{msg.payload}}",
+        "min": "-1000",
+        "max": "1000",
+        "step": "0.01",
+        "className": "",
+        "x": 695,
+        "y": 660,
+        "wires": [
+            [
+                "26d5a5f8c284feea"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "b84cb104980a25d0",
+        "type": "ui_numeric",
+        "z": "b83fb43068cdf48f",
+        "name": "Ti1",
+        "label": "Ti",
+        "tooltip": "",
+        "group": "a91f3f1520863187",
+        "order": 19,
+        "width": 5,
+        "height": 1,
+        "wrap": false,
+        "passthru": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{msg.payload}}",
+        "min": "-1000",
+        "max": "1000",
+        "step": "0.01",
+        "className": "",
+        "x": 695,
+        "y": 680,
+        "wires": [
+            [
+                "8477ff3c96ee84aa"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "2aed81a24db26c2f",
+        "type": "ui_numeric",
+        "z": "b83fb43068cdf48f",
+        "name": "Td1",
+        "label": "Td",
+        "tooltip": "",
+        "group": "a91f3f1520863187",
+        "order": 20,
+        "width": 5,
+        "height": 1,
+        "wrap": false,
+        "passthru": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{msg.payload}}",
+        "min": "-1000",
+        "max": "1000",
+        "step": "0.01",
+        "className": "",
+        "x": 695,
+        "y": 700,
+        "wires": [
+            [
+                "61ad6ce38c74f3f0"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "e5cf64a8b5854c07",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var selected_zone = 0//global.get('pid.selected_zone') || 0\nmsg.payload = global.get('pid.zone[' + selected_zone + '].settings.accepted.time.PB') || 0\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 635,
+        "y": 660,
+        "wires": [
+            [
+                "0e802ab70e4794eb"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "fa4e6977e6c4f0a1",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var selected_zone = 0//global.get('pid.selected_zone') || 0\nmsg.payload = global.get('pid.zone[' + selected_zone + '].settings.accepted.time.Ti') || 0\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 635,
+        "y": 680,
+        "wires": [
+            [
+                "b84cb104980a25d0"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "6b9a9e52b5241032",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var selected_zone = 0//global.get('pid.selected_zone') || 0\nmsg.payload = global.get('pid.zone[' + selected_zone + '].settings.accepted.time.Td') || 0\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 635,
+        "y": 700,
+        "wires": [
+            [
+                "2aed81a24db26c2f"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "26d5a5f8c284feea",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var selected_zone = 0//global.get('pid.selected_zone') || 0\nglobal.set('pid.zone[' + selected_zone + '].settings.accepted.time.PB', msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 755,
+        "y": 660,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "8477ff3c96ee84aa",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var selected_zone = 0//global.get('pid.selected_zone') || 0\nglobal.set('pid.zone[' + selected_zone + '].settings.accepted.time.Ti', msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 755,
+        "y": 680,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "61ad6ce38c74f3f0",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var selected_zone = 0//global.get('pid.selected_zone') || 0\nglobal.set('pid.zone[' + selected_zone + '].settings.accepted.time.Td', msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 755,
+        "y": 700,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "3bdb187897a23e15",
+        "type": "link in",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "links": [
+            "a2cccb12b627c0e7"
+        ],
+        "x": 535,
+        "y": 660,
+        "wires": [
+            [
+                "e5cf64a8b5854c07",
+                "fa4e6977e6c4f0a1",
+                "6b9a9e52b5241032"
+            ]
+        ]
+    },
+    {
+        "id": "03c0ca76b29b0190",
+        "type": "link in",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "links": [
+            "a2cccb12b627c0e7"
+        ],
+        "x": 85,
+        "y": 660,
+        "wires": [
+            [
+                "2e3cae4209b2ada3",
+                "421e168f1e21c8eb",
+                "89b465e16b59498c"
+            ]
+        ]
     },
     {
         "id": "35573d9f8cb557cc",
