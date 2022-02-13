@@ -11268,7 +11268,7 @@
         "freq": "",
         "out": "out",
         "bcm": true,
-        "x": 440,
+        "x": 600,
         "y": 680,
         "wires": []
     },
@@ -11289,7 +11289,7 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 295,
+        "x": 455,
         "y": 660,
         "wires": [
             [
@@ -11370,7 +11370,7 @@
         "freq": "",
         "out": "out",
         "bcm": true,
-        "x": 440,
+        "x": 600,
         "y": 780,
         "wires": []
     },
@@ -11391,7 +11391,7 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 295,
+        "x": 455,
         "y": 760,
         "wires": [
             [
@@ -11471,7 +11471,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 195,
+        "x": 355,
         "y": 680,
         "wires": [
             [
@@ -11495,7 +11495,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 195,
+        "x": 355,
         "y": 780,
         "wires": [
             [
@@ -13612,7 +13612,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 295,
+        "x": 455,
         "y": 640,
         "wires": [],
         "l": false
@@ -13630,7 +13630,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 295,
+        "x": 455,
         "y": 740,
         "wires": [],
         "l": false
@@ -13760,9 +13760,7 @@
         "x": 135,
         "y": 680,
         "wires": [
-            [
-                "d4cb1a52a4fe0d75"
-            ]
+            []
         ],
         "icon": "node-red/timer.svg"
     },
@@ -13777,11 +13775,29 @@
         "x": 135,
         "y": 780,
         "wires": [
-            [
-                "5bb8a83cadcb2ba3"
-            ]
+            []
         ],
         "icon": "node-red/timer.svg"
+    },
+    {
+        "id": "100246e8654fe664",
+        "type": "inject",
+        "z": "3154c44d1a91de38",
+        "name": "dedicated 1 second timer",
+        "props": [],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 160,
+        "y": 720,
+        "wires": [
+            [
+                "d4cb1a52a4fe0d75",
+                "5bb8a83cadcb2ba3"
+            ]
+        ]
     },
     {
         "id": "1c9e79b136a623e2",
