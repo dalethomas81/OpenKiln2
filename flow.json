@@ -152,7 +152,7 @@
         "name": "Node-Red Editor",
         "link": "NodeRed",
         "icon": "developer_dashboard",
-        "target": "iframe",
+        "target": "newtab",
         "order": 6
     },
     {
