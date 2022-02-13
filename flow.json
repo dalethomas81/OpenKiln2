@@ -7213,7 +7213,7 @@
         "wires": [
             [
                 "edf4d60398ebee66",
-                "5c8d96a584897098"
+                "947d7d167f4f877c"
             ]
         ],
         "l": false
@@ -8416,12 +8416,33 @@
         "height": 1,
         "name": "",
         "label": "Process",
-        "format": "{{msg.payload}}",
+        "format": "<font color=\"green\" size=\"+3\">{{msg.payload}}</font>",
         "layout": "col-center",
         "className": "",
-        "x": 840,
+        "x": 845,
         "y": 660,
-        "wires": []
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "947d7d167f4f877c",
+        "type": "smooth",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "property": "payload",
+        "action": "mean",
+        "count": "1",
+        "round": "2",
+        "mult": "single",
+        "reduce": false,
+        "x": 795,
+        "y": 660,
+        "wires": [
+            [
+                "5c8d96a584897098"
+            ]
+        ],
+        "l": false
     },
     {
         "id": "35573d9f8cb557cc",
