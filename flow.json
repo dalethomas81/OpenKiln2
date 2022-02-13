@@ -8587,6 +8587,67 @@
         "l": false
     },
     {
+        "id": "b2de9d3951969786",
+        "type": "inject",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 640,
+        "wires": [
+            [
+                "91f6f616ee3d5a11"
+            ]
+        ]
+    },
+    {
+        "id": "91f6f616ee3d5a11",
+        "type": "change",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "pid.zone[0].parameters.setpoint",
+                "pt": "global",
+                "to": "400",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "pid.zone[1].parameters.setpoint",
+                "pt": "global",
+                "to": "400",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 340,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
         "id": "35573d9f8cb557cc",
         "type": "function",
         "z": "3154c44d1a91de38",
