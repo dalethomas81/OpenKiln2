@@ -7186,7 +7186,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "clear chart",
-        "func": "var msg_out = {\"payload\":[{\"series\":[],\"data\":[],\"labels\":[]}]};\n\nvar series_data0 = [];\nvar series_data1 = [];\n\nvar data_array = [];\ndata_array[0] = series_data0\ndata_array[1] = series_data1\n\n// \nmsg_out.payload[0].data = data_array\n\nreturn msg_out;",
+        "func": "var blank = []\nmsg_out.payload = blank\n\nreturn msg_out;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
