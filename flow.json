@@ -10817,8 +10817,8 @@
         "z": "3154c44d1a91de38",
         "name": "scale and smooth",
         "info": "",
-        "x": 130,
-        "y": 420,
+        "x": 470,
+        "y": 440,
         "wires": []
     },
     {
@@ -10827,8 +10827,8 @@
         "z": "3154c44d1a91de38",
         "name": "scale and smooth",
         "info": "",
-        "x": 130,
-        "y": 220,
+        "x": 470,
+        "y": 240,
         "wires": []
     },
     {
@@ -11197,24 +11197,6 @@
                 "ea802ed93ceeae42",
                 "79016fc241d79289"
             ]
-        ],
-        "l": false
-    },
-    {
-        "id": "4c14af025a25e74d",
-        "type": "smooth",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "property": "payload",
-        "action": "low",
-        "count": "10",
-        "round": "1",
-        "mult": "single",
-        "reduce": false,
-        "x": 325,
-        "y": 140,
-        "wires": [
-            []
         ],
         "l": false
     },
