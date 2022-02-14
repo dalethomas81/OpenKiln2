@@ -9923,7 +9923,7 @@
         "passthru": false,
         "topic": "topic",
         "topicType": "msg",
-        "format": "{{msg.payload}}",
+        "format": "{{msg.hours}}",
         "min": "1",
         "max": "48",
         "step": 1,
