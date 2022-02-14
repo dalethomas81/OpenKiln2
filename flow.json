@@ -4418,7 +4418,8 @@
         "y": 20,
         "wires": [
             [
-                "b0cf339b6f16ca16"
+                "b0cf339b6f16ca16",
+                "45a06d0cb15ef15c"
             ]
         ],
         "icon": "node-red/timer.svg"
