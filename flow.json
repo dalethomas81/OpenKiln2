@@ -4108,7 +4108,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "initialize variables",
-        "func": "var zone = []\nvar zone_count = 1 // how many pids are we using?\nfor (let index = 0; index < zone_count; index++) {\n    zone.push({ id: '', \n                parameters: { setpoint: 0, control: 0, process: 0 }, \n                settings: { PB: 0, Ti: 0, Td: 0 } })\n}\n\nvar pid = { selected_zone: 0, zone }\n\n// set defaults\nfor (let index = 0; index < zone_count; index++) {\n    pid.zone[index].settings.PB = 21\n    pid.zone[index].settings.Ti = 100\n    pid.zone[index].settings.Td = 2\n}\n\nglobal.set('pid', pid)\nmsg.payload = { pid }\nreturn msg;",
+        "func": "var zone = []\nvar zone_count = 1 // how many pids are we using?\nfor (let index = 0; index < zone_count; index++) {\n    zone.push({ id: '', \n                parameters: { setpoint: 0, control: 0, process: 0 }, \n                settings: { PB: 0, Ti: 0, Td: 0 } })\n}\n\nvar pid = { selected_zone: 0, zone }\n\n// set defaults\nfor (let index = 0; index < zone_count; index++) {\n    pid.zone[index].id = ''\n    pid.zone[index].parameters.setpoint = 0\n    pid.zone[index].parameters.control = 0\n    pid.zone[index].parameters.process = 0\n    pid.zone[index].settings.PB = 20\n    pid.zone[index].settings.Ti = 100\n    pid.zone[index].settings.Td = 2\n}\n\nglobal.set('pid', pid)\nmsg.payload = { pid }\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
