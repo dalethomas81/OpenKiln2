@@ -9995,7 +9995,7 @@
         "height": 1,
         "name": "average",
         "label": "Avg",
-        "format": "<font color=\"green\" size=\"+2\">{{msg.payload}}</font>",
+        "format": "<font color=\"green\" size=\"+3\">{{msg.payload}}</font>",
         "layout": "col-center",
         "className": "",
         "x": 700,
