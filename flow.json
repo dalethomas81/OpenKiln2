@@ -1396,20 +1396,6 @@
             },
             {
                 "t": "set",
-                "p": "#:(memoryOnly)::kiln_01.UpperSetpoint",
-                "pt": "global",
-                "to": "0",
-                "tot": "num"
-            },
-            {
-                "t": "set",
-                "p": "#:(memoryOnly)::kiln_01.LowerSetpoint",
-                "pt": "global",
-                "to": "0",
-                "tot": "num"
-            },
-            {
-                "t": "set",
                 "p": "kiln_01.SimulateTemperature",
                 "pt": "global",
                 "to": "false",
@@ -3596,20 +3582,6 @@
                 "pt": "global",
                 "to": "0",
                 "tot": "num"
-            },
-            {
-                "t": "set",
-                "p": "pid.zone[0].autotune.active",
-                "pt": "global",
-                "to": "false",
-                "tot": "bool"
-            },
-            {
-                "t": "set",
-                "p": "pid.zone[1].autotune.active",
-                "pt": "global",
-                "to": "false",
-                "tot": "bool"
             }
         ],
         "action": "",
@@ -6557,7 +6529,7 @@
         "to": "",
         "reg": false,
         "x": 495,
-        "y": 280,
+        "y": 260,
         "wires": [
             [
                 "6348c0ed609dce8b"
