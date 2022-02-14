@@ -941,7 +941,7 @@
                 "module": "pi-spi"
             }
         ],
-        "x": 195,
+        "x": 315,
         "y": 260,
         "wires": [
             [
@@ -967,7 +967,7 @@
                 "module": "pi-spi"
             }
         ],
-        "x": 195,
+        "x": 315,
         "y": 460,
         "wires": [
             [
@@ -1022,7 +1022,7 @@
         "septopics": false,
         "property": "payload",
         "topi": "topic",
-        "x": 615,
+        "x": 675,
         "y": 380,
         "wires": [
             [
@@ -1043,7 +1043,7 @@
         "septopics": false,
         "property": "payload",
         "topi": "topic",
-        "x": 615,
+        "x": 675,
         "y": 340,
         "wires": [
             [
@@ -1061,7 +1061,7 @@
         "links": [
             "9b6b7f2249d013ba"
         ],
-        "x": 615,
+        "x": 675,
         "y": 300,
         "wires": []
     },
@@ -1074,44 +1074,9 @@
         "links": [
             "4ea9f6ce194f1281"
         ],
-        "x": 615,
+        "x": 675,
         "y": 420,
         "wires": []
-    },
-    {
-        "id": "ea802ed93ceeae42",
-        "type": "change",
-        "z": "3154c44d1a91de38",
-        "name": "sim temps",
-        "rules": [
-            {
-                "t": "set",
-                "p": "#:(memoryOnly)::kiln_01.UpperTemperature",
-                "pt": "global",
-                "to": "#:(memoryOnly)::kiln_01.UpperSetpoint",
-                "tot": "global"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "#:(memoryOnly)::kiln_01.UpperSetpoint",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 355,
-        "y": 340,
-        "wires": [
-            [
-                "bbab6af088f829c2"
-            ]
-        ],
-        "l": false
     },
     {
         "id": "1235c1dcd4711779",
@@ -1137,7 +1102,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 735,
+        "x": 795,
         "y": 340,
         "wires": [
             [
@@ -1170,7 +1135,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 735,
+        "x": 795,
         "y": 380,
         "wires": [
             [
@@ -1213,41 +1178,6 @@
         ]
     },
     {
-        "id": "79016fc241d79289",
-        "type": "change",
-        "z": "3154c44d1a91de38",
-        "name": "sim temps",
-        "rules": [
-            {
-                "t": "set",
-                "p": "#:(memoryOnly)::kiln_01.LowerTemperature",
-                "pt": "global",
-                "to": "#:(memoryOnly)::kiln_01.LowerSetpoint",
-                "tot": "global"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "#:(memoryOnly)::kiln_01.LowerSetpoint",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 355,
-        "y": 380,
-        "wires": [
-            [
-                "acb33ff4507d9a9b"
-            ]
-        ],
-        "l": false
-    },
-    {
         "id": "d76c7ce673b280af",
         "type": "change",
         "z": "3154c44d1a91de38",
@@ -1285,17 +1215,23 @@
         "rules": [
             {
                 "t": "false"
+            },
+            {
+                "t": "true"
             }
         ],
         "checkall": "true",
         "repair": false,
-        "outputs": 1,
+        "outputs": 2,
         "x": 135,
         "y": 360,
         "wires": [
             [
                 "159e09add5a1e1ed",
                 "0402b15e862a2745"
+            ],
+            [
+                "48381e08644719f0"
             ]
         ],
         "l": false
@@ -1314,7 +1250,7 @@
         "retentionPolicyV18Flux": "52w",
         "org": "organisation",
         "bucket": "bucket",
-        "x": 815,
+        "x": 875,
         "y": 360,
         "wires": [],
         "l": false
@@ -1336,7 +1272,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 675,
+        "x": 735,
         "y": 380,
         "wires": [
             [
@@ -1362,7 +1298,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 675,
+        "x": 735,
         "y": 340,
         "wires": [
             [
@@ -1561,7 +1497,7 @@
         "round": "",
         "mult": "single",
         "reduce": false,
-        "x": 545,
+        "x": 575,
         "y": 260,
         "wires": [
             [
@@ -1583,7 +1519,7 @@
         "round": "",
         "mult": "single",
         "reduce": false,
-        "x": 545,
+        "x": 575,
         "y": 460,
         "wires": [
             [
@@ -1653,7 +1589,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 135,
+        "x": 255,
         "y": 260,
         "wires": [
             [
@@ -1681,53 +1617,11 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 135,
+        "x": 255,
         "y": 460,
         "wires": [
             [
                 "90d2df249ed5559d"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "bbab6af088f829c2",
-        "type": "function",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "func": "msg.payload = parseFloat(msg.payload.toFixed(1))\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 415,
-        "y": 340,
-        "wires": [
-            [
-                "dcbc073ea7b777ee",
-                "bd45525a6924a5c5"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "acb33ff4507d9a9b",
-        "type": "function",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "func": "msg.payload = parseFloat(msg.payload.toFixed(1))\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 415,
-        "y": 380,
-        "wires": [
-            [
-                "6c490df17d1de881",
-                "e65201e766b76bfd"
             ]
         ],
         "l": false
@@ -1751,7 +1645,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 615,
+        "x": 675,
         "y": 260,
         "wires": [
             []
@@ -1777,7 +1671,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 615,
+        "x": 675,
         "y": 460,
         "wires": [
             []
@@ -1843,7 +1737,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 485,
+        "x": 515,
         "y": 260,
         "wires": [
             [
@@ -1871,7 +1765,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 425,
+        "x": 455,
         "y": 260,
         "wires": [
             [
@@ -1891,7 +1785,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 485,
+        "x": 515,
         "y": 460,
         "wires": [
             [
@@ -1919,7 +1813,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 425,
+        "x": 455,
         "y": 460,
         "wires": [
             [
@@ -2673,7 +2567,7 @@
         "topic": "topic",
         "outputs": 1,
         "x": 635,
-        "y": 180,
+        "y": 160,
         "wires": [
             [
                 "d7036bba6f2040c6"
@@ -2701,7 +2595,7 @@
         "to": "",
         "reg": false,
         "x": 515,
-        "y": 220,
+        "y": 200,
         "wires": [
             [
                 "babdd556d27c32aa"
@@ -2728,7 +2622,7 @@
         "repair": false,
         "outputs": 2,
         "x": 465,
-        "y": 200,
+        "y": 180,
         "wires": [
             [
                 "6404ddd0204a1536",
@@ -2753,7 +2647,7 @@
         "finalize": "",
         "libs": [],
         "x": 405,
-        "y": 200,
+        "y": 180,
         "wires": [
             [
                 "f484e601c7a47daa"
@@ -2781,7 +2675,7 @@
         "to": "",
         "reg": false,
         "x": 695,
-        "y": 180,
+        "y": 160,
         "wires": [
             []
         ],
@@ -2805,7 +2699,7 @@
         "topic": "topic",
         "outputs": 1,
         "x": 635,
-        "y": 220,
+        "y": 200,
         "wires": [
             [
                 "1baf34e0f140c835"
@@ -2833,7 +2727,7 @@
         "to": "",
         "reg": false,
         "x": 515,
-        "y": 180,
+        "y": 160,
         "wires": [
             [
                 "be6db2014d2266f4"
@@ -2861,7 +2755,7 @@
         "to": "",
         "reg": false,
         "x": 695,
-        "y": 220,
+        "y": 200,
         "wires": [
             []
         ],
@@ -2883,7 +2777,7 @@
         "repair": false,
         "outputs": 1,
         "x": 575,
-        "y": 180,
+        "y": 160,
         "wires": [
             [
                 "babdd556d27c32aa"
@@ -2907,7 +2801,7 @@
         "repair": false,
         "outputs": 1,
         "x": 575,
-        "y": 220,
+        "y": 200,
         "wires": [
             [
                 "be6db2014d2266f4"
@@ -2933,7 +2827,7 @@
         "topic": "topic",
         "outputs": 1,
         "x": 635,
-        "y": 500,
+        "y": 520,
         "wires": [
             [
                 "7da29b2e3863d1aa"
@@ -2961,7 +2855,7 @@
         "to": "",
         "reg": false,
         "x": 515,
-        "y": 540,
+        "y": 560,
         "wires": [
             [
                 "e4959970166cb7b8"
@@ -2988,7 +2882,7 @@
         "repair": false,
         "outputs": 2,
         "x": 465,
-        "y": 520,
+        "y": 540,
         "wires": [
             [
                 "dae562d71b9ae21c",
@@ -3013,7 +2907,7 @@
         "finalize": "",
         "libs": [],
         "x": 405,
-        "y": 520,
+        "y": 540,
         "wires": [
             [
                 "dc3a71b261563fe2"
@@ -3041,7 +2935,7 @@
         "to": "",
         "reg": false,
         "x": 695,
-        "y": 500,
+        "y": 520,
         "wires": [
             []
         ],
@@ -3065,7 +2959,7 @@
         "topic": "topic",
         "outputs": 1,
         "x": 635,
-        "y": 540,
+        "y": 560,
         "wires": [
             [
                 "4bd08057d4fc464e"
@@ -3093,7 +2987,7 @@
         "to": "",
         "reg": false,
         "x": 515,
-        "y": 500,
+        "y": 520,
         "wires": [
             [
                 "ae394a8879fd0b69"
@@ -3121,7 +3015,7 @@
         "to": "",
         "reg": false,
         "x": 695,
-        "y": 540,
+        "y": 560,
         "wires": [
             []
         ],
@@ -3143,7 +3037,7 @@
         "repair": false,
         "outputs": 1,
         "x": 575,
-        "y": 500,
+        "y": 520,
         "wires": [
             [
                 "e4959970166cb7b8"
@@ -3167,7 +3061,7 @@
         "repair": false,
         "outputs": 1,
         "x": 575,
-        "y": 540,
+        "y": 560,
         "wires": [
             [
                 "ae394a8879fd0b69"
@@ -3182,7 +3076,7 @@
         "name": "monitor thermocouple failure",
         "info": "this section of nodes will start a timer when \nthe thermocouple returned data is either\n32 or NaN.\n\nafter the timer has expired the thermocouple\nwill be considered faulty.\n\nwhen the thermocouple begins transmitting \nvalues other than 32 or NaN again another\ntimer will start.\n\nonce this timer expires then the thermocouple\nwill be considered ok again.",
         "x": 580,
-        "y": 200,
+        "y": 180,
         "wires": []
     },
     {
@@ -3192,7 +3086,7 @@
         "name": "monitor thermocouple failure",
         "info": "this section of nodes will start a timer when \nthe thermocouple returned data is either\n32 or NaN.\n\nafter the timer has expired the thermocouple\nwill be considered faulty.\n\nwhen the thermocouple begins transmitting \nvalues other than 32 or NaN again another\ntimer will start.\n\nonce this timer expires then the thermocouple\nwill be considered ok again.",
         "x": 600,
-        "y": 520,
+        "y": 540,
         "wires": []
     },
     {
@@ -3201,17 +3095,7 @@
         "z": "3154c44d1a91de38",
         "name": "data collection",
         "info": "",
-        "x": 680,
-        "y": 360,
-        "wires": []
-    },
-    {
-        "id": "9e92d7c40ff4483a",
-        "type": "comment",
-        "z": "3154c44d1a91de38",
-        "name": "handle simulate temps",
-        "info": "",
-        "x": 440,
+        "x": 740,
         "y": 360,
         "wires": []
     },
@@ -3221,18 +3105,8 @@
         "z": "3154c44d1a91de38",
         "name": "scale and smooth",
         "info": "",
-        "x": 470,
+        "x": 500,
         "y": 440,
-        "wires": []
-    },
-    {
-        "id": "6005d5278907e1eb",
-        "type": "comment",
-        "z": "3154c44d1a91de38",
-        "name": "scale and smooth",
-        "info": "",
-        "x": 470,
-        "y": 240,
         "wires": []
     },
     {
@@ -3556,8 +3430,7 @@
         "y": 360,
         "wires": [
             [
-                "f45e246dbf521446",
-                "d82dade01e8d0ee6"
+                "f45e246dbf521446"
             ]
         ],
         "icon": "node-red/timer.svg"
@@ -3580,31 +3453,6 @@
         "icon": "node-red/timer.svg"
     },
     {
-        "id": "d82dade01e8d0ee6",
-        "type": "switch",
-        "z": "3154c44d1a91de38",
-        "name": "",
-        "property": "kiln_01.SimulateTemperature",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "true"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 275,
-        "y": 360,
-        "wires": [
-            [
-                "ea802ed93ceeae42",
-                "79016fc241d79289"
-            ]
-        ],
-        "l": false
-    },
-    {
         "id": "9d81b4469ecf17ea",
         "type": "smooth",
         "z": "3154c44d1a91de38",
@@ -3615,7 +3463,7 @@
         "round": "",
         "mult": "single",
         "reduce": false,
-        "x": 365,
+        "x": 395,
         "y": 260,
         "wires": [
             [
@@ -3635,7 +3483,7 @@
         "round": "",
         "mult": "single",
         "reduce": false,
-        "x": 365,
+        "x": 395,
         "y": 460,
         "wires": [
             [
@@ -3665,42 +3513,83 @@
         "l": false
     },
     {
-        "id": "2e1e8f3362718246",
-        "type": "influxdb out",
+        "id": "6301f204b9bf6293",
+        "type": "kettle-sim",
         "z": "3154c44d1a91de38",
-        "influxdb": "1a7d214ba0ada216",
         "name": "",
-        "measurement": "Upper_raw",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "home",
-        "precisionV18FluxV20": "ms",
-        "retentionPolicyV18Flux": "52w",
-        "org": "organisation",
-        "bucket": "bucket",
-        "x": 265,
-        "y": 220,
-        "wires": [],
+        "diam": 35,
+        "volume": 40,
+        "temp": 20,
+        "power": "10",
+        "ambientTemp": 20,
+        "x": 315,
+        "y": 340,
+        "wires": [
+            [
+                "9d81b4469ecf17ea"
+            ]
+        ],
         "l": false
     },
     {
-        "id": "d7f2674e4e1753ee",
-        "type": "influxdb out",
+        "id": "76068665ad239a83",
+        "type": "kettle-sim",
         "z": "3154c44d1a91de38",
-        "influxdb": "1a7d214ba0ada216",
         "name": "",
-        "measurement": "Lower_raw",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "home",
-        "precisionV18FluxV20": "ms",
-        "retentionPolicyV18Flux": "52w",
-        "org": "organisation",
-        "bucket": "bucket",
-        "x": 265,
-        "y": 420,
-        "wires": [],
+        "diam": 35,
+        "volume": 40,
+        "temp": 20,
+        "power": "10",
+        "ambientTemp": 20,
+        "x": 315,
+        "y": 380,
+        "wires": [
+            [
+                "b512718ada88364f"
+            ]
+        ],
         "l": false
+    },
+    {
+        "id": "48381e08644719f0",
+        "type": "function",
+        "z": "3154c44d1a91de38",
+        "name": "get cv",
+        "func": "msg.payload = global.get('pid.zone[0].parameters.control')\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 235,
+        "y": 360,
+        "wires": [
+            [
+                "6301f204b9bf6293",
+                "76068665ad239a83"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "9e92d7c40ff4483a",
+        "type": "comment",
+        "z": "3154c44d1a91de38",
+        "name": "handle simulate temps",
+        "info": "",
+        "x": 380,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "6005d5278907e1eb",
+        "type": "comment",
+        "z": "3154c44d1a91de38",
+        "name": "scale and smooth",
+        "info": "",
+        "x": 470,
+        "y": 240,
+        "wires": []
     },
     {
         "id": "0d21e53eb5db0544",
@@ -10405,7 +10294,8 @@
             "a7a9eeb897d0ea64",
             "df154adfaea23440",
             "b3c9ae5df3d92461",
-            "545e40d2b936b0ed"
+            "545e40d2b936b0ed",
+            "8f8970a56c8572b2"
         ],
         "x": 375,
         "y": 520,
