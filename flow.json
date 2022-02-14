@@ -5784,7 +5784,7 @@
         "type": "function",
         "z": "e9cef8706a9cf7f6",
         "name": "set ramp direction",
-        "func": "var upper = global.get('analoginput.input[0].scaled')\nvar lower = global.get('analoginput.input[1].scaled')\nvar average = (upper + lower) / 2.0\n\n//var Setpoint = global.get('kiln_01.Setpoint', 'memoryOnly')\nvar Setpoint = msg.payload.data.segment_settings.setpoint\n\n// determine ramping direction\nif (average > Setpoint) {\n    global.set('kiln_01.RampDirection', 'Decreasing', 'memoryOnly')\n} else {\n    global.set('kiln_01.RampDirection', 'Increasing', 'memoryOnly')\n}\n\n// seed the starting temperature\n//global.set('kiln_01.UpperSetpoint',UpperTemperature, 'memoryOnly')\n//global.set('kiln_01.LowerSetpoint',LowerTemperature, 'memoryOnly')\nglobal.set('pid.zone[0].parameters.setpoint',average)\n\nglobal.set('kiln_01.SetpointReached', false, 'memoryOnly')\n\nmsg.delay = 1000 // set duration between ramp calculations\nreturn msg;",
+        "func": "var upper = global.get('analoginput.input[0].scaled')\nvar lower = global.get('analoginput.input[1].scaled')\nvar average = (upper + lower) / 2.0\n\nvar Setpoint = msg.payload.data.segment_settings.setpoint\n\n// determine ramping direction\nif (average > Setpoint) {\n    global.set('kiln_01.RampDirection', 'Decreasing', 'memoryOnly')\n} else {\n    global.set('kiln_01.RampDirection', 'Increasing', 'memoryOnly')\n}\n\n// seed the starting temperature\nglobal.set('pid.zone[0].parameters.setpoint',average)\n\nglobal.set('kiln_01.SetpointReached', false, 'memoryOnly')\n\nmsg.delay = 1000 // set duration between ramp calculations\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
