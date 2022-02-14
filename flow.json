@@ -6897,6 +6897,26 @@
         "wires": []
     },
     {
+        "id": "e4bd67f2c20a901f",
+        "type": "inject",
+        "z": "e9cef8706a9cf7f6",
+        "name": "rest",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 775,
+        "y": 940,
+        "wires": [
+            [
+                "b79bc4ea4760e612"
+            ]
+        ],
+        "l": false
+    },
+    {
         "id": "b9f05874cb2439dc",
         "type": "catch",
         "z": "592b686edd11b813",
