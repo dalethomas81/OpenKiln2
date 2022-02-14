@@ -7226,7 +7226,8 @@
         "wires": [
             [
                 "ee0291f3aba6669c",
-                "9d81b4469ecf17ea"
+                "9d81b4469ecf17ea",
+                "2e1e8f3362718246"
             ]
         ],
         "l": false
@@ -7252,7 +7253,8 @@
         "wires": [
             [
                 "b439be6284f42bd5",
-                "b512718ada88364f"
+                "b512718ada88364f",
+                "d7f2674e4e1753ee"
             ]
         ],
         "l": false
@@ -9942,6 +9944,44 @@
                 "dd5fa1a2a7edec40"
             ]
         ],
+        "l": false
+    },
+    {
+        "id": "2e1e8f3362718246",
+        "type": "influxdb out",
+        "z": "3154c44d1a91de38",
+        "influxdb": "1a7d214ba0ada216",
+        "name": "",
+        "measurement": "Upper_raw",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "home",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "52w",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 365,
+        "y": 220,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "d7f2674e4e1753ee",
+        "type": "influxdb out",
+        "z": "3154c44d1a91de38",
+        "influxdb": "1a7d214ba0ada216",
+        "name": "",
+        "measurement": "Lower_raw",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "home",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "52w",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 355,
+        "y": 420,
+        "wires": [],
         "l": false
     },
     {
