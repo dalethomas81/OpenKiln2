@@ -4117,7 +4117,9 @@
         "x": 535,
         "y": 20,
         "wires": [
-            []
+            [
+                "246f952ac26911c3"
+            ]
         ],
         "l": false
     },
@@ -4731,6 +4733,78 @@
         "x": 140,
         "y": 280,
         "wires": []
+    },
+    {
+        "id": "246f952ac26911c3",
+        "type": "debug",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 595,
+        "y": 20,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "39c637d35987bf9d",
+        "type": "inject",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 410,
+        "y": 80,
+        "wires": [
+            [
+                "29c27754672f9e75"
+            ]
+        ]
+    },
+    {
+        "id": "29c27754672f9e75",
+        "type": "change",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "pid1.zone[0].id",
+                "pt": "global",
+                "to": "testing",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 80,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "0f56f86bd83c9233",
