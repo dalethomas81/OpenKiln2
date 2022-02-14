@@ -3478,7 +3478,7 @@
         "type": "function",
         "z": "3154c44d1a91de38",
         "name": "get cv",
-        "func": "msg.payload = global.get('pid.zone[0].parameters.control')\nreturn msg;",
+        "func": "msg.payload = global.get('pid.zone[0].parameters.control')\nnode.status({ fill: \"green\", shape: \"dot\", text: msg.payload.toFixed(1) + '%' });\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
