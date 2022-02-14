@@ -1012,7 +1012,7 @@
         "septopics": false,
         "property": "payload",
         "topi": "topic",
-        "x": 595,
+        "x": 635,
         "y": 380,
         "wires": [
             [
@@ -1033,7 +1033,7 @@
         "septopics": false,
         "property": "payload",
         "topi": "topic",
-        "x": 595,
+        "x": 635,
         "y": 340,
         "wires": [
             [
@@ -1051,7 +1051,7 @@
         "links": [
             "9b6b7f2249d013ba"
         ],
-        "x": 715,
+        "x": 755,
         "y": 260,
         "wires": []
     },
@@ -1065,7 +1065,7 @@
             "4ea9f6ce194f1281",
             "1ac212aefe7428f8"
         ],
-        "x": 715,
+        "x": 755,
         "y": 460,
         "wires": []
     },
@@ -1093,7 +1093,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 715,
+        "x": 755,
         "y": 340,
         "wires": [
             [
@@ -1126,7 +1126,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 715,
+        "x": 755,
         "y": 380,
         "wires": [
             [
@@ -1241,7 +1241,7 @@
         "retentionPolicyV18Flux": "52w",
         "org": "organisation",
         "bucket": "bucket",
-        "x": 795,
+        "x": 835,
         "y": 360,
         "wires": [],
         "l": false
@@ -1263,7 +1263,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 655,
+        "x": 695,
         "y": 380,
         "wires": [
             [
@@ -1289,7 +1289,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 655,
+        "x": 695,
         "y": 340,
         "wires": [
             [
@@ -1474,7 +1474,7 @@
         "round": "",
         "mult": "single",
         "reduce": false,
-        "x": 635,
+        "x": 675,
         "y": 260,
         "wires": [
             [
@@ -1495,7 +1495,7 @@
         "round": "",
         "mult": "single",
         "reduce": false,
-        "x": 635,
+        "x": 675,
         "y": 460,
         "wires": [
             [
@@ -1660,7 +1660,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 575,
+        "x": 615,
         "y": 260,
         "wires": [
             [
@@ -1688,7 +1688,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 515,
+        "x": 555,
         "y": 260,
         "wires": [
             [
@@ -1708,7 +1708,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 575,
+        "x": 615,
         "y": 460,
         "wires": [
             [
@@ -1736,7 +1736,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 515,
+        "x": 555,
         "y": 460,
         "wires": [
             [
@@ -2489,7 +2489,7 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 675,
+        "x": 715,
         "y": 160,
         "wires": [
             [
@@ -2517,7 +2517,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 555,
+        "x": 595,
         "y": 200,
         "wires": [
             [
@@ -2544,7 +2544,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 505,
+        "x": 545,
         "y": 180,
         "wires": [
             [
@@ -2569,7 +2569,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 445,
+        "x": 485,
         "y": 180,
         "wires": [
             [
@@ -2597,7 +2597,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 735,
+        "x": 775,
         "y": 160,
         "wires": [
             []
@@ -2621,7 +2621,7 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 675,
+        "x": 715,
         "y": 200,
         "wires": [
             [
@@ -2649,7 +2649,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 555,
+        "x": 595,
         "y": 160,
         "wires": [
             [
@@ -2677,7 +2677,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 735,
+        "x": 775,
         "y": 200,
         "wires": [
             []
@@ -2699,7 +2699,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 615,
+        "x": 655,
         "y": 160,
         "wires": [
             [
@@ -2723,7 +2723,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 615,
+        "x": 655,
         "y": 200,
         "wires": [
             [
@@ -2749,7 +2749,7 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 675,
+        "x": 715,
         "y": 520,
         "wires": [
             [
@@ -2777,7 +2777,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 555,
+        "x": 595,
         "y": 560,
         "wires": [
             [
@@ -2804,7 +2804,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 505,
+        "x": 545,
         "y": 540,
         "wires": [
             [
@@ -2829,7 +2829,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 445,
+        "x": 485,
         "y": 540,
         "wires": [
             [
@@ -2857,7 +2857,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 735,
+        "x": 775,
         "y": 520,
         "wires": [
             []
@@ -2881,7 +2881,7 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 675,
+        "x": 715,
         "y": 560,
         "wires": [
             [
@@ -2909,7 +2909,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 555,
+        "x": 595,
         "y": 520,
         "wires": [
             [
@@ -2937,7 +2937,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 735,
+        "x": 775,
         "y": 560,
         "wires": [
             []
@@ -2959,7 +2959,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 615,
+        "x": 655,
         "y": 520,
         "wires": [
             [
@@ -2983,7 +2983,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 615,
+        "x": 655,
         "y": 560,
         "wires": [
             [
@@ -2998,7 +2998,7 @@
         "z": "3154c44d1a91de38",
         "name": "monitor thermocouple failure",
         "info": "this section of nodes will start a timer when \nthe thermocouple returned data is either\n32 or NaN.\n\nafter the timer has expired the thermocouple\nwill be considered faulty.\n\nwhen the thermocouple begins transmitting \nvalues other than 32 or NaN again another\ntimer will start.\n\nonce this timer expires then the thermocouple\nwill be considered ok again.",
-        "x": 640,
+        "x": 680,
         "y": 180,
         "wires": []
     },
@@ -3008,7 +3008,7 @@
         "z": "3154c44d1a91de38",
         "name": "monitor thermocouple failure",
         "info": "this section of nodes will start a timer when \nthe thermocouple returned data is either\n32 or NaN.\n\nafter the timer has expired the thermocouple\nwill be considered faulty.\n\nwhen the thermocouple begins transmitting \nvalues other than 32 or NaN again another\ntimer will start.\n\nonce this timer expires then the thermocouple\nwill be considered ok again.",
-        "x": 640,
+        "x": 680,
         "y": 540,
         "wires": []
     },
@@ -3018,7 +3018,7 @@
         "z": "3154c44d1a91de38",
         "name": "data collection",
         "info": "",
-        "x": 660,
+        "x": 700,
         "y": 360,
         "wires": []
     },
@@ -3376,7 +3376,7 @@
         "round": "",
         "mult": "single",
         "reduce": false,
-        "x": 455,
+        "x": 495,
         "y": 260,
         "wires": [
             [
@@ -3396,7 +3396,7 @@
         "round": "",
         "mult": "single",
         "reduce": false,
-        "x": 455,
+        "x": 495,
         "y": 460,
         "wires": [
             [
@@ -3435,12 +3435,11 @@
         "temp": 20,
         "power": "10",
         "ambientTemp": 20,
-        "x": 315,
-        "y": 340,
+        "x": 295,
+        "y": 320,
         "wires": [
             [
-                "9d81b4469ecf17ea",
-                "ee0291f3aba6669c"
+                "5794698bd70d1bfb"
             ]
         ],
         "l": false
@@ -3455,12 +3454,11 @@
         "temp": 20,
         "power": "10",
         "ambientTemp": 20,
-        "x": 315,
-        "y": 380,
+        "x": 295,
+        "y": 400,
         "wires": [
             [
-                "b512718ada88364f",
-                "b439be6284f42bd5"
+                "1fe0499ab7694650"
             ]
         ],
         "l": false
@@ -3476,7 +3474,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 235,
+        "x": 215,
         "y": 360,
         "wires": [
             [
@@ -3487,22 +3485,12 @@
         "l": false
     },
     {
-        "id": "9e92d7c40ff4483a",
-        "type": "comment",
-        "z": "3154c44d1a91de38",
-        "name": "simulate temps",
-        "info": "",
-        "x": 400,
-        "y": 360,
-        "wires": []
-    },
-    {
         "id": "6005d5278907e1eb",
         "type": "comment",
         "z": "3154c44d1a91de38",
         "name": "scale and smooth",
         "info": "",
-        "x": 530,
+        "x": 570,
         "y": 240,
         "wires": []
     },
@@ -3512,8 +3500,60 @@
         "z": "3154c44d1a91de38",
         "name": "scale and smooth",
         "info": "",
-        "x": 530,
+        "x": 570,
         "y": 440,
+        "wires": []
+    },
+    {
+        "id": "5794698bd70d1bfb",
+        "type": "function",
+        "z": "3154c44d1a91de38",
+        "name": "convert c to f",
+        "func": "msg.payload = msg.payload * 9 / 5 + 32\nnode.status({ fill: \"green\", shape: \"dot\", text: msg.payload.toFixed(1) + '°F' });\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 355,
+        "y": 320,
+        "wires": [
+            [
+                "9d81b4469ecf17ea",
+                "ee0291f3aba6669c"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "1fe0499ab7694650",
+        "type": "function",
+        "z": "3154c44d1a91de38",
+        "name": "convert c to f",
+        "func": "msg.payload = msg.payload * 9 / 5 + 32\nnode.status({ fill: \"green\", shape: \"dot\", text: msg.payload.toFixed(1) + '°F' });\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 355,
+        "y": 400,
+        "wires": [
+            [
+                "b512718ada88364f",
+                "b439be6284f42bd5"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "9e92d7c40ff4483a",
+        "type": "comment",
+        "z": "3154c44d1a91de38",
+        "name": "simulate temps",
+        "info": "",
+        "x": 460,
+        "y": 360,
         "wires": []
     },
     {
