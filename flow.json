@@ -9903,8 +9903,7 @@
         "y": 1160,
         "wires": [
             [
-                "fb07d106257c09b8",
-                "e2203b979dc44146"
+                "fb07d106257c09b8"
             ]
         ],
         "l": false
@@ -9929,7 +9928,7 @@
         "max": "48",
         "step": 1,
         "className": "",
-        "x": 455,
+        "x": 415,
         "y": 1220,
         "wires": [
             [
@@ -9957,31 +9956,67 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 515,
+        "x": 475,
         "y": 1220,
         "wires": [
             [
-                "4d9edf60fc1e08d6"
+                "4b1203414e4c5d71"
             ]
         ],
         "l": false
     },
     {
-        "id": "e2203b979dc44146",
-        "type": "debug",
+        "id": "229f6febbb4c59a4",
+        "type": "function",
+        "z": "592b686edd11b813",
+        "name": "clear chart",
+        "func": "msg.payload = []\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 695,
+        "y": 1200,
+        "wires": [
+            [
+                "0ced5c373a61386b"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "4b1203414e4c5d71",
+        "type": "trigger",
         "z": "592b686edd11b813",
         "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 700,
+        "op1": "",
+        "op2": "",
+        "op1type": "nul",
+        "op2type": "pay",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 535,
         "y": 1220,
-        "wires": []
+        "wires": [
+            [
+                "229f6febbb4c59a4"
+            ],
+            [
+                "4d9edf60fc1e08d6"
+            ]
+        ],
+        "outputLabels": [
+            "clear chart",
+            "set hours"
+        ],
+        "l": false
     },
     {
         "id": "1c9e79b136a623e2",
