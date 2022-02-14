@@ -9893,8 +9893,8 @@
         "type": "function",
         "z": "592b686edd11b813",
         "name": "",
-        "func": "if (msg.hours){\n    context.set('hours', msg.hours)\n}\n\nvar hours = context.get('hours') || 12\nmsg.query = 'select * from Kiln_01_UpperTemperature, Kiln_01_LowerTemperature WHERE time > now() - '+hours+'h'\nreturn msg;",
-        "outputs": 1,
+        "func": "if (msg.hours){\n    context.set('hours', msg.hours)\n}\n\nvar hours = context.get('hours') || 12\nmsg.query = 'select * from Kiln_01_UpperTemperature, Kiln_01_LowerTemperature WHERE time > now() - '+hours+'h'\n\nvar msg_hours = {payload: hours} // send the current hours to the numeric input on the dashboard\n\nreturn [msg, msg_hours];",
+        "outputs": 2,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -9904,6 +9904,9 @@
         "wires": [
             [
                 "fb07d106257c09b8"
+            ],
+            [
+                "cfb05576b9df09f6"
             ]
         ],
         "l": false
@@ -9928,7 +9931,7 @@
         "max": "48",
         "step": 1,
         "className": "",
-        "x": 415,
+        "x": 435,
         "y": 1220,
         "wires": [
             [
@@ -9956,7 +9959,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 475,
+        "x": 495,
         "y": 1220,
         "wires": [
             [
@@ -10002,7 +10005,7 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 2,
-        "x": 535,
+        "x": 555,
         "y": 1220,
         "wires": [
             [
