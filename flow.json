@@ -9923,37 +9923,47 @@
         "passthru": false,
         "topic": "topic",
         "topicType": "msg",
-        "format": "{{msg.hours}}",
+        "format": "{{msg.payload}}",
         "min": "1",
         "max": "48",
         "step": 1,
         "className": "",
-        "x": 475,
+        "x": 455,
         "y": 1220,
         "wires": [
             [
-                "4d9edf60fc1e08d6",
-                "73e03de06c53f1ff"
+                "611df55f3094693b"
             ]
         ],
         "l": false
     },
     {
-        "id": "73e03de06c53f1ff",
-        "type": "debug",
+        "id": "611df55f3094693b",
+        "type": "change",
         "z": "592b686edd11b813",
         "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 620,
-        "y": 1240,
-        "wires": []
+        "rules": [
+            {
+                "t": "set",
+                "p": "hours",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 515,
+        "y": 1220,
+        "wires": [
+            [
+                "4d9edf60fc1e08d6"
+            ]
+        ],
+        "l": false
     },
     {
         "id": "1c9e79b136a623e2",
