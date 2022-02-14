@@ -1012,7 +1012,7 @@
         "septopics": false,
         "property": "payload",
         "topi": "topic",
-        "x": 695,
+        "x": 595,
         "y": 380,
         "wires": [
             [
@@ -1033,7 +1033,7 @@
         "septopics": false,
         "property": "payload",
         "topi": "topic",
-        "x": 695,
+        "x": 595,
         "y": 340,
         "wires": [
             [
@@ -1093,7 +1093,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 815,
+        "x": 715,
         "y": 340,
         "wires": [
             [
@@ -1126,7 +1126,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 815,
+        "x": 715,
         "y": 380,
         "wires": [
             [
@@ -1241,7 +1241,7 @@
         "retentionPolicyV18Flux": "52w",
         "org": "organisation",
         "bucket": "bucket",
-        "x": 895,
+        "x": 795,
         "y": 360,
         "wires": [],
         "l": false
@@ -1263,7 +1263,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 755,
+        "x": 655,
         "y": 380,
         "wires": [
             [
@@ -1289,7 +1289,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 755,
+        "x": 655,
         "y": 340,
         "wires": [
             [
@@ -2998,7 +2998,7 @@
         "z": "3154c44d1a91de38",
         "name": "monitor thermocouple failure",
         "info": "this section of nodes will start a timer when \nthe thermocouple returned data is either\n32 or NaN.\n\nafter the timer has expired the thermocouple\nwill be considered faulty.\n\nwhen the thermocouple begins transmitting \nvalues other than 32 or NaN again another\ntimer will start.\n\nonce this timer expires then the thermocouple\nwill be considered ok again.",
-        "x": 620,
+        "x": 640,
         "y": 180,
         "wires": []
     },
@@ -3018,18 +3018,8 @@
         "z": "3154c44d1a91de38",
         "name": "data collection",
         "info": "",
-        "x": 760,
+        "x": 660,
         "y": 360,
-        "wires": []
-    },
-    {
-        "id": "cfb3bf9c5adf407a",
-        "type": "comment",
-        "z": "3154c44d1a91de38",
-        "name": "scale and smooth",
-        "info": "",
-        "x": 560,
-        "y": 440,
         "wires": []
     },
     {
@@ -3500,9 +3490,9 @@
         "id": "9e92d7c40ff4483a",
         "type": "comment",
         "z": "3154c44d1a91de38",
-        "name": "handle simulate temps",
+        "name": "simulate temps",
         "info": "",
-        "x": 380,
+        "x": 400,
         "y": 360,
         "wires": []
     },
@@ -3514,6 +3504,16 @@
         "info": "",
         "x": 530,
         "y": 240,
+        "wires": []
+    },
+    {
+        "id": "cfb3bf9c5adf407a",
+        "type": "comment",
+        "z": "3154c44d1a91de38",
+        "name": "scale and smooth",
+        "info": "",
+        "x": 530,
+        "y": 440,
         "wires": []
     },
     {
