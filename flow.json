@@ -776,7 +776,7 @@
         "height": 1
     },
     {
-        "id": "7bfcad7e26116367",
+        "id": "d898babf5d7ff449",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -786,7 +786,7 @@
         "height": 1
     },
     {
-        "id": "589be80db1bb0af0",
+        "id": "41ea4b75839c2854",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -796,27 +796,27 @@
         "height": 1
     },
     {
-        "id": "1b69fd722ec69da4",
+        "id": "0c007439d2615f95",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
         "group": "a91f3f1520863187",
-        "order": 10,
-        "width": 5,
+        "order": 8,
+        "width": 13,
         "height": 1
     },
     {
-        "id": "d9676d7ab1dff84b",
+        "id": "3a1fce1677ea15ef",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
         "group": "a91f3f1520863187",
-        "order": 11,
+        "order": 12,
         "width": 5,
         "height": 1
     },
     {
-        "id": "eecb075631793d7e",
+        "id": "50b5d7cfbf3f65ed",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -826,17 +826,27 @@
         "height": 1
     },
     {
-        "id": "1bf1f1854efcc195",
+        "id": "eb85dbd4f822623c",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
         "group": "a91f3f1520863187",
-        "order": 14,
+        "order": 15,
         "width": 5,
         "height": 1
     },
     {
-        "id": "60289b5b57017329",
+        "id": "7c749feeddf67470",
+        "type": "ui_spacer",
+        "z": "b83fb43068cdf48f",
+        "name": "spacer",
+        "group": "a91f3f1520863187",
+        "order": 16,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "40f68101c96df095",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -846,7 +856,7 @@
         "height": 1
     },
     {
-        "id": "412b873c0668b1f9",
+        "id": "52abee1121b7c82e",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -856,7 +866,7 @@
         "height": 1
     },
     {
-        "id": "5e07b491c133b517",
+        "id": "4076d3865d6687db",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -866,7 +876,7 @@
         "height": 1
     },
     {
-        "id": "280c5a0d562da4c8",
+        "id": "36be51995195cf5d",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -876,7 +886,7 @@
         "height": 1
     },
     {
-        "id": "8ae60fc3b444aee2",
+        "id": "055533900bcdb98d",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -886,7 +896,7 @@
         "height": 1
     },
     {
-        "id": "d1c6102ad5595d5e",
+        "id": "812785e0c4d63dc5",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -896,7 +906,7 @@
         "height": 1
     },
     {
-        "id": "86b4d23f0a73ca1e",
+        "id": "0dcd5d55cfd05537",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -906,7 +916,7 @@
         "height": 1
     },
     {
-        "id": "9da196694db6da06",
+        "id": "74eb3508d6306c61",
         "type": "ui_spacer",
         "z": "b83fb43068cdf48f",
         "name": "spacer",
@@ -6148,7 +6158,7 @@
         "label": "Ti",
         "tooltip": "",
         "group": "a91f3f1520863187",
-        "order": 8,
+        "order": 9,
         "width": 5,
         "height": 1,
         "wrap": false,
@@ -6177,7 +6187,7 @@
         "label": "Td",
         "tooltip": "",
         "group": "a91f3f1520863187",
-        "order": 9,
+        "order": 11,
         "width": 5,
         "height": 1,
         "wrap": false,
@@ -6360,12 +6370,12 @@
         "id": "edf4d60398ebee66",
         "type": "ui_chart",
         "z": "b83fb43068cdf48f",
-        "name": "upper",
+        "name": "",
         "group": "a91f3f1520863187",
         "order": 1,
         "width": 13,
-        "height": 13,
-        "label": "Upper",
+        "height": 6,
+        "label": "Process vs Setpoint",
         "chartType": "line",
         "legend": "true",
         "xformat": "HH:mm:ss",
@@ -6458,8 +6468,8 @@
         "y": 460,
         "wires": [
             [
-                "edf4d60398ebee66",
-                "27f81d993ca6d85b"
+                "27f81d993ca6d85b",
+                "7e3b7476637fac29"
             ]
         ],
         "l": false
@@ -7126,7 +7136,7 @@
         "z": "b83fb43068cdf48f",
         "name": "",
         "group": "a91f3f1520863187",
-        "order": 12,
+        "order": 14,
         "width": 5,
         "height": 1,
         "passthru": false,
@@ -7146,6 +7156,51 @@
             [
                 "2ba532e7faaaf05f"
             ]
+        ],
+        "l": false
+    },
+    {
+        "id": "7e3b7476637fac29",
+        "type": "ui_chart",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "group": "a91f3f1520863187",
+        "order": 10,
+        "width": 13,
+        "height": 6,
+        "label": "Control",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "bezier",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#2ba02b",
+            "#d62728",
+            "#2ba02b",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 485,
+        "y": 520,
+        "wires": [
+            []
         ],
         "l": false
     },
