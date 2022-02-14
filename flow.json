@@ -1606,7 +1606,7 @@
         "type": "function",
         "z": "3154c44d1a91de38",
         "name": "initialize variables",
-        "func": "\nvar input = []\nvar inputcount = 2\nfor (let index = 0; index < inputcount; index++) {\n    var x = { min: 0.0, max: 0.0 };\n    var y = { min: 0.0, max: 0.0 };\n    var calibration = { x, y, span: 0.0, offset: 0.0 }\n    calibration.x.min = 0.0; calibration.x.max = 0.0; calibration.y.min = 0.0; calibration.y.max = 0.0;\n    calibration.span = 0.0; calibration.offset = 0.0;\n    var obj2 = { HiHi: 0.0, Hi: 0.0, Lo: 0.0, LoLo: 0.0 }\n    var limits = Object.create(obj2)\n    limits.HiHi = 0.0; limits.Hi = 0.0; limits.Lo = 0.0; limits.LoLo = 0.0;\n    var obj3 = { HiHi: false, Hi: false, Lo: false, LoLo: false }\n    var alarms = Object.create(obj3)\n    alarms.HiHi = false; alarms.Hi = false; alarms.Lo = false; alarms.LoLo = false;\n    input.push({ id: '', raw: 0.0, scaled: 0.0, calibration, limits, alarms })\n}\nvar analoginput = { selected_input: 0, input }\nglobal.set('analoginput', analoginput, 'memoryOnly')\nglobal.set('analoginput', analoginput)\nmsg.payload = { analoginput }\nreturn msg;",
+        "func": "var input_ver = 1\n// check if variables initialized\nif (context.get('input_ver') != input_ver) {\n    // set to version so we don't run again\n    context.set('input_ver', input_ver)\n\n    var input = []\n    var inputcount = 2\n    for (let index = 0; index < inputcount; index++) {\n        var x = { min: 0.0, max: 0.0 };\n        var y = { min: 0.0, max: 0.0 };\n        var calibration = { x, y, span: 0.0, offset: 0.0 }\n        calibration.x.min = 0.0; calibration.x.max = 0.0; calibration.y.min = 0.0; calibration.y.max = 0.0;\n        calibration.span = 0.0; calibration.offset = 0.0;\n        var obj2 = { HiHi: 0.0, Hi: 0.0, Lo: 0.0, LoLo: 0.0 }\n        var limits = Object.create(obj2)\n        limits.HiHi = 0.0; limits.Hi = 0.0; limits.Lo = 0.0; limits.LoLo = 0.0;\n        var obj3 = { HiHi: false, Hi: false, Lo: false, LoLo: false }\n        var alarms = Object.create(obj3)\n        alarms.HiHi = false; alarms.Hi = false; alarms.Lo = false; alarms.LoLo = false;\n        input.push({ id: '', raw: 0.0, scaled: 0.0, calibration, limits, alarms })\n    }\n\n    var analoginput = { selected_input: 0, input }\n\n    // set defaults\n    for (let index = 0; index < inputcount; index++) {\n        analoginput.input[index].id = ''\n        analoginput.input[index].raw = 0\n        analoginput.input[index].scaled = 0\n        analoginput.input[index].calibration.x.min = 100\n        analoginput.input[index].calibration.x.max = 1000\n        analoginput.input[index].calibration.y.min = 100\n        analoginput.input[index].calibration.y.max = 1000\n        analoginput.input[index].calibration.span = 1\n        analoginput.input[index].calibration.offset = 0\n        analoginput.input[index].limits.HiHi = 2500\n        analoginput.input[index].limits.Hi = 2300\n        analoginput.input[index].limits.Lo = 32\n        analoginput.input[index].limits.LoLo = 0\n        analoginput.input[index].alarms.HiHi = false\n        analoginput.input[index].alarms.Hi = false\n        analoginput.input[index].alarms.Lo = false\n        analoginput.input[index].alarms.LoLo = false\n    }\n\n    global.set('analoginput', undefined) // clear old structure if present\n    global.set('analoginput', analoginput)\n    msg.payload = { analoginput }\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1615,7 +1615,9 @@
         "x": 535,
         "y": 20,
         "wires": [
-            []
+            [
+                "decc9c1ce74df275"
+            ]
         ],
         "l": false
     },
@@ -3360,7 +3362,8 @@
         "y": 20,
         "wires": [
             [
-                "11d1503b33735b7a"
+                "11d1503b33735b7a",
+                "ba263ec1075b0897"
             ]
         ],
         "icon": "node-red/timer.svg"
@@ -3555,6 +3558,24 @@
         "x": 340,
         "y": 380,
         "wires": []
+    },
+    {
+        "id": "decc9c1ce74df275",
+        "type": "debug",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 595,
+        "y": 20,
+        "wires": [],
+        "l": false
     },
     {
         "id": "0d21e53eb5db0544",
