@@ -5284,7 +5284,7 @@
         "type": "function",
         "z": "e9cef8706a9cf7f6",
         "name": "end and clear segment settings",
-        "func": "global.set('kiln_01.UpperSetpoint', 0, 'memoryOnly')\nglobal.set('kiln_01.LowerSetpoint', 0, 'memoryOnly')\n\nvar topic = \"end\"\nvar segment_settings = {\"name\":\"\",\"enabled\":false,\"hold\":false,\"setpoint\":0,\"ramp_rate\":0,\"soak_time\":0}\nvar data = {segment_settings}\n\nvar msg_out = {topic,data}\n\nreturn msg_out;",
+        "func": "var topic = \"end\"\nvar segment_settings = {\"name\":\"\",\"enabled\":false,\"hold\":false,\"setpoint\":0,\"ramp_rate\":0,\"soak_time\":0}\nvar data = {segment_settings}\n\nvar msg_out = {topic,data}\n\nreturn msg_out;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
