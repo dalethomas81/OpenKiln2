@@ -826,7 +826,7 @@
         "height": 1
     },
     {
-        "id": "01c120452270f279",
+        "id": "4eed5c18f7c6edbe",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -836,7 +836,7 @@
         "height": 1
     },
     {
-        "id": "e768c228a066b028",
+        "id": "17a568c560a82ddf",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -846,7 +846,7 @@
         "height": 1
     },
     {
-        "id": "ced9e9d55d61ab4b",
+        "id": "ec59bb84706dcc0f",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -856,7 +856,7 @@
         "height": 1
     },
     {
-        "id": "c299090a2b2e0cd2",
+        "id": "62549cdb67777cdd",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -866,7 +866,7 @@
         "height": 1
     },
     {
-        "id": "4c9386d5287c9c9d",
+        "id": "2755d06266bc8867",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -876,7 +876,7 @@
         "height": 1
     },
     {
-        "id": "5b6f5121646104f2",
+        "id": "d1a30cc456809ef5",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -886,7 +886,7 @@
         "height": 1
     },
     {
-        "id": "00534620b243a981",
+        "id": "dac262eaa67829d0",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -896,7 +896,7 @@
         "height": 1
     },
     {
-        "id": "199a2116c25e2107",
+        "id": "ecc5d37e42fea82e",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -906,7 +906,7 @@
         "height": 1
     },
     {
-        "id": "0b519e1ede418fd2",
+        "id": "65cb6164919bd651",
         "type": "ui_spacer",
         "z": "592b686edd11b813",
         "name": "spacer",
@@ -7153,38 +7153,6 @@
         "wires": []
     },
     {
-        "id": "219b6df02966d0e3",
-        "type": "ui_text",
-        "z": "592b686edd11b813",
-        "group": "2201d496820b415d",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Segment State",
-        "format": "<font color='green'>{{msg.payload}}</font>",
-        "layout": "row-center",
-        "x": 260,
-        "y": 1020,
-        "wires": []
-    },
-    {
-        "id": "8095bbd934bc130c",
-        "type": "link in",
-        "z": "592b686edd11b813",
-        "name": "Input - Current Segment State",
-        "links": [
-            "fb11495e37bdb84b"
-        ],
-        "x": 135,
-        "y": 1020,
-        "wires": [
-            [
-                "219b6df02966d0e3"
-            ]
-        ]
-    },
-    {
         "id": "1de58add27ec2baf",
         "type": "ui_text",
         "z": "592b686edd11b813",
@@ -7213,38 +7181,6 @@
         "wires": [
             [
                 "1de58add27ec2baf"
-            ]
-        ]
-    },
-    {
-        "id": "2e9532e03f213fb4",
-        "type": "ui_text",
-        "z": "592b686edd11b813",
-        "group": "2201d496820b415d",
-        "order": 5,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Setpoint",
-        "format": "<font color='green'>{{msg.payload}} °F</font>",
-        "layout": "row-center",
-        "x": 240,
-        "y": 1080,
-        "wires": []
-    },
-    {
-        "id": "a8bc30bb3ce76d5e",
-        "type": "link in",
-        "z": "592b686edd11b813",
-        "name": "Input - Status Setpoint",
-        "links": [
-            "edf985d2d969c4b4"
-        ],
-        "x": 135,
-        "y": 1080,
-        "wires": [
-            [
-                "2e9532e03f213fb4"
             ]
         ]
     },
@@ -7401,104 +7337,6 @@
         ]
     },
     {
-        "id": "e5aec5149ce37d5d",
-        "type": "ui_text",
-        "z": "592b686edd11b813",
-        "group": "2201d496820b415d",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Current Segment",
-        "format": "<font color='green'>{{msg.payload}}</font>",
-        "layout": "row-center",
-        "x": 270,
-        "y": 1040,
-        "wires": []
-    },
-    {
-        "id": "1d2a7e1b14ed985d",
-        "type": "link in",
-        "z": "592b686edd11b813",
-        "name": "Input - current segment",
-        "links": [
-            "3ab377921817af3f"
-        ],
-        "x": 135,
-        "y": 1040,
-        "wires": [
-            [
-                "e5aec5149ce37d5d"
-            ]
-        ]
-    },
-    {
-        "id": "f9d4fdfcb6abeb41",
-        "type": "ui_text",
-        "z": "592b686edd11b813",
-        "group": "2201d496820b415d",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Soak Remaining",
-        "format": "<font color='green'>{{msg.payload}} min</font>",
-        "layout": "row-center",
-        "x": 260,
-        "y": 1060,
-        "wires": []
-    },
-    {
-        "id": "bc808949af0e238a",
-        "type": "link in",
-        "z": "592b686edd11b813",
-        "name": "Input - Segment remaining",
-        "links": [
-            "355d9c4e737fdfe5",
-            "9272078ab32e5e81",
-            "f1d4774590c51f3d"
-        ],
-        "x": 135,
-        "y": 1060,
-        "wires": [
-            [
-                "f9d4fdfcb6abeb41"
-            ]
-        ]
-    },
-    {
-        "id": "9b6b7f2249d013ba",
-        "type": "link in",
-        "z": "592b686edd11b813",
-        "name": "Input - Upper Temperature",
-        "links": [
-            "dcbc073ea7b777ee"
-        ],
-        "x": 495,
-        "y": 1020,
-        "wires": [
-            [
-                "5c033d496a14defe"
-            ]
-        ]
-    },
-    {
-        "id": "4ea9f6ce194f1281",
-        "type": "link in",
-        "z": "592b686edd11b813",
-        "name": "Input - Lower Temperature",
-        "links": [
-            "e65201e766b76bfd"
-        ],
-        "x": 495,
-        "y": 1040,
-        "wires": [
-            [
-                "89d865758685abe8"
-            ]
-        ]
-    },
-    {
         "id": "0ced5c373a61386b",
         "type": "ui_chart",
         "z": "592b686edd11b813",
@@ -7506,7 +7344,7 @@
         "group": "2201d496820b415d",
         "order": 10,
         "width": 7,
-        "height": 5,
+        "height": 4,
         "label": "",
         "chartType": "line",
         "legend": "false",
@@ -7535,7 +7373,7 @@
         ],
         "outputs": 1,
         "useDifferentColor": false,
-        "x": 750,
+        "x": 790,
         "y": 1160,
         "wires": [
             []
@@ -7824,12 +7662,11 @@
         "precision": "",
         "retentionPolicy": "",
         "org": "organisation",
-        "x": 595,
+        "x": 635,
         "y": 1160,
         "wires": [
             [
-                "566ce4114146f76d",
-                "b6b40b6814900638"
+                "566ce4114146f76d"
             ]
         ],
         "l": false
@@ -7844,7 +7681,7 @@
                 "t": "set",
                 "p": "query",
                 "pt": "msg",
-                "to": "select * from Kiln_01_UpperTemperature, Kiln_01_LowerTemperature WHERE time > now() - 3h",
+                "to": "select * from Kiln_01_UpperTemperature, Kiln_01_LowerTemperature WHERE time > now() - 12h",
                 "tot": "str"
             }
         ],
@@ -7853,12 +7690,10 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 535,
-        "y": 1160,
+        "x": 575,
+        "y": 1120,
         "wires": [
-            [
-                "fb07d106257c09b8"
-            ]
+            []
         ],
         "l": false
     },
@@ -7873,7 +7708,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 655,
+        "x": 695,
         "y": 1160,
         "wires": [
             [
@@ -8914,7 +8749,7 @@
         "y": 1160,
         "wires": [
             [
-                "a65357c5f5e0b6d3"
+                "4d9edf60fc1e08d6"
             ]
         ],
         "l": false
@@ -9459,40 +9294,6 @@
         "l": false
     },
     {
-        "id": "b6802fc260a8ce06",
-        "type": "ui_text",
-        "z": "592b686edd11b813",
-        "group": "2201d496820b415d",
-        "order": 7,
-        "width": 2,
-        "height": 1,
-        "name": "upper",
-        "label": "Upper",
-        "format": "<font color=\"orange\" size=\"+2\">{{msg.payload}}</font>",
-        "layout": "col-center",
-        "className": "",
-        "x": 690,
-        "y": 1020,
-        "wires": []
-    },
-    {
-        "id": "de9267cf7d7ed872",
-        "type": "ui_text",
-        "z": "592b686edd11b813",
-        "group": "2201d496820b415d",
-        "order": 9,
-        "width": 2,
-        "height": 1,
-        "name": "lower",
-        "label": "Lower",
-        "format": "<font color=\"orange\" size=\"+2\">{{msg.payload}}</font>",
-        "layout": "col-center",
-        "className": "",
-        "x": 690,
-        "y": 1040,
-        "wires": []
-    },
-    {
         "id": "6553a2457e1b301e",
         "type": "comment",
         "z": "592b686edd11b813",
@@ -9798,20 +9599,219 @@
         "l": true
     },
     {
-        "id": "b6b40b6814900638",
-        "type": "debug",
+        "id": "219b6df02966d0e3",
+        "type": "ui_text",
+        "z": "592b686edd11b813",
+        "group": "2201d496820b415d",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Segment State",
+        "format": "<font color='green'>{{msg.payload}}</font>",
+        "layout": "row-center",
+        "x": 260,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "8095bbd934bc130c",
+        "type": "link in",
+        "z": "592b686edd11b813",
+        "name": "Input - Current Segment State",
+        "links": [
+            "fb11495e37bdb84b"
+        ],
+        "x": 135,
+        "y": 1020,
+        "wires": [
+            [
+                "219b6df02966d0e3"
+            ]
+        ]
+    },
+    {
+        "id": "e5aec5149ce37d5d",
+        "type": "ui_text",
+        "z": "592b686edd11b813",
+        "group": "2201d496820b415d",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Current Segment",
+        "format": "<font color='green'>{{msg.payload}}</font>",
+        "layout": "row-center",
+        "x": 270,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "1d2a7e1b14ed985d",
+        "type": "link in",
+        "z": "592b686edd11b813",
+        "name": "Input - current segment",
+        "links": [
+            "3ab377921817af3f"
+        ],
+        "x": 135,
+        "y": 1040,
+        "wires": [
+            [
+                "e5aec5149ce37d5d"
+            ]
+        ]
+    },
+    {
+        "id": "f9d4fdfcb6abeb41",
+        "type": "ui_text",
+        "z": "592b686edd11b813",
+        "group": "2201d496820b415d",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Soak Remaining",
+        "format": "<font color='green'>{{msg.payload}} min</font>",
+        "layout": "row-center",
+        "x": 260,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "bc808949af0e238a",
+        "type": "link in",
+        "z": "592b686edd11b813",
+        "name": "Input - Segment remaining",
+        "links": [
+            "355d9c4e737fdfe5",
+            "9272078ab32e5e81",
+            "f1d4774590c51f3d"
+        ],
+        "x": 135,
+        "y": 1060,
+        "wires": [
+            [
+                "f9d4fdfcb6abeb41"
+            ]
+        ]
+    },
+    {
+        "id": "2e9532e03f213fb4",
+        "type": "ui_text",
+        "z": "592b686edd11b813",
+        "group": "2201d496820b415d",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Setpoint",
+        "format": "<font color='green'>{{msg.payload}} °F</font>",
+        "layout": "row-center",
+        "x": 240,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "a8bc30bb3ce76d5e",
+        "type": "link in",
+        "z": "592b686edd11b813",
+        "name": "Input - Status Setpoint",
+        "links": [
+            "edf985d2d969c4b4"
+        ],
+        "x": 135,
+        "y": 1080,
+        "wires": [
+            [
+                "2e9532e03f213fb4"
+            ]
+        ]
+    },
+    {
+        "id": "9b6b7f2249d013ba",
+        "type": "link in",
+        "z": "592b686edd11b813",
+        "name": "Input - Upper Temperature",
+        "links": [
+            "dcbc073ea7b777ee"
+        ],
+        "x": 495,
+        "y": 1020,
+        "wires": [
+            [
+                "5c033d496a14defe"
+            ]
+        ]
+    },
+    {
+        "id": "b6802fc260a8ce06",
+        "type": "ui_text",
+        "z": "592b686edd11b813",
+        "group": "2201d496820b415d",
+        "order": 7,
+        "width": 2,
+        "height": 1,
+        "name": "upper",
+        "label": "Upper",
+        "format": "<font color=\"orange\" size=\"+2\">{{msg.payload}}</font>",
+        "layout": "col-center",
+        "className": "",
+        "x": 690,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "5c033d496a14defe",
+        "type": "function",
         "z": "592b686edd11b813",
         "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 750,
-        "y": 1220,
+        "func": "msg.payload = msg.payload.toFixed(0)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 575,
+        "y": 1020,
+        "wires": [
+            [
+                "b6802fc260a8ce06"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "4ea9f6ce194f1281",
+        "type": "link in",
+        "z": "592b686edd11b813",
+        "name": "Input - Lower Temperature",
+        "links": [
+            "e65201e766b76bfd"
+        ],
+        "x": 495,
+        "y": 1040,
+        "wires": [
+            [
+                "89d865758685abe8"
+            ]
+        ]
+    },
+    {
+        "id": "de9267cf7d7ed872",
+        "type": "ui_text",
+        "z": "592b686edd11b813",
+        "group": "2201d496820b415d",
+        "order": 9,
+        "width": 2,
+        "height": 1,
+        "name": "lower",
+        "label": "Lower",
+        "format": "<font color=\"orange\" size=\"+2\">{{msg.payload}}</font>",
+        "layout": "col-center",
+        "className": "",
+        "x": 690,
+        "y": 1040,
         "wires": []
     },
     {
@@ -9830,26 +9830,6 @@
         "wires": [
             [
                 "de9267cf7d7ed872"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "5c033d496a14defe",
-        "type": "function",
-        "z": "592b686edd11b813",
-        "name": "",
-        "func": "msg.payload = msg.payload.toFixed(0)\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 575,
-        "y": 1020,
-        "wires": [
-            [
-                "b6802fc260a8ce06"
             ]
         ],
         "l": false
@@ -9907,6 +9887,55 @@
             ]
         ],
         "icon": "node-red/timer.svg"
+    },
+    {
+        "id": "4d9edf60fc1e08d6",
+        "type": "function",
+        "z": "592b686edd11b813",
+        "name": "",
+        "func": "if (msg.hours){\n    context.set('hours', msg.hours)\n}\n\nvar hours = context.get('hours') || 12\nmsg.query = 'select * from Kiln_01_UpperTemperature, Kiln_01_LowerTemperature WHERE time > now() - '+hours+'h'\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 575,
+        "y": 1160,
+        "wires": [
+            [
+                "fb07d106257c09b8"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "cfb05576b9df09f6",
+        "type": "ui_numeric",
+        "z": "592b686edd11b813",
+        "name": "",
+        "label": "Hours",
+        "tooltip": "Select the time in hours to display.",
+        "group": "2201d496820b415d",
+        "order": 11,
+        "width": 7,
+        "height": 1,
+        "wrap": true,
+        "passthru": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{msg.payload}}",
+        "min": "1",
+        "max": "48",
+        "step": 1,
+        "className": "",
+        "x": 475,
+        "y": 1220,
+        "wires": [
+            [
+                "4d9edf60fc1e08d6"
+            ]
+        ],
+        "l": false
     },
     {
         "id": "1c9e79b136a623e2",
