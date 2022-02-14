@@ -9994,7 +9994,7 @@
         "name": "",
         "op1": "",
         "op2": "",
-        "op1type": "nul",
+        "op1type": "date",
         "op2type": "pay",
         "duration": "1",
         "extend": false,
