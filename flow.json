@@ -6828,7 +6828,7 @@
         "type": "function",
         "z": "e9cef8706a9cf7f6",
         "name": "",
-        "func": "var log_ver = 1\n// check if variables initialized\nif (context.get('log_ver') != log_ver) {\n    // set to version so we don't run again\n    context.set('log_ver', log_ver)\n\n    var logic = { sch_state: \"IDLE\", \n                    seg_state: \"IDLE\", \n                    control_action: \"idle\", \n                    at_setpoint: false, \n                    simulate_temperature: false}\n\n    global.set('logic', undefined)  // clear old structure if present\n    global.set('logic', logic)\n\n    msg.payload = { logic }\n    return msg\n}\n",
+        "func": "var log_ver = 1\n// check if variables initialized\nif (context.get('log_ver') != log_ver) {\n    // set to version so we don't run again\n    context.set('log_ver', log_ver)\n\n    var logic = { sch_state: \"IDLE\", \n                    seg_state: \"IDLE\", \n                    control_action: \"heating\", \n                    at_setpoint: false, \n                    simulate_temperature: false}\n\n    global.set('logic', undefined)  // clear old structure if present\n    global.set('logic', logic)\n\n    msg.payload = { logic }\n    return msg\n}\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
