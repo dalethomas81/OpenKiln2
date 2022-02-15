@@ -5823,9 +5823,7 @@
         "x": 395,
         "y": 20,
         "wires": [
-            [
-                "373780b5b364ed7b"
-            ]
+            []
         ],
         "l": false
     },
@@ -6648,7 +6646,8 @@
         "y": 20,
         "wires": [
             [
-                "6202fbcb0c1e1b73"
+                "6202fbcb0c1e1b73",
+                "373780b5b364ed7b"
             ]
         ],
         "icon": "node-red/timer.svg"
