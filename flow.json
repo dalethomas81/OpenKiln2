@@ -6754,6 +6754,74 @@
         "l": false
     },
     {
+        "id": "035910fb2c4d2fa7",
+        "type": "inject",
+        "z": "e9cef8706a9cf7f6",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 475,
+        "y": 20,
+        "wires": [
+            [
+                "373780b5b364ed7b"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "32c174842ffe497b",
+        "type": "debug",
+        "z": "e9cef8706a9cf7f6",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 595,
+        "y": 20,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "373780b5b364ed7b",
+        "type": "function",
+        "z": "e9cef8706a9cf7f6",
+        "name": "",
+        "func": "var schedules = []\nvar schedulecount = 15\nvar segmentcount = 15\nfor (let index = 0; index < schedulecount; index++) { \n    var segments = []\n    for (let index1 = 0; index1 < segmentcount; index1++) { \n        var seg_obj = { name: '', enabled: false, hold: false, setpoint: 0, ramp_rate: 0, soak_time: 0 }\n        var segment = Object.create(seg_obj) \n        segments.push(segment) \n    } \n    schedules.push({ name: '' + (index + 1), segments }) \n}\n\n// set default values\nfor (let index = 0; index < schedulecount; index++) {\n    schedules[index].name = 'schedule' + (index + 1)\n    for (let index1 = 0; index1 < segmentcount; index1++) {\n        schedules[index].segments[index1].name = 'seg' + (index1 + 1)\n        schedules[index].segments[index1].enabled = false\n        schedules[index].segments[index1].hold = false\n        schedules[index].segments[index1].setpoint = 0\n        schedules[index].segments[index1].ramp_rate = 0\n        schedules[index].segments[index1].soak_time = 0\n    }\n}\n\nmsg.payload = schedules\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 535,
+        "y": 20,
+        "wires": [
+            [
+                "32c174842ffe497b"
+            ]
+        ],
+        "l": false
+    },
+    {
         "id": "b9f05874cb2439dc",
         "type": "catch",
         "z": "592b686edd11b813",
