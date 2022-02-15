@@ -5638,7 +5638,7 @@
         "type": "function",
         "z": "e9cef8706a9cf7f6",
         "name": "show active segment",
-        "func": "var active_schedule = global.get('schedule.active_schedule')\nvar segment_count = active_schedule.segments.length\nvar active_segment_index = global.get('schedule.active_segment_index')\nactive_segment_index++\n\nif (msg.payload.status === 'IDLE') {\n    msg.payload = '0 of ' + segment_count.toString()\n} else {\n    msg.payload = active_segment_index.toString() + ' of ' + segment_count.toString()\n}\n\nreturn msg",
+        "func": "var active_schedule = global.get('schedule.active_schedule')\nvar segment_count = 0\n\n// count how many segments are enabled so we can show this on the HMI\nfor (let index = 0; index < active_schedule.segments.length; index++) {\n    if (active_schedule.segments[index].enabled) {\n        segment_count++;\n    }\n}\nvar active_segment_index = global.get('schedule.active_segment_index')\nactive_segment_index++\n\nif (msg.payload.status === 'IDLE') {\n    msg.payload = '0 of ' + segment_count.toString()\n} else {\n    msg.payload = active_segment_index.toString() + ' of ' + segment_count.toString()\n}\n\nreturn msg",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
