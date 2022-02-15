@@ -4102,7 +4102,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "",
-        "func": "var zone_id = 0\nvar zone = global.get('pid.zone[' + zone_id + ']')\n\nmsg.topic = 'process'\nmsg.enable = true\nmsg.payload = zone.parameters.process || 0\nmsg.setpoint = zone.parameters.setpoint || 0\nmsg.prop_band = zone.settings.PB || 0\nmsg.t_integral = zone.settings.Ti || 0\nmsg.t_derivative = zone.settings.Td || 0\nmsg.integral_default = 0.5\nmsg.max_interval = 600\nmsg.smooth_factor = 0\nmsg.disabled_op = 0\n\nnode.status({ fill: \"green\", shape: \"dot\", text: zone.parameters.process + '°F' });\n\nreturn msg;",
+        "func": "var zone_id = 0\nvar zone = global.get('pid.zone[' + zone_id + ']')\n\nmsg.topic = 'process'\nmsg.enable = true\nmsg.payload = zone.parameters.process || 0\nmsg.setpoint = zone.parameters.setpoint || 0\nmsg.prop_band = zone.settings.PB || 0\nmsg.t_integral = zone.settings.Ti || 0\nmsg.t_derivative = zone.settings.Td || 0\nmsg.integral_default = 0.5\nmsg.max_interval = 600\nmsg.smooth_factor = 0\nmsg.disabled_op = 0\n\nnode.status({ fill: \"green\", shape: \"dot\", text: zone.parameters.process.toFixed(1) + '°F' });\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
