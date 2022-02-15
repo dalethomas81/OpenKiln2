@@ -3577,8 +3577,8 @@
         "max_interval": 600,
         "enable": 1,
         "disabled_op": 0,
-        "x": 735,
-        "y": 140,
+        "x": 715,
+        "y": 180,
         "wires": [
             [
                 "79e8d734b498031e"
@@ -4026,8 +4026,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 795,
-        "y": 120,
+        "x": 775,
+        "y": 160,
         "wires": [
             [
                 "a7d4d1f6e66847a4"
@@ -4102,14 +4102,14 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "",
-        "func": "var zone_id = 0\nvar zone = global.get('pid.zone[' + zone_id + ']')\n\nmsg.topic = 'process'\nmsg.enable = true\nmsg.payload = zone.parameters.process || 0\nmsg.setpoint = zone.parameters.setpoint || 0\nmsg.prop_band = zone.settings.PB || 0\nmsg.t_integral = zone.settings.Ti || 0\nmsg.t_derivative = zone.settings.Td || 0\nmsg.integral_default = 0.5\nmsg.max_interval = 600\nmsg.smooth_factor = 0\nmsg.disabled_op = 0\n\nnode.status({ fill: \"green\", shape: \"dot\", text: zone.parameters.process.toFixed(1) + '°F' });\n\nreturn msg;",
+        "func": "var zone_id = 0\nvar zone = global.get('pid.zone[' + zone_id + ']')\n\nmsg.topic = 'process'\nmsg.enable = true\nmsg.payload = zone.parameters.process || 0\nmsg.setpoint = zone.parameters.setpoint || 0\nmsg.prop_band = zone.settings.PB || 0\nmsg.t_integral = zone.settings.Ti || 0\nmsg.t_derivative = zone.settings.Td || 0\nmsg.integral_default = 0.5\nmsg.max_interval = 600\nmsg.smooth_factor = 0\nmsg.disabled_op = 0\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 675,
-        "y": 140,
+        "x": 655,
+        "y": 200,
         "wires": [
             [
                 "9f8f243cf0171822"
@@ -4142,7 +4142,7 @@
         "type": "debug",
         "z": "b83fb43068cdf48f",
         "name": "",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -4150,8 +4150,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 855,
-        "y": 120,
+        "x": 835,
+        "y": 160,
         "wires": [],
         "l": false
     },
@@ -4354,8 +4354,8 @@
         "links": [
             "62eccecdbb37e6f8"
         ],
-        "x": 615,
-        "y": 140,
+        "x": 595,
+        "y": 200,
         "wires": [
             [
                 "385287d0010ada53"
@@ -4597,7 +4597,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "average inputs",
-        "func": "var upper = global.get('analoginput.input[0].scaled')\nvar lower = global.get('analoginput.input[1].scaled')\nmsg.payload = (upper + lower) / 2.0\nreturn msg;",
+        "func": "var upper = global.get('analoginput.input[0].scaled')\nvar lower = global.get('analoginput.input[1].scaled')\nvar average = (upper + lower) / 2.0\n\nglobal.set('pid.zone[0].parameters.process', average)\n\nnode.status({ fill: \"green\", shape: \"dot\", text: average.toFixed(1) + '°F' });\n\nmsg.payload = average\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
