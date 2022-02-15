@@ -4737,7 +4737,7 @@
         "sendStateWithoutChange": true,
         "showTransitionErrors": true,
         "x": 260,
-        "y": 160,
+        "y": 220,
         "wires": [
             [
                 "2fc3804edce15c2a",
@@ -4811,7 +4811,7 @@
             "c03c7fb7458a9e9f"
         ],
         "x": 155,
-        "y": 320,
+        "y": 380,
         "wires": [
             [
                 "334e3822e1c7c5ac"
@@ -4841,7 +4841,7 @@
             "44901a155449dc95"
         ],
         "x": 455,
-        "y": 120,
+        "y": 180,
         "wires": []
     },
     {
@@ -4899,7 +4899,7 @@
         "to": "",
         "reg": false,
         "x": 395,
-        "y": 120,
+        "y": 180,
         "wires": [
             [
                 "b33e0726c17b668b"
@@ -4930,7 +4930,7 @@
         "repair": false,
         "outputs": 2,
         "x": 215,
-        "y": 320,
+        "y": 380,
         "wires": [
             [
                 "1ed2d6a8bc75d663"
@@ -4961,7 +4961,7 @@
         "to": "",
         "reg": false,
         "x": 275,
-        "y": 300,
+        "y": 360,
         "wires": [
             [
                 "819aacf3762935b7"
@@ -4989,7 +4989,7 @@
         "to": "",
         "reg": false,
         "x": 275,
-        "y": 340,
+        "y": 400,
         "wires": [
             [
                 "819aacf3762935b7"
@@ -5008,7 +5008,7 @@
             "af8f2e69ea9f27c2"
         ],
         "x": 155,
-        "y": 160,
+        "y": 220,
         "wires": [
             [
                 "0f56f86bd83c9233"
@@ -5025,7 +5025,7 @@
             "6a57983382d3490e"
         ],
         "x": 355,
-        "y": 320,
+        "y": 380,
         "wires": []
     },
     {
@@ -5143,7 +5143,7 @@
         "repair": false,
         "outputs": 4,
         "x": 395,
-        "y": 200,
+        "y": 260,
         "wires": [
             [
                 "6348c0ed609dce8b"
@@ -5217,7 +5217,7 @@
             "c70cd7dd26e8bb29"
         ],
         "x": 715,
-        "y": 200,
+        "y": 260,
         "wires": []
     },
     {
@@ -5232,7 +5232,7 @@
         "finalize": "",
         "libs": [],
         "x": 495,
-        "y": 200,
+        "y": 260,
         "wires": [
             [
                 "edb935f4183746b0"
@@ -5293,7 +5293,7 @@
         "finalize": "",
         "libs": [],
         "x": 655,
-        "y": 180,
+        "y": 240,
         "wires": [
             [
                 "edb935f4183746b0"
@@ -5328,7 +5328,7 @@
         "to": "",
         "reg": false,
         "x": 495,
-        "y": 220,
+        "y": 280,
         "wires": [
             [
                 "7b896f97e70ee242"
@@ -5363,7 +5363,7 @@
         "to": "",
         "reg": false,
         "x": 495,
-        "y": 240,
+        "y": 300,
         "wires": [
             [
                 "7b896f97e70ee242"
@@ -5381,7 +5381,7 @@
             "85642d7408d49cd8"
         ],
         "x": 575,
-        "y": 240,
+        "y": 300,
         "wires": []
     },
     {
@@ -5706,7 +5706,7 @@
         "topic": "topic",
         "outputs": 1,
         "x": 595,
-        "y": 180,
+        "y": 240,
         "wires": [
             [
                 "b209d1c9da6cb3c2"
@@ -5734,7 +5734,7 @@
         "type": "function",
         "z": "e9cef8706a9cf7f6",
         "name": "check soak",
-        "func": "var SoakTime = msg.payload.data.segment_settings.soak_time\n\nif (SoakTime > 0) {\n    msg.delay = SoakTime * 1000 * 60 // convert min to milliseconds\n    msg.topic = \"soak\"\n    return [null,msg];\n} else {\n    return [msg,null];\n}",
+        "func": "if (msg.payload.data.segment_settings.soak_time > 0) {\n    msg.delay = msg.payload.data.segment_settings.soak_time * 1000 * 60 // convert min to milliseconds\n    msg.topic = \"soak\"\n    return [null,msg];\n} else {\n    return [msg,null];\n}",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -5761,7 +5761,7 @@
         "type": "function",
         "z": "e9cef8706a9cf7f6",
         "name": "check temps and start soak",
-        "func": "var upper = global.get('analoginput.input[0].scaled')\nvar lower = global.get('analoginput.input[1].scaled')\nvar average = (upper + lower) / 2.0\nvar pid_setpoint = global.get('pid.zone[0].parameters.setpoint')\n\nvar Setpoint = msg.payload.data.segment_settings.setpoint\nvar control_action = global.get('logic.control_action')\nvar ramp_rate = msg.payload.data.segment_settings.ramp_rate // per hour\nvar DeltaTime = 1000.0 / (1000.0 * 60.0 * 60.0) // the pulse timer is set for 1000ms. how many 1000 ms in 1 hour?\nvar DeltaTemp = DeltaTime * ramp_rate\nvar Tolerance = Setpoint * 0.002\n\n// ramp the setpoints\nif (control_action == 'heating') {\n    if (pid_setpoint < Setpoint) {\n        pid_setpoint = pid_setpoint + DeltaTemp;\n    }\n} else if (control_action == 'cooling') {\n    if (pid_setpoint > Setpoint) {\n        pid_setpoint = pid_setpoint - DeltaTemp;\n    }\n} else {\n    // uh oh...\n}\n\nvar msg1 = { payload: pid_setpoint }\n\n// check if temps have been reached\n// TODO: add a confidence timer here to filter out spikes in temp\nif ((control_action == 'heating' && average >= (Setpoint - Tolerance)) \n    || (control_action == 'cooling' && average <= (Setpoint + Tolerance))){\n        pid_setpoint = Setpoint;\n        global.set('logic.at_setpoint', true)\n        msg.topic = 'soak'\n        msg1 = { payload: pid_setpoint }\n        return [msg1, msg];\n} else {\n    return [msg1, null];\n}",
+        "func": "var upper = global.get('analoginput.input[0].scaled')\nvar lower = global.get('analoginput.input[1].scaled')\nvar average = (upper + lower) / 2.0\nvar pid_setpoint = global.get('pid.zone[0].parameters.setpoint')\n\nvar setpoint = msg.payload.data.segment_settings.setpoint\nvar control_action = global.get('logic.control_action')\nvar ramp_rate = msg.payload.data.segment_settings.ramp_rate // per hour\nvar delta_time = 1000.0 / (1000.0 * 60.0 * 60.0) // the pulse timer is set for 1000ms. how many 1000 ms in 1 hour?\nvar delta_temp = delta_time * ramp_rate\nvar tolerance = setpoint * 0.002\n\n// ramp the setpoints\nif (control_action == 'heating') {\n    if (pid_setpoint < setpoint) {\n        pid_setpoint = pid_setpoint + delta_temp;\n    }\n} else if (control_action == 'cooling') {\n    if (pid_setpoint > setpoint) {\n        pid_setpoint = pid_setpoint - delta_temp;\n    }\n} else {\n    // uh oh...\n}\n\nvar msg1 = { payload: pid_setpoint }\n\n// check if temps have been reached\n// TODO: add a confidence timer here to filter out spikes in temp\nif ((control_action == 'heating' && average >= (setpoint - tolerance))\n    || (control_action == 'cooling' && average <= (setpoint + tolerance))){\n        pid_setpoint = setpoint;\n        global.set('logic.at_setpoint', true)\n        msg.topic = 'soak'\n        msg1 = { payload: pid_setpoint }\n        return [msg1, msg];\n} else {\n    return [msg1, null];\n}",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -5786,7 +5786,7 @@
         "type": "function",
         "z": "e9cef8706a9cf7f6",
         "name": "set ramp direction",
-        "func": "var upper = global.get('analoginput.input[0].scaled')\nvar lower = global.get('analoginput.input[1].scaled')\nvar average = (upper + lower) / 2.0\n\nvar Setpoint = msg.payload.data.segment_settings.setpoint\n\n// determine ramping direction\nif (average > Setpoint) {\n    global.set('logic.control_action', 'cooling')\n} else {\n    global.set('logic.control_action', 'heating')\n}\n\n// seed the starting temperature\nglobal.set('pid.zone[0].parameters.setpoint',average)\n\nglobal.set('logic.at_setpoint', false)\n\nmsg.delay = 1000 // set duration between ramp calculations\nreturn msg;",
+        "func": "var upper = global.get('analoginput.input[0].scaled')\nvar lower = global.get('analoginput.input[1].scaled')\nvar average = (upper + lower) / 2.0\n\n// determine ramping direction\nif (average > msg.payload.data.segment_settings.setpoint) {\n    global.set('logic.control_action', 'cooling')\n} else {\n    global.set('logic.control_action', 'heating')\n}\n\n// seed the starting temperature\nglobal.set('pid.zone[0].parameters.setpoint',average)\n\n// clear this now so that it can be latched in the monitoring logic\nglobal.set('logic.at_setpoint', false)\n\n// set duration between ramp calculations\nmsg.delay = 1000\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -5832,7 +5832,7 @@
         "type": "function",
         "z": "e9cef8706a9cf7f6",
         "name": "check hold",
-        "func": "var HoldEnabled = msg.payload.data.segment_settings.hold\n\nif (HoldEnabled) {\n    msg.topic = 'hold';\n    return [null,msg];\n} else {\n    msg.payload = 'Advance'\n    return [msg,null];\n}",
+        "func": "if (msg.payload.data.segment_settings.hold) {\n    msg.topic = 'hold';\n    return [null,msg];\n} else {\n    msg.payload = 'Advance'\n    return [msg,null];\n}",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -5945,7 +5945,7 @@
             "edb935f4183746b0"
         ],
         "x": 675,
-        "y": 280,
+        "y": 340,
         "wires": [
             [
                 "dc2c386dedaeed7e"
@@ -5972,7 +5972,7 @@
         "to": "",
         "reg": false,
         "x": 735,
-        "y": 280,
+        "y": 340,
         "wires": [
             [
                 "233d081ef7b67749"
@@ -5990,7 +5990,7 @@
             "899c85f172cb1839"
         ],
         "x": 795,
-        "y": 280,
+        "y": 340,
         "wires": []
     },
     {
@@ -6209,7 +6209,7 @@
         "finalize": "",
         "libs": [],
         "x": 395,
-        "y": 140,
+        "y": 200,
         "wires": [
             []
         ],
@@ -6536,7 +6536,7 @@
         "name": "buttons",
         "info": "",
         "x": 190,
-        "y": 260,
+        "y": 320,
         "wires": []
     },
     {
@@ -6559,7 +6559,7 @@
         "to": "",
         "reg": false,
         "x": 495,
-        "y": 260,
+        "y": 320,
         "wires": [
             [
                 "6348c0ed609dce8b"
@@ -6660,7 +6660,7 @@
         "name": "schedule state machine",
         "info": "",
         "x": 140,
-        "y": 80,
+        "y": 140,
         "wires": []
     },
     {
@@ -6834,8 +6834,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 535,
-        "y": 60,
+        "x": 755,
+        "y": 20,
         "wires": [
             [
                 "5625c14ee3eed5a0"
@@ -6864,8 +6864,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 475,
-        "y": 60,
+        "x": 695,
+        "y": 20,
         "wires": [
             [
                 "541c3c5ce7285d53"
@@ -6886,8 +6886,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 595,
-        "y": 60,
+        "x": 815,
+        "y": 20,
         "wires": [],
         "l": false
     },
