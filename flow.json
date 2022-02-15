@@ -1176,7 +1176,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "kiln_01.simulate_temperature",
+                "p": "logic.simulate_temperature",
                 "pt": "global",
                 "to": "payload",
                 "tot": "msg"
@@ -1201,7 +1201,7 @@
         "type": "switch",
         "z": "3154c44d1a91de38",
         "name": "check sim temp",
-        "property": "kiln_01.simulate_temperature",
+        "property": "logic.simulate_temperature",
         "propertyType": "global",
         "rules": [
             {
@@ -1308,7 +1308,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "kiln_01.simulate_temperature",
+                "to": "logic.simulate_temperature",
                 "tot": "global"
             }
         ],
@@ -1389,7 +1389,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "kiln_01.simulate_temperature",
+                "p": "logic.simulate_temperature",
                 "pt": "global",
                 "to": "false",
                 "tot": "bool"
@@ -1461,7 +1461,7 @@
         "type": "function",
         "z": "3154c44d1a91de38",
         "name": "",
-        "func": "var msg_out = { delay: msg.payload * 10 }; // should come in as 0 - 100%\nvar schedule_state_machine_status = global.get('kiln_01.schedule_state_machine_status')\nvar upper_thermocouple_bad = flow.get('upper_thermocouple_bad')\nvar lower_thermocouple_bad = flow.get('lower_thermocouple_bad')\nvar simulate_temperature = global.get('kiln_01.simulate_temperature')\n\nif (!upper_thermocouple_bad && !lower_thermocouple_bad \n    && schedule_state_machine_status != 'IDLE'\n    && !simulate_temperature) {\n    // the trigger function locks up if you send it a zero\n    // similarly, we dont want to send it a value over the trigger time (1000 ms)\n    if ( msg_out.delay > 0 && msg_out.delay < 1000 ) {\n        node.status({ fill: \"green\", shape: \"dot\", text: msg.payload.toFixed(1) + '%' });\n        return [msg_out, null];\n    } else if ( msg_out.delay <= 0 ) {\n        // send an \"off\" directly to the output node\n        node.status({ fill: \"green\", shape: \"ring\", text: '0%' });\n        msg_out.payload = \"0\"\n        return [null, msg_out];\n    } else if ( msg_out.delay >= 1000 ) {\n        // send an \"on\" directly to the output node\n        node.status({ fill: \"green\", shape: \"dot\", text: '100%' });\n        msg_out.payload = \"1\"\n        return [null, msg_out];\n    }\n} else {\n    // send an \"off\" directly to the output node\n    node.status({fill:\"blue\",shape:\"ring\",text:\"disabled\"});\n    msg_out.payload = \"0\"\n    return [ null, msg_out ];\n}",
+        "func": "var msg_out = { delay: msg.payload * 10 }; // should come in as 0 - 100%\nvar sch_state = global.get('logic.sch_state')\nvar upper_thermocouple_bad = flow.get('upper_thermocouple_bad')\nvar lower_thermocouple_bad = flow.get('lower_thermocouple_bad')\nvar simulate_temperature = global.get('logic.simulate_temperature')\n\nif (!upper_thermocouple_bad && !lower_thermocouple_bad \n    && sch_state != 'IDLE'\n    && !simulate_temperature) {\n    // the trigger function locks up if you send it a zero\n    // similarly, we dont want to send it a value over the trigger time (1000 ms)\n    if ( msg_out.delay > 0 && msg_out.delay < 1000 ) {\n        node.status({ fill: \"green\", shape: \"dot\", text: msg.payload.toFixed(1) + '%' });\n        return [msg_out, null];\n    } else if ( msg_out.delay <= 0 ) {\n        // send an \"off\" directly to the output node\n        node.status({ fill: \"green\", shape: \"ring\", text: '0%' });\n        msg_out.payload = \"0\"\n        return [null, msg_out];\n    } else if ( msg_out.delay >= 1000 ) {\n        // send an \"on\" directly to the output node\n        node.status({ fill: \"green\", shape: \"dot\", text: '100%' });\n        msg_out.payload = \"1\"\n        return [null, msg_out];\n    }\n} else {\n    // send an \"off\" directly to the output node\n    node.status({fill:\"blue\",shape:\"ring\",text:\"disabled\"});\n    msg_out.payload = \"0\"\n    return [ null, msg_out ];\n}",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -4534,7 +4534,7 @@
         "type": "switch",
         "z": "b83fb43068cdf48f",
         "name": "",
-        "property": "dashboard_client_count",
+        "property": "client_count",
         "propertyType": "global",
         "rules": [
             {
@@ -5572,7 +5572,7 @@
         "type": "function",
         "z": "e9cef8706a9cf7f6",
         "name": "stop schedule or advance",
-        "func": "var active_schedule = global.get('schedule.active_schedule')\nvar segment_count = active_schedule.segments.length\nvar active_segment_index = global.get('schedule.active_segment_index')\nvar temps_at_setpoint = global.get('kiln_01.at_setpoint')\nvar msg_out\n\n// check if temps have been reached or advance is commanded\nif ((temps_at_setpoint && msg.payload == 'Release') || msg.payload == 'Advance'){\n\n    if (segment_count - 1 > active_segment_index) {\n        // advance to next segment\n        active_segment_index = active_segment_index + 1\n        global.set('schedule.active_segment_index', active_segment_index)\n        msg_out = { topic: 'init', data: { segment_settings: active_schedule.segments[active_segment_index] }}\n        return [null,msg_out]\n    } else {\n        // end the schedule\n        msg_out = {topic: 'stop', payload: 0}\n        return [msg_out,null]\n    }\n    \n} else { // continue and try to reach temps\n    msg_out = {topic: 'ramp'}\n    return [null,msg_out]\n}",
+        "func": "var active_schedule = global.get('schedule.active_schedule')\nvar segment_count = active_schedule.segments.length\nvar active_segment_index = global.get('schedule.active_segment_index')\nvar temps_at_setpoint = global.get('logic.at_setpoint')\nvar msg_out\n\n// check if temps have been reached or advance is commanded\nif ((temps_at_setpoint && msg.payload == 'Release') || msg.payload == 'Advance'){\n\n    if (segment_count - 1 > active_segment_index) {\n        // advance to next segment\n        active_segment_index = active_segment_index + 1\n        global.set('schedule.active_segment_index', active_segment_index)\n        msg_out = { topic: 'init', data: { segment_settings: active_schedule.segments[active_segment_index] }}\n        return [null,msg_out]\n    } else {\n        // end the schedule\n        msg_out = {topic: 'stop', payload: 0}\n        return [msg_out,null]\n    }\n    \n} else { // continue and try to reach temps\n    msg_out = {topic: 'ramp'}\n    return [null,msg_out]\n}",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -5761,7 +5761,7 @@
         "type": "function",
         "z": "e9cef8706a9cf7f6",
         "name": "check temps and start soak",
-        "func": "var upper = global.get('analoginput.input[0].scaled')\nvar lower = global.get('analoginput.input[1].scaled')\nvar average = (upper + lower) / 2.0\nvar pid_setpoint = global.get('pid.zone[0].parameters.setpoint')\n\nvar Setpoint = msg.payload.data.segment_settings.setpoint\nvar control_action = global.get('kiln_01.control_action')\nvar ramp_rate = msg.payload.data.segment_settings.ramp_rate // per hour\nvar DeltaTime = 1000.0 / (1000.0 * 60.0 * 60.0) // the pulse timer is set for 1000ms. how many 1000 ms in 1 hour?\nvar DeltaTemp = DeltaTime * ramp_rate\nvar Tolerance = Setpoint * 0.002\n\n// ramp the setpoints\nif (control_action == 'heating') {\n    if (pid_setpoint < Setpoint) {\n        pid_setpoint = pid_setpoint + DeltaTemp;\n    }\n} else if (control_action == 'cooling') {\n    if (pid_setpoint > Setpoint) {\n        pid_setpoint = pid_setpoint - DeltaTemp;\n    }\n} else {\n    // uh oh...\n}\n\nvar msg1 = { payload: pid_setpoint }\n\n// check if temps have been reached\n// TODO: add a confidence timer here to filter out spikes in temp\nif ((control_action == 'heating' && average >= (Setpoint - Tolerance)) \n    || (control_action == 'cooling' && average <= (Setpoint + Tolerance))){\n        pid_setpoint = Setpoint;\n        global.set('kiln_01.at_setpoint', true)\n        msg.topic = 'soak'\n        msg1 = { payload: pid_setpoint }\n        return [msg1, msg];\n} else {\n    return [msg1, null];\n}",
+        "func": "var upper = global.get('analoginput.input[0].scaled')\nvar lower = global.get('analoginput.input[1].scaled')\nvar average = (upper + lower) / 2.0\nvar pid_setpoint = global.get('pid.zone[0].parameters.setpoint')\n\nvar Setpoint = msg.payload.data.segment_settings.setpoint\nvar control_action = global.get('logic.control_action')\nvar ramp_rate = msg.payload.data.segment_settings.ramp_rate // per hour\nvar DeltaTime = 1000.0 / (1000.0 * 60.0 * 60.0) // the pulse timer is set for 1000ms. how many 1000 ms in 1 hour?\nvar DeltaTemp = DeltaTime * ramp_rate\nvar Tolerance = Setpoint * 0.002\n\n// ramp the setpoints\nif (control_action == 'heating') {\n    if (pid_setpoint < Setpoint) {\n        pid_setpoint = pid_setpoint + DeltaTemp;\n    }\n} else if (control_action == 'cooling') {\n    if (pid_setpoint > Setpoint) {\n        pid_setpoint = pid_setpoint - DeltaTemp;\n    }\n} else {\n    // uh oh...\n}\n\nvar msg1 = { payload: pid_setpoint }\n\n// check if temps have been reached\n// TODO: add a confidence timer here to filter out spikes in temp\nif ((control_action == 'heating' && average >= (Setpoint - Tolerance)) \n    || (control_action == 'cooling' && average <= (Setpoint + Tolerance))){\n        pid_setpoint = Setpoint;\n        global.set('logic.at_setpoint', true)\n        msg.topic = 'soak'\n        msg1 = { payload: pid_setpoint }\n        return [msg1, msg];\n} else {\n    return [msg1, null];\n}",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -5786,7 +5786,7 @@
         "type": "function",
         "z": "e9cef8706a9cf7f6",
         "name": "set ramp direction",
-        "func": "var upper = global.get('analoginput.input[0].scaled')\nvar lower = global.get('analoginput.input[1].scaled')\nvar average = (upper + lower) / 2.0\n\nvar Setpoint = msg.payload.data.segment_settings.setpoint\n\n// determine ramping direction\nif (average > Setpoint) {\n    global.set('kiln_01.control_action', 'cooling')\n} else {\n    global.set('kiln_01.control_action', 'heating')\n}\n\n// seed the starting temperature\nglobal.set('pid.zone[0].parameters.setpoint',average)\n\nglobal.set('kiln_01.at_setpoint', false)\n\nmsg.delay = 1000 // set duration between ramp calculations\nreturn msg;",
+        "func": "var upper = global.get('analoginput.input[0].scaled')\nvar lower = global.get('analoginput.input[1].scaled')\nvar average = (upper + lower) / 2.0\n\nvar Setpoint = msg.payload.data.segment_settings.setpoint\n\n// determine ramping direction\nif (average > Setpoint) {\n    global.set('logic.control_action', 'cooling')\n} else {\n    global.set('logic.control_action', 'heating')\n}\n\n// seed the starting temperature\nglobal.set('pid.zone[0].parameters.setpoint',average)\n\nglobal.set('logic.at_setpoint', false)\n\nmsg.delay = 1000 // set duration between ramp calculations\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6202,7 +6202,7 @@
         "type": "function",
         "z": "e9cef8706a9cf7f6",
         "name": "",
-        "func": "if (msg.topic == 'state') {\n    global.set('kiln_01.schedule_state_machine_status', msg.payload.status)\n}\nreturn msg;",
+        "func": "if (msg.topic == 'state') {\n    global.set('logic.sch_state', msg.payload.status)\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6220,7 +6220,7 @@
         "type": "function",
         "z": "e9cef8706a9cf7f6",
         "name": "",
-        "func": "if (msg.topic == 'state') {\n    global.set('kiln_01.segment_state_machine_status', msg.payload.status)\n}\nreturn msg;",
+        "func": "if (msg.topic == 'state') {\n    global.set('logic.seg_state', msg.payload.status)\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6613,7 +6613,7 @@
         "type": "switch",
         "z": "e9cef8706a9cf7f6",
         "name": "",
-        "property": "kiln_01.schedule_state_machine_status",
+        "property": "logic.sch_state",
         "propertyType": "global",
         "rules": [
             {
@@ -6647,7 +6647,8 @@
         "wires": [
             [
                 "6202fbcb0c1e1b73",
-                "373780b5b364ed7b"
+                "373780b5b364ed7b",
+                "541c3c5ce7285d53"
             ]
         ],
         "icon": "node-red/timer.svg"
@@ -6823,6 +6824,74 @@
         "l": false
     },
     {
+        "id": "541c3c5ce7285d53",
+        "type": "function",
+        "z": "e9cef8706a9cf7f6",
+        "name": "",
+        "func": "var log_ver = 1\n// check if variables initialized\nif (context.get('log_ver') != log_ver) {\n    // set to version so we don't run again\n    context.set('log_ver', log_ver)\n\n    var logic = { sch_state: \"IDLE\", \n                    seg_state: \"IDLE\", \n                    control_action: \"idle\", \n                    at_setpoint: false, \n                    simulate_temperature: false}\n\n    global.set('logic', undefined)  // clear old structure if present\n    global.set('logic', logic)\n\n    msg.payload = { logic }\n    return msg\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 535,
+        "y": 60,
+        "wires": [
+            [
+                "5625c14ee3eed5a0"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "20906fc146b2b5ae",
+        "type": "inject",
+        "z": "e9cef8706a9cf7f6",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 475,
+        "y": 60,
+        "wires": [
+            [
+                "541c3c5ce7285d53"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "5625c14ee3eed5a0",
+        "type": "debug",
+        "z": "e9cef8706a9cf7f6",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 595,
+        "y": 60,
+        "wires": [],
+        "l": false
+    },
+    {
         "id": "b9f05874cb2439dc",
         "type": "catch",
         "z": "592b686edd11b813",
@@ -6936,7 +7005,7 @@
         "type": "function",
         "z": "592b686edd11b813",
         "name": "",
-        "func": "//global.set('kiln_01.selected_schedule', temp);\nvar schedule_index = flow.get('schedule_index');\nvar segment_index = flow.get('segment_index');\nvar segment = 'schedule.schedules['+ schedule_index.toString() + '].segments[' + segment_index.toString() + ']'\nglobal.set(segment, msg.payload);\nmsg.payload = segment\nreturn msg;",
+        "func": "//global.set('logic.selected_schedule', temp);\nvar schedule_index = flow.get('schedule_index');\nvar segment_index = flow.get('segment_index');\nvar segment = 'schedule.schedules['+ schedule_index.toString() + '].segments[' + segment_index.toString() + ']'\nglobal.set(segment, msg.payload);\nmsg.payload = segment\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6995,7 +7064,7 @@
             },
             {
                 "t": "set",
-                "p": "dashboard_client_count",
+                "p": "client_count",
                 "pt": "global",
                 "to": "0",
                 "tot": "num"
@@ -9337,7 +9406,7 @@
         "type": "function",
         "z": "592b686edd11b813",
         "name": "dashboard client count",
-        "func": "var dashboard_client_count = global.get('dashboard_client_count')\nvar client_count = dashboard_client_count\nif (msg.payload == 'connect'){\n    client_count = dashboard_client_count + 1\n} else if (msg.payload == 'lost') {\n    if (dashboard_client_count > 0) client_count = dashboard_client_count - 1\n}\nglobal.set('dashboard_client_count', client_count);\nmsg.client_count = client_count;\nreturn msg;",
+        "func": "var client_count = global.get('client_count')\nvar client_count = client_count\nif (msg.payload == 'connect'){\n    client_count = client_count + 1\n} else if (msg.payload == 'lost') {\n    if (client_count > 0) client_count = client_count - 1\n}\nglobal.set('client_count', client_count);\nmsg.client_count = client_count;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
