@@ -1389,13 +1389,6 @@
         "rules": [
             {
                 "t": "set",
-                "p": "#:(memoryOnly)::kiln_01.Setpoint",
-                "pt": "global",
-                "to": "0",
-                "tot": "num"
-            },
-            {
-                "t": "set",
                 "p": "kiln_01.SimulateTemperature",
                 "pt": "global",
                 "to": "false",
@@ -5298,13 +5291,6 @@
                 "p": "payload",
                 "pt": "msg",
                 "to": "payload.data.segment_settings.setpoint",
-                "tot": "msg"
-            },
-            {
-                "t": "set",
-                "p": "#:(memoryOnly)::kiln_01.Setpoint",
-                "pt": "global",
-                "to": "payload",
                 "tot": "msg"
             }
         ],
