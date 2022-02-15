@@ -3265,7 +3265,7 @@
         "type": "switch",
         "z": "3154c44d1a91de38",
         "name": "client count 0",
-        "property": "client_count",
+        "property": "host.clients",
         "propertyType": "msg",
         "rules": [
             {
@@ -4534,7 +4534,7 @@
         "type": "switch",
         "z": "b83fb43068cdf48f",
         "name": "",
-        "property": "client_count",
+        "property": "host.clients",
         "propertyType": "global",
         "rules": [
             {
@@ -7064,7 +7064,7 @@
             },
             {
                 "t": "set",
-                "p": "client_count",
+                "p": "host.clients",
                 "pt": "global",
                 "to": "0",
                 "tot": "num"
@@ -9380,7 +9380,7 @@
         "type": "switch",
         "z": "592b686edd11b813",
         "name": "client count 0",
-        "property": "client_count",
+        "property": "host.clients",
         "propertyType": "msg",
         "rules": [
             {
@@ -9406,7 +9406,7 @@
         "type": "function",
         "z": "592b686edd11b813",
         "name": "dashboard client count",
-        "func": "var client_count = global.get('client_count')\nvar client_count = client_count\nif (msg.payload == 'connect'){\n    client_count = client_count + 1\n} else if (msg.payload == 'lost') {\n    if (client_count > 0) client_count = client_count - 1\n}\nglobal.set('client_count', client_count);\nmsg.client_count = client_count;\nreturn msg;",
+        "func": "var client_count = global.get('host.clients')\nvar client_count = client_count\nif (msg.payload == 'connect'){\n    client_count = client_count + 1\n} else if (msg.payload == 'lost') {\n    if (client_count > 0) client_count = client_count - 1\n}\nglobal.set('host.clients', client_count);\nmsg.client_count = client_count;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -9474,7 +9474,7 @@
         "type": "function",
         "z": "592b686edd11b813",
         "name": "",
-        "func": "var hostname = global.get('hostname')\nvar Location = \"http://\"+hostname.replace(/[^\\x20-\\x7E]/g, '')+\":8421\"\n\nmsg.statusCode = 303;\nmsg.headers = {Location}\ndelete msg.payload;\nreturn msg;",
+        "func": "var hostname = global.get('host.hostname')\nvar Location = \"http://\"+hostname.replace(/[^\\x20-\\x7E]/g, '')+\":8421\"\n\nmsg.statusCode = 303;\nmsg.headers = {Location}\ndelete msg.payload;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -9521,7 +9521,7 @@
         "type": "function",
         "z": "592b686edd11b813",
         "name": "",
-        "func": "var hostname = global.get('hostname')\nvar Location = \"http://\"+hostname.replace(/[^\\x20-\\x7E]/g, '')+\":1880\"\n\nmsg.statusCode = 303;\nmsg.headers = {Location}\ndelete msg.payload;\nreturn msg;",
+        "func": "var hostname = global.get('host.hostname')\nvar Location = \"http://\"+hostname.replace(/[^\\x20-\\x7E]/g, '')+\":1880\"\n\nmsg.statusCode = 303;\nmsg.headers = {Location}\ndelete msg.payload;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -9568,7 +9568,7 @@
         "type": "function",
         "z": "592b686edd11b813",
         "name": "",
-        "func": "var hostname = global.get('hostname')\nvar Location = \"http://\" + hostname.replace(/[^\\x20-\\x7E]/g, '') + \":3000\"\n//var Location = \"http://\"+hostname.replace(/[^\\x20-\\x7E]/g, '')+\":3000/d/_6ZBVeRgk/historical-temperatures?orgId=1&from=now-7d&to=now&fullscreen&panelId=4\"\n\nmsg.statusCode = 303;\nmsg.headers = { Location }\ndelete msg.payload;\nreturn msg;",
+        "func": "var hostname = global.get('host.hostname')\nvar Location = \"http://\" + hostname.replace(/[^\\x20-\\x7E]/g, '') + \":3000\"\n//var Location = \"http://\"+hostname.replace(/[^\\x20-\\x7E]/g, '')+\":3000/d/_6ZBVeRgk/historical-temperatures?orgId=1&from=now-7d&to=now&fullscreen&panelId=4\"\n\nmsg.statusCode = 303;\nmsg.headers = { Location }\ndelete msg.payload;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -10359,7 +10359,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "hostname",
+                "p": "host.hostname",
                 "pt": "global",
                 "to": "payload",
                 "tot": "msg"
@@ -10542,7 +10542,8 @@
             "8025efa4ec2e5944",
             "0f779fd67e9e72b8",
             "faad1abb6ddb40e6",
-            "229639664257214b"
+            "229639664257214b",
+            "3481780d26e1a633"
         ],
         "x": 375,
         "y": 500,
@@ -10924,5 +10925,90 @@
             ]
         ],
         "l": true
+    },
+    {
+        "id": "3481780d26e1a633",
+        "type": "link in",
+        "z": "98e4246c87add39e",
+        "name": "Oneshot Inject at Startup",
+        "links": [
+            "7fa2d20f4131fc60"
+        ],
+        "x": 335,
+        "y": 20,
+        "wires": [
+            [
+                "4ccc4c0a0c3d268a"
+            ]
+        ],
+        "icon": "node-red/timer.svg"
+    },
+    {
+        "id": "d501bbdc8addad96",
+        "type": "inject",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 475,
+        "y": 20,
+        "wires": [
+            [
+                "4ccc4c0a0c3d268a"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "e5a0831f8c6b43de",
+        "type": "debug",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 595,
+        "y": 20,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "4ccc4c0a0c3d268a",
+        "type": "function",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "func": "var host_ver = 1\n// check if variables initialized\nif (context.get('host_ver') != host_ver) {\n    // set to version so we don't run again\n    context.set('host_ver', host_ver)\n\n    var host = { hostname: 'OpenKiln', clients: 0 }\n\n    global.set('host', undefined)  // clear old structure if present\n    global.set('host', host)\n\n    msg.payload = { host }\n    return msg\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 535,
+        "y": 20,
+        "wires": [
+            [
+                "e5a0831f8c6b43de"
+            ]
+        ],
+        "l": false
     }
 ]
