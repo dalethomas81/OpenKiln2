@@ -1,3 +1,8 @@
-- variables need to be initialized on first install
 - functionality for i/o checking 
 - add a place in the header for a friendly name
+- add way to upload/download recipes
+- show disk usage
+    - button to clear influxdb storage
+- trend additional data for process troubleshooting
+    - segment start/stop times
+    - upper and lower setpoints (to see ideal vs observed)
