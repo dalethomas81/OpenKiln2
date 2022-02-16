@@ -11253,46 +11253,6 @@
         ]
     },
     {
-        "id": "bac2ace6b9e691a4",
-        "type": "ui_template",
-        "z": "98e4246c87add39e",
-        "group": "345cf5cc073427be",
-        "name": "",
-        "order": 1,
-        "width": 6,
-        "height": 2,
-        "format": "\n\n\n<input type=\"button\" id=\"get_file\" value=\"Grab file\">\n<input type=\"file\" id=\"my_file\">\n\n<script>\n    var value = \"hello world\";\n    this.scope.action = function() {\n        return value; \n    }\n\n    const fileInput = document.getElementById('my_file');\n    fileInput.onchange = () => {\n        const selectedFile = fileInput.files[0];\n        //console.log(selectedFile);\n        send({payload: selectedFile})\n    }\n    \n    const fileGrab = document.getElementById('get_file');\n    fileGrab.onchange = () => {\n        console.log(\"hello world!\");\n    }\n</script>\n\n<md-button ng-click=\"send({payload:action()})\">\n    Click me to send a hello world\n</md-button>",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": false,
-        "templateScope": "local",
-        "className": "",
-        "x": 280,
-        "y": 1140,
-        "wires": [
-            [
-                "08b368a0930af03f"
-            ]
-        ]
-    },
-    {
-        "id": "08b368a0930af03f",
-        "type": "debug",
-        "z": "98e4246c87add39e",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 410,
-        "y": 1140,
-        "wires": []
-    },
-    {
         "id": "f673688906c6187c",
         "type": "ui_template",
         "z": "98e4246c87add39e",
@@ -11301,7 +11261,7 @@
         "order": 1,
         "width": 0,
         "height": 0,
-        "format": "<script>\nvar value = \"hello world\";\n// or overwrite value in your callback function ...\nthis.scope.action = function() { \n    const fileInput = document.getElementById('my_file');\n    const selectedFile = fileInput.files[0];\n    return value; \n    }\n</script>\n<md-button ng-click=\"send({payload:action()})\">\n    Click me to send a hello world\n</md-button>\n<input type=\"file\" id=\"my_file\">",
+        "format": "<input type=\"file\" id=\"my_file\">\n<script>\nvar value = \"hello world\";\n// or overwrite value in your callback function ...\nthis.scope.action = function() { \n    const fileInput = document.getElementById('my_file');\n    const selectedFile = fileInput.files[0];\n    return selectedFile; \n    }\n</script>\n<md-button ng-click=\"send({payload:action()})\">\n    Click me to send a hello world\n</md-button>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
