@@ -10973,7 +10973,7 @@
         "order": 12,
         "width": 0,
         "height": 0,
-        "format": "<script>\n    function download(filename, text) {\n        var element = document.createElement('a');\n        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));\n        element.setAttribute('download', filename);\n        \n        element.style.display = 'none';\n        document.body.appendChild(element);\n        \n        element.click();\n        \n        document.body.removeChild(element);\n    }\n    (function(scope) {\n        scope.$watch('msg', function(msg) {\n        if (msg) {\n            // Do something when msg arrives\n            //$(\"#my_\"+scope.$id).html(msg.payload);\n            download(\"schedules.json\",msg.payload)\n        }\n    });\n})(scope);\n</script>",
+        "format": "<script>\n    function download(filename, text) {\n        var element = document.createElement('a');\n        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));\n        element.setAttribute('download', filename);\n        \n        element.style.display = 'none';\n        document.body.appendChild(element);\n        \n        element.click();\n        \n        document.body.removeChild(element);\n    }\n    (function(scope) {\n        scope.$watch('msg', function(msg) {\n        if (msg.payload) {\n            // Do something when msg arrives\n            //$(\"#my_\"+scope.$id).html(msg.payload);\n            download(\"schedules.json\",msg.payload)\n        }\n    });\n})(scope);\n</script>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
@@ -11033,22 +11033,6 @@
         ]
     },
     {
-        "id": "f10fd2c02ff7f5f4",
-        "type": "debug",
-        "z": "98e4246c87add39e",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 610,
-        "y": 920,
-        "wires": []
-    },
-    {
         "id": "f93e70b630f3503c",
         "type": "json",
         "z": "98e4246c87add39e",
@@ -11060,8 +11044,7 @@
         "y": 1000,
         "wires": [
             [
-                "b8284a117fa47751",
-                "f10fd2c02ff7f5f4"
+                "b8284a117fa47751"
             ]
         ]
     }
