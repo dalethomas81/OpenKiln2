@@ -10975,7 +10975,7 @@
         "order": 12,
         "width": 0,
         "height": 0,
-        "format": "<head>\n    <script type=\"text/javascript\">\n        function download(filename, text) {\n        var element = document.createElement('a');\n        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));\n        element.setAttribute('download', filename);\n        \n        element.style.display = 'none';\n        document.body.appendChild(element);\n        \n        element.click();\n        \n        document.body.removeChild(element);\n        }\n        \n        // Start file download.\n        download(\"schedules.json\",\"test\");\n    </script>\n</head>",
+        "format": "<head>\n    <md-button class=\"button save\" ng-click=\"send({topic:'clicked', payload:'button was clicked', 'data-action':'save'})\">\n        SAVE</md-button>\n        \n    <script type=\"text/javascript\">\n        function download(filename, text) {\n        var element = document.createElement('a');\n        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));\n        element.setAttribute('download', filename);\n        \n        element.style.display = 'none';\n        document.body.appendChild(element);\n        \n        element.click();\n        \n        document.body.removeChild(element);\n        }\n        \n        // Start file download.\n        //download(\"schedules.json\",\"test\");\n    </script>\n</head>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
