@@ -11215,5 +11215,26 @@
                 "00acfb4e4f627faa"
             ]
         ]
+    },
+    {
+        "id": "bac2ace6b9e691a4",
+        "type": "ui_template",
+        "z": "98e4246c87add39e",
+        "group": "97b95836b00ea98e",
+        "name": "",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "format": "<input type=\"button\" id=\"get_file\" value=\"Grab file\">\n<input type=\"file\" id=\"my_file\">",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 590,
+        "y": 1140,
+        "wires": [
+            []
+        ]
     }
 ]
