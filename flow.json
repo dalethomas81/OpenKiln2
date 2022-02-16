@@ -11018,7 +11018,7 @@
         "type": "function",
         "z": "98e4246c87add39e",
         "name": "",
-        "func": "msg.payload = global.get('schedules')\nreturn msg;",
+        "func": "msg.payload = global.get('schedule')\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
