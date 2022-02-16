@@ -10974,7 +10974,7 @@
         "width": 0,
         "height": 0,
         "format": "<script>\n    function download(filename, text) {\n        var element = document.createElement('a');\n        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));\n        element.setAttribute('download', filename);\n        \n        element.style.display = 'none';\n        document.body.appendChild(element);\n        \n        element.click();\n        \n        document.body.removeChild(element);\n    }\n    (function(scope) {\n        scope.$watch('msg', function(msg) {\n        if (msg.doit) {\n            // Do something when msg arrives\n            //$(\"#my_\"+scope.$id).html(msg.payload);\n            download(\"schedules.json\",msg.payload)\n        }\n    });\n})(scope);\n</script>",
-        "storeOutMessages": true,
+        "storeOutMessages": false,
         "fwdInMessages": true,
         "resendOnRefresh": false,
         "templateScope": "local",
