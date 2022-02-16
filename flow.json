@@ -11293,6 +11293,46 @@
         "wires": []
     },
     {
+        "id": "f673688906c6187c",
+        "type": "ui_template",
+        "z": "98e4246c87add39e",
+        "group": "345cf5cc073427be",
+        "name": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<script>\n    var value = \"hello world\";\n// or overwrite value in your callback function ...\nthis.scope.action = function() { return value; }\n</script>\n<md-button ng-click=\"send({payload:action()})\">\n    Click me to send a hello world\n</md-button>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 290,
+        "y": 1200,
+        "wires": [
+            [
+                "e2ef22dc541a8c9d"
+            ]
+        ]
+    },
+    {
+        "id": "e2ef22dc541a8c9d",
+        "type": "debug",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 430,
+        "y": 1200,
+        "wires": []
+    },
+    {
         "id": "a3ad21bb.8e08a8",
         "type": "ui_template",
         "z": "3a28c9e9208e1ec2",
