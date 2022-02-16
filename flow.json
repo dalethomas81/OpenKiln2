@@ -35,6 +35,14 @@
         "info": ""
     },
     {
+        "id": "3a28c9e9208e1ec2",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "443a1fa760cb1696",
         "type": "ui_base",
         "theme": {
@@ -936,6 +944,23 @@
         "order": 19,
         "width": 1,
         "height": 1
+    },
+    {
+        "id": "ada4e0c8.ca2d58",
+        "type": "ui_group",
+        "z": "3a28c9e9208e1ec2",
+        "name": "Default",
+        "tab": "e4c8df5a.bc9048",
+        "order": 1,
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "e4c8df5a.bc9048",
+        "type": "ui_tab",
+        "z": "3a28c9e9208e1ec2",
+        "name": "tab2",
+        "icon": "dashboard"
     },
     {
         "id": "35573d9f8cb557cc",
@@ -11236,7 +11261,7 @@
         "order": 1,
         "width": 6,
         "height": 2,
-        "format": "<input type=\"button\" id=\"get_file\" value=\"Grab file\">\n<input type=\"file\" id=\"my_file\">\n\n<script>\n    const fileInput = document.getElementById('my_file');\n    fileInput.onchange = () => {\n        const selectedFile = fileInput.files[0];\n        //console.log(selectedFile);\n        send({payload: selectedFile})\n    }\n</script>",
+        "format": "<input type=\"button\" id=\"get_file\" value=\"Grab file\">\n<input type=\"file\" id=\"my_file\">\n\n<script>\n    const fileInput = document.getElementById('my_file');\n    fileInput.onchange = () => {\n        const selectedFile = fileInput.files[0];\n        //console.log(selectedFile);\n        scope.send({payload: selectedFile})\n    }\n</script>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": false,
@@ -11265,6 +11290,111 @@
         "statusType": "auto",
         "x": 410,
         "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "a3ad21bb.8e08a8",
+        "type": "ui_template",
+        "z": "3a28c9e9208e1ec2",
+        "group": "ada4e0c8.ca2d58",
+        "name": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "format": "<h3>Testing template</h3>\n<p>{{msg.payload}}</p>\n<script>\n(function() {\n    var count = 0\n    function testit(msg,scope) {\n        count = count+1;\n        console.log(\"In testit \" + msg.payload + \"  count = \" + count);\n        scope.send({payload: \"from testit \" + msg.payload + \"  count = \" + count});\n    }\n    \n    (function(scope) {\n        scope.send({payload: \"preload\"});   // this gets sent when the view is opened in the browser\n        scope.$watch('msg', function(msg) {\n            if (msg) {\n                testit(msg, scope);\n            }\n        });\n    })(scope);\n})();\n</script>",
+        "storeOutMessages": false,
+        "fwdInMessages": false,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 400,
+        "y": 180,
+        "wires": [
+            [
+                "89d9b60a.9b44e8"
+            ]
+        ]
+    },
+    {
+        "id": "9d387518.22ba48",
+        "type": "inject",
+        "z": "3a28c9e9208e1ec2",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "topic": "",
+        "payload": "One",
+        "payloadType": "str",
+        "x": 183,
+        "y": 180,
+        "wires": [
+            [
+                "a3ad21bb.8e08a8"
+            ]
+        ]
+    },
+    {
+        "id": "88c9b5ce.ba0f08",
+        "type": "ui_template",
+        "z": "3a28c9e9208e1ec2",
+        "group": "ada4e0c8.ca2d58",
+        "name": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "format": "<h3>Testing template</h3>\n<p>{{msg.payload}}</p>\n<script>\n(function() {\n    var count = 0\n    function testit(msg,scope) {\n        count = count+1;\n        console.log(\"In testit \" + msg.payload + \"  count = \" + count);\n        scope.send({payload: \"from testit \" + msg.payload + \"  count = \" + count});\n    }\n    \n    (function(scope) {\n        scope.send({payload: \"preload\"});   // this gets sent when the view is opened in the browser\n        scope.$watch('msg', function(msg) {\n            if (msg) {\n                testit(msg, scope);\n            }\n        });\n    })(scope);\n})();\n</script>",
+        "storeOutMessages": false,
+        "fwdInMessages": false,
+        "x": 400.5,
+        "y": 292,
+        "wires": [
+            [
+                "aece47ab.d4951"
+            ]
+        ]
+    },
+    {
+        "id": "3f711b15.d883c4",
+        "type": "inject",
+        "z": "3a28c9e9208e1ec2",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "topic": "",
+        "payload": "Two",
+        "payloadType": "str",
+        "x": 181.5,
+        "y": 293,
+        "wires": [
+            [
+                "88c9b5ce.ba0f08"
+            ]
+        ]
+    },
+    {
+        "id": "89d9b60a.9b44e8",
+        "type": "debug",
+        "z": "3a28c9e9208e1ec2",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 609,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "aece47ab.d4951",
+        "type": "debug",
+        "z": "3a28c9e9208e1ec2",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 613,
+        "y": 292,
         "wires": []
     }
 ]
