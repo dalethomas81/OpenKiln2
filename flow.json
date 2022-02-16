@@ -916,6 +916,17 @@
         "height": 1
     },
     {
+        "id": "97b95836b00ea98e",
+        "type": "ui_group",
+        "name": "Backup",
+        "tab": "de5db1c89316833e",
+        "order": 5,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
         "id": "35573d9f8cb557cc",
         "type": "function",
         "z": "3154c44d1a91de38",
@@ -10954,5 +10965,26 @@
             ]
         ],
         "l": false
+    },
+    {
+        "id": "b8284a117fa47751",
+        "type": "ui_template",
+        "z": "98e4246c87add39e",
+        "group": "97b95836b00ea98e",
+        "name": "",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "format": "\n\n<html>\n\n<head>\n    <title>Download File</title>\n</head>\n\n<body>\n    <button onclick=\"download()\">Click me</button>\n</body>\n\n<script>\n    function download(filename, text) {\n    var element = document.createElement('a');\n    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));\n    element.setAttribute('download', filename);\n\n    element.style.display = 'none';\n    document.body.appendChild(element);\n\n    element.click();\n\n    document.body.removeChild(element);\n    }\n\n    // Start file download.\n    download(\"hello.txt\",\"This is the content of my file :)\");\n</script>\n\n</html>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 360,
+        "y": 900,
+        "wires": [
+            []
+        ]
     }
 ]
