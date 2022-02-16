@@ -11267,7 +11267,7 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 290,
+        "x": 100,
         "y": 1200,
         "wires": [
             [
@@ -11289,7 +11289,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 490,
+        "x": 260,
         "y": 1160,
         "wires": []
     },
@@ -11304,11 +11304,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 490,
+        "x": 270,
         "y": 1220,
         "wires": [
             [
-                "52546fdc82ad3fd2"
+                "52546fdc82ad3fd2",
+                "6543e9a8ab54749d"
             ]
         ]
     },
@@ -11325,8 +11326,41 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 650,
-        "y": 1220,
+        "x": 430,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "6543e9a8ab54749d",
+        "type": "json",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 430,
+        "y": 1240,
+        "wires": [
+            [
+                "46483b08f2e65b76"
+            ]
+        ]
+    },
+    {
+        "id": "46483b08f2e65b76",
+        "type": "debug",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 1240,
         "wires": []
     },
     {
