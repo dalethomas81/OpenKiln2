@@ -927,6 +927,17 @@
         "className": ""
     },
     {
+        "id": "345cf5cc073427be",
+        "type": "ui_group",
+        "name": "Restore",
+        "tab": "de5db1c89316833e",
+        "order": 6,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
         "id": "35573d9f8cb557cc",
         "type": "function",
         "z": "3154c44d1a91de38",
@@ -11220,21 +11231,39 @@
         "id": "bac2ace6b9e691a4",
         "type": "ui_template",
         "z": "98e4246c87add39e",
-        "group": "97b95836b00ea98e",
+        "group": "345cf5cc073427be",
         "name": "",
         "order": 6,
         "width": 0,
         "height": 0,
-        "format": "<input type=\"button\" id=\"get_file\" value=\"Grab file\">\n<input type=\"file\" id=\"my_file\">",
+        "format": "<input type=\"button\" id=\"get_file\" value=\"Grab file\">\n<input type=\"file\" id=\"my_file\">\n\n<script>\n    document.getElementById('get_file').onclick = function() {\n        document.getElementById('my_file').click();\n        send({payload:'test'})\n    };\n</script>",
         "storeOutMessages": true,
         "fwdInMessages": true,
-        "resendOnRefresh": true,
+        "resendOnRefresh": false,
         "templateScope": "local",
         "className": "",
-        "x": 590,
+        "x": 280,
         "y": 1140,
         "wires": [
-            []
+            [
+                "08b368a0930af03f"
+            ]
         ]
+    },
+    {
+        "id": "08b368a0930af03f",
+        "type": "debug",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 430,
+        "y": 1140,
+        "wires": []
     }
 ]
