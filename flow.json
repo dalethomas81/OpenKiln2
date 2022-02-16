@@ -11301,7 +11301,7 @@
         "order": 1,
         "width": 0,
         "height": 0,
-        "format": "<script>\nvar value = \"hello world\";\n// or overwrite value in your callback function ...\nthis.scope.action = function() { \n    const fileInput = document.getElementById('my_file');\n    const selectedFile = fileInput.files[0];\n    return selectedFile; \n    }\n</script>\n<md-button ng-click=\"send({payload:action()})\">\n    Click me to send a hello world\n</md-button>\n<input type=\"file\" id=\"my_file\">",
+        "format": "<script>\nvar value = \"hello world\";\n// or overwrite value in your callback function ...\nthis.scope.action = function() { \n    const fileInput = document.getElementById('my_file');\n    const selectedFile = fileInput.files[0];\n    return value; \n    }\n</script>\n<md-button ng-click=\"send({payload:action()})\">\n    Click me to send a hello world\n</md-button>\n<input type=\"file\" id=\"my_file\">",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
