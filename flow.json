@@ -11261,7 +11261,7 @@
         "order": 1,
         "width": 0,
         "height": 0,
-        "format": "<input type=\"file\" id=\"my_file\">\n<script>\nvar value = \"hello world\";\n// or overwrite value in your callback function ...\nthis.scope.action = function() { \n    const fileInput = document.getElementById('my_file');\n    const selectedFile = fileInput.files[0];\n    return selectedFile; \n    }\n</script>\n<md-button ng-click=\"send({payload:action()})\">\n    Click me to send a hello world\n</md-button>",
+        "format": "<input type=\"file\" id=\"my_file\">\n<script>\nthis.scope.action = function() { \n    const fileInput = document.getElementById('my_file');\n    const selectedFile = fileInput.files[0];\n    return selectedFile; \n    }\n</script>\n<md-button ng-click=\"send({payload:action()})\">\n    Upload backup\n</md-button>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
@@ -11271,7 +11271,8 @@
         "y": 1200,
         "wires": [
             [
-                "e2ef22dc541a8c9d"
+                "e2ef22dc541a8c9d",
+                "3fbad3940408437a"
             ]
         ]
     },
@@ -11288,8 +11289,44 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 430,
-        "y": 1200,
+        "x": 490,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "3fbad3940408437a",
+        "type": "function",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "func": "msg.payload = msg.payload.toString('ascii')\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 1220,
+        "wires": [
+            [
+                "52546fdc82ad3fd2"
+            ]
+        ]
+    },
+    {
+        "id": "52546fdc82ad3fd2",
+        "type": "debug",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 1220,
         "wires": []
     },
     {
