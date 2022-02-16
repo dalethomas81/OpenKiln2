@@ -11047,5 +11047,173 @@
                 "b8284a117fa47751"
             ]
         ]
+    },
+    {
+        "id": "06e8942be930114e",
+        "type": "ui_template",
+        "z": "98e4246c87add39e",
+        "group": "97b95836b00ea98e",
+        "name": "",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "format": "<script>\n    function download(filename, text) {\n        var element = document.createElement('a');\n        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));\n        element.setAttribute('download', filename);\n        \n        element.style.display = 'none';\n        document.body.appendChild(element);\n        \n        element.click();\n        \n        document.body.removeChild(element);\n    }\n    (function(scope) {\n        scope.$watch('msg', function(msg) {\n        if (msg.doit) {\n            // Do something when msg arrives\n            //$(\"#my_\"+scope.$id).html(msg.payload);\n            download(\"pid.json\",msg.payload)\n        }\n    });\n})(scope);\n</script>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 580,
+        "y": 1040,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5a3f6a73fbcd5a6d",
+        "type": "ui_button",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "group": "97b95836b00ea98e",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "PID",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 90,
+        "y": 1040,
+        "wires": [
+            [
+                "07aa29d05da50c6d"
+            ]
+        ]
+    },
+    {
+        "id": "07aa29d05da50c6d",
+        "type": "function",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "func": "msg.doit = true\nmsg.payload = global.get('pid')\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 1040,
+        "wires": [
+            [
+                "24ce2e10827634ba"
+            ]
+        ]
+    },
+    {
+        "id": "24ce2e10827634ba",
+        "type": "json",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "property": "payload",
+        "action": "str",
+        "pretty": true,
+        "x": 430,
+        "y": 1040,
+        "wires": [
+            [
+                "06e8942be930114e"
+            ]
+        ]
+    },
+    {
+        "id": "00acfb4e4f627faa",
+        "type": "ui_template",
+        "z": "98e4246c87add39e",
+        "group": "97b95836b00ea98e",
+        "name": "",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "format": "<script>\n    function download(filename, text) {\n        var element = document.createElement('a');\n        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));\n        element.setAttribute('download', filename);\n        \n        element.style.display = 'none';\n        document.body.appendChild(element);\n        \n        element.click();\n        \n        document.body.removeChild(element);\n    }\n    (function(scope) {\n        scope.$watch('msg', function(msg) {\n        if (msg.doit) {\n            // Do something when msg arrives\n            //$(\"#my_\"+scope.$id).html(msg.payload);\n            download(\"inputs.json\",msg.payload)\n        }\n    });\n})(scope);\n</script>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 580,
+        "y": 1080,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f53abade6c774e2f",
+        "type": "ui_button",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "group": "97b95836b00ea98e",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Inputs",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 90,
+        "y": 1080,
+        "wires": [
+            [
+                "8f275006f2d70ac0"
+            ]
+        ]
+    },
+    {
+        "id": "8f275006f2d70ac0",
+        "type": "function",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "func": "msg.doit = true\nmsg.payload = global.get('analoginput')\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 1080,
+        "wires": [
+            [
+                "c8cd51ccfa0c17c1"
+            ]
+        ]
+    },
+    {
+        "id": "c8cd51ccfa0c17c1",
+        "type": "json",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "property": "payload",
+        "action": "str",
+        "pretty": true,
+        "x": 430,
+        "y": 1080,
+        "wires": [
+            [
+                "00acfb4e4f627faa"
+            ]
+        ]
     }
 ]
