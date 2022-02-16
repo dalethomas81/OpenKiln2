@@ -10975,16 +10975,63 @@
         "order": 12,
         "width": 0,
         "height": 0,
-        "format": "\n\n<html>\n\n<head>\n\n</head>\n\n<body>\n    <button onclick=\"download('schedules.json','1')\">Schedules</button>\n</body>\n\n<script>\n    function download(filename, text) {\n    var text1 = global.get('schedule')\n    var element = document.createElement('a');\n    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text1));\n    element.setAttribute('download', filename);\n\n    element.style.display = 'none';\n    document.body.appendChild(element);\n\n    element.click();\n\n    document.body.removeChild(element);\n    }\n\n    // Start file download.\n    //download(\"hello.txt\",\"This is the content of my file :)\");\n</script>\n\n</html>",
+        "format": "\n\n<html>\n\n<head>\n\n</head>\n\n<body>\n    <button onclick=\"download('schedules.json','1')\">Schedules</button>\n</body>\n\n<script>\n    function download(filename, text) {\n    var text1 = global.get('schedule')\n    var element = document.createElement('a');\n    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text1));\n    element.setAttribute('download', filename);\n\n    element.style.display = 'none';\n    document.body.appendChild(element);\n\n    element.click();\n\n    document.body.removeChild(element);\n    }\n\n    // Start file download.\n    download(\"schedules.json\",{{payload}});\n</script>\n\n</html>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 360,
-        "y": 900,
+        "x": 480,
+        "y": 1000,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "a90ef1234bf10f2b",
+        "type": "ui_button",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "group": "97b95836b00ea98e",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Schedules",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 180,
+        "y": 1000,
+        "wires": [
+            [
+                "dc30988efd432b6a"
+            ]
+        ]
+    },
+    {
+        "id": "dc30988efd432b6a",
+        "type": "function",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "func": "msg.payload = global.get('schedules')\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 1000,
+        "wires": [
+            [
+                "b8284a117fa47751"
+            ]
         ]
     }
 ]
