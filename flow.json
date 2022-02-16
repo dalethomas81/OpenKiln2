@@ -10975,7 +10975,7 @@
         "order": 12,
         "width": 0,
         "height": 0,
-        "format": "\n\n<html>\n\n<head>\n\n</head>\n\n<body>\n    <button onclick=\"download('schedules.json','')\">Click me</button>\n</body>\n\n<script>\n    function download(filename, text) {\n    text = global.get('schedule')\n    var element = document.createElement('a');\n    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));\n    element.setAttribute('download', filename);\n\n    element.style.display = 'none';\n    document.body.appendChild(element);\n\n    element.click();\n\n    document.body.removeChild(element);\n    }\n\n    // Start file download.\n    //download(\"hello.txt\",\"This is the content of my file :)\");\n</script>\n\n</html>",
+        "format": "\n\n<html>\n\n<head>\n\n</head>\n\n<body>\n    <button onclick=\"download('schedules.json','1')\">Schedules</button>\n</body>\n\n<script>\n    function download(filename, text) {\n    var text1 = global.get('schedule')\n    var element = document.createElement('a');\n    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text1));\n    element.setAttribute('download', filename);\n\n    element.style.display = 'none';\n    document.body.appendChild(element);\n\n    element.click();\n\n    document.body.removeChild(element);\n    }\n\n    // Start file download.\n    //download(\"hello.txt\",\"This is the content of my file :)\");\n</script>\n\n</html>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
