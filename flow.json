@@ -11261,7 +11261,7 @@
         "order": 1,
         "width": 6,
         "height": 2,
-        "format": "<md-button ng-click=\"send({payload: 'Hello World'})\">\n    Click me to send a hello world\n</md-button>\n\n\n<input type=\"button\" id=\"get_file\" value=\"Grab file\">\n<input type=\"file\" id=\"my_file\">\n\n<script>\n    const fileInput = document.getElementById('my_file');\n    fileInput.onchange = () => {\n        const selectedFile = fileInput.files[0];\n        //console.log(selectedFile);\n        send({payload: selectedFile})\n    }\n    \n    const fileGrab = document.getElementById('get_file');\n    fileGrab.onchange = () => {\n        console.log(\"hello world!\");\n    }\n</script>",
+        "format": "<md-button ng-click=\"send({payload: action()})\">\n    Click me to send a hello world\n</md-button>\n\n\n<input type=\"button\" id=\"get_file\" value=\"Grab file\">\n<input type=\"file\" id=\"my_file\">\n\n<script>\n    this.scope.action = function() { return \"hi\"; }\n\n    const fileInput = document.getElementById('my_file');\n    fileInput.onchange = () => {\n        const selectedFile = fileInput.files[0];\n        //console.log(selectedFile);\n        send({payload: selectedFile})\n    }\n    \n    const fileGrab = document.getElementById('get_file');\n    fileGrab.onchange = () => {\n        console.log(\"hello world!\");\n    }\n</script>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": false,
