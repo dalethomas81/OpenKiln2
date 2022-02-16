@@ -7125,7 +7125,7 @@
         "type": "function",
         "z": "592b686edd11b813",
         "name": "set schedule index",
-        "func": "\n//var selected_schedule = global.get('schedule.schedules['+ msg.payload + ']')\n//global.set('schedule.active_schedule', selected_schedule);\nglobal.set('schedule.active_schedule_index', msg.payload);\n\nreturn msg;",
+        "func": "\n//var selected_schedule = global.get('schedule.schedules['+ msg.payload + ']')\n//global.set('schedule.active_schedule', selected_schedule);\nglobal.set('schedule.active_schedule_index', parseFloat(msg.payload));\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
