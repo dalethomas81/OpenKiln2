@@ -10979,7 +10979,7 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 480,
+        "x": 580,
         "y": 1000,
         "wires": [
             []
@@ -11005,7 +11005,7 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 180,
+        "x": 110,
         "y": 1000,
         "wires": [
             [
@@ -11024,12 +11024,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 340,
+        "x": 280,
         "y": 1000,
         "wires": [
             [
-                "b8284a117fa47751",
-                "f10fd2c02ff7f5f4"
+                "f93e70b630f3503c"
             ]
         ]
     },
@@ -11045,8 +11044,25 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 500,
+        "x": 610,
         "y": 920,
         "wires": []
+    },
+    {
+        "id": "f93e70b630f3503c",
+        "type": "json",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "property": "payload",
+        "action": "str",
+        "pretty": true,
+        "x": 430,
+        "y": 1000,
+        "wires": [
+            [
+                "b8284a117fa47751",
+                "f10fd2c02ff7f5f4"
+            ]
+        ]
     }
 ]
