@@ -1579,7 +1579,7 @@
         "type": "function",
         "z": "3154c44d1a91de38",
         "name": "initialize variables",
-        "func": "var input_ver = 1\n// check if variables initialized\nif (context.get('input_ver') != input_ver) {\n    // set to version so we don't run again\n    context.set('input_ver', input_ver)\n\n    var input = []\n    var inputcount = 2\n    for (let index = 0; index < inputcount; index++) {\n        var x = { min: 0.0, max: 0.0 };\n        var y = { min: 0.0, max: 0.0 };\n        var calibration = { x, y, span: 0.0, offset: 0.0 }\n        calibration.x.min = 0.0; calibration.x.max = 0.0; calibration.y.min = 0.0; calibration.y.max = 0.0;\n        calibration.span = 0.0; calibration.offset = 0.0;\n        var obj2 = { HiHi: 0.0, Hi: 0.0, Lo: 0.0, LoLo: 0.0 }\n        var limits = Object.create(obj2)\n        limits.HiHi = 0.0; limits.Hi = 0.0; limits.Lo = 0.0; limits.LoLo = 0.0;\n        var obj3 = { HiHi: false, Hi: false, Lo: false, LoLo: false }\n        var alarms = Object.create(obj3)\n        alarms.HiHi = false; alarms.Hi = false; alarms.Lo = false; alarms.LoLo = false;\n        input.push({ id: '', raw: 0.0, scaled: 0.0, calibration, limits, alarms })\n    }\n\n    var analoginput = { selected_input: 0, input }\n\n    // set defaults\n    for (let index = 0; index < inputcount; index++) {\n        analoginput.input[index].id = ''\n        analoginput.input[index].raw = 0\n        analoginput.input[index].scaled = 0\n        analoginput.input[index].calibration.x.min = 100\n        analoginput.input[index].calibration.x.max = 1000\n        analoginput.input[index].calibration.y.min = 100\n        analoginput.input[index].calibration.y.max = 1000\n        analoginput.input[index].calibration.span = 1\n        analoginput.input[index].calibration.offset = 0\n        analoginput.input[index].limits.HiHi = 2500\n        analoginput.input[index].limits.Hi = 2300\n        analoginput.input[index].limits.Lo = 32\n        analoginput.input[index].limits.LoLo = 0\n        analoginput.input[index].alarms.HiHi = false\n        analoginput.input[index].alarms.Hi = false\n        analoginput.input[index].alarms.Lo = false\n        analoginput.input[index].alarms.LoLo = false\n    }\n\n    global.set('analoginput', undefined) // clear old structure if present\n    global.set('analoginput', analoginput)\n    msg.payload = { analoginput }\n    return msg;\n}",
+        "func": "var input_ver = 1\n// check if variables initialized\nif (context.get('input_ver') != input_ver) {\n    // set to version so we don't run again\n    context.set('input_ver', input_ver)\n\n    var input = []\n    var inputcount = 2\n    for (let index = 0; index < inputcount; index++) {\n        var x = { min: 0.0, max: 0.0 };\n        var y = { min: 0.0, max: 0.0 };\n        var calibration = { x, y, span: 0.0, offset: 0.0 }\n        calibration.x.min = 0.0; calibration.x.max = 0.0; calibration.y.min = 0.0; calibration.y.max = 0.0;\n        calibration.span = 0.0; calibration.offset = 0.0;\n        var obj2 = { HiHi: 0.0, Hi: 0.0, Lo: 0.0, LoLo: 0.0 }\n        var limits = Object.create(obj2)\n        limits.HiHi = 0.0; limits.Hi = 0.0; limits.Lo = 0.0; limits.LoLo = 0.0;\n        var obj3 = { HiHi: false, Hi: false, Lo: false, LoLo: false }\n        var alarms = Object.create(obj3)\n        alarms.HiHi = false; alarms.Hi = false; alarms.Lo = false; alarms.LoLo = false;\n        input.push({ id: '', raw: 0.0, scaled: 0.0, calibration, limits, alarms })\n    }\n\n    var analoginput = { selected_input: 0, input }\n\n    // set defaults\n    for (let index = 0; index < inputcount; index++) {\n        analoginput.input[index].id = ''\n        analoginput.input[index].raw = 0\n        analoginput.input[index].scaled = 0\n        analoginput.input[index].calibration.x.min = 100\n        analoginput.input[index].calibration.x.max = 1000\n        analoginput.input[index].calibration.y.min = 100\n        analoginput.input[index].calibration.y.max = 1000\n        analoginput.input[index].calibration.span = 1\n        analoginput.input[index].calibration.offset = 0\n        analoginput.input[index].limits.HiHi = 2500\n        analoginput.input[index].limits.Hi = 2300\n        analoginput.input[index].limits.Lo = 32\n        analoginput.input[index].limits.LoLo = 0\n        analoginput.input[index].alarms.HiHi = false\n        analoginput.input[index].alarms.Hi = false\n        analoginput.input[index].alarms.Lo = false\n        analoginput.input[index].alarms.LoLo = false\n    }\n\n    global.set('analoginput', undefined) // clear old structure if present\n    global.set('analoginput', analoginput)\n    global.set('analoginput', undefined, 'disk') // clear old structure if present\n    global.set('analoginput', analoginput, 'disk')\n    \n    msg.payload = { analoginput }\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3553,6 +3553,50 @@
         "l": false
     },
     {
+        "id": "f7bd5176dea5a20b",
+        "type": "link in",
+        "z": "3154c44d1a91de38",
+        "name": "Oneshot Inject at Startup",
+        "links": [
+            "0023bda6c99b9785"
+        ],
+        "x": 335,
+        "y": 60,
+        "wires": [
+            [
+                "516a2703b8b0c217"
+            ]
+        ],
+        "icon": "node-red/timer.svg"
+    },
+    {
+        "id": "516a2703b8b0c217",
+        "type": "change",
+        "z": "3154c44d1a91de38",
+        "name": "write data to disk",
+        "rules": [
+            {
+                "t": "set",
+                "p": "#:(disk)::analoginput",
+                "pt": "global",
+                "to": "analoginput",
+                "tot": "global",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 395,
+        "y": 60,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
         "id": "0d21e53eb5db0544",
         "type": "catch",
         "z": "b83fb43068cdf48f",
@@ -4060,7 +4104,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "initialize variables",
-        "func": "var pid_ver = 1\n// check if variables initialized\nif (context.get('pid_ver') != pid_ver){\n    // set to version so we don't run again\n    context.set('pid_ver', pid_ver)\n\n    var zone = []\n    var zone_count = 1 // how many pids are we using?\n    for (let index = 0; index < zone_count; index++) {\n        zone.push({\n            id: '',\n            parameters: { setpoint: 0, control: 0, process: 0 },\n            settings: { PB: 0, Ti: 0, Td: 0 }\n        })\n    }\n\n    var pid = { selected_zone: 0, zone }\n\n    // set defaults\n    for (let index = 0; index < zone_count; index++) {\n        pid.zone[index].id = ''\n        pid.zone[index].parameters.setpoint = 0\n        pid.zone[index].parameters.control = 0\n        pid.zone[index].parameters.process = 0\n        pid.zone[index].settings.PB = 20\n        pid.zone[index].settings.Ti = 100\n        pid.zone[index].settings.Td = 2\n    }\n\n    global.set('pid', undefined) // clear old structure if present\n    global.set('pid', pid)\n    msg.payload = { pid }\n    return msg;\n}",
+        "func": "var pid_ver = 1\n// check if variables initialized\nif (context.get('pid_ver') != pid_ver){\n    // set to version so we don't run again\n    context.set('pid_ver', pid_ver)\n\n    var zone = []\n    var zone_count = 1 // how many pids are we using?\n    for (let index = 0; index < zone_count; index++) {\n        zone.push({\n            id: '',\n            parameters: { setpoint: 0, control: 0, process: 0 },\n            settings: { PB: 0, Ti: 0, Td: 0 }\n        })\n    }\n\n    var pid = { selected_zone: 0, zone }\n\n    // set defaults\n    for (let index = 0; index < zone_count; index++) {\n        pid.zone[index].id = ''\n        pid.zone[index].parameters.setpoint = 0\n        pid.zone[index].parameters.control = 0\n        pid.zone[index].parameters.process = 0\n        pid.zone[index].settings.PB = 20\n        pid.zone[index].settings.Ti = 100\n        pid.zone[index].settings.Td = 2\n    }\n\n    global.set('pid', undefined) // clear old structure if present\n    global.set('pid', pid)\n    global.set('pid', undefined, 'disk') // clear old structure if present\n    global.set('pid', pid, 'disk')\n    \n    msg.payload = { pid }\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4691,6 +4735,50 @@
         "x": 275,
         "y": 220,
         "wires": [],
+        "l": false
+    },
+    {
+        "id": "39292a30a8541f2a",
+        "type": "link in",
+        "z": "b83fb43068cdf48f",
+        "name": "Oneshot Inject at Startup",
+        "links": [
+            "0023bda6c99b9785"
+        ],
+        "x": 335,
+        "y": 60,
+        "wires": [
+            [
+                "f360c0ec03a4fdf9"
+            ]
+        ],
+        "icon": "node-red/timer.svg"
+    },
+    {
+        "id": "f360c0ec03a4fdf9",
+        "type": "change",
+        "z": "b83fb43068cdf48f",
+        "name": "write data to disk",
+        "rules": [
+            {
+                "t": "set",
+                "p": "#:(disk)::pid",
+                "pt": "global",
+                "to": "pid",
+                "tot": "global",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 395,
+        "y": 60,
+        "wires": [
+            []
+        ],
         "l": false
     },
     {
@@ -6774,7 +6862,7 @@
         "type": "function",
         "z": "e9cef8706a9cf7f6",
         "name": "",
-        "func": "var sch_ver = 1\n// check if variables initialized\nif (context.get('sch_ver') != sch_ver) {\n    // set to version so we don't run again\n    context.set('sch_ver', sch_ver)\n\n    var schedules = []\n    var schedulecount = 15\n    var segmentcount = 15\n    for (let index = 0; index < schedulecount; index++) {\n        var segments = []\n        for (let index1 = 0; index1 < segmentcount; index1++) {\n            var seg_obj = { name: '', enabled: false, hold: false, setpoint: 0, ramp_rate: 0, soak_time: 0 }\n            var segment = Object.create(seg_obj)\n            segments.push(segment)\n        }\n        schedules.push({ name: '' + (index + 1), segments })\n    }\n\n    var schedule = { active_schedule_index: 0, active_segment_index: 0, active_schedule: schedules[0],  schedules: schedules}\n\n    // set default values\n    for (let index = 0; index < schedulecount; index++) {\n        schedules[index].name = 'schedule' + (index + 1)\n        for (let index1 = 0; index1 < segmentcount; index1++) {\n            schedules[index].segments[index1].name = 'seg' + (index1 + 1)\n            schedules[index].segments[index1].enabled = false\n            schedules[index].segments[index1].hold = false\n            schedules[index].segments[index1].setpoint = 0\n            schedules[index].segments[index1].ramp_rate = 0\n            schedules[index].segments[index1].soak_time = 0\n        }\n    }\n\n    schedule.active_schedule.name = 'schedule1'\n    for (let index1 = 0; index1 < segmentcount; index1++) {\n        schedule.active_schedule.segments[index1].name = 'seg' + (index1 + 1)\n        schedule.active_schedule.segments[index1].enabled = false\n        schedule.active_schedule.segments[index1].hold = false\n        schedule.active_schedule.segments[index1].setpoint = 0\n        schedule.active_schedule.segments[index1].ramp_rate = 0\n        schedule.active_schedule.segments[index1].soak_time = 0\n    }\n\n    global.set('schedule', undefined)  // clear old structure if present\n    global.set('schedule', schedule)\n\n    msg.payload = { schedule }\n    return msg\n}\n",
+        "func": "var sch_ver = 1\n// check if variables initialized\nif (context.get('sch_ver') != sch_ver) {\n    // set to version so we don't run again\n    context.set('sch_ver', sch_ver)\n\n    var schedules = []\n    var schedulecount = 15\n    var segmentcount = 15\n    for (let index = 0; index < schedulecount; index++) {\n        var segments = []\n        for (let index1 = 0; index1 < segmentcount; index1++) {\n            var seg_obj = { name: '', enabled: false, hold: false, setpoint: 0, ramp_rate: 0, soak_time: 0 }\n            var segment = Object.create(seg_obj)\n            segments.push(segment)\n        }\n        schedules.push({ name: '' + (index + 1), segments })\n    }\n\n    var schedule = { active_schedule_index: 0, active_segment_index: 0, active_schedule: schedules[0],  schedules: schedules}\n\n    // set default values\n    for (let index = 0; index < schedulecount; index++) {\n        schedules[index].name = 'schedule' + (index + 1)\n        for (let index1 = 0; index1 < segmentcount; index1++) {\n            schedules[index].segments[index1].name = 'seg' + (index1 + 1)\n            schedules[index].segments[index1].enabled = false\n            schedules[index].segments[index1].hold = false\n            schedules[index].segments[index1].setpoint = 0\n            schedules[index].segments[index1].ramp_rate = 0\n            schedules[index].segments[index1].soak_time = 0\n        }\n    }\n\n    schedule.active_schedule.name = 'schedule1'\n    for (let index1 = 0; index1 < segmentcount; index1++) {\n        schedule.active_schedule.segments[index1].name = 'seg' + (index1 + 1)\n        schedule.active_schedule.segments[index1].enabled = false\n        schedule.active_schedule.segments[index1].hold = false\n        schedule.active_schedule.segments[index1].setpoint = 0\n        schedule.active_schedule.segments[index1].ramp_rate = 0\n        schedule.active_schedule.segments[index1].soak_time = 0\n    }\n\n    global.set('schedule', undefined)  // clear old structure if present\n    global.set('schedule', schedule)\n    global.set('schedule', undefined, 'disk')  // clear old structure if present\n    global.set('schedule', schedule, 'disk')\n\n    msg.payload = { schedule }\n    return msg\n}\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6794,7 +6882,7 @@
         "type": "function",
         "z": "e9cef8706a9cf7f6",
         "name": "",
-        "func": "var log_ver = 1\n// check if variables initialized\nif (context.get('log_ver') != log_ver) {\n    // set to version so we don't run again\n    context.set('log_ver', log_ver)\n\n    var logic = { sch_state: \"IDLE\", \n                    seg_state: \"IDLE\", \n                    control_action: \"heating\", \n                    at_setpoint: false, \n                    simulate_temperature: false}\n\n    global.set('logic', undefined)  // clear old structure if present\n    global.set('logic', logic)\n\n    msg.payload = { logic }\n    return msg\n}\n",
+        "func": "var log_ver = 1\n// check if variables initialized\nif (context.get('log_ver') != log_ver) {\n    // set to version so we don't run again\n    context.set('log_ver', log_ver)\n\n    var logic = { sch_state: \"IDLE\", \n                    seg_state: \"IDLE\", \n                    control_action: \"heating\", \n                    at_setpoint: false, \n                    simulate_temperature: false}\n\n    global.set('logic', undefined)  // clear old structure if present\n    global.set('logic', logic)\n    global.set('logic', undefined, 'disk')  // clear old structure if present\n    global.set('logic', logic, 'disk')\n\n    msg.payload = { logic }\n    return msg\n}\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6855,6 +6943,58 @@
         "x": 815,
         "y": 20,
         "wires": [],
+        "l": false
+    },
+    {
+        "id": "6fd670fffa111a98",
+        "type": "link in",
+        "z": "e9cef8706a9cf7f6",
+        "name": "Oneshot Inject at Startup",
+        "links": [
+            "0023bda6c99b9785"
+        ],
+        "x": 335,
+        "y": 60,
+        "wires": [
+            [
+                "9da20ce8cb886dc4"
+            ]
+        ],
+        "icon": "node-red/timer.svg"
+    },
+    {
+        "id": "9da20ce8cb886dc4",
+        "type": "change",
+        "z": "e9cef8706a9cf7f6",
+        "name": "write data to disk",
+        "rules": [
+            {
+                "t": "set",
+                "p": "#:(disk)::schedule",
+                "pt": "global",
+                "to": "schedule",
+                "tot": "global",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "#:(disk)::logic",
+                "pt": "global",
+                "to": "logic",
+                "tot": "global",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 395,
+        "y": 60,
+        "wires": [
+            []
+        ],
         "l": false
     },
     {
@@ -10553,7 +10693,7 @@
         "z": "98e4246c87add39e",
         "name": "Timer 3",
         "props": [],
-        "repeat": "10",
+        "repeat": "300",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
@@ -10572,7 +10712,13 @@
         "z": "98e4246c87add39e",
         "name": "Timer 3",
         "mode": "link",
-        "links": [],
+        "links": [
+            "9d5778517642c1a5",
+            "f1d25824082f84cf",
+            "6fd670fffa111a98",
+            "39292a30a8541f2a",
+            "f7bd5176dea5a20b"
+        ],
         "x": 375,
         "y": 560,
         "wires": []
@@ -10960,7 +11106,7 @@
         "type": "function",
         "z": "98e4246c87add39e",
         "name": "",
-        "func": "var host_ver = 1\n// check if variables initialized\nif (context.get('host_ver') != host_ver) {\n    // set to version so we don't run again\n    context.set('host_ver', host_ver)\n\n    var host = { hostname: 'OpenKiln', clients: 0 }\n\n    global.set('host', undefined)  // clear old structure if present\n    global.set('host', host)\n\n    msg.payload = { host }\n    return msg\n}",
+        "func": "var host_ver = 1\n// check if variables initialized\nif (context.get('host_ver') != host_ver) {\n    // set to version so we don't run again\n    context.set('host_ver', host_ver)\n\n    var host = { hostname: 'OpenKiln', clients: 0 }\n\n    global.set('host', undefined)  // clear old structure if present\n    global.set('host', host)\n    global.set('host', undefined, 'disk')  // clear old structure if present\n    global.set('host', host, 'disk')\n\n    msg.payload = { host }\n    return msg\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
