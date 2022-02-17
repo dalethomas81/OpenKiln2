@@ -27,13 +27,15 @@ will install OpenKiln2 for you.
 
     #add the below to the runtime settings section
     #contextStorage: {
-    #    default: {
-    #        module:"localfilesystem"
-    #    },
-    #    memoryOnly: {
-    #        module: "memory"
-    #    }
+    #default: {
+    #    module: "memory"
     #},
+    #memoryOnly: {
+    #   module: "memory"
+    #},
+    #disk: {
+    #    module: "localfilesystem"
+    #}
 
     control+x
 
