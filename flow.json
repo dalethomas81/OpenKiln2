@@ -1429,6 +1429,14 @@
                 "pt": "flow",
                 "to": "false",
                 "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "analoginput",
+                "pt": "global",
+                "to": "#:(disk)::analoginput",
+                "tot": "global",
+                "dc": true
             }
         ],
         "action": "",
@@ -3690,6 +3698,14 @@
                 "pt": "global",
                 "to": "0",
                 "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "pid",
+                "pt": "global",
+                "to": "#:(disk)::pid",
+                "tot": "global",
+                "dc": true
             }
         ],
         "action": "",
@@ -5915,10 +5931,27 @@
         "rules": [
             {
                 "t": "set",
+                "p": "schedule",
+                "pt": "global",
+                "to": "#:(disk)::schedule",
+                "tot": "global",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "logic",
+                "pt": "global",
+                "to": "#:(disk)::logic",
+                "tot": "global",
+                "dc": true
+            },
+            {
+                "t": "set",
                 "p": "schedule.active_schedule",
                 "pt": "global",
                 "to": "schedule.schedules[0]",
-                "tot": "global"
+                "tot": "global",
+                "dc": true
             }
         ],
         "action": "",
