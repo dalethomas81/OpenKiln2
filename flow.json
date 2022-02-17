@@ -3577,7 +3577,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "analoginput",
+                "p": "#:(disk)::analoginput",
                 "pt": "global",
                 "to": "analoginput",
                 "tot": "global",
@@ -4762,7 +4762,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "pid",
+                "p": "#:(disk)::pid",
                 "pt": "global",
                 "to": "pid",
                 "tot": "global",
@@ -6970,7 +6970,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "schedule",
+                "p": "#:(disk)::schedule",
                 "pt": "global",
                 "to": "schedule",
                 "tot": "global",
@@ -6978,7 +6978,7 @@
             },
             {
                 "t": "set",
-                "p": "logic",
+                "p": "#:(disk)::logic",
                 "pt": "global",
                 "to": "logic",
                 "tot": "global",
