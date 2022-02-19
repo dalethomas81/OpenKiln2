@@ -3635,14 +3635,14 @@
         "type": "function",
         "z": "3154c44d1a91de38",
         "name": "",
-        "func": "var last_time = context.get('last_time') || 0\ncontext.set('last_time', Date.now())\nvar this_time = Date.now()\n\nvar last_value = context.get('last_value') || 0\nvar this_value = msg.payload\ncontext.set('last_value', msg.payload)\n\nvar span = (this_value-last_value)/(this_time-last_time)\nvar offset = this_value - span*this_time\n\nif (msg.reset){\n    context.set('sum', 0)\n}\n\nvar sum_count = this_time - last_time\nvar sum = context.get('sum') || 0\n//for ( let i = 0; i < sum_count; i++ ){\n    //sum = sum + span*(last_time+i)+offset\n//}\n\ncontext.set('sum', sum)\ncontext.set('span', span)\ncontext.set('offset', offset)\ncontext.set('sum_count', sum_count)\n\nnode.status({ fill: \"green\", shape: \"dot\", text: sum });\n\nreturn msg;",
+        "func": "var last_time = context.get('last_time') || 0\ncontext.set('last_time', Date.now())\nvar this_time = Date.now()\n\nvar last_value = context.get('last_value') || 0\nvar this_value = msg.payload\ncontext.set('last_value', msg.payload)\n\nvar span = (this_value-last_value)/(this_time-last_time)\nvar offset = this_value - span*this_time\n\nif (msg.reset){\n    context.set('sum', 0)\n}\n\nvar sum_count = this_time - last_time\nvar sum = context.get('sum') || 0\nfor ( let i = 0; i < sum_count; i++ ){\n    sum = sum + span*(last_time+i)+offset\n}\n\ncontext.set('sum', sum)\ncontext.set('span', span)\ncontext.set('offset', offset)\ncontext.set('sum_count', sum_count)\n\nnode.status({ fill: \"green\", shape: \"dot\", text: sum });\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 980,
-        "y": 280,
+        "x": 1120,
+        "y": 200,
         "wires": [
             []
         ]
@@ -3664,8 +3664,33 @@
         "topic": "",
         "payload": "1",
         "payloadType": "num",
-        "x": 850,
-        "y": 280,
+        "x": 990,
+        "y": 200,
+        "wires": [
+            [
+                "0da4ad77c5123b5b"
+            ]
+        ]
+    },
+    {
+        "id": "e66226373d71e889",
+        "type": "inject",
+        "z": "3154c44d1a91de38",
+        "name": "reset",
+        "props": [
+            {
+                "p": "reset",
+                "v": "true",
+                "vt": "bool"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 990,
+        "y": 240,
         "wires": [
             [
                 "0da4ad77c5123b5b"
