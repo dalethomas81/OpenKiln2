@@ -3657,7 +3657,7 @@
                 "p": "payload"
             }
         ],
-        "repeat": "1",
+        "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
@@ -3667,7 +3667,9 @@
         "x": 890,
         "y": 300,
         "wires": [
-            []
+            [
+                "0da4ad77c5123b5b"
+            ]
         ]
     },
     {
