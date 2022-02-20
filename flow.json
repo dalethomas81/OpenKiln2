@@ -11513,7 +11513,7 @@
         "type": "debug",
         "z": "98e4246c87add39e",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -11550,7 +11550,7 @@
         "type": "debug",
         "z": "98e4246c87add39e",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -11574,7 +11574,8 @@
         "y": 1240,
         "wires": [
             [
-                "46483b08f2e65b76"
+                "46483b08f2e65b76",
+                "aa3413a209b6511c"
             ]
         ]
     },
@@ -11583,7 +11584,7 @@
         "type": "debug",
         "z": "98e4246c87add39e",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -11593,6 +11594,60 @@
         "statusType": "auto",
         "x": 570,
         "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "aa3413a209b6511c",
+        "type": "change",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "schedule",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "#:(disk)::schedule",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 1280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5d9eb56f1faaee42",
+        "type": "comment",
+        "z": "98e4246c87add39e",
+        "name": "TODO: data validation",
+        "info": "",
+        "x": 770,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "b766066164c0226b",
+        "type": "comment",
+        "z": "98e4246c87add39e",
+        "name": "backup and restore",
+        "info": "",
+        "x": 120,
+        "y": 940,
         "wires": []
     }
 ]
