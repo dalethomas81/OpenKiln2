@@ -11594,40 +11594,5 @@
         "x": 570,
         "y": 1240,
         "wires": []
-    },
-    {
-        "id": "c9431e374fe1a570",
-        "type": "inject",
-        "z": "98e4246c87add39e",
-        "name": "Timer 3",
-        "props": [],
-        "repeat": "300",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 580,
-        "y": 520,
-        "wires": [
-            [
-                "cfddc648a9d71f65"
-            ]
-        ]
-    },
-    {
-        "id": "cfddc648a9d71f65",
-        "type": "debug",
-        "z": "98e4246c87add39e",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 760,
-        "y": 520,
-        "wires": []
     }
 ]
