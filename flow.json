@@ -10316,7 +10316,7 @@
         "op2": "",
         "op1type": "date",
         "op2type": "pay",
-        "duration": "500",
+        "duration": "250",
         "extend": false,
         "overrideDelay": false,
         "units": "ms",
