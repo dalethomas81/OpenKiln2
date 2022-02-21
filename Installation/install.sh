@@ -99,7 +99,12 @@ will install OpenKiln2 for you.
 # configure influx db
     sudo nano /etc/influxdb/influxdb.conf
 
-    // change store-enabled = false in the config file under monitor
+    [monitor]
+    store-enabled = false in the config file under 
+    [http] # https://stackoverflow.com/questions/60269275/influxdb-keeps-appending-to-var-log-syslog
+    flux-log-enabled = false
+    suppress-write-log = true
+    access-log-status-filters = ["5xx", "4xx"]
 
     control+x
 
