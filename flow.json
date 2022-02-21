@@ -942,7 +942,7 @@
         "type": "function",
         "z": "3154c44d1a91de38",
         "name": "get upper temp",
-        "func": "// https://github.com/maugdog/max31855\n// https://cdn-shop.adafruit.com/datasheets/MAX31855.pdf#page=10\n\n/**\n * Node.js module for driving the Adafruit MAX31855 thermocouple temperature amplifier on Raspberry Pi.\n *\n * Currently supports only hardware SPI configuration (as opposed to software SPI using GPIO pins).\n * Note: May require running under sudo for SPI permissions.\n * Note: The SPI master driver is disabled by default on Raspian Linux and must be enabled. see here:\n * https://www.raspberrypi.org/documentation/hardware/raspberrypi/spi/README.md\n */\n\n//var SPI = require('pi-spi');\n\nfunction MAX31855(spidev) {\n  // Initialize the SPI settings\n  //this._spi = SPI.initialize(\"/dev/spidev0.0\");\n  this._spi = SPI.initialize(spidev);\n  this._spi.clockSpeed(5000000);\n  this._spi.dataMode(0);\n  this._spi.bitOrder(SPI.order.MSB_FIRST);\n}\n\n/** Read 32 bits from the SPI bus. */\nMAX31855.prototype._read32 = function (callback) {\n  this._spi.read(4, function (error, bytes) {\n    if (error) {\n      console.error(error);\n    } else {\n      if (!bytes || bytes.length != 4) {\n        throw new Error('MAX31855: Did not read expected number of bytes from device!');\n      } else {\n        var value\n        value = bytes[0] << 24 | bytes[1] << 16 | bytes[2] << 8 | bytes[3];\n        callback(value);\n      }\n    }\n  });\n};\n\n/** Returns the internal temperature value in degrees Celsius. */\nMAX31855.prototype.readInternalC = function (callback) {\n  if (callback) {\n    this._read32(function (value) {\n      // Ignore bottom 4 bits of thermocouple data.\n      value >>= 4;\n      // Grab bottom 11 bits as internal temperature data.\n      var internal = value & 0x7FF;\n      if (value & 0x800) {\n        // Negative value, take 2's compliment.\n        internal = ~internal + 1;\n      }\n      // Scale by 0.0625 degrees C per bit and return value.\n      callback(internal * 0.0625);\n    });\n  } else {\n    console.log('MAX31855: Read request issued with no callback.');\n  }\n};\n\n/** Return the thermocouple temperature value. Value is returned in degrees celsius */\nMAX31855.prototype.readTempC = function (callback) {\n  if (callback) {\n    var self = this; // Scope closure\n    this._read32(function (value) {\n      // Check for error reading value.\n      //if (value & 0x7) { // 2=short to vcc, 1=short to gnd, 0=open circuit\n      if (value & 0x1) { // 2=short to vcc, 1=short to gnd, 0=open circuit\n        callback(NaN);\n      } else {\n        if (value & 0x80000000) { // Check if signed bit is set.\n          // Negative value, shift the bits and take 2's compliment.\n          value >>= 18;\n          value = ~value + 1;\n        } else { // Positive value, just shift the bits to get the value.\n          value >>= 18;\n        }\n        // Scale by 0.25 degrees C per bit\n        callback(value * 0.25);\n      }\n    });\n  } else {\n    console.log('MAX31855: Read request issued with no callback.');\n  }\n};\n\nvar thermoSensor = new MAX31855(msg.spidev);\nthermoSensor.readTempC(function (temp) {\n  temp = temp * 9 / 5 + 32\n  node.status({ fill: \"green\", shape: \"dot\", text: temp + '°F' });\n  var newMsg = { \"payload\": temp }\n  node.send(newMsg); // node.send() is needed for async\n  node.done();\n});",
+        "func": "// https://github.com/maugdog/max31855\n// https://cdn-shop.adafruit.com/datasheets/MAX31855.pdf#page=10\n\n/**\n * Node.js module for driving the Adafruit MAX31855 thermocouple temperature amplifier on Raspberry Pi.\n *\n * Currently supports only hardware SPI configuration (as opposed to software SPI using GPIO pins).\n * Note: May require running under sudo for SPI permissions.\n * Note: The SPI master driver is disabled by default on Raspian Linux and must be enabled. see here:\n * https://www.raspberrypi.org/documentation/hardware/raspberrypi/spi/README.md\n */\n\n//var SPI = require('pi-spi');\n\nfunction MAX31855(spidev) {\n  // Initialize the SPI settings\n  //this._spi = SPI.initialize(\"/dev/spidev0.0\");\n  this._spi = SPI.initialize(spidev);\n  this._spi.clockSpeed(5000000);\n  this._spi.dataMode(0);\n  this._spi.bitOrder(SPI.order.MSB_FIRST);\n}\n\n/** Read 32 bits from the SPI bus. */\nMAX31855.prototype._read32 = function (callback) {\n  this._spi.read(4, function (error, bytes) {\n    if (error) {\n      console.error(error);\n    } else {\n      if (!bytes || bytes.length != 4) {\n        throw new Error('MAX31855: Did not read expected number of bytes from device!');\n      } else {\n        var value\n        value = bytes[0] << 24 | bytes[1] << 16 | bytes[2] << 8 | bytes[3];\n        callback(value);\n      }\n    }\n  });\n  this._spi.close();\n};\n\n/** Returns the internal temperature value in degrees Celsius. */\nMAX31855.prototype.readInternalC = function (callback) {\n  if (callback) {\n    this._read32(function (value) {\n      // Ignore bottom 4 bits of thermocouple data.\n      value >>= 4;\n      // Grab bottom 11 bits as internal temperature data.\n      var internal = value & 0x7FF;\n      if (value & 0x800) {\n        // Negative value, take 2's compliment.\n        internal = ~internal + 1;\n      }\n      // Scale by 0.0625 degrees C per bit and return value.\n      callback(internal * 0.0625);\n    });\n  } else {\n    console.log('MAX31855: Read request issued with no callback.');\n  }\n};\n\n/** Return the thermocouple temperature value. Value is returned in degrees celsius */\nMAX31855.prototype.readTempC = function (callback) {\n  if (callback) {\n    var self = this; // Scope closure\n    this._read32(function (value) {\n      // Check for error reading value.\n      //if (value & 0x7) { // 2=short to vcc, 1=short to gnd, 0=open circuit\n      if (value & 0x1) { // 2=short to vcc, 1=short to gnd, 0=open circuit\n        callback(NaN);\n      } else {\n        if (value & 0x80000000) { // Check if signed bit is set.\n          // Negative value, shift the bits and take 2's compliment.\n          value >>= 18;\n          value = ~value + 1;\n        } else { // Positive value, just shift the bits to get the value.\n          value >>= 18;\n        }\n        // Scale by 0.25 degrees C per bit\n        callback(value * 0.25);\n      }\n    });\n  } else {\n    console.log('MAX31855: Read request issued with no callback.');\n  }\n};\n\nvar thermoSensor = new MAX31855(msg.spidev);\nthermoSensor.readTempC(function (temp) {\n  temp = temp * 9 / 5 + 32\n  node.status({ fill: \"green\", shape: \"dot\", text: temp + '°F' });\n  var newMsg = { \"payload\": temp }\n  node.send(newMsg); // node.send() is needed for async\n  node.done();\n});",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -968,7 +968,7 @@
         "type": "function",
         "z": "3154c44d1a91de38",
         "name": "get lower temp",
-        "func": "// https://github.com/maugdog/max31855\n// https://cdn-shop.adafruit.com/datasheets/MAX31855.pdf#page=10\n\n/**\n * Node.js module for driving the Adafruit MAX31855 thermocouple temperature amplifier on Raspberry Pi.\n *\n * Currently supports only hardware SPI configuration (as opposed to software SPI using GPIO pins).\n * Note: May require running under sudo for SPI permissions.\n * Note: The SPI master driver is disabled by default on Raspian Linux and must be enabled. see here:\n * https://www.raspberrypi.org/documentation/hardware/raspberrypi/spi/README.md\n */\n\n//var SPI = require('pi-spi');\n\nfunction MAX31855(spidev) {\n  // Initialize the SPI settings\n  //this._spi = SPI.initialize(\"/dev/spidev0.0\");\n  this._spi = SPI.initialize(spidev);\n  this._spi.clockSpeed(5000000);\n  this._spi.dataMode(0);\n  this._spi.bitOrder(SPI.order.MSB_FIRST);\n}\n\n/** Read 32 bits from the SPI bus. */\nMAX31855.prototype._read32 = function(callback) {\n  this._spi.read(4, function(error, bytes) {\n    if(error) {\n      console.error(error);\n    } else {\n      if(!bytes || bytes.length != 4) {\n        throw new Error('MAX31855: Did not read expected number of bytes from device!');\n      } else {\n        var value\n        value = bytes[0] << 24 | bytes[1] << 16 | bytes[2] << 8 | bytes[3];\n        //console.log('Raw value: ', value);\n        callback(value);\n      }\n    }\n  });\n};\n\n/** Returns the internal temperature value in degrees Celsius. */\nMAX31855.prototype.readInternalC = function(callback) {\n  if(callback) {\n    this._read32(function(value) {\n      // Ignore bottom 4 bits of thermocouple data.\n  \t\tvalue >>= 4;\n  \t\t// Grab bottom 11 bits as internal temperature data.\n  \t\tvar internal = value & 0x7FF;\n  \t\tif(value & 0x800) {\n        // Negative value, take 2's compliment.\n        internal = ~internal + 1;\n      }\n      // Scale by 0.0625 degrees C per bit and return value.\n      callback(internal * 0.0625);\n    });\n  } else {\n    console.log('MAX31855: Read request issued with no callback.');\n  }\n};\n\n/** Return the thermocouple temperature value. Value is returned in degrees celsius */\nMAX31855.prototype.readTempC = function(callback) {\n  if(callback) {\n    var self = this; // Scope closure\n    this._read32(function(value) {\n      // Check for error reading value.\n      //if (value & 0x7) { // 2=short to vcc, 1=short to gnd, 0=open circuit\n      if (value & 0x1) { // 2=short to vcc, 1=short to gnd, 0=open circuit\n        callback(NaN);\n      } else {\n        if(value & 0x80000000) { // Check if signed bit is set.\n          // Negative value, shift the bits and take 2's compliment.\n          value >>= 18;\n          value = ~value + 1;\n        } else { // Positive value, just shift the bits to get the value.\n          value >>= 18;\n        }\n        // Scale by 0.25 degrees C per bit\n        callback(value * 0.25);\n      }\n    });\n  } else {\n    console.log('MAX31855: Read request issued with no callback.');\n  }\n};\n\nvar thermoSensor = new MAX31855(msg.spidev);\nthermoSensor.readTempC(function (temp) {\n  temp = temp * 9 / 5 + 32\n  node.status({ fill: \"green\", shape: \"dot\", text: temp + '°F' });\n  var newMsg = { \"payload\": temp}\n  node.send(newMsg); // node.send() is needed for async\n  node.done();\n});",
+        "func": "// https://github.com/maugdog/max31855\n// https://cdn-shop.adafruit.com/datasheets/MAX31855.pdf#page=10\n\n/**\n * Node.js module for driving the Adafruit MAX31855 thermocouple temperature amplifier on Raspberry Pi.\n *\n * Currently supports only hardware SPI configuration (as opposed to software SPI using GPIO pins).\n * Note: May require running under sudo for SPI permissions.\n * Note: The SPI master driver is disabled by default on Raspian Linux and must be enabled. see here:\n * https://www.raspberrypi.org/documentation/hardware/raspberrypi/spi/README.md\n */\n\n//var SPI = require('pi-spi');\n\nfunction MAX31855(spidev) {\n  // Initialize the SPI settings\n  //this._spi = SPI.initialize(\"/dev/spidev0.0\");\n  this._spi = SPI.initialize(spidev);\n  this._spi.clockSpeed(5000000);\n  this._spi.dataMode(0);\n  this._spi.bitOrder(SPI.order.MSB_FIRST);\n}\n\n/** Read 32 bits from the SPI bus. */\nMAX31855.prototype._read32 = function(callback) {\n  this._spi.read(4, function(error, bytes) {\n    if(error) {\n      console.error(error);\n    } else {\n      if(!bytes || bytes.length != 4) {\n        throw new Error('MAX31855: Did not read expected number of bytes from device!');\n      } else {\n        var value\n        value = bytes[0] << 24 | bytes[1] << 16 | bytes[2] << 8 | bytes[3];\n        //console.log('Raw value: ', value);\n        callback(value);\n      }\n    }\n  });\n  this._spi.close();\n};\n\n/** Returns the internal temperature value in degrees Celsius. */\nMAX31855.prototype.readInternalC = function(callback) {\n  if(callback) {\n    this._read32(function(value) {\n      // Ignore bottom 4 bits of thermocouple data.\n  \t\tvalue >>= 4;\n  \t\t// Grab bottom 11 bits as internal temperature data.\n  \t\tvar internal = value & 0x7FF;\n  \t\tif(value & 0x800) {\n        // Negative value, take 2's compliment.\n        internal = ~internal + 1;\n      }\n      // Scale by 0.0625 degrees C per bit and return value.\n      callback(internal * 0.0625);\n    });\n  } else {\n    console.log('MAX31855: Read request issued with no callback.');\n  }\n};\n\n/** Return the thermocouple temperature value. Value is returned in degrees celsius */\nMAX31855.prototype.readTempC = function(callback) {\n  if(callback) {\n    var self = this; // Scope closure\n    this._read32(function(value) {\n      // Check for error reading value.\n      //if (value & 0x7) { // 2=short to vcc, 1=short to gnd, 0=open circuit\n      if (value & 0x1) { // 2=short to vcc, 1=short to gnd, 0=open circuit\n        callback(NaN);\n      } else {\n        if(value & 0x80000000) { // Check if signed bit is set.\n          // Negative value, shift the bits and take 2's compliment.\n          value >>= 18;\n          value = ~value + 1;\n        } else { // Positive value, just shift the bits to get the value.\n          value >>= 18;\n        }\n        // Scale by 0.25 degrees C per bit\n        callback(value * 0.25);\n      }\n    });\n  } else {\n    console.log('MAX31855: Read request issued with no callback.');\n  }\n};\n\nvar thermoSensor = new MAX31855(msg.spidev);\nthermoSensor.readTempC(function (temp) {\n  temp = temp * 9 / 5 + 32\n  node.status({ fill: \"green\", shape: \"dot\", text: temp + '°F' });\n  var newMsg = { \"payload\": temp}\n  node.send(newMsg); // node.send() is needed for async\n  node.done();\n});",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1587,7 +1587,7 @@
         "type": "function",
         "z": "3154c44d1a91de38",
         "name": "initialize variables",
-        "func": "var input_ver = 1\n// check if variables initialized\nif (context.get('input_ver') != input_ver) {\n    // set to version so we don't run again\n    context.set('input_ver', input_ver)\n\n    var input = []\n    var inputcount = 2\n    for (let index = 0; index < inputcount; index++) {\n        var x = { min: 0.0, max: 0.0 };\n        var y = { min: 0.0, max: 0.0 };\n        var calibration = { x, y, span: 0.0, offset: 0.0 }\n        calibration.x.min = 0.0; calibration.x.max = 0.0; calibration.y.min = 0.0; calibration.y.max = 0.0;\n        calibration.span = 0.0; calibration.offset = 0.0;\n        var obj2 = { HiHi: 0.0, Hi: 0.0, Lo: 0.0, LoLo: 0.0 }\n        var limits = Object.create(obj2)\n        limits.HiHi = 0.0; limits.Hi = 0.0; limits.Lo = 0.0; limits.LoLo = 0.0;\n        var obj3 = { HiHi: false, Hi: false, Lo: false, LoLo: false }\n        var alarms = Object.create(obj3)\n        alarms.HiHi = false; alarms.Hi = false; alarms.Lo = false; alarms.LoLo = false;\n        input.push({ id: '', raw: 0.0, scaled: 0.0, calibration, limits, alarms })\n    }\n\n    var analoginput = { selected_input: 0, input }\n\n    // set defaults\n    for (let index = 0; index < inputcount; index++) {\n        analoginput.input[index].id = ''\n        analoginput.input[index].raw = 0\n        analoginput.input[index].scaled = 0\n        analoginput.input[index].calibration.x.min = 100\n        analoginput.input[index].calibration.x.max = 1000\n        analoginput.input[index].calibration.y.min = 100\n        analoginput.input[index].calibration.y.max = 1000\n        analoginput.input[index].calibration.span = 1\n        analoginput.input[index].calibration.offset = 0\n        analoginput.input[index].limits.HiHi = 2500\n        analoginput.input[index].limits.Hi = 2300\n        analoginput.input[index].limits.Lo = 32\n        analoginput.input[index].limits.LoLo = 0\n        analoginput.input[index].alarms.HiHi = false\n        analoginput.input[index].alarms.Hi = false\n        analoginput.input[index].alarms.Lo = false\n        analoginput.input[index].alarms.LoLo = false\n    }\n\n    global.set('analoginput', undefined) // clear old structure if present\n    global.set('analoginput', analoginput)\n    global.set('analoginput', undefined, 'disk') // clear old structure if present\n    global.set('analoginput', analoginput, 'disk')\n    \n    msg.payload = { analoginput }\n    return msg;\n}",
+        "func": "var input_ver = 1\n// check if variables initialized\nif (context.get('input_ver', 'disk') != input_ver) {\n    // set to version so we don't run again\n    context.set('input_ver', input_ver, 'disk')\n\n    var input = []\n    var inputcount = 2\n    for (let index = 0; index < inputcount; index++) {\n        var x = { min: 0.0, max: 0.0 };\n        var y = { min: 0.0, max: 0.0 };\n        var calibration = { x, y, span: 0.0, offset: 0.0 }\n        calibration.x.min = 0.0; calibration.x.max = 0.0; calibration.y.min = 0.0; calibration.y.max = 0.0;\n        calibration.span = 0.0; calibration.offset = 0.0;\n        var obj2 = { HiHi: 0.0, Hi: 0.0, Lo: 0.0, LoLo: 0.0 }\n        var limits = Object.create(obj2)\n        limits.HiHi = 0.0; limits.Hi = 0.0; limits.Lo = 0.0; limits.LoLo = 0.0;\n        var obj3 = { HiHi: false, Hi: false, Lo: false, LoLo: false }\n        var alarms = Object.create(obj3)\n        alarms.HiHi = false; alarms.Hi = false; alarms.Lo = false; alarms.LoLo = false;\n        input.push({ id: '', raw: 0.0, scaled: 0.0, calibration, limits, alarms })\n    }\n\n    var analoginput = { selected_input: 0, input }\n\n    // set defaults\n    for (let index = 0; index < inputcount; index++) {\n        analoginput.input[index].id = ''\n        analoginput.input[index].raw = 0\n        analoginput.input[index].scaled = 0\n        analoginput.input[index].calibration.x.min = 100\n        analoginput.input[index].calibration.x.max = 1000\n        analoginput.input[index].calibration.y.min = 100\n        analoginput.input[index].calibration.y.max = 1000\n        analoginput.input[index].calibration.span = 1\n        analoginput.input[index].calibration.offset = 0\n        analoginput.input[index].limits.HiHi = 2500\n        analoginput.input[index].limits.Hi = 2300\n        analoginput.input[index].limits.Lo = 32\n        analoginput.input[index].limits.LoLo = 0\n        analoginput.input[index].alarms.HiHi = false\n        analoginput.input[index].alarms.Hi = false\n        analoginput.input[index].alarms.Lo = false\n        analoginput.input[index].alarms.LoLo = false\n    }\n\n    global.set('analoginput', undefined) // clear old structure if present\n    global.set('analoginput', analoginput)\n    global.set('analoginput', undefined, 'disk') // clear old structure if present\n    global.set('analoginput', analoginput, 'disk')\n    \n    msg.payload = { analoginput }\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4146,7 +4146,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "initialize variables",
-        "func": "var pid_ver = 1\n// check if variables initialized\nif (context.get('pid_ver') != pid_ver){\n    // set to version so we don't run again\n    context.set('pid_ver', pid_ver)\n\n    var zone = []\n    var zone_count = 1 // how many pids are we using?\n    for (let index = 0; index < zone_count; index++) {\n        zone.push({\n            id: '',\n            parameters: { setpoint: 0, control: 0, process: 0 },\n            settings: { PB: 0, Ti: 0, Td: 0 }\n        })\n    }\n\n    var pid = { selected_zone: 0, zone }\n\n    // set defaults\n    for (let index = 0; index < zone_count; index++) {\n        pid.zone[index].id = ''\n        pid.zone[index].parameters.setpoint = 0\n        pid.zone[index].parameters.control = 0\n        pid.zone[index].parameters.process = 0\n        pid.zone[index].settings.PB = 20\n        pid.zone[index].settings.Ti = 100\n        pid.zone[index].settings.Td = 2\n    }\n\n    global.set('pid', undefined) // clear old structure if present\n    global.set('pid', pid)\n    global.set('pid', undefined, 'disk') // clear old structure if present\n    global.set('pid', pid, 'disk')\n    \n    msg.payload = { pid }\n    return msg;\n}",
+        "func": "var pid_ver = 1\n// check if variables initialized\nif (context.get('pid_ver', 'disk') != pid_ver){\n    // set to version so we don't run again\n    context.set('pid_ver', pid_ver, 'disk')\n\n    var zone = []\n    var zone_count = 1 // how many pids are we using?\n    for (let index = 0; index < zone_count; index++) {\n        zone.push({\n            id: '',\n            parameters: { setpoint: 0, control: 0, process: 0 },\n            settings: { PB: 0, Ti: 0, Td: 0 }\n        })\n    }\n\n    var pid = { selected_zone: 0, zone }\n\n    // set defaults\n    for (let index = 0; index < zone_count; index++) {\n        pid.zone[index].id = ''\n        pid.zone[index].parameters.setpoint = 0\n        pid.zone[index].parameters.control = 0\n        pid.zone[index].parameters.process = 0\n        pid.zone[index].settings.PB = 20\n        pid.zone[index].settings.Ti = 100\n        pid.zone[index].settings.Td = 2\n    }\n\n    global.set('pid', undefined) // clear old structure if present\n    global.set('pid', pid)\n    global.set('pid', undefined, 'disk') // clear old structure if present\n    global.set('pid', pid, 'disk')\n    \n    msg.payload = { pid }\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6947,7 +6947,7 @@
         "type": "function",
         "z": "e9cef8706a9cf7f6",
         "name": "",
-        "func": "var sch_ver = 1\n// check if variables initialized\nif (context.get('sch_ver') != sch_ver) {\n    // set to version so we don't run again\n    context.set('sch_ver', sch_ver)\n\n    var schedules = []\n    var schedulecount = 15\n    var segmentcount = 15\n    for (let index = 0; index < schedulecount; index++) {\n        var segments = []\n        for (let index1 = 0; index1 < segmentcount; index1++) {\n            var seg_obj = { name: '', enabled: false, hold: false, setpoint: 0, ramp_rate: 0, soak_time: 0 }\n            var segment = Object.create(seg_obj)\n            segments.push(segment)\n        }\n        schedules.push({ name: '' + (index + 1), segments })\n    }\n\n    var schedule = { active_schedule_index: 0, active_segment_index: 0, active_schedule: schedules[0],  schedules: schedules}\n\n    // set default values\n    for (let index = 0; index < schedulecount; index++) {\n        schedules[index].name = 'schedule' + (index + 1)\n        for (let index1 = 0; index1 < segmentcount; index1++) {\n            schedules[index].segments[index1].name = 'seg' + (index1 + 1)\n            schedules[index].segments[index1].enabled = false\n            schedules[index].segments[index1].hold = false\n            schedules[index].segments[index1].setpoint = 0\n            schedules[index].segments[index1].ramp_rate = 0\n            schedules[index].segments[index1].soak_time = 0\n        }\n    }\n\n    schedule.active_schedule.name = 'schedule1'\n    for (let index1 = 0; index1 < segmentcount; index1++) {\n        schedule.active_schedule.segments[index1].name = 'seg' + (index1 + 1)\n        schedule.active_schedule.segments[index1].enabled = false\n        schedule.active_schedule.segments[index1].hold = false\n        schedule.active_schedule.segments[index1].setpoint = 0\n        schedule.active_schedule.segments[index1].ramp_rate = 0\n        schedule.active_schedule.segments[index1].soak_time = 0\n    }\n\n    global.set('schedule', undefined)  // clear old structure if present\n    global.set('schedule', schedule)\n    global.set('schedule', undefined, 'disk')  // clear old structure if present\n    global.set('schedule', schedule, 'disk')\n\n    msg.payload = { schedule }\n    return msg\n}\n",
+        "func": "var sch_ver = 1\n// check if variables initialized\nif (context.get('sch_ver', 'disk') != sch_ver) {\n    // set to version so we don't run again\n    context.set('sch_ver', sch_ver, 'disk')\n\n    var schedules = []\n    var schedulecount = 15\n    var segmentcount = 15\n    for (let index = 0; index < schedulecount; index++) {\n        var segments = []\n        for (let index1 = 0; index1 < segmentcount; index1++) {\n            var seg_obj = { name: '', enabled: false, hold: false, setpoint: 0, ramp_rate: 0, soak_time: 0 }\n            var segment = Object.create(seg_obj)\n            segments.push(segment)\n        }\n        schedules.push({ name: '' + (index + 1), segments })\n    }\n\n    var schedule = { active_schedule_index: 0, active_segment_index: 0, active_schedule: schedules[0],  schedules: schedules}\n\n    // set default values\n    for (let index = 0; index < schedulecount; index++) {\n        schedules[index].name = 'schedule' + (index + 1)\n        for (let index1 = 0; index1 < segmentcount; index1++) {\n            schedules[index].segments[index1].name = 'seg' + (index1 + 1)\n            schedules[index].segments[index1].enabled = false\n            schedules[index].segments[index1].hold = false\n            schedules[index].segments[index1].setpoint = 0\n            schedules[index].segments[index1].ramp_rate = 0\n            schedules[index].segments[index1].soak_time = 0\n        }\n    }\n\n    schedule.active_schedule.name = 'schedule1'\n    for (let index1 = 0; index1 < segmentcount; index1++) {\n        schedule.active_schedule.segments[index1].name = 'seg' + (index1 + 1)\n        schedule.active_schedule.segments[index1].enabled = false\n        schedule.active_schedule.segments[index1].hold = false\n        schedule.active_schedule.segments[index1].setpoint = 0\n        schedule.active_schedule.segments[index1].ramp_rate = 0\n        schedule.active_schedule.segments[index1].soak_time = 0\n    }\n\n    global.set('schedule', undefined)  // clear old structure if present\n    global.set('schedule', schedule)\n    global.set('schedule', undefined, 'disk')  // clear old structure if present\n    global.set('schedule', schedule, 'disk')\n\n    msg.payload = { schedule }\n    return msg\n}\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6967,7 +6967,7 @@
         "type": "function",
         "z": "e9cef8706a9cf7f6",
         "name": "",
-        "func": "var log_ver = 1\n// check if variables initialized\nif (context.get('log_ver') != log_ver) {\n    // set to version so we don't run again\n    context.set('log_ver', log_ver)\n\n    var logic = { sch_state: \"IDLE\", \n                    seg_state: \"IDLE\", \n                    control_action: \"heating\", \n                    at_setpoint: false, \n                    simulate_temperature: false}\n\n    global.set('logic', undefined)  // clear old structure if present\n    global.set('logic', logic)\n    global.set('logic', undefined, 'disk')  // clear old structure if present\n    global.set('logic', logic, 'disk')\n\n    msg.payload = { logic }\n    return msg\n}\n",
+        "func": "var log_ver = 1\n// check if variables initialized\nif (context.get('log_ver', 'disk') != log_ver) {\n    // set to version so we don't run again\n    context.set('log_ver', log_ver, 'disk')\n\n    var logic = { sch_state: \"IDLE\", \n                    seg_state: \"IDLE\", \n                    control_action: \"heating\", \n                    at_setpoint: false, \n                    simulate_temperature: false}\n\n    global.set('logic', undefined)  // clear old structure if present\n    global.set('logic', logic)\n    global.set('logic', undefined, 'disk')  // clear old structure if present\n    global.set('logic', logic, 'disk')\n\n    msg.payload = { logic }\n    return msg\n}\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -11513,7 +11513,7 @@
         "type": "debug",
         "z": "98e4246c87add39e",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -11550,7 +11550,7 @@
         "type": "debug",
         "z": "98e4246c87add39e",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -11574,7 +11574,8 @@
         "y": 1240,
         "wires": [
             [
-                "46483b08f2e65b76"
+                "46483b08f2e65b76",
+                "aa3413a209b6511c"
             ]
         ]
     },
@@ -11583,7 +11584,7 @@
         "type": "debug",
         "z": "98e4246c87add39e",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -11593,6 +11594,60 @@
         "statusType": "auto",
         "x": 570,
         "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "aa3413a209b6511c",
+        "type": "change",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "schedule",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "#:(disk)::schedule",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 1280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5d9eb56f1faaee42",
+        "type": "comment",
+        "z": "98e4246c87add39e",
+        "name": "TODO: data validation",
+        "info": "",
+        "x": 770,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "b766066164c0226b",
+        "type": "comment",
+        "z": "98e4246c87add39e",
+        "name": "backup and restore",
+        "info": "",
+        "x": 120,
+        "y": 940,
         "wires": []
     }
 ]
