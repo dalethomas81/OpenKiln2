@@ -114,7 +114,7 @@ will install OpenKiln2 for you.
 
     sudo service influxdb restart
 
-# install grafana (grafana currently not working on raspberry pi zero gen 1 - needs investigation)
+# install grafana
     #https://brettbeeson.com.au/grafana-and-influxdb-in-pi-zero-w/
     #pi zero gen 1
     sudo apt --fix-broken install
