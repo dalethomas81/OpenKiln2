@@ -3401,7 +3401,7 @@
         "name": "",
         "diam": 35,
         "volume": 40,
-        "temp": 20,
+        "temp": "30",
         "power": "10",
         "ambientTemp": 20,
         "x": 295,
