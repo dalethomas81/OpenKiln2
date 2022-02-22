@@ -1516,7 +1516,8 @@
         "z": "3154c44d1a91de38",
         "name": "input - upper heater",
         "links": [
-            "094e9b28f33ff867"
+            "094e9b28f33ff867",
+            "9e025668621ecbf5"
         ],
         "x": 135,
         "y": 680,
@@ -3741,7 +3742,7 @@
         "step": "0.01",
         "className": "",
         "x": 775,
-        "y": 400,
+        "y": 660,
         "wires": [
             [
                 "16d2b807c8911037"
@@ -3770,7 +3771,7 @@
         "step": "0.01",
         "className": "",
         "x": 775,
-        "y": 420,
+        "y": 680,
         "wires": [
             [
                 "b3278848da3d3187"
@@ -3799,7 +3800,7 @@
         "step": "0.01",
         "className": "",
         "x": 775,
-        "y": 440,
+        "y": 700,
         "wires": [
             [
                 "72e5604feb0fec41"
@@ -3819,7 +3820,7 @@
         "finalize": "",
         "libs": [],
         "x": 715,
-        "y": 400,
+        "y": 660,
         "wires": [
             [
                 "6f0a2b0420a217c6"
@@ -3839,7 +3840,7 @@
         "finalize": "",
         "libs": [],
         "x": 715,
-        "y": 420,
+        "y": 680,
         "wires": [
             [
                 "2e2d8b482044aceb"
@@ -3859,7 +3860,7 @@
         "finalize": "",
         "libs": [],
         "x": 715,
-        "y": 440,
+        "y": 700,
         "wires": [
             [
                 "59104e20fbde50f9"
@@ -3879,7 +3880,7 @@
         "finalize": "",
         "libs": [],
         "x": 835,
-        "y": 400,
+        "y": 660,
         "wires": [
             []
         ],
@@ -3897,7 +3898,7 @@
         "finalize": "",
         "libs": [],
         "x": 835,
-        "y": 420,
+        "y": 680,
         "wires": [
             []
         ],
@@ -3915,7 +3916,7 @@
         "finalize": "",
         "libs": [],
         "x": 835,
-        "y": 440,
+        "y": 700,
         "wires": [
             []
         ],
@@ -3960,7 +3961,7 @@
         "useDifferentColor": false,
         "className": "",
         "x": 405,
-        "y": 320,
+        "y": 580,
         "wires": [
             []
         ],
@@ -3978,7 +3979,7 @@
         "finalize": "",
         "libs": [],
         "x": 305,
-        "y": 360,
+        "y": 620,
         "wires": [
             [
                 "edf4d60398ebee66",
@@ -3999,7 +4000,7 @@
         "finalize": "",
         "libs": [],
         "x": 305,
-        "y": 380,
+        "y": 640,
         "wires": [
             [
                 "edf4d60398ebee66",
@@ -4020,7 +4021,7 @@
         "finalize": "",
         "libs": [],
         "x": 305,
-        "y": 400,
+        "y": 660,
         "wires": [
             [
                 "27f81d993ca6d85b",
@@ -4041,7 +4042,7 @@
         "finalize": "",
         "libs": [],
         "x": 305,
-        "y": 440,
+        "y": 700,
         "wires": [
             [
                 "edf4d60398ebee66",
@@ -4071,7 +4072,7 @@
         "topic": "",
         "payloadType": "date",
         "x": 245,
-        "y": 440,
+        "y": 700,
         "wires": [
             [
                 "2ba532e7faaaf05f"
@@ -4084,7 +4085,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "set control if auto tune not active",
-        "func": "var zone_id = 0\nif (!global.get('pid.zone['+zone_id+'].autotune.active')) {\n    var cv = msg.payload * 100\n    global.set('pid.zone['+zone_id+'].parameters.control', cv)\n    node.status({ fill: \"green\", shape: \"dot\", text: cv.toFixed(2) + '%' });\n    return msg;\n}",
+        "func": "var zone_id = 0\nvar cv = msg.payload * 100\nglobal.set('pid.zone['+zone_id+'].parameters.control', cv)\nnode.status({ fill: \"green\", shape: \"dot\", text: cv.toFixed(2) + '%' });\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4138,7 +4139,7 @@
             "03c0ca76b29b0190"
         ],
         "x": 895,
-        "y": 340,
+        "y": 600,
         "wires": []
     },
     {
@@ -4226,7 +4227,7 @@
         "name": "",
         "links": [],
         "x": 245,
-        "y": 440,
+        "y": 700,
         "wires": [
             [
                 "2ba532e7faaaf05f"
@@ -4308,7 +4309,7 @@
         "repair": false,
         "outputs": 1,
         "x": 775,
-        "y": 340,
+        "y": 600,
         "wires": [
             [
                 "b6c91fa96dfbfdb5"
@@ -4344,7 +4345,7 @@
         "repair": false,
         "outputs": 3,
         "x": 835,
-        "y": 340,
+        "y": 600,
         "wires": [
             [],
             [
@@ -4365,7 +4366,7 @@
             "0d7362ca2edd72c6"
         ],
         "x": 650,
-        "y": 340,
+        "y": 600,
         "wires": [
             [
                 "989fbf5d083c48b4"
@@ -4459,7 +4460,7 @@
         "layout": "row-spread",
         "className": "",
         "x": 455,
-        "y": 360,
+        "y": 620,
         "wires": [],
         "l": false
     },
@@ -4475,7 +4476,7 @@
         "mult": "single",
         "reduce": false,
         "x": 405,
-        "y": 360,
+        "y": 620,
         "wires": [
             [
                 "f5b7bf9f52b6d5d5"
@@ -4495,7 +4496,7 @@
         "mult": "single",
         "reduce": false,
         "x": 405,
-        "y": 380,
+        "y": 640,
         "wires": [
             [
                 "5c8d96a584897098"
@@ -4515,7 +4516,7 @@
         "mult": "single",
         "reduce": false,
         "x": 405,
-        "y": 400,
+        "y": 660,
         "wires": [
             [
                 "8db3ca485d930835"
@@ -4537,7 +4538,7 @@
         "layout": "row-spread",
         "className": "",
         "x": 455,
-        "y": 380,
+        "y": 640,
         "wires": [],
         "l": false
     },
@@ -4555,7 +4556,7 @@
         "layout": "row-spread",
         "className": "",
         "x": 455,
-        "y": 400,
+        "y": 660,
         "wires": [],
         "l": false
     },
@@ -4568,7 +4569,7 @@
             "62eccecdbb37e6f8"
         ],
         "x": 155,
-        "y": 360,
+        "y": 620,
         "wires": [
             [
                 "378ee9c8dcb596d6"
@@ -4594,7 +4595,7 @@
         "repair": false,
         "outputs": 1,
         "x": 215,
-        "y": 360,
+        "y": 620,
         "wires": [
             [
                 "422b0453aa8d2e2b",
@@ -4613,7 +4614,7 @@
             "a2cccb12b627c0e7"
         ],
         "x": 615,
-        "y": 400,
+        "y": 660,
         "wires": [
             [
                 "2e3cae4209b2ada3",
@@ -4644,7 +4645,7 @@
         "type": "function",
         "z": "b83fb43068cdf48f",
         "name": "average inputs",
-        "func": "var upper = global.get('analoginput.input[0].scaled')\nvar lower = global.get('analoginput.input[1].scaled')\nvar average = (upper + lower) / 2.0\n\nglobal.set('pid.zone[0].parameters.process', average)\n\nnode.status({ fill: \"green\", shape: \"dot\", text: average.toFixed(1) + '°F' });\n\nmsg.payload = average\nreturn msg;",
+        "func": "var upper = global.get('analoginput.input[0].scaled')\n//var lower = global.get('analoginput.input[1].scaled')\n//var average = (upper + lower) / 2.0\n\nglobal.set('pid.zone[0].parameters.process', upper)\n\nnode.status({ fill: \"green\", shape: \"dot\", text: upper.toFixed(1) + '°F' });\n\nmsg.payload = upper\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4680,7 +4681,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 245,
-        "y": 440,
+        "y": 700,
         "wires": [
             [
                 "2ba532e7faaaf05f"
@@ -4727,7 +4728,7 @@
         "useDifferentColor": false,
         "className": "",
         "x": 405,
-        "y": 460,
+        "y": 720,
         "wires": [
             []
         ],
@@ -4740,7 +4741,7 @@
         "name": "dashboard",
         "info": "",
         "x": 150,
-        "y": 300,
+        "y": 560,
         "wires": []
     },
     {
@@ -4847,6 +4848,281 @@
                 "f360c0ec03a4fdf9"
             ]
         ],
+        "l": false
+    },
+    {
+        "id": "85244ebea8308d72",
+        "type": "PID",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "setpoint": "0",
+        "pb": 1,
+        "ti": 9999,
+        "td": 0,
+        "integral_default": 0.5,
+        "smooth_factor": 3,
+        "max_interval": 600,
+        "enable": 1,
+        "disabled_op": 0,
+        "x": 695,
+        "y": 380,
+        "wires": [
+            [
+                "48ca6a152b55f2e3"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "48ca6a152b55f2e3",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "set control if auto tune not active",
+        "func": "var zone_id = 1\nvar cv = msg.payload * 100\nglobal.set('pid.zone['+zone_id+'].parameters.control', cv)\nnode.status({ fill: \"green\", shape: \"dot\", text: cv.toFixed(2) + '%' });\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 755,
+        "y": 360,
+        "wires": [
+            [
+                "57ebab2c251359fa"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "6e53c0f058452763",
+        "type": "change",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "pid.zone[1].parameters.control",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 215,
+        "y": 340,
+        "wires": [
+            [
+                "9e025668621ecbf5"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "a55a0b138de82f93",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "func": "var zone_id = 1\nvar zone = global.get('pid.zone[' + zone_id + ']')\n\nmsg.topic = 'process'\nmsg.enable = true\nmsg.payload = zone.parameters.process || 0\nmsg.setpoint = zone.parameters.setpoint || 0\nmsg.prop_band = zone.settings.PB || 0\nmsg.t_integral = zone.settings.Ti || 0\nmsg.t_derivative = zone.settings.Td || 0\nmsg.integral_default = 0.5\nmsg.max_interval = 600\nmsg.smooth_factor = 0\nmsg.disabled_op = 0\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 635,
+        "y": 380,
+        "wires": [
+            [
+                "85244ebea8308d72"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "856b2661e6571eac",
+        "type": "comment",
+        "z": "b83fb43068cdf48f",
+        "name": "pid",
+        "info": "",
+        "x": 610,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "d9df111f70c8fcaa",
+        "type": "comment",
+        "z": "b83fb43068cdf48f",
+        "name": "process",
+        "info": "",
+        "x": 140,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "57ebab2c251359fa",
+        "type": "debug",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 815,
+        "y": 360,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "9e025668621ecbf5",
+        "type": "link out",
+        "z": "b83fb43068cdf48f",
+        "name": "output - zone 0 - out to process (CV 0-100%)",
+        "mode": "link",
+        "links": [
+            "0cfeb2a7be515599"
+        ],
+        "x": 275,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "e16ef3cff0d9564e",
+        "type": "link in",
+        "z": "b83fb43068cdf48f",
+        "name": "input - zone 0 - SP",
+        "links": [
+            "9715dba2fc1ab553",
+            "c96334b38e278286",
+            "af8f2e69ea9f27c2"
+        ],
+        "x": 155,
+        "y": 380,
+        "wires": [
+            [
+                "1c93a88f6fa8cd1f"
+            ]
+        ]
+    },
+    {
+        "id": "1c93a88f6fa8cd1f",
+        "type": "change",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "pid.zone[1].parameters.setpoint",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 215,
+        "y": 380,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "825fb92943243468",
+        "type": "link in",
+        "z": "b83fb43068cdf48f",
+        "name": "Timer 1",
+        "links": [
+            "62eccecdbb37e6f8"
+        ],
+        "x": 575,
+        "y": 380,
+        "wires": [
+            [
+                "a55a0b138de82f93"
+            ]
+        ],
+        "icon": "node-red/timer.svg"
+    },
+    {
+        "id": "367d82259b3681f0",
+        "type": "link in",
+        "z": "b83fb43068cdf48f",
+        "name": "Timer 1",
+        "links": [
+            "62eccecdbb37e6f8"
+        ],
+        "x": 155,
+        "y": 340,
+        "wires": [
+            [
+                "6e53c0f058452763"
+            ]
+        ],
+        "icon": "node-red/timer.svg"
+    },
+    {
+        "id": "9e1fccb90acced20",
+        "type": "link in",
+        "z": "b83fb43068cdf48f",
+        "name": "Timer 1",
+        "links": [
+            "62eccecdbb37e6f8"
+        ],
+        "x": 155,
+        "y": 420,
+        "wires": [
+            [
+                "6064bac69a7cab0a"
+            ]
+        ],
+        "icon": "node-red/timer.svg"
+    },
+    {
+        "id": "6064bac69a7cab0a",
+        "type": "function",
+        "z": "b83fb43068cdf48f",
+        "name": "average inputs",
+        "func": "//var upper = global.get('analoginput.input[0].scaled')\nvar lower = global.get('analoginput.input[1].scaled')\n// average = (upper + lower) / 2.0\n\nglobal.set('pid.zone[1].parameters.process', lower)\n\nnode.status({ fill: \"green\", shape: \"dot\", text: lower.toFixed(1) + '°F' });\n\nmsg.payload = lower\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 215,
+        "y": 420,
+        "wires": [
+            [
+                "dca02c394fc44bc3"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "dca02c394fc44bc3",
+        "type": "debug",
+        "z": "b83fb43068cdf48f",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 275,
+        "y": 420,
+        "wires": [],
         "l": false
     },
     {
@@ -5614,7 +5890,8 @@
         "links": [
             "4840d3b8dd483cff",
             "53681c7211103452",
-            "6a57983382d3490e"
+            "6a57983382d3490e",
+            "e16ef3cff0d9564e"
         ],
         "x": 1135,
         "y": 700,
@@ -5845,7 +6122,8 @@
         "links": [
             "4840d3b8dd483cff",
             "53681c7211103452",
-            "6a57983382d3490e"
+            "6a57983382d3490e",
+            "e16ef3cff0d9564e"
         ],
         "x": 615,
         "y": 540,
@@ -5883,7 +6161,7 @@
         "type": "function",
         "z": "e9cef8706a9cf7f6",
         "name": "check temps and start soak",
-        "func": "var upper = global.get('analoginput.input[0].scaled')\nvar lower = global.get('analoginput.input[1].scaled')\nvar average = (upper + lower) / 2.0\nvar pid_setpoint = global.get('pid.zone[0].parameters.setpoint')\n\nvar setpoint = msg.payload.data.segment_settings.setpoint\nvar control_action = global.get('logic.control_action')\nvar ramp_rate = msg.payload.data.segment_settings.ramp_rate // per hour\nvar delta_time = 1000.0 / (1000.0 * 60.0 * 60.0) // the pulse timer is set for 1000ms. how many 1000 ms in 1 hour?\nvar delta_temp = delta_time * ramp_rate\nvar tolerance = setpoint * 0.002\n\n// ramp the setpoints\nif (control_action == 'heating') {\n    if (pid_setpoint < setpoint) {\n        pid_setpoint = pid_setpoint + delta_temp;\n    }\n} else if (control_action == 'cooling') {\n    if (pid_setpoint > setpoint) {\n        pid_setpoint = pid_setpoint - delta_temp;\n    }\n} else {\n    // uh oh...\n}\n\nvar msg1 = { payload: pid_setpoint }\n\n// check if temps have been reached\n// TODO: add a confidence timer here to filter out spikes in temp\nif ((control_action == 'heating' && average >= (setpoint - tolerance))\n    || (control_action == 'cooling' && average <= (setpoint + tolerance))){\n        pid_setpoint = setpoint;\n        global.set('logic.at_setpoint', true)\n        msg.topic = 'soak'\n        msg1 = { payload: pid_setpoint }\n        return [msg1, msg];\n} else {\n    return [msg1, null];\n}",
+        "func": "var upper = global.get('analoginput.input[0].scaled')\nvar lower = global.get('analoginput.input[1].scaled')\nvar average = (upper + lower) / 2.0\nvar ramp_setpoint = global.get('logic.ramp_setpoint')\n\nvar setpoint = msg.payload.data.segment_settings.setpoint\nvar control_action = global.get('logic.control_action')\nvar ramp_rate = msg.payload.data.segment_settings.ramp_rate // per hour\nvar delta_time = 1000.0 / (1000.0 * 60.0 * 60.0) // the pulse timer is set for 1000ms. how many 1000 ms in 1 hour?\nvar delta_temp = delta_time * ramp_rate\nvar tolerance = setpoint * 0.002\n\n// ramp the setpoints\nif (control_action == 'heating') {\n    if (ramp_setpoint < setpoint) {\n        ramp_setpoint = ramp_setpoint + delta_temp;\n    }\n} else if (control_action == 'cooling') {\n    if (ramp_setpoint > setpoint) {\n        ramp_setpoint = ramp_setpoint - delta_temp;\n    }\n} else {\n    // uh oh...\n}\n\nglobal.set('logic.ramp_setpoint', ramp_setpoint)\n\nvar msg1 = { payload: ramp_setpoint }\n\n// check if temps have been reached\n// TODO: add a confidence timer here to filter out spikes in temp\nif ((control_action == 'heating' && average >= (setpoint - tolerance))\n    || (control_action == 'cooling' && average <= (setpoint + tolerance))){\n    global.set('logic.at_setpoint', true)\n    msg.topic = 'soak'\n    msg1 = { payload: setpoint }\n    return [msg1, msg];\n} else {\n    return [msg1, null];\n}",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -5908,7 +6186,7 @@
         "type": "function",
         "z": "e9cef8706a9cf7f6",
         "name": "set ramp direction",
-        "func": "var upper = global.get('analoginput.input[0].scaled')\nvar lower = global.get('analoginput.input[1].scaled')\nvar average = (upper + lower) / 2.0\n\n// determine ramping direction\nif (average > msg.payload.data.segment_settings.setpoint) {\n    global.set('logic.control_action', 'cooling')\n} else {\n    global.set('logic.control_action', 'heating')\n}\n\n// seed the starting temperature\nglobal.set('pid.zone[0].parameters.setpoint',average)\n\n// clear this now so that it can be latched in the monitoring logic\nglobal.set('logic.at_setpoint', false)\n\n// set duration between ramp calculations\nmsg.delay = 1000\n\nreturn msg;",
+        "func": "var upper = global.get('analoginput.input[0].scaled')\nvar lower = global.get('analoginput.input[1].scaled')\nvar average = (upper + lower) / 2.0\n\n// determine ramping direction\nif (average > msg.payload.data.segment_settings.setpoint) {\n    global.set('logic.control_action', 'cooling')\n} else {\n    global.set('logic.control_action', 'heating')\n}\n\n// seed the starting temperature\nglobal.set('pid.zone[0].parameters.setpoint', average)\nglobal.set('pid.zone[1].parameters.setpoint', average)\nglobal.set('logic.ramp_setpoint', average)\n\n// clear this now so that it can be latched in the monitoring logic\nglobal.set('logic.at_setpoint', false)\n\n// set duration between ramp calculations\nmsg.delay = 1000\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6868,7 +7146,8 @@
         "name": "",
         "mode": "link",
         "links": [
-            "53681c7211103452"
+            "53681c7211103452",
+            "e16ef3cff0d9564e"
         ],
         "x": 1095,
         "y": 500,
@@ -6967,7 +7246,7 @@
         "type": "function",
         "z": "e9cef8706a9cf7f6",
         "name": "",
-        "func": "var log_ver = 1\n// check if variables initialized\nif (context.get('log_ver', 'disk') != log_ver) {\n    // set to version so we don't run again\n    context.set('log_ver', log_ver, 'disk')\n\n    var logic = { sch_state: \"IDLE\", \n                    seg_state: \"IDLE\", \n                    control_action: \"heating\", \n                    at_setpoint: false, \n                    simulate_temperature: false}\n\n    global.set('logic', undefined)  // clear old structure if present\n    global.set('logic', logic)\n    global.set('logic', undefined, 'disk')  // clear old structure if present\n    global.set('logic', logic, 'disk')\n\n    msg.payload = { logic }\n    return msg\n}\n",
+        "func": "var log_ver = 1\n// check if variables initialized\nif (context.get('log_ver', 'disk') != log_ver) {\n    // set to version so we don't run again\n    context.set('log_ver', log_ver, 'disk')\n\n    var logic = { sch_state: \"IDLE\", \n                    seg_state: \"IDLE\", \n                    control_action: \"heating\", \n                    at_setpoint: false,\n                    ramp_setpoint: 0.0,\n                    simulate_temperature: false}\n\n    global.set('logic', undefined)  // clear old structure if present\n    global.set('logic', logic)\n    global.set('logic', undefined, 'disk')  // clear old structure if present\n    global.set('logic', logic, 'disk')\n\n    msg.payload = { logic }\n    return msg\n}\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -10781,7 +11060,10 @@
             "df154adfaea23440",
             "b3c9ae5df3d92461",
             "545e40d2b936b0ed",
-            "a1adcde3ae3b5ba7"
+            "a1adcde3ae3b5ba7",
+            "825fb92943243468",
+            "367d82259b3681f0",
+            "9e1fccb90acced20"
         ],
         "x": 375,
         "y": 520,
