@@ -1397,8 +1397,7 @@
         "y": 660,
         "wires": [
             [
-                "16e8124d59e7fb62",
-                "12681729a71ef662"
+                "16e8124d59e7fb62"
             ]
         ],
         "l": false
@@ -1452,21 +1451,6 @@
         "l": false
     },
     {
-        "id": "12681729a71ef662",
-        "type": "rpi-gpio out",
-        "z": "3154c44d1a91de38",
-        "name": "lower element",
-        "pin": "19",
-        "set": true,
-        "level": "0",
-        "freq": "",
-        "out": "out",
-        "bcm": true,
-        "x": 460,
-        "y": 720,
-        "wires": []
-    },
-    {
         "id": "e4a7e7415279dc26",
         "type": "comment",
         "z": "3154c44d1a91de38",
@@ -1504,8 +1488,7 @@
                 "708a944b9506b9a4"
             ],
             [
-                "16e8124d59e7fb62",
-                "12681729a71ef662"
+                "16e8124d59e7fb62"
             ]
         ],
         "l": false
@@ -1516,8 +1499,7 @@
         "z": "3154c44d1a91de38",
         "name": "input - upper heater",
         "links": [
-            "094e9b28f33ff867",
-            "9e025668621ecbf5"
+            "094e9b28f33ff867"
         ],
         "x": 135,
         "y": 680,
@@ -3632,6 +3614,86 @@
         "l": false
     },
     {
+        "id": "08abdb8c6e0ffbfd",
+        "type": "trigger",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "op1": "1",
+        "op2": "0",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "200",
+        "extend": false,
+        "overrideDelay": true,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 295,
+        "y": 740,
+        "wires": [
+            [
+                "a7f65cb6446fa7fa"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "a7f65cb6446fa7fa",
+        "type": "rpi-gpio out",
+        "z": "3154c44d1a91de38",
+        "name": "lower element",
+        "pin": "19",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 460,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "badd4537dd86e084",
+        "type": "function",
+        "z": "3154c44d1a91de38",
+        "name": "",
+        "func": "var msg_out = { delay: msg.payload * 10 }; // should come in as 0 - 100%\nvar sch_state = global.get('logic.sch_state')\nvar upper_thermocouple_bad = flow.get('upper_thermocouple_bad')\nvar lower_thermocouple_bad = flow.get('lower_thermocouple_bad')\nvar simulate_temperature = global.get('logic.simulate_temperature')\n\nif (!upper_thermocouple_bad && !lower_thermocouple_bad \n    && sch_state != 'IDLE'\n    && !simulate_temperature) {\n    // the trigger function locks up if you send it a zero\n    // similarly, we dont want to send it a value over the trigger time (1000 ms)\n    if ( msg_out.delay > 0 && msg_out.delay < 1000 ) {\n        node.status({ fill: \"green\", shape: \"dot\", text: msg.payload.toFixed(1) + '%' });\n        return [msg_out, null];\n    } else if ( msg_out.delay <= 0 ) {\n        // send an \"off\" directly to the output node\n        node.status({ fill: \"green\", shape: \"ring\", text: '0%' });\n        msg_out.payload = \"0\"\n        return [null, msg_out];\n    } else if ( msg_out.delay >= 1000 ) {\n        // send an \"on\" directly to the output node\n        node.status({ fill: \"green\", shape: \"dot\", text: '100%' });\n        msg_out.payload = \"1\"\n        return [null, msg_out];\n    }\n} else {\n    // send an \"off\" directly to the output node\n    node.status({fill:\"blue\",shape:\"ring\",text:\"disabled\"});\n    msg_out.payload = \"0\"\n    return [ null, msg_out ];\n}",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 195,
+        "y": 760,
+        "wires": [
+            [
+                "08abdb8c6e0ffbfd"
+            ],
+            [
+                "a7f65cb6446fa7fa"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "a48eaf097a50e7c4",
+        "type": "link in",
+        "z": "3154c44d1a91de38",
+        "name": "input - lower heater",
+        "links": [
+            "9e025668621ecbf5"
+        ],
+        "x": 135,
+        "y": 760,
+        "wires": [
+            [
+                "badd4537dd86e084"
+            ]
+        ]
+    },
+    {
         "id": "0d21e53eb5db0544",
         "type": "catch",
         "z": "b83fb43068cdf48f",
@@ -4983,10 +5045,10 @@
         "id": "9e025668621ecbf5",
         "type": "link out",
         "z": "b83fb43068cdf48f",
-        "name": "output - zone 0 - out to process (CV 0-100%)",
+        "name": "output - zone 1 - out to process (CV 0-100%)",
         "mode": "link",
         "links": [
-            "0cfeb2a7be515599"
+            "a48eaf097a50e7c4"
         ],
         "x": 275,
         "y": 340,
