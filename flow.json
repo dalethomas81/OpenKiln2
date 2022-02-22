@@ -1244,7 +1244,8 @@
                 "0402b15e862a2745"
             ],
             [
-                "48381e08644719f0"
+                "48381e08644719f0",
+                "557e016cb59f4189"
             ]
         ],
         "l": false
@@ -3443,12 +3444,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 215,
-        "y": 360,
+        "x": 235,
+        "y": 320,
         "wires": [
             [
-                "6301f204b9bf6293",
-                "76068665ad239a83"
+                "6301f204b9bf6293"
             ]
         ],
         "l": false
@@ -3692,6 +3692,26 @@
                 "badd4537dd86e084"
             ]
         ]
+    },
+    {
+        "id": "557e016cb59f4189",
+        "type": "function",
+        "z": "3154c44d1a91de38",
+        "name": "get cv",
+        "func": "msg.payload = global.get('pid.zone[1].parameters.control')\nnode.status({ fill: \"green\", shape: \"dot\", text: msg.payload.toFixed(1) + '%' });\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 235,
+        "y": 400,
+        "wires": [
+            [
+                "76068665ad239a83"
+            ]
+        ],
+        "l": false
     },
     {
         "id": "0d21e53eb5db0544",
