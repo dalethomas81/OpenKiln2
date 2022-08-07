@@ -11573,13 +11573,14 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 180,
+        "x": 135,
         "y": 160,
         "wires": [
             [
                 "f14af351da1b05c1"
             ]
-        ]
+        ],
+        "l": false
     },
     {
         "id": "f14af351da1b05c1",
@@ -11593,7 +11594,7 @@
         "winHide": false,
         "oldrc": false,
         "name": "",
-        "x": 440,
+        "x": 280,
         "y": 160,
         "wires": [
             [],
@@ -11622,13 +11623,14 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 180,
+        "x": 135,
         "y": 200,
         "wires": [
             [
                 "3b38d7ad7142ae99"
             ]
-        ]
+        ],
+        "l": false
     },
     {
         "id": "3b38d7ad7142ae99",
@@ -11642,7 +11644,7 @@
         "winHide": false,
         "oldrc": false,
         "name": "",
-        "x": 460,
+        "x": 300,
         "y": 200,
         "wires": [
             [],
@@ -11671,13 +11673,14 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 180,
+        "x": 135,
         "y": 240,
         "wires": [
             [
                 "5bb9693f827a8916"
             ]
-        ]
+        ],
+        "l": false
     },
     {
         "id": "5bb9693f827a8916",
@@ -11691,7 +11694,7 @@
         "winHide": false,
         "oldrc": false,
         "name": "",
-        "x": 450,
+        "x": 290,
         "y": 240,
         "wires": [
             [],
@@ -11711,7 +11714,7 @@
         "winHide": false,
         "oldrc": false,
         "name": "",
-        "x": 420,
+        "x": 260,
         "y": 280,
         "wires": [
             [
@@ -11740,7 +11743,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 600,
+        "x": 440,
         "y": 280,
         "wires": [
             []
@@ -11776,13 +11779,14 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 150,
-        "y": 320,
+        "x": 135,
+        "y": 160,
         "wires": [
             [
                 "f14af351da1b05c1"
             ]
-        ]
+        ],
+        "l": false
     },
     {
         "id": "f623a973075e595e",
@@ -11804,13 +11808,14 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 140,
-        "y": 360,
+        "x": 135,
+        "y": 200,
         "wires": [
             [
                 "3b38d7ad7142ae99"
             ]
-        ]
+        ],
+        "l": false
     },
     {
         "id": "a642f1f2e5e98baf",
@@ -11832,13 +11837,14 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 150,
-        "y": 400,
+        "x": 135,
+        "y": 240,
         "wires": [
             [
                 "5bb9693f827a8916"
             ]
-        ]
+        ],
+        "l": false
     },
     {
         "id": "b22998e6d78aeec1",
@@ -11913,9 +11919,10 @@
             "0f779fd67e9e72b8",
             "faad1abb6ddb40e6",
             "229639664257214b",
-            "3481780d26e1a633"
+            "3481780d26e1a633",
+            "c9af1f74938d7244"
         ],
-        "x": 375,
+        "x": 355,
         "y": 500,
         "wires": []
     },
@@ -11940,7 +11947,7 @@
             "9e1fccb90acced20",
             "e3c7240e051661df"
         ],
-        "x": 375,
+        "x": 355,
         "y": 520,
         "wires": []
     },
@@ -11951,7 +11958,7 @@
         "name": "Timer 2",
         "mode": "link",
         "links": [],
-        "x": 375,
+        "x": 355,
         "y": 540,
         "wires": []
     },
@@ -11987,7 +11994,7 @@
             "39292a30a8541f2a",
             "f7bd5176dea5a20b"
         ],
-        "x": 375,
+        "x": 355,
         "y": 560,
         "wires": []
     },
@@ -11999,7 +12006,7 @@
         "links": [
             "7fa2d20f4131fc60"
         ],
-        "x": 215,
+        "x": 135,
         "y": 280,
         "wires": [
             [
@@ -12019,7 +12026,7 @@
         "winHide": false,
         "oldrc": false,
         "name": "",
-        "x": 530,
+        "x": 370,
         "y": 320,
         "wires": [
             [
@@ -12057,7 +12064,7 @@
         "links": [
             "70a6135b55b68537"
         ],
-        "x": 375,
+        "x": 355,
         "y": 580,
         "wires": []
     },
@@ -12069,7 +12076,7 @@
         "links": [
             "baf5017e8f62ab32"
         ],
-        "x": 305,
+        "x": 135,
         "y": 320,
         "wires": [
             []
@@ -12086,7 +12093,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 755,
+        "x": 595,
         "y": 320,
         "wires": [
             [
@@ -12109,7 +12116,7 @@
         "retentionPolicyV18Flux": "",
         "org": "organisation",
         "bucket": "bucket",
-        "x": 815,
+        "x": 655,
         "y": 320,
         "wires": [],
         "l": false
@@ -12819,36 +12826,13 @@
         "winHide": false,
         "oldrc": false,
         "name": "write boot time",
-        "x": 440,
+        "x": 280,
         "y": 360,
         "wires": [
-            [
-                "44529c20ab623375"
-            ],
-            [
-                "44529c20ab623375"
-            ],
-            [
-                "44529c20ab623375"
-            ]
+            [],
+            [],
+            []
         ]
-    },
-    {
-        "id": "44529c20ab623375",
-        "type": "debug",
-        "z": "98e4246c87add39e",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 610,
-        "y": 360,
-        "wires": []
     },
     {
         "id": "8611ecb7f60d9e9b",
@@ -12856,74 +12840,44 @@
         "z": "98e4246c87add39e",
         "name": "only used with pisugar",
         "info": "",
-        "x": 530,
+        "x": 370,
         "y": 320,
         "wires": []
-    },
-    {
-        "id": "30e0eda550f79e3b",
-        "type": "inject",
-        "z": "98e4246c87add39e",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 280,
-        "y": 440,
-        "wires": [
-            [
-                "d156aa407d5083eb"
-            ]
-        ]
     },
     {
         "id": "d156aa407d5083eb",
         "type": "function",
         "z": "98e4246c87add39e",
         "name": "",
-        "func": "//var timestamp = new Date().getTime() / 1000;\nvar date = new Date(Date.now());\nmsg.payload = 'sudo logger \"openkiln started at: ' + date + '\"';\nreturn msg;",
+        "func": "//var timestamp = new Date().getTime() / 1000;\nvar date = new Date(Date.now());\nmsg.payload = 'sudo logger \"openkiln started on: ' + date + '\"';\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 440,
-        "y": 440,
+        "x": 135,
+        "y": 360,
         "wires": [
             [
-                "b87ef9c9d6832201",
-                "287b5b975a92e9b6"
+                "b87ef9c9d6832201"
             ]
-        ]
+        ],
+        "l": false
     },
     {
-        "id": "287b5b975a92e9b6",
-        "type": "debug",
+        "id": "c9af1f74938d7244",
+        "type": "link in",
         "z": "98e4246c87add39e",
         "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 660,
-        "y": 460,
-        "wires": []
+        "links": [
+            "7fa2d20f4131fc60"
+        ],
+        "x": 75,
+        "y": 360,
+        "wires": [
+            [
+                "d156aa407d5083eb"
+            ]
+        ]
     }
 ]
