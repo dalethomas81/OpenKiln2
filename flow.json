@@ -12806,5 +12806,87 @@
         "x": 120,
         "y": 940,
         "wires": []
+    },
+    {
+        "id": "b87ef9c9d6832201",
+        "type": "exec",
+        "z": "98e4246c87add39e",
+        "command": "logger -s msg.payload >> /var/log/mycustomlog",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "2",
+        "winHide": false,
+        "oldrc": false,
+        "name": "write boot time",
+        "x": 440,
+        "y": 360,
+        "wires": [
+            [
+                "44529c20ab623375"
+            ],
+            [
+                "44529c20ab623375"
+            ],
+            [
+                "44529c20ab623375"
+            ]
+        ]
+    },
+    {
+        "id": "44529c20ab623375",
+        "type": "debug",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "8611ecb7f60d9e9b",
+        "type": "comment",
+        "z": "98e4246c87add39e",
+        "name": "only used with pisugar",
+        "info": "",
+        "x": 530,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "30e0eda550f79e3b",
+        "type": "inject",
+        "z": "98e4246c87add39e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 350,
+        "y": 420,
+        "wires": [
+            [
+                "b87ef9c9d6832201"
+            ]
+        ]
     }
 ]
