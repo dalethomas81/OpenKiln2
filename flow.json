@@ -12894,7 +12894,7 @@
         "type": "function",
         "z": "98e4246c87add39e",
         "name": "",
-        "func": "//var timestamp = new Date().getTime() / 1000;\nvar date = new Date(Date.now());\nmsg.payload = 'sudo logger \"openkiln started at: \"' + date;\nreturn msg;",
+        "func": "//var timestamp = new Date().getTime() / 1000;\nvar date = new Date(Date.now());\nmsg.payload = 'sudo logger \"openkiln started at: ' + date + '\"';\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
