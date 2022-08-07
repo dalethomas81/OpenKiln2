@@ -12811,7 +12811,7 @@
         "id": "b87ef9c9d6832201",
         "type": "exec",
         "z": "98e4246c87add39e",
-        "command": "sudo logger \"openkiln started at: \" date -d @1234567890",
+        "command": "sudo logger \"openkiln started at: \" date -d @",
         "addpay": "payload",
         "append": "",
         "useSpawn": "false",
