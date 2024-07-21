@@ -10724,7 +10724,7 @@
         "type": "switch",
         "z": "592b686edd11b813",
         "name": "client count 0",
-        "property": "host.clients",
+        "property": "client_count",
         "propertyType": "msg",
         "rules": [
             {
@@ -10750,7 +10750,7 @@
         "type": "function",
         "z": "592b686edd11b813",
         "name": "dashboard client count",
-        "func": "var client_count = global.get('host.clients')\nvar client_count = client_count\nif (msg.payload == 'connect'){\n    client_count = client_count + 1\n} else if (msg.payload == 'lost') {\n    if (client_count > 0) client_count = client_count - 1\n}\nglobal.set('host.clients', client_count);\nmsg.client_count = client_count;\nreturn msg;",
+        "func": "var client_count = global.get('host.clients')\nif (msg.payload == 'connect'){\n    client_count = client_count + 1\n} else if (msg.payload == 'lost') {\n    if (client_count > 0) client_count = client_count - 1\n}\nglobal.set('host.clients', client_count);\nmsg.client_count = client_count;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
