@@ -42,4 +42,10 @@ PiSugar
 <img src="https://github.com/dalethomas81/OpenKiln2/blob/master/Media/openkiln2-pisugar.png" alt="pisugar" width="600"/>  
 
 Utility  
-<img src="https://github.com/dalethomas81/OpenKiln2/blob/master/Media/openkiln2-utility.png" alt="utility" width="600"/>  
+<img src="https://github.com/dalethomas81/OpenKiln2/blob/master/Media/openkiln2-utility.jpeg" alt="utility" width="600"/>   
+
+Prototype  
+<img src="https://github.com/dalethomas81/OpenKiln2/blob/master/Media/openkiln2-prototyping.jpeg" alt="utility" width="600"/>  
+
+Assembled  
+<img src="https://github.com/dalethomas81/OpenKiln2/blob/master/Media/openkiln2-assembled.jpeg" width="600"/>  
