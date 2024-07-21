@@ -10590,7 +10590,8 @@
         "y": 20,
         "wires": [
             [
-                "9234cc41d8a3f409"
+                "9234cc41d8a3f409",
+                "d6e824a1f81796fd"
             ]
         ],
         "l": false
@@ -10726,7 +10727,8 @@
         "y": 20,
         "wires": [
             [
-                "0d7362ca2edd72c6"
+                "0d7362ca2edd72c6",
+                "6cca4c289c80bf33"
             ]
         ],
         "l": false
@@ -11482,6 +11484,40 @@
         "l": false
     },
     {
+        "id": "6cca4c289c80bf33",
+        "type": "debug",
+        "z": "592b686edd11b813",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "d6e824a1f81796fd",
+        "type": "debug",
+        "z": "592b686edd11b813",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 220,
+        "wires": []
+    },
+    {
         "id": "1c9e79b136a623e2",
         "type": "catch",
         "z": "98e4246c87add39e",
@@ -12204,13 +12240,14 @@
         "repair": false,
         "outputs": 1,
         "x": 295,
-        "y": 760,
+        "y": 740,
         "wires": [
             [
                 "b71eb5ffe356396d"
             ]
         ],
-        "l": false
+        "l": false,
+        "info": "the tab is only send on a change event. we wont use it here since we want these buttons to be hidden in any event - not just change."
     },
     {
         "id": "b71eb5ffe356396d",
@@ -12264,7 +12301,7 @@
         "y": 760,
         "wires": [
             [
-                "41f5fb056a65a202"
+                "b71eb5ffe356396d"
             ]
         ],
         "l": true
@@ -12790,7 +12827,7 @@
         "type": "comment",
         "z": "98e4246c87add39e",
         "name": "only used with pisugar",
-        "info": "",
+        "info": "Pi Sugar was very unreliable and so I made the decision to disable it and remove it. \n\nIt would intermittently remove power from the Pi. This would happen sometimes in the middle of firing the Kiln and we would lose the batch!\n\nI will leave the code in case someone else wants to use it.",
         "x": 370,
         "y": 320,
         "wires": []
