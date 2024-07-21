@@ -638,8 +638,7 @@
         "order": 1,
         "disp": true,
         "width": 18,
-        "collapse": false,
-        "className": ""
+        "collapse": false
     },
     {
         "id": "97a4a070263bb997",
@@ -660,8 +659,7 @@
         "order": 3,
         "disp": true,
         "width": "7",
-        "collapse": false,
-        "className": ""
+        "collapse": false
     },
     {
         "id": "353b1d92547b4d5b",
@@ -672,8 +670,7 @@
         "order": 4,
         "disp": false,
         "width": "7",
-        "collapse": false,
-        "className": ""
+        "collapse": false
     },
     {
         "id": "4eed5c18f7c6edbe",
@@ -773,8 +770,7 @@
         "order": 5,
         "disp": true,
         "width": 8,
-        "collapse": false,
-        "className": ""
+        "collapse": false
     },
     {
         "id": "345cf5cc073427be",
@@ -784,8 +780,7 @@
         "order": 6,
         "disp": true,
         "width": 8,
-        "collapse": false,
-        "className": ""
+        "collapse": false
     },
     {
         "id": "67c8679cc5c6bbc7",
@@ -1766,7 +1761,6 @@
         "label": "Raw",
         "format": "<font color=\"green\" size=\"+3\">{{msg.payload}}</font>",
         "layout": "row-spread",
-        "className": "",
         "x": 710,
         "y": 1060,
         "wires": []
@@ -1783,7 +1777,6 @@
         "label": "Scaled",
         "format": "<font color=\"green\" size=\"+3\">{{msg.payload}}</font>",
         "layout": "row-spread",
-        "className": "",
         "x": 710,
         "y": 1100,
         "wires": []
@@ -1911,7 +1904,6 @@
         "min": 0,
         "max": "3000",
         "step": "0.01",
-        "className": "",
         "x": 490,
         "y": 1160,
         "wires": [
@@ -1939,7 +1931,6 @@
         "min": 0,
         "max": "3000",
         "step": "0.01",
-        "className": "",
         "x": 490,
         "y": 1180,
         "wires": [
@@ -1967,7 +1958,6 @@
         "min": 0,
         "max": "3000",
         "step": "0.01",
-        "className": "",
         "x": 490,
         "y": 1200,
         "wires": [
@@ -1995,7 +1985,6 @@
         "min": 0,
         "max": "3000",
         "step": "0.01",
-        "className": "",
         "x": 490,
         "y": 1220,
         "wires": [
@@ -2023,7 +2012,6 @@
         "min": 0,
         "max": "3000",
         "step": "0.0001",
-        "className": "",
         "x": 490,
         "y": 1240,
         "wires": [
@@ -2051,7 +2039,6 @@
         "min": 0,
         "max": "3000",
         "step": "0.0001",
-        "className": "",
         "x": 490,
         "y": 1260,
         "wires": [
@@ -3862,7 +3849,6 @@
         "min": "-10000",
         "max": "10000",
         "step": "0.01",
-        "className": "",
         "x": 315,
         "y": 760,
         "wires": [
@@ -3891,7 +3877,6 @@
         "min": "-1000",
         "max": "1000",
         "step": "0.01",
-        "className": "",
         "x": 315,
         "y": 780,
         "wires": [
@@ -3920,7 +3905,6 @@
         "min": "-1000",
         "max": "1000",
         "step": "0.01",
-        "className": "",
         "x": 315,
         "y": 800,
         "wires": [
@@ -4081,7 +4065,6 @@
         ],
         "outputs": 1,
         "useDifferentColor": false,
-        "className": "",
         "x": 355,
         "y": 500,
         "wires": [
@@ -4580,7 +4563,6 @@
         "label": "Setpoint",
         "format": "<font color=\"orange\" size=\"+1\">{{msg.payload}}</font>",
         "layout": "row-spread",
-        "className": "",
         "x": 405,
         "y": 540,
         "wires": [],
@@ -4658,7 +4640,6 @@
         "label": "Process",
         "format": "<font color=\"red\" size=\"+1\">{{msg.payload}}</font>",
         "layout": "row-spread",
-        "className": "",
         "x": 405,
         "y": 560,
         "wires": [],
@@ -4676,7 +4657,6 @@
         "label": "Control",
         "format": "<font color=\"green\" size=\"+1\">{{msg.payload}}</font>",
         "layout": "row-spread",
-        "className": "",
         "x": 405,
         "y": 580,
         "wires": [],
@@ -4796,7 +4776,6 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "",
-        "className": "",
         "icon": "",
         "payload": "",
         "payloadType": "str",
@@ -4848,7 +4827,6 @@
         ],
         "outputs": 1,
         "useDifferentColor": false,
-        "className": "",
         "x": 355,
         "y": 640,
         "wires": [
@@ -5266,7 +5244,6 @@
         "min": "-10000",
         "max": "10000",
         "step": "0.01",
-        "className": "",
         "x": 775,
         "y": 760,
         "wires": [
@@ -5295,7 +5272,6 @@
         "min": "-1000",
         "max": "1000",
         "step": "0.01",
-        "className": "",
         "x": 775,
         "y": 780,
         "wires": [
@@ -5324,7 +5300,6 @@
         "min": "-1000",
         "max": "1000",
         "step": "0.01",
-        "className": "",
         "x": 775,
         "y": 800,
         "wires": [
@@ -5485,7 +5460,6 @@
         ],
         "outputs": 1,
         "useDifferentColor": false,
-        "className": "",
         "x": 815,
         "y": 500,
         "wires": [
@@ -5729,7 +5703,6 @@
         "label": "Setpoint",
         "format": "<font color=\"orange\" size=\"+1\">{{msg.payload}}</font>",
         "layout": "row-spread",
-        "className": "",
         "x": 865,
         "y": 540,
         "wires": [],
@@ -5807,7 +5780,6 @@
         "label": "Process",
         "format": "<font color=\"red\" size=\"+1\">{{msg.payload}}</font>",
         "layout": "row-spread",
-        "className": "",
         "x": 865,
         "y": 560,
         "wires": [],
@@ -5825,7 +5797,6 @@
         "label": "Control",
         "format": "<font color=\"green\" size=\"+1\">{{msg.payload}}</font>",
         "layout": "row-spread",
-        "className": "",
         "x": 865,
         "y": 580,
         "wires": [],
@@ -5908,7 +5879,6 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "",
-        "className": "",
         "icon": "",
         "payload": "",
         "payloadType": "str",
@@ -5960,7 +5930,6 @@
         ],
         "outputs": 1,
         "useDifferentColor": false,
-        "className": "",
         "x": 815,
         "y": 640,
         "wires": [
@@ -9454,7 +9423,6 @@
         "min": "1",
         "max": "15",
         "step": 1,
-        "className": "",
         "x": 280,
         "y": 180,
         "wires": [
@@ -9482,7 +9450,6 @@
         "min": "1",
         "max": "15",
         "step": 1,
-        "className": "",
         "x": 280,
         "y": 220,
         "wires": [
@@ -10724,7 +10691,7 @@
         "type": "switch",
         "z": "592b686edd11b813",
         "name": "client count 0",
-        "property": "host.clients",
+        "property": "client_count",
         "propertyType": "msg",
         "rules": [
             {
@@ -11228,7 +11195,6 @@
         "label": "Upper",
         "format": "<font color=\"orange\" size=\"+2\">{{msg.payload}}</font>",
         "layout": "col-center",
-        "className": "",
         "x": 690,
         "y": 1020,
         "wires": []
@@ -11281,7 +11247,6 @@
         "label": "Lower",
         "format": "<font color=\"orange\" size=\"+2\">{{msg.payload}}</font>",
         "layout": "col-center",
-        "className": "",
         "x": 690,
         "y": 1040,
         "wires": []
@@ -11318,7 +11283,6 @@
         "label": "Avg",
         "format": "<font color=\"green\" size=\"+3\">{{msg.payload}}</font>",
         "layout": "col-center",
-        "className": "",
         "x": 700,
         "y": 1060,
         "wires": []
@@ -11402,7 +11366,6 @@
         "min": "1",
         "max": "48",
         "step": 1,
-        "className": "",
         "x": 455,
         "y": 1220,
         "wires": [
@@ -11773,7 +11736,6 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "orange",
-        "className": "",
         "icon": "warning",
         "payload": "",
         "payloadType": "str",
@@ -11802,7 +11764,6 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "orange",
-        "className": "",
         "icon": "warning",
         "payload": "",
         "payloadType": "str",
@@ -11831,7 +11792,6 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "orange",
-        "className": "",
         "icon": "warning",
         "payload": "",
         "payloadType": "str",
@@ -12157,7 +12117,6 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "orange",
-        "className": "",
         "icon": "warning",
         "payload": "",
         "payloadType": "str",
@@ -12410,7 +12369,6 @@
         "fwdInMessages": true,
         "resendOnRefresh": false,
         "templateScope": "local",
-        "className": "",
         "x": 580,
         "y": 1000,
         "wires": [
@@ -12431,7 +12389,6 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "",
-        "className": "",
         "icon": "",
         "payload": "",
         "payloadType": "str",
@@ -12494,7 +12451,6 @@
         "fwdInMessages": true,
         "resendOnRefresh": false,
         "templateScope": "local",
-        "className": "",
         "x": 580,
         "y": 1040,
         "wires": [
@@ -12515,7 +12471,6 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "",
-        "className": "",
         "icon": "",
         "payload": "",
         "payloadType": "str",
@@ -12578,7 +12533,6 @@
         "fwdInMessages": true,
         "resendOnRefresh": false,
         "templateScope": "local",
-        "className": "",
         "x": 580,
         "y": 1080,
         "wires": [
@@ -12599,7 +12553,6 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "",
-        "className": "",
         "icon": "",
         "payload": "",
         "payloadType": "str",
@@ -12662,7 +12615,6 @@
         "fwdInMessages": true,
         "resendOnRefresh": true,
         "templateScope": "local",
-        "className": "",
         "x": 100,
         "y": 1200,
         "wires": [
