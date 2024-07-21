@@ -407,6 +407,7 @@
     {
         "id": "d86c6f681ae35c78",
         "type": "ui_link",
+        "d": true,
         "name": "PiSugar",
         "link": "PiSugar",
         "icon": "battery_charging_full",
@@ -653,23 +654,21 @@
     {
         "id": "5331d4d4d2257e9c",
         "type": "ui_group",
-        "d": true,
         "name": "System",
         "tab": "de5db1c89316833e",
-        "order": 3,
+        "order": 5,
         "disp": true,
-        "width": "7",
+        "width": "8",
         "collapse": false
     },
     {
         "id": "353b1d92547b4d5b",
         "type": "ui_group",
-        "d": true,
         "name": "Enable System",
         "tab": "de5db1c89316833e",
-        "order": 4,
+        "order": 6,
         "disp": false,
-        "width": "7",
+        "width": "8",
         "collapse": false
     },
     {
@@ -767,7 +766,7 @@
         "type": "ui_group",
         "name": "Backup",
         "tab": "de5db1c89316833e",
-        "order": 5,
+        "order": 3,
         "disp": true,
         "width": 8,
         "collapse": false
@@ -777,7 +776,7 @@
         "type": "ui_group",
         "name": "Restore",
         "tab": "de5db1c89316833e",
-        "order": 6,
+        "order": 4,
         "disp": true,
         "width": 8,
         "collapse": false
@@ -3549,7 +3548,7 @@
         "name": "simulate temps",
         "info": "",
         "x": 340,
-        "y": 380,
+        "y": 360,
         "wires": []
     },
     {
@@ -11986,7 +11985,7 @@
         "winHide": false,
         "oldrc": false,
         "name": "",
-        "x": 370,
+        "x": 360,
         "y": 320,
         "wires": [
             [
