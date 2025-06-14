@@ -17,15 +17,18 @@ echo "[1/8] Updating system..."
 sudo apt update && sudo apt upgrade -y
 
 # ------------------------------
-# Install Node.js & Node-RED (Official Pi installer)
+# Install Node.js & Node-RED (official Pi installer, robust mode)
 # ------------------------------
-echo "[2/8] Installing Node.js & Node-RED (official method)..."
+echo "[2/8] Installing Node.js & Node-RED (official method, robust mode)..."
 
-bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered) --confirm-install --confirm-pi
+# Download to temp file
+curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered -o /tmp/update-nodejs-and-nodered.sh
 
-# Enable Node-RED auto-start on boot
-sudo systemctl enable nodered.service
-sudo systemctl start nodered.service
+# Make it executable
+chmod +x /tmp/update-nodejs-and-nodered.sh
+
+# Run it with flags in a clean shell
+bash /tmp/update-nodejs-and-nodered.sh --confirm-install --confirm-pi
 
 # ------------------------------
 # Install InfluxDB
