@@ -1,204 +1,238 @@
-!!!!! ATTENTION: THIS INSTALLER FILE IS A WORK IN PROGRESS AND WILL NOT RUN YET !!!!!
-the general instructions are here now but the idea is to turn this into a script that 
-will install OpenKiln2 for you.
+#!/bin/bash
 
-#!/bin/sh
-# installer.sh will install the necessary packages to run OpenKiln2
+# OpenKiln2 Automated Installer
+# ====================================
+# For Raspberry Pi OS
 
-# sudo raspi-config
-	#interface options -> SPI -> enable -> I2C -> enable
+set -e
 
-# install node-red
-	sudo apt install build-essential git curl
-	
-    bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered)
+echo "============================================"
+echo "   OpenKiln2 - Automated Installer"
+echo "============================================"
 
-# enable node-red service
-	sudo systemctl enable nodered.service
+# ------------------------------
+# Update & Upgrade
+# ------------------------------
+echo "[1/8] Updating system..."
+sudo apt update && sudo apt upgrade -y
 
-	node-red-start (you can control-c and it wont stop node-red)
+# ------------------------------
+# Install Node.js & Node-RED
+# ------------------------------
+echo "[2/8] Installing Node.js LTS & Node-RED..."
+curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt install -y nodejs build-essential
+sudo npm install -g --unsafe-perm node-red
+sudo systemctl enable nodered.service
+sudo systemctl start nodered.service
 
-# configure node-red
-	node-red admin init
+# ------------------------------
+# Install InfluxDB
+# ------------------------------
+echo "[3/8] Installing InfluxDB..."
+sudo apt install -y influxdb
+sudo systemctl unmask influxdb
+sudo systemctl enable influxdb
+sudo systemctl start influxdb
 
-    # choose to use projects (you will need a github account for this)
-    
-	sudo nano /home/pi/.node-red/settings.js
+# ------------------------------
+# Create InfluxDB database, user, retention policies, and continuous queries
+# ------------------------------
+echo "[4/8] Setting up InfluxDB database, user, retention policies, and continuous queries..."
 
-    #add the below to the runtime settings section
-    #contextStorage: {
-    #default: {
-    #    module: "memory"
-    #},
-    #memoryOnly: {
-    #   module: "memory"
-    #},
-    #disk: {
-    #    module: "localfilesystem"
-    #}
+# Wait for InfluxDB to start up
+sleep 5
 
-    control+x
+# Create database 'home'
+influx -execute "CREATE DATABASE home"
 
-    y
+# Create admin user
+influx -execute "CREATE USER admin WITH PASSWORD 'OpenKiln@12' WITH ALL PRIVILEGES"
+influx -execute "GRANT ALL PRIVILEGES ON home TO admin"
 
-    enter
+# Create retention policies
+influx -execute "CREATE RETENTION POLICY \"30_days\" ON \"home\" DURATION 30d REPLICATION 1 DEFAULT"
+influx -execute "CREATE RETENTION POLICY \"6_months\" ON \"home\" DURATION 26w REPLICATION 1"
+influx -execute "CREATE RETENTION POLICY \"infinite\" ON \"home\" DURATION INF REPLICATION 1"
 
-    node-red-restart
+# Create continuous queries
+influx -execute "CREATE CONTINUOUS QUERY \"cq_30m_upper\" ON \"home\" BEGIN SELECT mean(\"value\") AS \"mean_Kiln_01_UpperTemperature\" INTO \"30_days\".\"downsampled_temps\" FROM \"Kiln_01_UpperTemperature\" GROUP BY time(30m) END"
 
-# install thermocouple-max31855
-	sudo npm install thermocouple-max31855
+influx -execute "CREATE CONTINUOUS QUERY \"cq_30m_lower\" ON \"home\" BEGIN SELECT mean(\"value\") AS \"mean_Kiln_01_LowerTemperature\" INTO \"30_days\".\"downsampled_temps\" FROM \"Kiln_01_LowerTemperature\" GROUP BY time(30m) END"
 
-# install node-red nodes
-    # open a browser and navigate to node-red using the hostname you chose earlier
-    http://OpenKiln2:1880
-    # install these from the pallete manager
-	#node-red-contrib-finite-statemachine
-	#node-red-contrib-influxdb
-	#node-red-contrib-pid
-	#node-red-contrib-pid-autotune
-	#node-red-node-pidcontrol
-	#node-red-dashboard
 
-# install influxdb
-# https://pimylifeup.com/raspberry-pi-influxdb/
-    
-    sudo apt upgrade
-    
-    curl https://repos.influxdata.com/influxdb.key | gpg --dearmor | sudo tee /usr/share/keyrings/influxdb-archive-keyring.gpg >/dev/null
-    
-    echo "deb [signed-by=/usr/share/keyrings/influxdb-archive-keyring.gpg] https://repos.influxdata.com/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
+# ------------------------------
+# Install Grafana
+# ------------------------------
+echo "[5/8] Installing Grafana..."
+sudo apt install -y apt-transport-https software-properties-common wget
+wget -q -O - https://packages.grafana.com/gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/grafana.gpg
+echo "deb [signed-by=/usr/share/keyrings/grafana.gpg] https://packages.grafana.com/oss/deb stable main" | \
+  sudo tee /etc/apt/sources.list.d/grafana.list
 
-    sudo apt update
+sudo apt update
+sudo apt install -y grafana
 
-    sudo apt install influxdb
+sudo systemctl enable grafana-server
+sudo systemctl start grafana-server
 
-    sudo systemctl unmask influxdb
+# ------------------------------
+# Install Required Node-RED Nodes
+# ------------------------------
+echo "[6/8] Installing required Node-RED nodes..."
+# Stop Node-RED to avoid conflicts while installing nodes
+sudo systemctl stop nodered.service
 
-    sudo systemctl enable influxdb
+cd ~/.node-red
 
-    sudo systemctl start influxdb
+npm install node-red-contrib-finite-statemachine
+npm install node-red-contrib-influxdb
+npm install node-red-contrib-pid
+npm install node-red-contrib-pid-autotune
+npm install node-red-node-pidcontrol
+npm install node-red-dashboard
 
-    influx
+# ------------------------------
+# Clone OpenKiln2 repo & import flows
+# ------------------------------
+echo "[7/8] Cloning OpenKiln2 repo and importing flows..."
 
-    >create database home
-    >use home
+cd ~
+if [ -d "OpenKiln2" ]; then
+    echo "Repo exists. Pulling latest..."
+    cd OpenKiln2 && git pull
+else
+    git clone https://github.com/dalethomas/OpenKiln2.git
+    cd OpenKiln2
+fi
 
-    >create user admin with password 'OpenKiln@12' with all privileges
-    >grant all privileges on home to admin
+#
+FLOW_JSON="flow.json"
 
-    >CREATE RETENTION POLICY "30_days" ON "home" DURATION 30d REPLICATION 1 DEFAULT;
-    >CREATE RETENTION POLICY "6_months" ON "home" DURATION 26w REPLICATION 1;
-    >CREATE RETENTION POLICY "infinite" ON "home" DURATION INF REPLICATION 1;
+# Copy flow.json to Node-RED user dir
+cp $FLOW_JSON ~/.node-red/flows_$(hostname).json
 
-    >CREATE CONTINUOUS QUERY "cq_30m_upper" ON "home" BEGIN SELECT mean("value") AS "mean_Kiln_01_UpperTemperature" INTO "30_days"."downsampled_temps" FROM "Kiln_01_UpperTemperature" GROUP BY time(30m) END
+# Restart Node-RED to load new flows and new nodes
+echo "Restarting Node-RED..."
+sudo systemctl start nodered.service
 
-    >CREATE CONTINUOUS QUERY "cq_30m_lower" ON "home" BEGIN SELECT mean("value") AS "mean_Kiln_01_LowerTemperature" INTO "30_days"."downsampled_temps" FROM "Kiln_01_LowerTemperature" GROUP BY time(30m) END
+# ------------------------------
+# [8/8] Provision Grafana datasource + dashboard
+# ------------------------------
+echo "[8/8] Provisioning Grafana datasource and dashboard..."
 
-    >exit
+# ----- 1) Datasource -----
+sudo mkdir -p /etc/grafana/provisioning/datasources
 
-# configure influx db
-    sudo nano /etc/influxdb/influxdb.conf
+cat <<EOF | sudo tee /etc/grafana/provisioning/datasources/influxdb.yaml
+apiVersion: 1
 
-    [monitor]
-    store-enabled = false in the config file under 
-    [http] # https://stackoverflow.com/questions/60269275/influxdb-keeps-appending-to-var-log-syslog
-    flux-log-enabled = false
-    suppress-write-log = true
-    access-log-status-filters = ["5xx", "4xx"]
+datasources:
+  - name: OpenKiln2 InfluxDB
+    type: influxdb
+    access: proxy
+    url: http://localhost:8086
+    database: home
+    user: admin
+    password: OpenKiln@12
+    isDefault: true
+EOF
 
-    control+x
+# ----- 2) Dashboard -----
+sudo mkdir -p /etc/grafana/provisioning/dashboards
 
-    y
+# Dashboard provisioning config
+cat <<EOF | sudo tee /etc/grafana/provisioning/dashboards/dashboards.yaml
+apiVersion: 1
 
-    enter
+providers:
+  - name: 'default'
+    orgId: 1
+    folder: ''
+    type: file
+    options:
+      path: /etc/grafana/provisioning/dashboards
+EOF
 
-    sudo service influxdb restart
+# Dashboard JSON itself
+cat <<EOF | sudo tee /etc/grafana/provisioning/dashboards/openkiln2_dashboard.json
+{
+  "id": null,
+  "uid": "openkiln2",
+  "title": "OpenKiln2 Dashboard",
+  "tags": ["openkiln2"],
+  "timezone": "browser",
+  "schemaVersion": 36,
+  "version": 1,
+  "refresh": "5s",
+  "panels": [
+    {
+      "type": "timeseries",
+      "title": "Upper Temperature (mean 30m)",
+      "datasource": "OpenKiln2 InfluxDB",
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "targets": [
+        {
+          "query": "SELECT mean(\\\"mean_Kiln_01_UpperTemperature\\\") FROM \\\"downsampled_temps\\\" WHERE \$timeFilter GROUP BY time(\$__interval) fill(null)",
+          "rawQuery": true
+        }
+      ],
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 24,
+        "h": 9
+      }
+    },
+    {
+      "type": "timeseries",
+      "title": "Lower Temperature (mean 30m)",
+      "datasource": "OpenKiln2 InfluxDB",
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "targets": [
+        {
+          "query": "SELECT mean(\\\"mean_Kiln_01_LowerTemperature\\\") FROM \\\"downsampled_temps\\\" WHERE \$timeFilter GROUP BY time(\$__interval) fill(null)",
+          "rawQuery": true
+        }
+      ],
+      "gridPos": {
+        "x": 0,
+        "y": 9,
+        "w": 24,
+        "h": 9
+      }
+    }
+  ]
+}
+EOF
 
-# install grafana
-    #https://brettbeeson.com.au/grafana-and-influxdb-in-pi-zero-w/
-    #pi zero gen 1
-    sudo apt --fix-broken install
-    wget https://dl.grafana.com/oss/release/grafana-rpi_6.4.4_armhf.deb
+# ----- Restart Grafana to apply -----
+sudo systemctl restart grafana-server
 
-    #pi zero gen 2
-	wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
-    echo "deb https://packages.grafana.com/oss/deb stable main" | sudo tee /etc/apt/sources.list.d/grafana.list
-    sudo apt update && sudo apt install -y grafana
 
-    #all versions of pi
-    sudo systemctl unmask grafana-server.service
-    sudo systemctl start grafana-server
-    sudo systemctl enable grafana-server.service
-
-# configure grafana
-	sudo /bin/systemctl stop grafana-server
-
-    sudo nano /etc/grafana/grafana.ini
-
-    //[security]
-    allow_embedding=true
-
-    //[users]
-    viewers_can_edit=true
-
-    //[auth.anonymous]
-    enabled=true
-    org_name = Main Org.
-    org_role = Admin
-
-    //[log]
-    mode = console
-
-    control+x
-
-    y
-
-    enter
-
-    sudo /bin/systemctl start grafana-server
-
-    /////// add datasource
-    # navigate to grafana using hostname
-    http://OpenKiln2:3000
-    choose influx
-    url http://localhost:8086
-    database home
-    user admin
-    password OpenKiln@12
-    click save and test
-
-    click plus button to create a new dashboard
-    
-
-# install pi sugar
-    wget http://cdn.pisugar.com/release/pisugar-power-manager.sh
-
-    bash pisugar-power-manager.sh -c release
-
-    sudo nc -U /tmp/pisugar-server.sock
-
-    set_auth
-
-    ctrl+c
-
-    #visit pi sugar
-    http://OpenKiln2:8421
-
-# clone repository
-    #more on this later. for now you you search "node-red projects" and learn how to clone a git repo in Node-RED
-    #navigate back to node-red and it should be asking you to either create a project or clone one
-    #clone this repo (https://github.com/dalethomas81/OpenKiln2.git) || (git@github.com:dalethomas81/OpenKiln2.git)
-    #follow the prompts and log in using your git SSH key (create one if needed)
-
-# restart node red
-	node-red-restart
-
-# install log2ram to reduce sd card wear from log writes
-    git clone https://github.com/azlux/log2ram && cd log2ram
-
-    chmod +x install.sh && sudo ./install.sh
-
-    cd .. && rm -r log2ram
-
-# navigate to OpenKiln dashboard
-    http://OpenKiln2:1880/ui
+# ------------------------------
+# Done!
+# ------------------------------
+echo ""
+echo "============================================"
+echo "✅ OpenKiln2 installation complete!"
+echo ""
+echo "Node-RED:  http://<YourPiIP>:1880"
+echo "Grafana:   http://<YourPiIP>:3000"
+echo "  Login: admin / admin"
+echo ""
+echo "InfluxDB Database: kiln_data"
+echo "User: kiln_user | Password: kiln_password"
+echo ""
+echo "Next Steps:"
+echo " - Test your thermocouples and SSR outputs in Node-RED."
+echo " - Check Grafana for live kiln data!"
+echo ""
+echo "Happy firing! 🔥"
+echo "============================================"
