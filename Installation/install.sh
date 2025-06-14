@@ -21,7 +21,7 @@ sudo apt update && sudo apt upgrade -y
 # ------------------------------
 echo "[2/8] Installing Node.js & Node-RED (official method)..."
 
-bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered)
+bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered) --confirm-install --confirm-pi
 
 # Enable Node-RED auto-start on boot
 sudo systemctl enable nodered.service
