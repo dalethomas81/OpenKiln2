@@ -17,18 +17,65 @@ echo "[1/8] Updating system..."
 sudo apt update && sudo apt upgrade -y
 
 # ------------------------------
-# Install Node.js & Node-RED (official Pi installer, robust mode)
+# [2/8] Install Node.js LTS & Node-RED (manual method, no wizard)
 # ------------------------------
-echo "[2/8] Installing Node.js & Node-RED (official method, robust mode)..."
+echo "[2/8] Installing Node.js & Node-RED manually..."
 
-# Download to temp file
-curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered -o /tmp/update-nodejs-and-nodered.sh
+# Install Node.js (v20)
+curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt install -y nodejs build-essential
 
-# Make it executable
-chmod +x /tmp/update-nodejs-and-nodered.sh
+# Install Node-RED globally
+sudo npm install -g --unsafe-perm node-red
 
-# Run it with flags in a clean shell
-bash /tmp/update-nodejs-and-nodered.sh --confirm-install --confirm-pi
+# Create settings.js (guaranteed to skip wizard)
+echo "[2/8] Creating settings.js manually..."
+mkdir -p ~/.node-red
+if [ ! -f ~/.node-red/settings.js ]; then
+  curl -sL https://raw.githubusercontent.com/node-red/node-red/master/packages/node_modules/node-red/settings.js -o ~/.node-red/settings.js
+
+  sed -i 's/enableTelemetry: true/enableTelemetry: false/' ~/.node-red/settings.js
+
+  sed -i '/^contextStorage:/,/},/d' ~/.node-red/settings.js
+
+  sed -i '/functionGlobalContext:/a \
+    contextStorage: {\n\
+        default: {\n\
+            module: "memory"\n\
+        },\n\
+        memoryOnly: {\n\
+            module: "memory"\n\
+        },\n\
+        disk: {\n\
+            module: "localfilesystem"\n\
+        }\n\
+    },\n' ~/.node-red/settings.js
+fi
+
+# Install systemd service manually (mimic what the installer does)
+sudo cp /usr/lib/node_modules/node-red/packages/node_modules/node-red/red.js /usr/bin/node-red
+
+sudo bash -c 'cat <<EOF > /etc/systemd/system/nodered.service
+[Unit]
+Description=Node-RED
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/env node-red
+Restart=on-failure
+User=pi
+Group=pi
+Environment="NODE_OPTIONS=--max_old_space_size=256"
+Nice=10
+
+[Install]
+WantedBy=multi-user.target
+EOF'
+
+# Reload systemd and enable Node-RED service
+sudo systemctl daemon-reload
+sudo systemctl enable nodered.service
+sudo systemctl start nodered.service
 
 # ------------------------------
 # Install InfluxDB
