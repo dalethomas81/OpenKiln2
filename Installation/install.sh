@@ -10,6 +10,10 @@ echo "============================================"
 echo "   OpenKiln2 - Automated Installer"
 echo "============================================"
 
+# [0/8] Install Git (needed for cloning the repo)
+echo "[0/8] Installing Git..."
+sudo apt update && sudo apt install -y git
+
 # ------------------------------
 # Update & Upgrade
 # ------------------------------
