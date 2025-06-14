@@ -17,27 +17,27 @@ echo "[1/8] Updating system..."
 sudo apt update && sudo apt upgrade -y
 
 # ------------------------------
-# [2/8] Install Node.js LTS & Node-RED (manual method, no wizard)
+# [2/8] Install Node.js & Node-RED (manual, robust)
 # ------------------------------
 echo "[2/8] Installing Node.js & Node-RED manually..."
 
-# Install Node.js (v20)
+# Install Node.js (via NodeSource)
 curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash -
 sudo apt install -y nodejs build-essential
 
 # Install Node-RED globally
 sudo npm install -g --unsafe-perm node-red
 
-# Create settings.js (guaranteed to skip wizard)
-echo "[2/8] Creating settings.js manually..."
+# Create settings.js with telemetry OFF and custom contextStorage
+echo "[2/8] Creating settings.js..."
 mkdir -p ~/.node-red
+
 if [ ! -f ~/.node-red/settings.js ]; then
   curl -sL https://raw.githubusercontent.com/node-red/node-red/master/packages/node_modules/node-red/settings.js -o ~/.node-red/settings.js
-
   sed -i 's/enableTelemetry: true/enableTelemetry: false/' ~/.node-red/settings.js
 
+  # Remove any existing contextStorage and insert your custom block
   sed -i '/^contextStorage:/,/},/d' ~/.node-red/settings.js
-
   sed -i '/functionGlobalContext:/a \
     contextStorage: {\n\
         default: {\n\
@@ -52,9 +52,8 @@ if [ ! -f ~/.node-red/settings.js ]; then
     },\n' ~/.node-red/settings.js
 fi
 
-# Install systemd service manually (mimic what the installer does)
-sudo cp /usr/lib/node_modules/node-red/packages/node_modules/node-red/red.js /usr/bin/node-red
-
+# Create the systemd service unit
+echo "[2/8] Creating systemd unit for Node-RED..."
 sudo bash -c 'cat <<EOF > /etc/systemd/system/nodered.service
 [Unit]
 Description=Node-RED
@@ -62,20 +61,22 @@ After=network.target
 
 [Service]
 ExecStart=/usr/bin/env node-red
-Restart=on-failure
+WorkingDirectory=/home/pi
 User=pi
 Group=pi
-Environment="NODE_OPTIONS=--max_old_space_size=256"
 Nice=10
+Environment="NODE_OPTIONS=--max_old_space_size=256"
+Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
 EOF'
 
-# Reload systemd and enable Node-RED service
+# Reload and enable the service
 sudo systemctl daemon-reload
 sudo systemctl enable nodered.service
 sudo systemctl start nodered.service
+
 
 # ------------------------------
 # Install InfluxDB
