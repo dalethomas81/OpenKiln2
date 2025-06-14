@@ -158,7 +158,7 @@ if [ -d "OpenKiln2" ]; then
     echo "Repo exists. Pulling latest..."
     cd OpenKiln2 && git pull
 else
-    git clone https://github.com/dalethomas/OpenKiln2.git
+    git clone --depth 1 https://github.com/dalethomas81/OpenKiln2.git
     cd OpenKiln2
 fi
 
