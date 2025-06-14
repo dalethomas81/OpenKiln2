@@ -17,12 +17,13 @@ echo "[1/8] Updating system..."
 sudo apt update && sudo apt upgrade -y
 
 # ------------------------------
-# Install Node.js & Node-RED
+# Install Node.js & Node-RED (Official Pi installer)
 # ------------------------------
-echo "[2/8] Installing Node.js LTS & Node-RED..."
-curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash -
-sudo apt install -y nodejs build-essential
-sudo npm install -g --unsafe-perm node-red
+echo "[2/8] Installing Node.js & Node-RED (official method)..."
+
+bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered)
+
+# Enable Node-RED auto-start on boot
 sudo systemctl enable nodered.service
 sudo systemctl start nodered.service
 
