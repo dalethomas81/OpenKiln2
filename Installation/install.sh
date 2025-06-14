@@ -82,7 +82,7 @@ sudo systemctl start nodered.service
 # Install InfluxDB
 # ------------------------------
 echo "[3/8] Installing InfluxDB..."
-sudo apt install -y influxdb
+sudo apt install -y influxdb influxdb-client
 sudo systemctl unmask influxdb
 sudo systemctl enable influxdb
 sudo systemctl start influxdb
