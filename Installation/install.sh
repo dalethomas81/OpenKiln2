@@ -200,12 +200,6 @@ providers:
       path: /var/lib/grafana/dashboards
 EOF'
 
-# 2) Create dashboards folder
-sudo mkdir -p /var/lib/grafana/dashboards
-
-# 3) Copy your JSON dashboard
-sudo cp ~/OpenKiln2/grafana_dashboard.json /var/lib/grafana/dashboards/
-
 # 4) Restart Grafana to apply dashboard
 sudo systemctl restart grafana-server
 
