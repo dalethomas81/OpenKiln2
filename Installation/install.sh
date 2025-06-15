@@ -19,7 +19,7 @@ echo "============================================"
 
 
 
-echo "[0/8] Enabling SPI interface..."
+echo "[1/14] Enabling SPI interface..."
 # Ensure the line exists and is set to 'on' in /boot/firmware/config.txt
 if grep -q "^dtparam=spi=" /boot/firmware/config.txt; then
     sudo sed -i "s/^dtparam=spi=.*/dtparam=spi=on/" /boot/firmware/config.txt
@@ -42,8 +42,8 @@ echo "SPI interface has been enabled. A reboot may be required to fully apply th
 
 
 
-# [0/8] Install Git (needed for cloning the repo)
-echo "[0/8] Installing Git..."
+# Install Git (needed for cloning the repo)
+echo "[2/14] Installing Git..."
 sudo apt update && sudo apt install -y git
 
 
@@ -54,7 +54,7 @@ sudo apt update && sudo apt install -y git
 # ------------------------------
 # Update & Upgrade
 # ------------------------------
-echo "[1/8] Updating system..."
+echo "[3/14] Updating system..."
 sudo apt update && sudo apt upgrade -y
 
 
@@ -63,9 +63,9 @@ sudo apt update && sudo apt upgrade -y
 
 
 # ------------------------------
-# [2/8] Install Node.js & Node-RED (manual, robust)
+# Install Node.js & Node-RED (manual, robust)
 # ------------------------------
-echo "[2/8] Installing Node.js & Node-RED manually..."
+echo "[4/14] Installing Node.js & Node-RED manually..."
 
 # Install Node.js (via NodeSource)
 curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash -
@@ -80,7 +80,7 @@ sudo npm install -g --unsafe-perm node-red
 
 
 # Create settings.js with telemetry OFF and custom contextStorage
-echo "[2/8] Creating settings.js..."
+echo "[5/14] Creating settings.js..."
 mkdir -p ~/.node-red
 
 if [ ! -f ~/.node-red/settings.js ]; then
@@ -109,7 +109,7 @@ fi
 
 
 # Create the systemd service unit
-echo "[2/8] Creating systemd unit for Node-RED..."
+echo "[6/14] Creating systemd unit for Node-RED..."
 sudo bash -c 'cat <<EOF > /etc/systemd/system/nodered.service
 [Unit]
 Description=Node-RED
@@ -141,7 +141,7 @@ sudo systemctl start nodered.service
 # ------------------------------
 # Install InfluxDB
 # ------------------------------
-echo "[3/8] Installing InfluxDB..."
+echo "[7/14] Installing InfluxDB..."
 sudo apt install -y influxdb influxdb-client
 sudo systemctl unmask influxdb
 sudo systemctl enable influxdb
@@ -155,7 +155,7 @@ sudo systemctl start influxdb
 # ------------------------------
 # Create InfluxDB database, user, retention policies, and continuous queries
 # ------------------------------
-echo "[4/8] Setting up InfluxDB database, user, retention policies, and continuous queries..."
+echo "[8/14] Setting up InfluxDB database, user, retention policies, and continuous queries..."
 
 # Wait for InfluxDB to start up
 sleep 5
@@ -185,7 +185,7 @@ influx -execute "CREATE CONTINUOUS QUERY \"cq_30m_lower\" ON \"home\" BEGIN SELE
 # ------------------------------
 # Install Grafana
 # ------------------------------
-echo "[5/8] Installing Grafana..."
+echo "[9/14] Installing Grafana..."
 sudo apt install -y apt-transport-https software-properties-common wget
 wget -q -O - https://packages.grafana.com/gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/grafana.gpg
 echo "deb [signed-by=/usr/share/keyrings/grafana.gpg] https://packages.grafana.com/oss/deb stable main" | \
@@ -205,7 +205,7 @@ sudo systemctl start grafana-server
 # ------------------------------
 # Install Required Node-RED Nodes
 # ------------------------------
-echo "[6/8] Installing required Node-RED nodes..."
+echo "[10/14] Installing required Node-RED nodes..."
 # Stop Node-RED to avoid conflicts while installing nodes
 sudo systemctl stop nodered.service
 
@@ -218,6 +218,8 @@ npm install node-red-contrib-pid
 npm install node-red-contrib-pid-autotune
 npm install node-red-node-pidcontrol
 npm install node-red-dashboard
+npm install node-red-node-pi-gpio
+npm install node-red-node-smooth
 
 
 
@@ -225,9 +227,9 @@ npm install node-red-dashboard
 
 
 # ------------------------------
-# [7/8] Clone OpenKiln2 repo & import flows
+# Clone OpenKiln2 repo & import flows
 # ------------------------------
-echo "[7/8] Cloning OpenKiln2 repo and importing flows..."
+echo "[11/14] Cloning OpenKiln2 repo and importing flows..."
 cd ~
 
 if [ -d "OpenKiln2" ]; then
@@ -261,9 +263,9 @@ sudo systemctl restart nodered.service
 
 
 # ------------------------------
-# [8/8] Provision Grafana dashboard
+# Provision Grafana dashboard
 # ------------------------------
-echo "[8/8] Provisioning Grafana dashboard..."
+echo "[12/14] Provisioning Grafana dashboard..."
 
 # 1) Create dashboards provisioning config
 sudo mkdir -p /etc/grafana/provisioning/dashboards
@@ -290,9 +292,9 @@ sudo systemctl restart grafana-server
 
 
 # ------------------------------
-# [8/8] provision dashboard and configure ini file
+# provision dashboard and configure ini file
 # ------------------------------
-echo "[8/8] Writing OpenKiln2 Dashboard JSON..."
+echo "[13/14] Writing OpenKiln2 Dashboard JSON..."
 
 sudo mkdir -p /var/lib/grafana/dashboards
 
@@ -312,10 +314,11 @@ sudo systemctl restart grafana-server
 
 
 
+
 # ------------------------------
-# [8/8] log2ram
+# log2ram
 # ------------------------------
-echo "[8/8] Installing log2ram ..."
+echo "[14/14] Installing log2ram ..."
 
 # Download log2ram repo
 git clone https://github.com/azlux/log2ram.git || true
@@ -331,6 +334,7 @@ rm -rf log2ram
 # Enable and start log2ram service
 sudo systemctl enable log2ram
 sudo systemctl start log2ram
+
 
 
 
