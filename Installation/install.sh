@@ -360,3 +360,5 @@ echo " - Check Grafana for live kiln data!"
 echo ""
 echo "Happy firing! 🔥"
 echo "============================================"
+
+sudo reboot now
