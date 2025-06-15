@@ -291,7 +291,7 @@ echo "[8/8] Writing OpenKiln2 Dashboard JSON..."
 
 sudo mkdir -p /var/lib/grafana/dashboards
 
-sudo cp ~/OpenKiln2/openkiln2_dashboard.json /var/lib/grafana/dashboards/
+sudo cp $HOME/OpenKiln2/openkiln2_dashboard.json /var/lib/grafana/dashboards/
 
 # Restart Grafana again to load dashboard
 sudo systemctl restart grafana-server
