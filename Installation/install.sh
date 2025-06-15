@@ -20,11 +20,11 @@ echo "============================================"
 
 
 echo "[0/8] Enabling SPI interface..."
-# Ensure the line exists and is set to 'on' in /boot/config.txt
-if grep -q "^dtparam=spi=" /boot/config.txt; then
-    sudo sed -i "s/^dtparam=spi=.*/dtparam=spi=on/" /boot/config.txt
+# Ensure the line exists and is set to 'on' in /boot/firmware/config.txt
+if grep -q "^dtparam=spi=" /boot/firmware/config.txt; then
+    sudo sed -i "s/^dtparam=spi=.*/dtparam=spi=on/" /boot/firmware/config.txt
 else
-    echo "dtparam=spi=on" | sudo tee -a /boot/config.txt
+    echo "dtparam=spi=on" | sudo tee -a /boot/firmware/config.txt
 fi
 
 # Ensure spi-dev loads on boot
