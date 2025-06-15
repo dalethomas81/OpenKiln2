@@ -149,10 +149,11 @@ npm install node-red-node-pidcontrol
 npm install node-red-dashboard
 
 # ------------------------------
-# Clone OpenKiln2 repo & import flows
+# [7/8] Clone OpenKiln2 repo & import flows
 # ------------------------------
 echo "[7/8] Cloning OpenKiln2 repo and importing flows..."
 cd ~
+
 if [ -d "OpenKiln2" ]; then
   cd OpenKiln2 && git pull
 else
@@ -164,15 +165,17 @@ else
   cd OpenKiln2
 fi
 
-#
-FLOW_JSON="flow.json"
+# Define flow file path (inside cloned repo)
+FLOW_JSON="$HOME/OpenKiln2/flow.json"
 
-# Copy flow.json to Node-RED user dir
-cp $FLOW_JSON ~/.node-red/flows_$(hostname).json
+# Copy flow.json to Node-RED user dir with correct name
+echo "Copying Node-RED flow to ~/.node-red/flows_$(hostname).json..."
+cp "$FLOW_JSON" ~/.node-red/flows_$(hostname).json
 
-# Restart Node-RED to load new flows and new nodes
+# Restart Node-RED to load new flows
 echo "Restarting Node-RED..."
-sudo systemctl start nodered.service
+sudo systemctl restart nodered.service
+
 
 # ------------------------------
 # [8/8] Provision Grafana datasource + dashboard
@@ -284,6 +287,7 @@ echo ""
 echo "============================================"
 echo "✅ OpenKiln2 installation complete!"
 echo ""
+echo "User Interface:  http://$PI_IP:1880/ui/ (or http://$PI_HOST.local:1880/ui/)"
 echo "Node-RED:  http://$PI_IP:1880 (or http://$PI_HOST.local:1880)"
 echo "Grafana:   http://$PI_IP:3000 (or http://$PI_HOST.local:3000)"
 echo "  Login: admin / admin"
