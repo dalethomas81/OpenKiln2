@@ -3,6 +3,10 @@
 # OpenKiln2 Automated Installer
 # ====================================
 # For Raspberry Pi OS
+#
+# to install run:
+# curl -sSL https://raw.githubusercontent.com/dalethomas81/OpenKiln2/main/install.sh | bash
+#
 
 set -e
 
@@ -291,7 +295,7 @@ echo "[8/8] Writing OpenKiln2 Dashboard JSON..."
 
 sudo mkdir -p /var/lib/grafana/dashboards
 
-sudo cp $HOME/OpenKiln2/openkiln2_dashboard.json /var/lib/grafana/dashboards/
+sudo cp $HOME/OpenKiln2/Installation/openkiln2_dashboard.json /var/lib/grafana/dashboards/
 
 # Restart Grafana again to load dashboard
 sudo systemctl restart grafana-server
