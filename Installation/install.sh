@@ -10,15 +10,53 @@ echo "============================================"
 echo "   OpenKiln2 - Automated Installer"
 echo "============================================"
 
+
+
+
+
+
+echo "[0/8] Enabling SPI interface..."
+# Ensure the line exists and is set to 'on' in /boot/config.txt
+if grep -q "^dtparam=spi=" /boot/config.txt; then
+    sudo sed -i "s/^dtparam=spi=.*/dtparam=spi=on/" /boot/config.txt
+else
+    echo "dtparam=spi=on" | sudo tee -a /boot/config.txt
+fi
+
+# Ensure spi-dev loads on boot
+if ! grep -q "^spi-dev" /etc/modules; then
+    echo "spi-dev" | sudo tee -a /etc/modules
+fi
+
+# Load the kernel module immediately (optional, so user doesn't have to reboot)
+sudo modprobe spi_bcm2835 || true
+
+echo "SPI interface has been enabled. A reboot may be required to fully apply the change."
+
+
+
+
+
+
 # [0/8] Install Git (needed for cloning the repo)
 echo "[0/8] Installing Git..."
 sudo apt update && sudo apt install -y git
+
+
+
+
+
 
 # ------------------------------
 # Update & Upgrade
 # ------------------------------
 echo "[1/8] Updating system..."
 sudo apt update && sudo apt upgrade -y
+
+
+
+
+
 
 # ------------------------------
 # [2/8] Install Node.js & Node-RED (manual, robust)
@@ -31,6 +69,11 @@ sudo apt install -y nodejs build-essential
 
 # Install Node-RED globally
 sudo npm install -g --unsafe-perm node-red
+
+
+
+
+
 
 # Create settings.js with telemetry OFF and custom contextStorage
 echo "[2/8] Creating settings.js..."
@@ -55,6 +98,11 @@ if [ ! -f ~/.node-red/settings.js ]; then
         }\n\
     },\n' ~/.node-red/settings.js
 fi
+
+
+
+
+
 
 # Create the systemd service unit
 echo "[2/8] Creating systemd unit for Node-RED..."
@@ -82,6 +130,10 @@ sudo systemctl enable nodered.service
 sudo systemctl start nodered.service
 
 
+
+
+
+
 # ------------------------------
 # Install InfluxDB
 # ------------------------------
@@ -90,6 +142,11 @@ sudo apt install -y influxdb influxdb-client
 sudo systemctl unmask influxdb
 sudo systemctl enable influxdb
 sudo systemctl start influxdb
+
+
+
+
+
 
 # ------------------------------
 # Create InfluxDB database, user, retention policies, and continuous queries
@@ -117,6 +174,10 @@ influx -execute "CREATE CONTINUOUS QUERY \"cq_30m_upper\" ON \"home\" BEGIN SELE
 influx -execute "CREATE CONTINUOUS QUERY \"cq_30m_lower\" ON \"home\" BEGIN SELECT mean(\"value\") AS \"mean_Kiln_01_LowerTemperature\" INTO \"30_days\".\"downsampled_temps\" FROM \"Kiln_01_LowerTemperature\" GROUP BY time(30m) END"
 
 
+
+
+
+
 # ------------------------------
 # Install Grafana
 # ------------------------------
@@ -132,6 +193,11 @@ sudo apt install -y grafana
 sudo systemctl enable grafana-server
 sudo systemctl start grafana-server
 
+
+
+
+
+
 # ------------------------------
 # Install Required Node-RED Nodes
 # ------------------------------
@@ -141,12 +207,18 @@ sudo systemctl stop nodered.service
 
 cd ~/.node-red
 
+npm install thermocouple-max31855
 npm install node-red-contrib-finite-statemachine
 npm install node-red-contrib-influxdb
 npm install node-red-contrib-pid
 npm install node-red-contrib-pid-autotune
 npm install node-red-node-pidcontrol
 npm install node-red-dashboard
+
+
+
+
+
 
 # ------------------------------
 # [7/8] Clone OpenKiln2 repo & import flows
@@ -179,6 +251,10 @@ echo "Restarting Node-RED..."
 sudo systemctl restart nodered.service
 
 
+
+
+
+
 # ------------------------------
 # [8/8] Provision Grafana dashboard
 # ------------------------------
@@ -202,6 +278,11 @@ EOF'
 
 # 4) Restart Grafana to apply dashboard
 sudo systemctl restart grafana-server
+
+
+
+
+
 
 # ------------------------------
 # [8/8] Embed OpenKiln2 Dashboard JSON directly
