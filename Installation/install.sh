@@ -277,16 +277,19 @@ sudo systemctl restart grafana-server
 # ------------------------------
 # Done!
 # ------------------------------
+PI_IP=$(hostname -I | awk '{print $1}')
+PI_HOST=$(hostname)
+
 echo ""
 echo "============================================"
 echo "✅ OpenKiln2 installation complete!"
 echo ""
-echo "Node-RED:  http://<YourPiIP>:1880"
-echo "Grafana:   http://<YourPiIP>:3000"
+echo "Node-RED:  http://$PI_IP:1880 (or http://$PI_HOST.local:1880)"
+echo "Grafana:   http://$PI_IP:3000 (or http://$PI_HOST.local:3000)"
 echo "  Login: admin / admin"
 echo ""
-echo "InfluxDB Database: kiln_data"
-echo "User: kiln_user | Password: kiln_password"
+echo "InfluxDB Database: home"
+echo "  User: admin | Password: OpenKiln@12"
 echo ""
 echo "Next Steps:"
 echo " - Test your thermocouples and SSR outputs in Node-RED."
@@ -294,3 +297,4 @@ echo " - Check Grafana for live kiln data!"
 echo ""
 echo "Happy firing! 🔥"
 echo "============================================"
+
