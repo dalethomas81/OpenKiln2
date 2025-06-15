@@ -289,13 +289,20 @@ sudo systemctl restart grafana-server
 
 
 # ------------------------------
-# [8/8] Embed OpenKiln2 Dashboard JSON directly
+# [8/8] provision dashboard and configure ini file
 # ------------------------------
 echo "[8/8] Writing OpenKiln2 Dashboard JSON..."
 
 sudo mkdir -p /var/lib/grafana/dashboards
 
 sudo cp $HOME/OpenKiln2/Installation/openkiln2_dashboard.json /var/lib/grafana/dashboards/
+
+# Allow embedding
+sudo sed -i '/^\[security\]/,/^\[/{s/^;*allow_embedding *= *.*/allow_embedding = true/}' /etc/grafana/grafana.ini
+# Allow viewers to edit
+sudo sed -i '/^\[users\]/,/^\[/{s/^;*viewers_can_edit *= *.*/viewers_can_edit = true/}' /etc/grafana/grafana.ini
+# Enable anonymous
+sudo sed -i '/^\[auth.anonymous\]/,/^\[/{s/^;*enabled *= *.*/enabled = true/; s/^;*org_name *= *.*/org_name = Main Org./; s/^;*org_role *= *.*/org_role = Admin/}' /etc/grafana/grafana.ini
 
 # Restart Grafana again to load dashboard
 sudo systemctl restart grafana-server
