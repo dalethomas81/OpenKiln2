@@ -180,45 +180,43 @@ sudo systemctl restart nodered.service
 
 
 # ------------------------------
-# [8/8] Provision Grafana datasource + dashboard
+# [8/8] Provision Grafana dashboard
 # ------------------------------
-echo "[8/8] Provisioning Grafana datasource and dashboard..."
+echo "[8/8] Provisioning Grafana dashboard..."
 
-# ----- 1) Datasource -----
-sudo mkdir -p /etc/grafana/provisioning/datasources
-
-cat <<EOF | sudo tee /etc/grafana/provisioning/datasources/influxdb.yaml
-apiVersion: 1
-
-datasources:
-  - name: OpenKiln2 InfluxDB
-    type: influxdb
-    access: proxy
-    url: http://localhost:8086
-    database: home
-    user: admin
-    password: OpenKiln@12
-    isDefault: true
-EOF
-
-# ----- 2) Dashboard -----
+# 1) Create dashboards provisioning config
 sudo mkdir -p /etc/grafana/provisioning/dashboards
 
-# Dashboard provisioning config
-cat <<EOF | sudo tee /etc/grafana/provisioning/dashboards/dashboards.yaml
+sudo bash -c 'cat <<EOF > /etc/grafana/provisioning/dashboards/openkiln.yaml
 apiVersion: 1
-
 providers:
-  - name: 'default'
+  - name: "OpenKiln2"
     orgId: 1
-    folder: ''
+    folder: ""
     type: file
+    disableDeletion: false
+    updateIntervalSeconds: 10
     options:
-      path: /etc/grafana/provisioning/dashboards
-EOF
+      path: /var/lib/grafana/dashboards
+EOF'
 
-# Dashboard JSON itself
-cat <<EOF | sudo tee /etc/grafana/provisioning/dashboards/openkiln2_dashboard.json
+# 2) Create dashboards folder
+sudo mkdir -p /var/lib/grafana/dashboards
+
+# 3) Copy your JSON dashboard
+sudo cp ~/OpenKiln2/grafana_dashboard.json /var/lib/grafana/dashboards/
+
+# 4) Restart Grafana to apply dashboard
+sudo systemctl restart grafana-server
+
+# ------------------------------
+# [8/8] Embed OpenKiln2 Dashboard JSON directly
+# ------------------------------
+echo "[8/8] Writing OpenKiln2 Dashboard JSON..."
+
+sudo mkdir -p /var/lib/grafana/dashboards
+
+cat <<EOF | sudo tee /var/lib/grafana/dashboards/openkiln2_dashboard.json
 {
   "id": null,
   "uid": "openkiln2",
@@ -239,7 +237,7 @@ cat <<EOF | sudo tee /etc/grafana/provisioning/dashboards/openkiln2_dashboard.js
       },
       "targets": [
         {
-          "query": "SELECT mean(\\\"mean_Kiln_01_UpperTemperature\\\") FROM \\\"downsampled_temps\\\" WHERE \$timeFilter GROUP BY time(\$__interval) fill(null)",
+          "query": "SELECT mean(\\\"mean_Kiln_01_UpperTemperature\\\") FROM \\\"downsampled_temps\\\" WHERE \\$timeFilter GROUP BY time(\\$_interval) fill(null)",
           "rawQuery": true
         }
       ],
@@ -260,7 +258,7 @@ cat <<EOF | sudo tee /etc/grafana/provisioning/dashboards/openkiln2_dashboard.js
       },
       "targets": [
         {
-          "query": "SELECT mean(\\\"mean_Kiln_01_LowerTemperature\\\") FROM \\\"downsampled_temps\\\" WHERE \$timeFilter GROUP BY time(\$__interval) fill(null)",
+          "query": "SELECT mean(\\\"mean_Kiln_01_LowerTemperature\\\") FROM \\\"downsampled_temps\\\" WHERE \\$timeFilter GROUP BY time(\\$_interval) fill(null)",
           "rawQuery": true
         }
       ],
@@ -275,9 +273,8 @@ cat <<EOF | sudo tee /etc/grafana/provisioning/dashboards/openkiln2_dashboard.js
 }
 EOF
 
-# ----- Restart Grafana to apply -----
+# Restart Grafana again to load dashboard
 sudo systemctl restart grafana-server
-
 
 # ------------------------------
 # Done!
@@ -303,4 +300,3 @@ echo " - Check Grafana for live kiln data!"
 echo ""
 echo "Happy firing! 🔥"
 echo "============================================"
-
