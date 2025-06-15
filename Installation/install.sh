@@ -169,8 +169,10 @@ fi
 FLOW_JSON="$HOME/OpenKiln2/flow.json"
 
 # Copy flow.json to Node-RED user dir with correct name
-echo "Copying Node-RED flow to ~/.node-red/flows_$(hostname).json..."
-cp "$FLOW_JSON" ~/.node-red/flows_$(hostname).json
+#echo "Copying Node-RED flow to ~/.node-red/flows_$(hostname).json..."
+#cp "$FLOW_JSON" ~/.node-red/flows_$(hostname).json
+echo "Copying Node-RED flow to ~/.node-red/flows.json..."
+cp "$FLOW_JSON" ~/.node-red/flows.json
 
 # Restart Node-RED to load new flows
 echo "Restarting Node-RED..."
