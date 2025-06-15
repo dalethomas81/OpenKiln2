@@ -231,6 +231,7 @@ echo "[7/8] Cloning OpenKiln2 repo and importing flows..."
 cd ~
 
 if [ -d "OpenKiln2" ]; then
+  echo "pulling latest git"
   cd OpenKiln2 && git pull
 else
   git config --global credential.helper ""
