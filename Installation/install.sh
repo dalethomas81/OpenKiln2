@@ -291,62 +291,7 @@ echo "[8/8] Writing OpenKiln2 Dashboard JSON..."
 
 sudo mkdir -p /var/lib/grafana/dashboards
 
-cat <<EOF | sudo tee /var/lib/grafana/dashboards/openkiln2_dashboard.json
-{
-  "id": null,
-  "uid": "openkiln2",
-  "title": "OpenKiln2 Dashboard",
-  "tags": ["openkiln2"],
-  "timezone": "browser",
-  "schemaVersion": 36,
-  "version": 1,
-  "refresh": "5s",
-  "panels": [
-    {
-      "type": "timeseries",
-      "title": "Upper Temperature (mean 30m)",
-      "datasource": "OpenKiln2 InfluxDB",
-      "fieldConfig": {
-        "defaults": {},
-        "overrides": []
-      },
-      "targets": [
-        {
-          "query": "SELECT mean(\\\"mean_Kiln_01_UpperTemperature\\\") FROM \\\"downsampled_temps\\\" WHERE \\$timeFilter GROUP BY time(\\$_interval) fill(null)",
-          "rawQuery": true
-        }
-      ],
-      "gridPos": {
-        "x": 0,
-        "y": 0,
-        "w": 24,
-        "h": 9
-      }
-    },
-    {
-      "type": "timeseries",
-      "title": "Lower Temperature (mean 30m)",
-      "datasource": "OpenKiln2 InfluxDB",
-      "fieldConfig": {
-        "defaults": {},
-        "overrides": []
-      },
-      "targets": [
-        {
-          "query": "SELECT mean(\\\"mean_Kiln_01_LowerTemperature\\\") FROM \\\"downsampled_temps\\\" WHERE \\$timeFilter GROUP BY time(\\$_interval) fill(null)",
-          "rawQuery": true
-        }
-      ],
-      "gridPos": {
-        "x": 0,
-        "y": 9,
-        "w": 24,
-        "h": 9
-      }
-    }
-  ]
-}
-EOF
+sudo cp ~/OpenKiln2/openkiln2_dashboard.json /var/lib/grafana/dashboards/
 
 # Restart Grafana again to load dashboard
 sudo systemctl restart grafana-server
