@@ -307,6 +307,34 @@ sudo sed -i '/^\[auth.anonymous\]/,/^\[/{s/^;*enabled *= *.*/enabled = true/; s/
 # Restart Grafana again to load dashboard
 sudo systemctl restart grafana-server
 
+
+
+
+
+# ------------------------------
+# [8/8] log2ram
+# ------------------------------
+echo "[8/8] Installing log2ram ..."
+
+# Download log2ram repo
+git clone https://github.com/azlux/log2ram.git || true
+
+# Run installer
+cd log2ram
+sudo ./install.sh
+
+# Clean up if you want
+cd ..
+rm -rf log2ram
+
+# Enable and start log2ram service
+sudo systemctl enable log2ram
+sudo systemctl start log2ram
+
+
+
+
+
 # ------------------------------
 # Done!
 # ------------------------------
