@@ -152,14 +152,16 @@ npm install node-red-dashboard
 # Clone OpenKiln2 repo & import flows
 # ------------------------------
 echo "[7/8] Cloning OpenKiln2 repo and importing flows..."
-
 cd ~
 if [ -d "OpenKiln2" ]; then
-    echo "Repo exists. Pulling latest..."
-    cd OpenKiln2 && git pull
+  cd OpenKiln2 && git pull
 else
-    git clone --depth 1 https://github.com/dalethomas81/OpenKiln2.git
-    cd OpenKiln2
+  git config --global credential.helper ""
+  GIT_TERMINAL_PROMPT=0 git clone --depth 1 https://github.com/dalethomas81/OpenKiln2.git || {
+    echo "❌ Could not clone repo anonymously. Is it public? Check the URL!"
+    exit 1
+  }
+  cd OpenKiln2
 fi
 
 #
