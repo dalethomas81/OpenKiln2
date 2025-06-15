@@ -1,204 +1,362 @@
-!!!!! ATTENTION: THIS INSTALLER FILE IS A WORK IN PROGRESS AND WILL NOT RUN YET !!!!!
-the general instructions are here now but the idea is to turn this into a script that 
-will install OpenKiln2 for you.
+#!/bin/bash
 
-#!/bin/sh
-# installer.sh will install the necessary packages to run OpenKiln2
+# OpenKiln2 Automated Installer
+# ====================================
+# For Raspberry Pi OS
+#
+# to install run:
+# curl -sSL https://raw.githubusercontent.com/dalethomas81/OpenKiln2/main/install.sh | bash
+#
 
-# sudo raspi-config
-	#interface options -> SPI -> enable -> I2C -> enable
+set -e
 
-# install node-red
-	sudo apt install build-essential git curl
-	
-    bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered)
+echo "============================================"
+echo "   OpenKiln2 - Automated Installer"
+echo "============================================"
 
-# enable node-red service
-	sudo systemctl enable nodered.service
 
-	node-red-start (you can control-c and it wont stop node-red)
 
-# configure node-red
-	node-red admin init
 
-    # choose to use projects (you will need a github account for this)
-    
-	sudo nano /home/pi/.node-red/settings.js
 
-    #add the below to the runtime settings section
-    #contextStorage: {
-    #default: {
-    #    module: "memory"
-    #},
-    #memoryOnly: {
-    #   module: "memory"
-    #},
-    #disk: {
-    #    module: "localfilesystem"
-    #}
 
-    control+x
+echo "[0/8] Enabling SPI interface..."
+# Ensure the line exists and is set to 'on' in /boot/config.txt
+if grep -q "^dtparam=spi=" /boot/config.txt; then
+    sudo sed -i "s/^dtparam=spi=.*/dtparam=spi=on/" /boot/config.txt
+else
+    echo "dtparam=spi=on" | sudo tee -a /boot/config.txt
+fi
 
-    y
+# Ensure spi-dev loads on boot
+if ! grep -q "^spi-dev" /etc/modules; then
+    echo "spi-dev" | sudo tee -a /etc/modules
+fi
 
-    enter
+# Load the kernel module immediately (optional, so user doesn't have to reboot)
+sudo modprobe spi_bcm2835 || true
 
-    node-red-restart
+echo "SPI interface has been enabled. A reboot may be required to fully apply the change."
 
-# install thermocouple-max31855
-	sudo npm install thermocouple-max31855
 
-# install node-red nodes
-    # open a browser and navigate to node-red using the hostname you chose earlier
-    http://OpenKiln2:1880
-    # install these from the pallete manager
-	#node-red-contrib-finite-statemachine
-	#node-red-contrib-influxdb
-	#node-red-contrib-pid
-	#node-red-contrib-pid-autotune
-	#node-red-node-pidcontrol
-	#node-red-dashboard
 
-# install influxdb
-# https://pimylifeup.com/raspberry-pi-influxdb/
-    
-    sudo apt upgrade
-    
-    curl https://repos.influxdata.com/influxdb.key | gpg --dearmor | sudo tee /usr/share/keyrings/influxdb-archive-keyring.gpg >/dev/null
-    
-    echo "deb [signed-by=/usr/share/keyrings/influxdb-archive-keyring.gpg] https://repos.influxdata.com/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
 
-    sudo apt update
 
-    sudo apt install influxdb
 
-    sudo systemctl unmask influxdb
+# [0/8] Install Git (needed for cloning the repo)
+echo "[0/8] Installing Git..."
+sudo apt update && sudo apt install -y git
 
-    sudo systemctl enable influxdb
 
-    sudo systemctl start influxdb
 
-    influx
 
-    >create database home
-    >use home
 
-    >create user admin with password 'OpenKiln@12' with all privileges
-    >grant all privileges on home to admin
 
-    >CREATE RETENTION POLICY "30_days" ON "home" DURATION 30d REPLICATION 1 DEFAULT;
-    >CREATE RETENTION POLICY "6_months" ON "home" DURATION 26w REPLICATION 1;
-    >CREATE RETENTION POLICY "infinite" ON "home" DURATION INF REPLICATION 1;
+# ------------------------------
+# Update & Upgrade
+# ------------------------------
+echo "[1/8] Updating system..."
+sudo apt update && sudo apt upgrade -y
 
-    >CREATE CONTINUOUS QUERY "cq_30m_upper" ON "home" BEGIN SELECT mean("value") AS "mean_Kiln_01_UpperTemperature" INTO "30_days"."downsampled_temps" FROM "Kiln_01_UpperTemperature" GROUP BY time(30m) END
 
-    >CREATE CONTINUOUS QUERY "cq_30m_lower" ON "home" BEGIN SELECT mean("value") AS "mean_Kiln_01_LowerTemperature" INTO "30_days"."downsampled_temps" FROM "Kiln_01_LowerTemperature" GROUP BY time(30m) END
 
-    >exit
 
-# configure influx db
-    sudo nano /etc/influxdb/influxdb.conf
 
-    [monitor]
-    store-enabled = false in the config file under 
-    [http] # https://stackoverflow.com/questions/60269275/influxdb-keeps-appending-to-var-log-syslog
-    flux-log-enabled = false
-    suppress-write-log = true
-    access-log-status-filters = ["5xx", "4xx"]
 
-    control+x
+# ------------------------------
+# [2/8] Install Node.js & Node-RED (manual, robust)
+# ------------------------------
+echo "[2/8] Installing Node.js & Node-RED manually..."
 
-    y
+# Install Node.js (via NodeSource)
+curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt install -y nodejs build-essential
 
-    enter
+# Install Node-RED globally
+sudo npm install -g --unsafe-perm node-red
 
-    sudo service influxdb restart
 
-# install grafana
-    #https://brettbeeson.com.au/grafana-and-influxdb-in-pi-zero-w/
-    #pi zero gen 1
-    sudo apt --fix-broken install
-    wget https://dl.grafana.com/oss/release/grafana-rpi_6.4.4_armhf.deb
 
-    #pi zero gen 2
-	wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
-    echo "deb https://packages.grafana.com/oss/deb stable main" | sudo tee /etc/apt/sources.list.d/grafana.list
-    sudo apt update && sudo apt install -y grafana
 
-    #all versions of pi
-    sudo systemctl unmask grafana-server.service
-    sudo systemctl start grafana-server
-    sudo systemctl enable grafana-server.service
 
-# configure grafana
-	sudo /bin/systemctl stop grafana-server
 
-    sudo nano /etc/grafana/grafana.ini
+# Create settings.js with telemetry OFF and custom contextStorage
+echo "[2/8] Creating settings.js..."
+mkdir -p ~/.node-red
 
-    //[security]
-    allow_embedding=true
+if [ ! -f ~/.node-red/settings.js ]; then
+  curl -sL https://raw.githubusercontent.com/node-red/node-red/master/packages/node_modules/node-red/settings.js -o ~/.node-red/settings.js
+  sed -i 's/enableTelemetry: true/enableTelemetry: false/' ~/.node-red/settings.js
 
-    //[users]
-    viewers_can_edit=true
+  # Remove any existing contextStorage and insert your custom block
+  sed -i '/^contextStorage:/,/},/d' ~/.node-red/settings.js
+  sed -i '/functionGlobalContext:/a \
+    contextStorage: {\n\
+        default: {\n\
+            module: "memory"\n\
+        },\n\
+        memoryOnly: {\n\
+            module: "memory"\n\
+        },\n\
+        disk: {\n\
+            module: "localfilesystem"\n\
+        }\n\
+    },\n' ~/.node-red/settings.js
+fi
 
-    //[auth.anonymous]
-    enabled=true
-    org_name = Main Org.
-    org_role = Admin
 
-    //[log]
-    mode = console
 
-    control+x
 
-    y
 
-    enter
 
-    sudo /bin/systemctl start grafana-server
+# Create the systemd service unit
+echo "[2/8] Creating systemd unit for Node-RED..."
+sudo bash -c 'cat <<EOF > /etc/systemd/system/nodered.service
+[Unit]
+Description=Node-RED
+After=network.target
 
-    /////// add datasource
-    # navigate to grafana using hostname
-    http://OpenKiln2:3000
-    choose influx
-    url http://localhost:8086
-    database home
-    user admin
-    password OpenKiln@12
-    click save and test
+[Service]
+ExecStart=/usr/bin/env node-red
+WorkingDirectory=/home/pi
+User=pi
+Group=pi
+Nice=10
+Environment="NODE_OPTIONS=--max_old_space_size=256"
+Restart=on-failure
 
-    click plus button to create a new dashboard
-    
+[Install]
+WantedBy=multi-user.target
+EOF'
 
-# install pi sugar
-    wget http://cdn.pisugar.com/release/pisugar-power-manager.sh
+# Reload and enable the service
+sudo systemctl daemon-reload
+sudo systemctl enable nodered.service
+sudo systemctl start nodered.service
 
-    bash pisugar-power-manager.sh -c release
 
-    sudo nc -U /tmp/pisugar-server.sock
 
-    set_auth
 
-    ctrl+c
 
-    #visit pi sugar
-    http://OpenKiln2:8421
 
-# clone repository
-    #more on this later. for now you you search "node-red projects" and learn how to clone a git repo in Node-RED
-    #navigate back to node-red and it should be asking you to either create a project or clone one
-    #clone this repo (https://github.com/dalethomas81/OpenKiln2.git) || (git@github.com:dalethomas81/OpenKiln2.git)
-    #follow the prompts and log in using your git SSH key (create one if needed)
+# ------------------------------
+# Install InfluxDB
+# ------------------------------
+echo "[3/8] Installing InfluxDB..."
+sudo apt install -y influxdb influxdb-client
+sudo systemctl unmask influxdb
+sudo systemctl enable influxdb
+sudo systemctl start influxdb
 
-# restart node red
-	node-red-restart
 
-# install log2ram to reduce sd card wear from log writes
-    git clone https://github.com/azlux/log2ram && cd log2ram
 
-    chmod +x install.sh && sudo ./install.sh
 
-    cd .. && rm -r log2ram
 
-# navigate to OpenKiln dashboard
-    http://OpenKiln2:1880/ui
+
+# ------------------------------
+# Create InfluxDB database, user, retention policies, and continuous queries
+# ------------------------------
+echo "[4/8] Setting up InfluxDB database, user, retention policies, and continuous queries..."
+
+# Wait for InfluxDB to start up
+sleep 5
+
+# Create database 'home'
+influx -execute "CREATE DATABASE home"
+
+# Create admin user
+influx -execute "CREATE USER admin WITH PASSWORD 'OpenKiln@12' WITH ALL PRIVILEGES"
+influx -execute "GRANT ALL PRIVILEGES ON home TO admin"
+
+# Create retention policies
+influx -execute "CREATE RETENTION POLICY \"30_days\" ON \"home\" DURATION 30d REPLICATION 1 DEFAULT"
+influx -execute "CREATE RETENTION POLICY \"6_months\" ON \"home\" DURATION 26w REPLICATION 1"
+influx -execute "CREATE RETENTION POLICY \"infinite\" ON \"home\" DURATION INF REPLICATION 1"
+
+# Create continuous queries
+influx -execute "CREATE CONTINUOUS QUERY \"cq_30m_upper\" ON \"home\" BEGIN SELECT mean(\"value\") AS \"mean_Kiln_01_UpperTemperature\" INTO \"30_days\".\"downsampled_temps\" FROM \"Kiln_01_UpperTemperature\" GROUP BY time(30m) END"
+
+influx -execute "CREATE CONTINUOUS QUERY \"cq_30m_lower\" ON \"home\" BEGIN SELECT mean(\"value\") AS \"mean_Kiln_01_LowerTemperature\" INTO \"30_days\".\"downsampled_temps\" FROM \"Kiln_01_LowerTemperature\" GROUP BY time(30m) END"
+
+
+
+
+
+
+# ------------------------------
+# Install Grafana
+# ------------------------------
+echo "[5/8] Installing Grafana..."
+sudo apt install -y apt-transport-https software-properties-common wget
+wget -q -O - https://packages.grafana.com/gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/grafana.gpg
+echo "deb [signed-by=/usr/share/keyrings/grafana.gpg] https://packages.grafana.com/oss/deb stable main" | \
+  sudo tee /etc/apt/sources.list.d/grafana.list
+
+sudo apt update
+sudo apt install -y grafana
+
+sudo systemctl enable grafana-server
+sudo systemctl start grafana-server
+
+
+
+
+
+
+# ------------------------------
+# Install Required Node-RED Nodes
+# ------------------------------
+echo "[6/8] Installing required Node-RED nodes..."
+# Stop Node-RED to avoid conflicts while installing nodes
+sudo systemctl stop nodered.service
+
+cd ~/.node-red
+
+npm install thermocouple-max31855
+npm install node-red-contrib-finite-statemachine
+npm install node-red-contrib-influxdb
+npm install node-red-contrib-pid
+npm install node-red-contrib-pid-autotune
+npm install node-red-node-pidcontrol
+npm install node-red-dashboard
+
+
+
+
+
+
+# ------------------------------
+# [7/8] Clone OpenKiln2 repo & import flows
+# ------------------------------
+echo "[7/8] Cloning OpenKiln2 repo and importing flows..."
+cd ~
+
+if [ -d "OpenKiln2" ]; then
+  echo "pulling latest git"
+  cd OpenKiln2 && git pull
+else
+  git config --global credential.helper ""
+  GIT_TERMINAL_PROMPT=0 git clone --depth 1 https://github.com/dalethomas81/OpenKiln2.git || {
+    echo "❌ Could not clone repo anonymously. Is it public? Check the URL!"
+    exit 1
+  }
+  cd OpenKiln2
+fi
+
+# Define flow file path (inside cloned repo)
+FLOW_JSON="$HOME/OpenKiln2/flow.json"
+
+# Copy flow.json to Node-RED user dir with correct name
+#echo "Copying Node-RED flow to ~/.node-red/flows_$(hostname).json..."
+#cp "$FLOW_JSON" ~/.node-red/flows_$(hostname).json
+echo "Copying Node-RED flow to ~/.node-red/flows.json..."
+cp "$FLOW_JSON" ~/.node-red/flows.json
+
+# Restart Node-RED to load new flows
+echo "Restarting Node-RED..."
+sudo systemctl restart nodered.service
+
+
+
+
+
+
+# ------------------------------
+# [8/8] Provision Grafana dashboard
+# ------------------------------
+echo "[8/8] Provisioning Grafana dashboard..."
+
+# 1) Create dashboards provisioning config
+sudo mkdir -p /etc/grafana/provisioning/dashboards
+
+sudo bash -c 'cat <<EOF > /etc/grafana/provisioning/dashboards/openkiln.yaml
+apiVersion: 1
+providers:
+  - name: "OpenKiln2"
+    orgId: 1
+    folder: ""
+    type: file
+    disableDeletion: false
+    updateIntervalSeconds: 10
+    options:
+      path: /var/lib/grafana/dashboards
+EOF'
+
+# 4) Restart Grafana to apply dashboard
+sudo systemctl restart grafana-server
+
+
+
+
+
+
+# ------------------------------
+# [8/8] provision dashboard and configure ini file
+# ------------------------------
+echo "[8/8] Writing OpenKiln2 Dashboard JSON..."
+
+sudo mkdir -p /var/lib/grafana/dashboards
+
+sudo cp $HOME/OpenKiln2/Installation/openkiln2_dashboard.json /var/lib/grafana/dashboards/
+
+# Allow embedding
+sudo sed -i '/^\[security\]/,/^\[/{s/^;*allow_embedding *= *.*/allow_embedding = true/}' /etc/grafana/grafana.ini
+# Allow viewers to edit
+sudo sed -i '/^\[users\]/,/^\[/{s/^;*viewers_can_edit *= *.*/viewers_can_edit = true/}' /etc/grafana/grafana.ini
+# Enable anonymous
+sudo sed -i '/^\[auth.anonymous\]/,/^\[/{s/^;*enabled *= *.*/enabled = true/; s/^;*org_name *= *.*/org_name = Main Org./; s/^;*org_role *= *.*/org_role = Admin/}' /etc/grafana/grafana.ini
+
+# Restart Grafana again to load dashboard
+sudo systemctl restart grafana-server
+
+
+
+
+
+# ------------------------------
+# [8/8] log2ram
+# ------------------------------
+echo "[8/8] Installing log2ram ..."
+
+# Download log2ram repo
+git clone https://github.com/azlux/log2ram.git || true
+
+# Run installer
+cd log2ram
+sudo ./install.sh
+
+# Clean up if you want
+cd ..
+rm -rf log2ram
+
+# Enable and start log2ram service
+sudo systemctl enable log2ram
+sudo systemctl start log2ram
+
+
+
+
+
+# ------------------------------
+# Done!
+# ------------------------------
+PI_IP=$(hostname -I | awk '{print $1}')
+PI_HOST=$(hostname)
+
+echo ""
+echo "============================================"
+echo "✅ OpenKiln2 installation complete!"
+echo ""
+echo "User Interface:  http://$PI_IP:1880/ui/ (or http://$PI_HOST.local:1880/ui/)"
+echo "Node-RED:  http://$PI_IP:1880 (or http://$PI_HOST.local:1880)"
+echo "Grafana:   http://$PI_IP:3000 (or http://$PI_HOST.local:3000)"
+echo "  Login: admin / admin"
+echo ""
+echo "InfluxDB Database: home"
+echo "  User: admin | Password: OpenKiln@12"
+echo ""
+echo "Next Steps:"
+echo " - Test your thermocouples and SSR outputs in Node-RED."
+echo " - Check Grafana for live kiln data!"
+echo ""
+echo "Happy firing! 🔥"
+echo "============================================"
