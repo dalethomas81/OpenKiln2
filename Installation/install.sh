@@ -326,6 +326,16 @@ sudo sed -i '/^\[auth.anonymous\]/,/^\[/{s/^;*enabled *= *.*/enabled = true/; s/
 # Restart Grafana again to load dashboard
 sudo systemctl restart grafana-server
 
+# Wait for Grafana to be up
+sleep 5
+
+# Use the API to set org home dashboard
+curl -s -X PUT http://admin:admin@localhost:3000/api/org/preferences \
+  -H "Content-Type: application/json" \
+  -d '{
+    "homeDashboardUID": "HistoricalTemperaturesDashboard"
+  }'
+
 
 
 
