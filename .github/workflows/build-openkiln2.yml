@@ -1,0 +1,41 @@
+name: Build OpenKiln2 Image
+
+on:
+  #push:
+    #branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-image:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write  # needed for creating releases
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y qemu-user-static kpartx dosfstools unzip wget
+
+      - name: Build OpenKiln2 image
+        run: |
+          chmod +x Installation/build-openkiln2.sh
+          sudo Installation/build-openkiln2.sh
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: OpenKiln2-Image
+          path: OpenKiln2-*.img
+
+      # OPTIONAL: Create a GitHub Release with the image attached
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: OpenKiln2-*.img
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
