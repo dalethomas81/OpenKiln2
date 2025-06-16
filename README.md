@@ -67,10 +67,6 @@ curl -sSL https://raw.githubusercontent.com/dalethomas81/OpenKiln2/main/Installa
       <img src="Media/openkiln2-utility.jpeg" alt="Screenshot 1" width="300px" style="border:1px solid #ccc; border-radius:8px;" /><br/>
       <sub>Utility</sub>
     </td>
-    <td align="center">
-      <img src="Media/openkiln2-prototyping.jpeg" alt="Screenshot 2" width="300px" style="border:1px solid #ccc; border-radius:8px;" /><br/>
-      <sub>Prototyping</sub>
-    </td>
   </tr>
 </table>
 <table>
@@ -78,6 +74,10 @@ curl -sSL https://raw.githubusercontent.com/dalethomas81/OpenKiln2/main/Installa
     <td align="center">
       <img src="Media/openkiln2-assembled.jpeg" alt="Screenshot 1" width="300px" style="border:1px solid #ccc; border-radius:8px;" /><br/>
       <sub>Assembled</sub>
+    </td>
+    <td align="center">
+      <img src="Media/openkiln2-prototyping.jpeg" alt="Screenshot 2" width="300px" style="border:1px solid #ccc; border-radius:8px;" /><br/>
+      <sub>Prototyping</sub>
     </td>
   </tr>
 </table>
