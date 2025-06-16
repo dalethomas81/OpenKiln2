@@ -7,9 +7,9 @@ OUTPUT_IMG="OpenKiln2-${GITHUB_SHA}.img"
 
 # === Download base OS ===
 echo "Downloading base Raspberry Pi OS Lite..."
-wget -O base.zip "$BASE_URL"
-unzip base.zip
-BASE_IMG=$(ls *.img)
+wget -O base.img.xz "$BASE_URL"
+xz -d base.img.xz
+BASE_IMG="base.img"
 
 # === Copy to working image ===
 cp "$BASE_IMG" "$OUTPUT_IMG"
