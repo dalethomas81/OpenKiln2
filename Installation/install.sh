@@ -265,9 +265,25 @@ sudo systemctl restart nodered.service
 # ------------------------------
 # Provision Grafana dashboard
 # ------------------------------
-echo "[12/14] Provisioning Grafana dashboard..."
+echo "[12/14] Provisioning Grafana dashboard and datasources..."
 
-# 1) Create dashboards provisioning config
+# Create datasource provisioning config
+sudo mkdir -p /etc/grafana/provisioning/datasources
+
+sudo bash -c 'cat <<EOF > /etc/grafana/provisioning/datasources/influxdb.yaml
+apiVersion: 1
+datasources:
+  - name: "InfluxDB"
+    type: influxdb
+    access: proxy
+    url: http://localhost:8086
+    database: home
+    user: admin
+    password: OpenKiln@12
+    isDefault: true
+EOF'
+
+# Create dashboards provisioning config
 sudo mkdir -p /etc/grafana/provisioning/dashboards
 
 sudo bash -c 'cat <<EOF > /etc/grafana/provisioning/dashboards/openkiln.yaml
@@ -283,7 +299,7 @@ providers:
       path: /var/lib/grafana/dashboards
 EOF'
 
-# 4) Restart Grafana to apply dashboard
+# Restart Grafana to apply dashboard
 sudo systemctl restart grafana-server
 
 
