@@ -186,7 +186,8 @@ influx -execute "CREATE CONTINUOUS QUERY \"cq_30m_lower\" ON \"home\" BEGIN SELE
 # Install Grafana
 # ------------------------------
 echo "[9/14] Installing Grafana..."
-sudo apt install -y apt-transport-https software-properties-common wget
+#sudo apt update
+#sudo apt install -y apt-transport-https software-properties-common wget
 wget -q -O - https://packages.grafana.com/gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/grafana.gpg
 echo "deb [signed-by=/usr/share/keyrings/grafana.gpg] https://packages.grafana.com/oss/deb stable main" | \
   sudo tee /etc/apt/sources.list.d/grafana.list
