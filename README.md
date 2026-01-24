@@ -15,9 +15,9 @@ The goal of OpenKiln2 is to run all of the above services on a single Raspberry 
 ***coming soon***
 
 ### Installation  
-To install OpenKiln2 on a Raspberry Pi, you can run this installation script from an ssh terminal:
+To install OpenKiln2 on a Raspberry Pi, you can run this installation script from an ssh terminal connected to your pi:
 ```
-curl -sSL https://raw.githubusercontent.com/dalethomas81/OpenKiln2/main/Installation/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/dalethomas81/OpenKiln2/master/Installation/install.sh | bash
 ```
 
 ### Documentation
