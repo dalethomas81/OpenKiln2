@@ -385,26 +385,6 @@
         "collapse": false
     },
     {
-        "id": "90879df8d2ee4c5d",
-        "type": "ui_group",
-        "name": "Control",
-        "tab": "6e4426eb24a8676f",
-        "order": 2,
-        "disp": true,
-        "width": "7",
-        "collapse": false
-    },
-    {
-        "id": "2201d496820b415d",
-        "type": "ui_group",
-        "name": "Status",
-        "tab": "6e4426eb24a8676f",
-        "order": 1,
-        "disp": true,
-        "width": "7",
-        "collapse": false
-    },
-    {
         "id": "d86c6f681ae35c78",
         "type": "ui_link",
         "d": true,
@@ -672,96 +652,6 @@
         "collapse": false
     },
     {
-        "id": "4eed5c18f7c6edbe",
-        "type": "ui_spacer",
-        "z": "592b686edd11b813",
-        "name": "spacer",
-        "group": "90879df8d2ee4c5d",
-        "order": 2,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "17a568c560a82ddf",
-        "type": "ui_spacer",
-        "z": "592b686edd11b813",
-        "name": "spacer",
-        "group": "90879df8d2ee4c5d",
-        "order": 4,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "ec59bb84706dcc0f",
-        "type": "ui_spacer",
-        "z": "592b686edd11b813",
-        "name": "spacer",
-        "group": "90879df8d2ee4c5d",
-        "order": 6,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "62549cdb67777cdd",
-        "type": "ui_spacer",
-        "z": "592b686edd11b813",
-        "name": "spacer",
-        "group": "90879df8d2ee4c5d",
-        "order": 10,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "2755d06266bc8867",
-        "type": "ui_spacer",
-        "z": "592b686edd11b813",
-        "name": "spacer",
-        "group": "90879df8d2ee4c5d",
-        "order": 12,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "d1a30cc456809ef5",
-        "type": "ui_spacer",
-        "z": "592b686edd11b813",
-        "name": "spacer",
-        "group": "90879df8d2ee4c5d",
-        "order": 13,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "dac262eaa67829d0",
-        "type": "ui_spacer",
-        "z": "592b686edd11b813",
-        "name": "spacer",
-        "group": "90879df8d2ee4c5d",
-        "order": 15,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "ecc5d37e42fea82e",
-        "type": "ui_spacer",
-        "z": "592b686edd11b813",
-        "name": "spacer",
-        "group": "90879df8d2ee4c5d",
-        "order": 16,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "65cb6164919bd651",
-        "type": "ui_spacer",
-        "z": "592b686edd11b813",
-        "name": "spacer",
-        "group": "90879df8d2ee4c5d",
-        "order": 18,
-        "width": 1,
-        "height": 1
-    },
-    {
         "id": "97b95836b00ea98e",
         "type": "ui_group",
         "name": "Backup",
@@ -972,6 +862,116 @@
         "height": 1
     },
     {
+        "id": "90879df8d2ee4c5d",
+        "type": "ui_group",
+        "name": "Control",
+        "tab": "6e4426eb24a8676f",
+        "order": 2,
+        "disp": true,
+        "width": "7",
+        "collapse": false
+    },
+    {
+        "id": "2201d496820b415d",
+        "type": "ui_group",
+        "name": "Status",
+        "tab": "6e4426eb24a8676f",
+        "order": 1,
+        "disp": true,
+        "width": "7",
+        "collapse": false
+    },
+    {
+        "id": "4eed5c18f7c6edbe",
+        "type": "ui_spacer",
+        "z": "592b686edd11b813",
+        "name": "spacer",
+        "group": "90879df8d2ee4c5d",
+        "order": 2,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "17a568c560a82ddf",
+        "type": "ui_spacer",
+        "z": "592b686edd11b813",
+        "name": "spacer",
+        "group": "90879df8d2ee4c5d",
+        "order": 4,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "ec59bb84706dcc0f",
+        "type": "ui_spacer",
+        "z": "592b686edd11b813",
+        "name": "spacer",
+        "group": "90879df8d2ee4c5d",
+        "order": 6,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "62549cdb67777cdd",
+        "type": "ui_spacer",
+        "z": "592b686edd11b813",
+        "name": "spacer",
+        "group": "90879df8d2ee4c5d",
+        "order": 10,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "2755d06266bc8867",
+        "type": "ui_spacer",
+        "z": "592b686edd11b813",
+        "name": "spacer",
+        "group": "90879df8d2ee4c5d",
+        "order": 12,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "d1a30cc456809ef5",
+        "type": "ui_spacer",
+        "z": "592b686edd11b813",
+        "name": "spacer",
+        "group": "90879df8d2ee4c5d",
+        "order": 13,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "dac262eaa67829d0",
+        "type": "ui_spacer",
+        "z": "592b686edd11b813",
+        "name": "spacer",
+        "group": "90879df8d2ee4c5d",
+        "order": 15,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "ecc5d37e42fea82e",
+        "type": "ui_spacer",
+        "z": "592b686edd11b813",
+        "name": "spacer",
+        "group": "90879df8d2ee4c5d",
+        "order": 16,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "65cb6164919bd651",
+        "type": "ui_spacer",
+        "z": "592b686edd11b813",
+        "name": "spacer",
+        "group": "90879df8d2ee4c5d",
+        "order": 18,
+        "width": 1,
+        "height": 1
+    },
+    {
         "id": "35573d9f8cb557cc",
         "type": "function",
         "z": "3154c44d1a91de38",
@@ -1118,8 +1118,7 @@
         "name": "Output - Lower Temperature",
         "mode": "link",
         "links": [
-            "4ea9f6ce194f1281",
-            "1ac212aefe7428f8"
+            "4ea9f6ce194f1281"
         ],
         "x": 695,
         "y": 460,
@@ -1389,9 +1388,7 @@
         "z": "3154c44d1a91de38",
         "name": "",
         "mode": "link",
-        "links": [
-            "218ba5aacd9d564e"
-        ],
+        "links": [],
         "x": 575,
         "y": 920,
         "wires": []
@@ -4239,7 +4236,6 @@
         "name": "",
         "mode": "link",
         "links": [
-            "3bdb187897a23e15",
             "03c0ca76b29b0190"
         ],
         "x": 435,
@@ -5586,7 +5582,6 @@
         "name": "",
         "mode": "link",
         "links": [
-            "3bdb187897a23e15",
             "781d141d0d0a017b"
         ],
         "x": 895,
@@ -6332,8 +6327,6 @@
         "z": "e9cef8706a9cf7f6",
         "name": "",
         "links": [
-            "338986178aea2e9e",
-            "2e45cc4d57a385c0",
             "edb935f4183746b0",
             "7ab1dfdba11abf46",
             "5b05096dea13f2c2",
@@ -6729,7 +6722,6 @@
         "name": "",
         "mode": "link",
         "links": [
-            "4840d3b8dd483cff",
             "53681c7211103452",
             "6a57983382d3490e",
             "e16ef3cff0d9564e"
@@ -6961,7 +6953,6 @@
         "name": "",
         "mode": "link",
         "links": [
-            "4840d3b8dd483cff",
             "53681c7211103452",
             "6a57983382d3490e",
             "e16ef3cff0d9564e"
@@ -8655,7 +8646,6 @@
         "links": [
             "7b896f97e70ee242",
             "75b14d458cd1e761",
-            "a898206a716472e9",
             "7ada905b810b30c6"
         ],
         "x": 475,
@@ -8974,8 +8964,7 @@
         "name": "",
         "links": [
             "6b534a21adf47fbc",
-            "bbb665c4fceb800d",
-            "beee976f9bb8a5fd"
+            "bbb665c4fceb800d"
         ],
         "x": 475,
         "y": 380,
@@ -9103,7 +9092,6 @@
         "name": "Input - status ramp rate",
         "links": [
             "233d081ef7b67749",
-            "59ca3789e4efaf36",
             "c5180a0a450ebd11"
         ],
         "x": 495,
@@ -9338,8 +9326,7 @@
         "name": "",
         "links": [
             "c43fe6a6eabba842",
-            "bbb665c4fceb800d",
-            "beee976f9bb8a5fd"
+            "bbb665c4fceb800d"
         ],
         "x": 75,
         "y": 140,
@@ -9376,7 +9363,6 @@
         "name": "",
         "mode": "link",
         "links": [
-            "af271e715f494e25",
             "85642d7408d49cd8"
         ],
         "x": 495,
@@ -10590,8 +10576,7 @@
         "y": 20,
         "wires": [
             [
-                "9234cc41d8a3f409",
-                "d6e824a1f81796fd"
+                "9234cc41d8a3f409"
             ]
         ],
         "l": false
@@ -10610,7 +10595,6 @@
             "ae639127ca4d386d",
             "c0707caf85c10e83",
             "3de872e32eb64a26",
-            "9583bdd91a208b77",
             "47cdbbef8944aef2",
             "e1ac9f80d405f7fe"
         ],
@@ -10727,8 +10711,7 @@
         "y": 20,
         "wires": [
             [
-                "0d7362ca2edd72c6",
-                "6cca4c289c80bf33"
+                "0d7362ca2edd72c6"
             ]
         ],
         "l": false
@@ -10757,10 +10740,12 @@
         "id": "001d25c9084d4855",
         "type": "http in",
         "z": "592b686edd11b813",
+        "d": true,
         "name": "",
         "url": "/ui/PiSugar",
         "method": "get",
         "upload": false,
+        "skipBodyParsing": false,
         "swaggerDoc": "",
         "x": 220,
         "y": 1500,
@@ -10774,6 +10759,7 @@
         "id": "67da5f33484299fc",
         "type": "http response",
         "z": "592b686edd11b813",
+        "d": true,
         "name": "",
         "statusCode": "",
         "headers": {},
@@ -10785,9 +10771,11 @@
         "id": "23f7dd1d1126cae8",
         "type": "function",
         "z": "592b686edd11b813",
+        "d": true,
         "name": "",
         "func": "var hostname = global.get('host.hostname')\nvar Location = \"http://\"+hostname.replace(/[^\\x20-\\x7E]/g, '')+\":8421\"\n\nmsg.statusCode = 303;\nmsg.headers = {Location}\ndelete msg.payload;\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -10833,8 +10821,9 @@
         "type": "function",
         "z": "592b686edd11b813",
         "name": "",
-        "func": "var hostname = global.get('host.hostname')\nvar Location = \"http://\"+hostname.replace(/[^\\x20-\\x7E]/g, '')+\":1880\"\n\nmsg.statusCode = 303;\nmsg.headers = {Location}\ndelete msg.payload;\nreturn msg;",
+        "func": "var hostname = global.get('host.hostname')\nconst ip = hostname.trim().split(\" \")[0];\nvar Location = \"http://\" + ip + \":1880\"\n//var Location = \"http://\"+hostname.replace(/[^\\x20-\\x7E]/g, '')+\":1880\"\n\nmsg.statusCode = 303;\nmsg.headers = {Location}\ndelete msg.payload;\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -10880,8 +10869,9 @@
         "type": "function",
         "z": "592b686edd11b813",
         "name": "",
-        "func": "var hostname = global.get('host.hostname')\nvar Location = \"http://\" + hostname.replace(/[^\\x20-\\x7E]/g, '') + \":3000\"\n//var Location = \"http://\"+hostname.replace(/[^\\x20-\\x7E]/g, '')+\":3000/d/_6ZBVeRgk/historical-temperatures?orgId=1&from=now-7d&to=now&fullscreen&panelId=4\"\n\nmsg.statusCode = 303;\nmsg.headers = { Location }\ndelete msg.payload;\nreturn msg;",
+        "func": "var hostname = global.get('host.hostname')\nconst ip = hostname.trim().split(\" \")[0];\nvar Location = \"http://\" + ip + \":3000\"\n//var Location = \"http://\" + hostname.replace(/[^\\x20-\\x7E]/g, '') + \":3000\"\n//var Location = \"http://\"+hostname.replace(/[^\\x20-\\x7E]/g, '')+\":3000/d/_6ZBVeRgk/historical-temperatures?orgId=1&from=now-7d&to=now&fullscreen&panelId=4\"\n\nmsg.statusCode = 303;\nmsg.headers = { Location }\ndelete msg.payload;\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -11124,8 +11114,6 @@
         "z": "592b686edd11b813",
         "name": "Input - Segment remaining",
         "links": [
-            "355d9c4e737fdfe5",
-            "9272078ab32e5e81",
             "f1d4774590c51f3d"
         ],
         "x": 135,
@@ -11484,40 +11472,6 @@
         "l": false
     },
     {
-        "id": "6cca4c289c80bf33",
-        "type": "debug",
-        "z": "592b686edd11b813",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 940,
-        "y": 160,
-        "wires": []
-    },
-    {
-        "id": "d6e824a1f81796fd",
-        "type": "debug",
-        "z": "592b686edd11b813",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 870,
-        "y": 220,
-        "wires": []
-    },
-    {
         "id": "1c9e79b136a623e2",
         "type": "catch",
         "z": "98e4246c87add39e",
@@ -11704,7 +11658,7 @@
         "id": "5e1d74212376e4f3",
         "type": "exec",
         "z": "98e4246c87add39e",
-        "command": "hostname",
+        "command": "hostname -I",
         "addpay": "",
         "append": "",
         "useSpawn": "false",
@@ -11712,7 +11666,7 @@
         "winHide": false,
         "oldrc": false,
         "name": "",
-        "x": 260,
+        "x": 270,
         "y": 280,
         "wires": [
             [
@@ -11905,12 +11859,10 @@
         "name": "Oneshot Inject at Startup",
         "mode": "link",
         "links": [
-            "1fcd1d351b927c92",
             "67fd6dcf0c009872",
             "3a10314de81e4ea3",
             "b5bc3f51e5bd08f9",
             "b7093a504612f6ed",
-            "8025efa4ec2e5944",
             "0f779fd67e9e72b8",
             "faad1abb6ddb40e6",
             "229639664257214b",
@@ -11928,13 +11880,10 @@
         "name": "Timer 1",
         "mode": "link",
         "links": [
-            "926b0d1549693d67",
             "98c5268e979c7dcb",
-            "83d1eeca2821fcac",
             "c271444bdafb92be",
             "a7a9eeb897d0ea64",
             "df154adfaea23440",
-            "b3c9ae5df3d92461",
             "545e40d2b936b0ed",
             "a1adcde3ae3b5ba7",
             "825fb92943243468",
@@ -11983,8 +11932,6 @@
         "name": "Timer 3",
         "mode": "link",
         "links": [
-            "9d5778517642c1a5",
-            "f1d25824082f84cf",
             "6fd670fffa111a98",
             "39292a30a8541f2a",
             "f7bd5176dea5a20b"
@@ -12867,5 +12814,19 @@
                 "d156aa407d5083eb"
             ]
         ]
+    },
+    {
+        "id": "60dc0e69b7bb40a5",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6",
+            "node-red-contrib-influxdb": "0.7.0",
+            "node-red-node-pi-gpio": "2.0.6",
+            "node-red-node-smooth": "0.1.2",
+            "node-red-contrib-pid-autotune": "1.3.0",
+            "node-red-contrib-pid": "2.0.0",
+            "node-red-contrib-finite-statemachine": "2.1.3"
+        }
     }
 ]
